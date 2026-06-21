@@ -20,7 +20,12 @@ import urllib.request
 from pathlib import Path
 
 MODEL = "claude-sonnet-4-6"
+MODEL_DISPLAY = "Claude Sonnet 4.6"
 NAMES = {"ko": "Korean", "en": "English"}
+ATTRIB = {
+    "ko": f"*이 글은 {MODEL_DISPLAY}의 번역입니다.*",
+    "en": f"*Translated with {MODEL_DISPLAY}.*",
+}
 SWITCH_RE = re.compile(r"^> .*<!-- lang-switch -->\n?", re.MULTILINE)
 
 
@@ -118,8 +123,9 @@ def main():
     ftype = fm_get(fm, "type") or "draft"
     tags = fm_get(fm, "tags") or "[]"
     new_fm = (f"---\ntitle: {res['title']}\ncreated: {created}\n"
-              f"type: {ftype}\nlang: {tgt}\ntags: {tags}\n---")
-    tgt_path.write_text(f"{new_fm}\n\n{switcher(slug)}\n\n{res['body'].strip()}\n", encoding="utf-8")
+              f"type: {ftype}\nlang: {tgt}\ntranslated_by: {MODEL}\ntags: {tags}\n---")
+    body_out = f"{res['body'].strip()}\n\n---\n\n{ATTRIB[tgt]}\n"
+    tgt_path.write_text(f"{new_fm}\n\n{switcher(slug)}\n\n{body_out}", encoding="utf-8")
     ensure_switcher(src, slug)  # add the switcher to the source too
 
     print(f"✓ wrote {tgt_path}")
