@@ -130,3 +130,17 @@ article {
   white-space: nowrap;
 }
 
+// Tagline under the logo (edit the wording here).
+.page-title::after {
+  content: "Write to think.\A Putting things in perspective of a natural complainer.";
+  display: block;
+  white-space: pre-line;
+  max-width: 220px;
+  margin-top: 0.55rem;
+  font-family: var(--bodyFont);
+  font-size: 0.75rem;
+  line-height: 1.5;
+  font-style: italic;
+  color: var(--gray);
+}
+
