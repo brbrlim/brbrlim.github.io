@@ -16,34 +16,34 @@ configuration:
     fontOrigin: googleFonts
     cdnCaching: true
     typography:
-      # Retro Americana: Oswald (vintage condensed signage) headers, Bitter
-      # (warm slab serif) body — bold character, easy to read.
-      header: Oswald
-      body: Bitter
+      # Editorial: Fraunces (characterful display serif) headings, Inter (crisp,
+      # readable) body. Warm and literary, but clean.
+      header: Fraunces
+      body: Inter
       code: IBM Plex Mono
     colors:
-      # In-N-Out / diner palette — cream + red + golden yellow. Blog only;
-      # the console keeps its own JOS palette.
+      # Warm editorial — off-white paper, near-black ink, one tasteful brick-red
+      # accent (a refined nod to the retro red). Blog only.
       lightMode:
-        light: "#FCF4E8"
-        lightgray: "#EADFCA"
-        gray: "#B3A488"
-        darkgray: "#2A201A"
-        dark: "#20140F"
-        secondary: "#C8102E"
-        tertiary: "#B8860B"
-        highlight: "rgba(200, 16, 46, 0.08)"
-        textHighlight: "#FFC72C88"
+        light: "#FBFAF7"
+        lightgray: "#E6E3DB"
+        gray: "#A8A39A"
+        darkgray: "#3C3935"
+        dark: "#1A1815"
+        secondary: "#9E3B2E"
+        tertiary: "#BE6A4E"
+        highlight: "rgba(158, 59, 46, 0.07)"
+        textHighlight: "#E9C46A66"
       darkMode:
-        light: "#221A14"
-        lightgray: "#3A2D22"
-        gray: "#6B5A48"
-        darkgray: "#EAD9C2"
-        dark: "#FBF3E4"
-        secondary: "#FF6A5D"
-        tertiary: "#FFC72C"
-        highlight: "rgba(255, 106, 93, 0.14)"
-        textHighlight: "#FFC72C55"
+        light: "#1A1815"
+        lightgray: "#2D2A26"
+        gray: "#6A645C"
+        darkgray: "#D9D4C9"
+        dark: "#F4F0E9"
+        secondary: "#DB7A64"
+        tertiary: "#E2926F"
+        highlight: "rgba(219, 122, 100, 0.13)"
+        textHighlight: "#E9C46A55"
 plugins:
   - source: github:quartz-community/created-modified-date
     enabled: true
@@ -147,7 +147,7 @@ plugins:
       position: left
       priority: 50
   - source: github:quartz-community/graph
-    enabled: true
+    enabled: false
     layout:
       position: right
       priority: 10

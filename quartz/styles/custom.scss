@@ -1,3 +1,113 @@
 @use "./variables.scss" as *;
 
-// put your custom CSS here!
+// ── Editorial blog polish ───────────────────────────────────────────────────
+// Quartz gives you colors + fonts via config; the actual "design" lives here.
+
+// Comfortable single-column reading measure.
+.center {
+  max-width: 720px;
+}
+
+.page-header {
+  margin-bottom: 1rem;
+}
+
+.article-title {
+  font-size: 2.6rem;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  margin: 0.2rem 0 0.3rem;
+}
+
+// Metadata (date, reading time) — quiet, uppercase, spaced.
+.content-meta {
+  font-family: var(--codeFont);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gray);
+  margin-top: 0.4rem;
+}
+
+article {
+  font-size: 1.07rem;
+  line-height: 1.75;
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    letter-spacing: -0.012em;
+    line-height: 1.2;
+    margin: 2.2rem 0 0.7rem;
+  }
+  h2 {
+    font-size: 1.6rem;
+    padding-bottom: 0.25rem;
+    border-bottom: 1px solid var(--lightgray);
+  }
+  h3 {
+    font-size: 1.22rem;
+  }
+
+  p {
+    margin: 1.05rem 0;
+  }
+
+  // Animated underline links in the accent color.
+  a {
+    text-decoration: none;
+    color: var(--secondary);
+    background-image: linear-gradient(var(--secondary), var(--secondary));
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    background-size: 0% 1.5px;
+    transition: background-size 0.22s ease;
+  }
+  a:hover {
+    background-size: 100% 1.5px;
+  }
+
+  blockquote {
+    border-left: 3px solid var(--secondary);
+    margin: 1.5rem 0;
+    padding: 0.1rem 0 0.1rem 1.2rem;
+    color: var(--gray);
+    font-style: italic;
+  }
+
+  // The bilingual switcher line reads as a small caption, not a heavy quote.
+  blockquote:first-child {
+    border: none;
+    padding: 0;
+    margin: 0 0 1.8rem;
+    font-style: normal;
+    font-family: var(--codeFont);
+    font-size: 0.82rem;
+    letter-spacing: 0.02em;
+    color: var(--gray);
+  }
+
+  hr {
+    border: none;
+    border-top: 1px solid var(--lightgray);
+    width: 38%;
+    margin: 2.6rem auto;
+  }
+
+  ul,
+  ol {
+    padding-left: 1.3rem;
+  }
+  li {
+    margin: 0.3rem 0;
+  }
+}
+
+.page-footer {
+  border-top: 1px solid var(--lightgray);
+  margin-top: 3rem;
+  padding-top: 1rem;
+  font-size: 0.8rem;
+  color: var(--gray);
+}
