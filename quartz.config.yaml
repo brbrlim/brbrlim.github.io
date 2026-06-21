@@ -1,13 +1,13 @@
 # yaml-language-server: $schema=./quartz/plugins/quartz-plugins.schema.json
 configuration:
-  pageTitle: JOS Blog
+  pageTitle: brbrlim
   pageTitleSuffix: ""
   enableSPA: true
   enablePopovers: true
   analytics:
     provider: null
   locale: ko-KR
-  baseUrl: brbrlim.github.io/jos-blog
+  baseUrl: brbrlim.github.io
   ignorePatterns:
     - private
     - templates
