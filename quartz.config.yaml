@@ -16,31 +16,34 @@ configuration:
     fontOrigin: googleFonts
     cdnCaching: true
     typography:
-      header: Newsreader
-      body: Newsreader
+      # Retro Americana: Oswald (vintage condensed signage) headers, Bitter
+      # (warm slab serif) body — bold character, easy to read.
+      header: Oswald
+      body: Bitter
       code: IBM Plex Mono
     colors:
-      # JOS palette — paper-grey + pine + amber, shared with the console.
+      # In-N-Out / diner palette — cream + red + golden yellow. Blog only;
+      # the console keeps its own JOS palette.
       lightMode:
-        light: "#EAEBE6"
-        lightgray: "#D6D8D0"
-        gray: "#9AA29A"
-        darkgray: "#2E3A33"
-        dark: "#16201B"
-        secondary: "#2C4A3B"
-        tertiary: "#946017"
-        highlight: "rgba(44, 74, 59, 0.08)"
-        textHighlight: "#94601733"
+        light: "#FCF4E8"
+        lightgray: "#EADFCA"
+        gray: "#B3A488"
+        darkgray: "#2A201A"
+        dark: "#20140F"
+        secondary: "#C8102E"
+        tertiary: "#B8860B"
+        highlight: "rgba(200, 16, 46, 0.08)"
+        textHighlight: "#FFC72C88"
       darkMode:
-        light: "#16201B"
-        lightgray: "#2A352E"
-        gray: "#5C6760"
-        darkgray: "#C7CEC6"
-        dark: "#EDEEE9"
-        secondary: "#84A59D"
-        tertiary: "#C99A4E"
-        highlight: "rgba(132, 165, 157, 0.12)"
-        textHighlight: "#C99A4E55"
+        light: "#221A14"
+        lightgray: "#3A2D22"
+        gray: "#6B5A48"
+        darkgray: "#EAD9C2"
+        dark: "#FBF3E4"
+        secondary: "#FF6A5D"
+        tertiary: "#FFC72C"
+        highlight: "rgba(255, 106, 93, 0.14)"
+        textHighlight: "#FFC72C55"
 plugins:
   - source: github:quartz-community/created-modified-date
     enabled: true
