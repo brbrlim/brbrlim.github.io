@@ -13,6 +13,35 @@ the vault stays private). Part of the JOS two-track setup — see the marking no
 Write a post in Obsidian under `91-Blog`, and it's published on the next build.
 The homepage is `91-Blog/index.md`. Nothing outside `91-Blog` is ever built.
 
+## Bilingual posts (ko / en)
+
+One language per file — never both in one file. Posts live under `91-Blog/en/`
+and `91-Blog/ko/` with the **same slug** in each language:
+
+```
+91-Blog/
+  en/enabling-a-debate.md   # lang: en
+  ko/enabling-a-debate.md   # lang: ko
+  index.md                  # lists each post once; the switcher toggles language
+```
+
+Each post carries `lang: en|ko` in frontmatter and a switcher line at the top.
+Not every post needs both languages — translate selectively.
+
+AI-assisted translation (works both directions, infers from the source):
+
+```bash
+python3 ~/code/jos-blog/translate_post.py ~/JOS/91-Blog/en/enabling-a-debate.md
+# → writes ko/enabling-a-debate.md (translated draft) and adds the switcher to both
+python3 ~/code/jos-blog/translate_post.py ~/JOS/91-Blog/ko/some-post.md --to en
+```
+
+Output is a **draft** — review before publishing. Needs `ANTHROPIC_API_KEY`
+(read from env or `~/code/jos-console/.env`).
+
+> Note: `[[wikilinks]]` to notes outside `91-Blog` (e.g. `[[Last Dance]]`) render
+> as dead links publicly — strip or rewrite them in the published version.
+
 ## Local preview
 
 ```bash
