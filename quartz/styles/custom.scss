@@ -148,10 +148,9 @@ article {
 // On phones Quartz collapses the left sidebar into a horizontal top bar, so the
 // big logo + tagline don't fit. Shrink the logo, drop the tagline, scale titles.
 @media #{$mobile} {
-  // The left sidebar collapses into a top bar — keep it compact. Drop the bulky
-  // nav blocks (file tree + recent notes) that were eating the whole screen;
-  // mobile navigates via the post list + search.
-  .explorer,
+  // The left sidebar collapses into a top bar — keep it compact. The explorer
+  // stays (it has a mobile toggle, collapsed by default = the nav menu); only
+  // the bulky always-open recent-notes block is dropped.
   .recent-notes {
     display: none;
   }
