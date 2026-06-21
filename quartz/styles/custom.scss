@@ -144,3 +144,25 @@ article {
   color: var(--gray);
 }
 
+// ── Mobile ──────────────────────────────────────────────────────────────────
+// On phones Quartz collapses the left sidebar into a horizontal top bar, so the
+// big logo + tagline don't fit. Shrink the logo, drop the tagline, scale titles.
+@media #{$mobile} {
+  .page-title a {
+    width: 124px;
+    height: 62px;
+  }
+  .page-title::after {
+    display: none;
+  }
+  .article-title {
+    font-size: 1.9rem;
+  }
+  article {
+    font-size: 1.02rem;
+  }
+  article h2 {
+    font-size: 1.4rem;
+  }
+}
+
