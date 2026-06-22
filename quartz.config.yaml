@@ -144,6 +144,8 @@ plugins:
     enabled: true
   - source: github:quartz-community/explorer
     enabled: true
+    options:
+      folderDefaultState: open
     layout:
       position: left
       priority: 50
@@ -227,7 +229,7 @@ plugins:
     options:
       links: {}
   - source: github:quartz-community/recent-notes
-    enabled: true
+    enabled: false
     options:
       title: Recent Notes
       limit: 5
