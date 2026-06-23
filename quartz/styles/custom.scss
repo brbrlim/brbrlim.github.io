@@ -174,8 +174,8 @@ article {
   // Hamburger drawer: cover ~70%, not the whole screen — and keep the page
   // behind it in place instead of shoving it fully off-screen (felt suffocating).
   .explorer .explorer-content {
-    width: 50vw !important;
-    max-width: 50vw !important;
+    width: 60vw !important;
+    max-width: 60vw !important;
     box-shadow: 2px 0 14px rgba(0, 0, 0, 0.16);
   }
   .page > #quartz-body.lock-scroll > :not(.sidebar.left:has(.explorer)) {
@@ -188,7 +188,10 @@ article {
 .mobile-no-scroll #quartz-body::after {
   content: "";
   position: fixed;
-  inset: 0;
+  top: 0;
+  bottom: 0;
+  left: 60vw; // only beside the 60vw drawer — never over the menu, so the menu stays tappable
+  right: 0;
   background: rgba(0, 0, 0, 0.45);
   z-index: 99;
 }

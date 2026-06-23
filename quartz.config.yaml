@@ -146,6 +146,7 @@ plugins:
     enabled: true
     options:
       folderDefaultState: open
+      folderClickBehavior: collapse
     layout:
       position: left
       priority: 50
