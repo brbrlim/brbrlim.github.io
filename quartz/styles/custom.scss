@@ -174,12 +174,22 @@ article {
   // Hamburger drawer: cover ~70%, not the whole screen — and keep the page
   // behind it in place instead of shoving it fully off-screen (felt suffocating).
   .explorer .explorer-content {
-    width: 70vw !important;
-    max-width: 70vw !important;
+    width: 50vw !important;
+    max-width: 50vw !important;
     box-shadow: 2px 0 14px rgba(0, 0, 0, 0.16);
   }
   .page > #quartz-body.lock-scroll > :not(.sidebar.left:has(.explorer)) {
     transform: none !important;
   }
+}
+
+// Dim the page behind the open drawer (open state = html.mobile-no-scroll).
+// The backdrop also catches outside taps (closed via the script below).
+.mobile-no-scroll #quartz-body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 99;
 }
 

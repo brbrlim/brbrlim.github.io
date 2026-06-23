@@ -106,6 +106,22 @@ export default (() => {
             return resource
           }
         })}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){
+  if (window.__josDrawerClose) return;
+  window.__josDrawerClose = true;
+  document.addEventListener("click", function(e){
+    if (!document.documentElement.classList.contains("mobile-no-scroll")) return;
+    var t = e.target;
+    if (t && t.closest && (t.closest(".explorer-content") || t.closest(".mobile-explorer"))) return;
+    var open = document.querySelector(".explorer:not(.collapsed)");
+    if (open){ open.classList.add("collapsed"); open.setAttribute("aria-expanded","false"); }
+    document.documentElement.classList.remove("mobile-no-scroll");
+  });
+})();`,
+          }}
+        />
       </head>
     )
   }
