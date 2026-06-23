@@ -170,5 +170,16 @@ article {
   article h2 {
     font-size: 1.4rem;
   }
+
+  // Hamburger drawer: cover ~70%, not the whole screen — and keep the page
+  // behind it in place instead of shoving it fully off-screen (felt suffocating).
+  .explorer .explorer-content {
+    width: 70vw !important;
+    max-width: 70vw !important;
+    box-shadow: 2px 0 14px rgba(0, 0, 0, 0.16);
+  }
+  .page > #quartz-body.lock-scroll > :not(.sidebar.left:has(.explorer)) {
+    transform: none !important;
+  }
 }
 
