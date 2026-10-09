@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🐙 Building Your First AI Agent — 유튜브 다이제스트</title>
+<meta name="description" content="이 영상은 첫 AI 에이전트를 구축하는 방법에 대한 포괄적인 로드맵을 제시한다. 화자는 AI 에이전트의 정의, no-code와 code 접근 방식의 장단점, 필수 구성 요소, 그리고 배포 및 모니터링에 이르는 전 과정을 설명한다. 또한, AI 에이전트 개발 시 발생할…">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="🐙 Building Your First AI Agent — 유튜브 다이제스트">
+<meta property="og:description" content="이 영상은 첫 AI 에이전트를 구축하는 방법에 대한 포괄적인 로드맵을 제시한다. 화자는 AI 에이전트의 정의, no-code와 code 접근 방식의 장단점, 필수 구성 요소, 그리고 배포 및 모니터링에 이르는 전 과정을 설명한다. 또한, AI 에이전트 개발 시 발생할…">
+<meta property="og:image" content="https://i.ytimg.com/vi/zDvYnuo1aQw/hqdefault.jpg">
+<meta property="og:type" content="article">
+<link rel="icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+<script>
+// Follow the blog's saved light/dark choice (same origin, same key).
+(function () {
+  var saved = null
+  try { saved = localStorage.getItem("theme") } catch (e) {}
+  var dark = saved ? saved === "dark" : matchMedia("(prefers-color-scheme: dark)").matches
+  document.documentElement.dataset.theme = dark ? "dark" : "light"
+})()
+</script>
+</head>
+<body class="post-page">
+<header class="site-bar">
+  <a class="site-name" href="/">Johnny's</a>
+  <a class="back" href="./">← 유튜브 다이제스트</a>
+</header>
+<main class="post">
+  <a class="hero" href="https://www.youtube.com/watch?v=zDvYnuo1aQw" target="_blank" rel="noopener" aria-label="YouTube에서 보기">
+    <img src="https://i.ytimg.com/vi/zDvYnuo1aQw/hqdefault.jpg" alt="">
+    <span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+  </a>
+  <h1>🐙 Building Your First AI Agent</h1>
+  <div class="post-meta"><span>Tina Huang</span><span>1:11:00</span><span>게시 2025-10-18</span></div>
+  <div class="tags"><a href="./?q=%23ai-agents">#ai-agents</a><a href="./?q=%23no-code">#no-code</a><a href="./?q=%23code">#code</a><a href="./?q=%23llms">#llms</a><a href="./?q=%23development">#development</a><a href="./?q=%23deployment">#deployment</a><a href="./?q=%23evaluation">#evaluation</a></div>
+  <article>
+<h2>TL;DR</h2>
+<p>이 영상은 첫 AI 에이전트를 구축하는 방법에 대한 포괄적인 로드맵을 제시한다. 화자는 AI 에이전트의 정의, no-code와 code 접근 방식의 장단점, 필수 구성 요소, 그리고 배포 및 모니터링에 이르는 전 과정을 설명한다. 또한, AI 에이전트 개발 시 발생할 수 있는 일반적인 함정과 해결책을 짚어준다.</p>
+<h2>풀시청 판단</h2>
+<p>이 영상은 AI 에이전트 개발에 관심 있는 초보자나 비기술 직군 사용자에게 유용하다. AI 에이전트의 개념과 기본적인 개발 프레임워크를 이해하고 싶다면 시청할 가치가 있다. 특히 no-code와 code 접근 방식의 비교 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=zDvYnuo1aQw&amp;t=2590s">[43:10]</a>, AI 에이전트의 6가지 필수 구성 요소 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=zDvYnuo1aQw&amp;t=1790s">[29:50]</a>, 그리고 에이전트와 도구 간 통신 표준인 MCP(Universal Agent-Tool Communication Protocol) <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=zDvYnuo1aQw&amp;t=2901s">[48:21]</a>에 대한 설명이 핵심적인 통찰을 제공한다.</p>
+<p>하지만 영상 초반부 약 4분 30초와 중간중간의 기술적인 문제 해결 및 시청자 질의응답은 건너뛰는 것이 좋다. 또한, 영상의 상당 부분이 화자가 진행하는 유료 부트캠프를 홍보하는 내용으로 채워져 있어, 기술적 내용만을 기대하는 시청자에게는 다소 산만하게 느껴질 수 있다. 라이브 데모는 모두 제대로 작동하지 않았지만, 이 과정에서 발생한 문제점들을 솔직하게 보여줌으로써 에이전트 개발의 현실적인 어려움과 평가의 중요성을 간접적으로 드러낸다.</p>
+<h2>핵심 내용</h2>
+<h3>AI 에이전트: 자율적으로 행동하는 시스템</h3>
+<p>AI 에이전트는 환경을 인지하고, 의사결정을 내리며, 특정 목표를 달성하기 위해 행동하는 자율 시스템이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=zDvYnuo1aQw&amp;t=334s">[5:34]</a>. 에이전트는 지속적인 사람의 개입 없이 작동하고, 다양한 API를 통해 여러 도구에 접근하며, 이전 상호작용의 맥락과 정보를 기억한다. 또한, 복잡한 작업을 여러 단계로 분해하여 계획을 세울 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=zDvYnuo1aQw&amp;t=365s">[6:05]</a>.</p>
+<p>AI 에이전트와 챗봇의 가장 큰 차이점은 '행동' 능력이다. 챗봇은 단순히 대화하는 데 그치지만, AI 에이전트는 도구를 사용하고, 맥락을 유지하며, 자율적으로 목표를 향해 나아가 실제 세상에서 행동을 취할 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=zDvYnuo1aQw&amp;t=402s">[6:42]</a>.</p>
+<h3>no-code와 code 접근 방식 데모</h3>
+<p>화자는 N8N을 사용한 no-code 방식과 OpenAI Agents SDK를 사용한 code 방식의 AI 에이전트 데모를 선보였다.</p>
+<p>첫 번째는 N8N으로 구축된 no-code 에이전트인 '아틀라스(Atlas)' 데모다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=zDvYnuo1aQw&amp;t=649s">[10:49]</a>. 이 에이전트는 캐나다 고용 시장에 대한 최신 정보를 보고서와 링크 형태로 요청받았으나, 웹 검색 대신 데이터베이스에서 정보를 가져오는 오류를 보였다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=zDvYnuo1aQw&amp;t=887s">[14:47]</a>. 이는 다중 에이전트 시스템으로, 메인 에이전트가 데이터베이스 검색(RAG 에이전트), 웹 검색(Serp API), 문서 생성(Google Docs API)을 담당하는 하위 에이전트들과 상호작용하는 계층적 구조를 가졌다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=zDvYnuo1aQw&amp;t=789s">[13:09]</a>. 또한, 오류 발생 시 시스템이 완전히 중단되지 않도록 하는 '우아한 실패 복구(graceful failure recovery)' 기능도 포함되었다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=zDvYnuo1aQw&amp;t=747s">[12:27]</a>.</p>
+<p>두 번째는 OpenAI Agents SDK로 구축된 code 기반의 투자 분석 에이전트 데모다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=zDvYnuo1aQw&amp;t=1265s">[21:05]</a>. 이 에이전트는 &quot;Apple 주식을 사야 할까? 가격 목표와 함께 완전한 분석을 제공해 달라&quot;는 질문을 받았다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=zDvYnuo1aQw&amp;t=1287s">[21:27]</a>. 메인 에이전트인 포트폴리오 관리 에이전트는 세 가지 하위 에이전트와 병렬로 작동한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=zDvYnuo1aQw&amp;t=1423s">[23:43]</a>. 기초 분석가(fundamental analyst)는 재무 분석을, 거시 경제 분석가(macro analyst)는 경제 환경을, 그리고 정량 분석가(quantitative analyst)는 기술적 분석과 통계 모델링을 수행한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=zDvYnuo1aQw&amp;t=1332s">[22:12]</a>. 이들은 각각 웹 검색, FRED API, Yahoo Finance API 등 다양한 도구에 접근하며, 모든 분석 결과를 종합하여 최종 투자 권고와 함께 투자 메모 파일을 생성한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=zDvYnuo1aQw&amp;t=1390s">[23:10]</a>.</p>
+<h3>AI 에이전트 구축 프레임워크: 6가지 필수 구성 요소</h3>
+<p>AI 에이전트를 구축하는 5단계 프레임워크와 6가지 필수 구성 요소가 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=zDvYnuo1aQw&amp;t=1695s">[28:15]</a>.</p>
+<ol>
+<li><strong>사용 사례 정의</strong>: 어떤 문제를 해결할지, 에이전트가 어떤 작업을 수행할지, 누가 사용할지, 예상되는 입력과 출력은 무엇인지 명확히 한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=zDvYnuo1aQw&amp;t=1701s">[28:21]</a>.</li>
+<li><strong>접근 방식 선택</strong>: no-code/low-code는 빠른 프로토타입과 비기술 사용자에 적합하며, code 기반은 복잡한 로직과 사용자 정의 통합, 확장성이 필요할 때 좋다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=zDvYnuo1aQw&amp;t=1747s">[29:07]</a>.</li>
+<li><strong>필수 구성 요소</strong>: 모든 에이전트는 다음 여섯 가지를 포함한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=zDvYnuo1aQw&amp;t=1790s">[29:50]</a>.
+<ul>
+<li><strong>대규모 언어 모델(LLM)</strong>: 에이전트의 '두뇌' 역할을 하며, GPT-4, Claude, Gemini 등 목적에 맞게 선택한다.</li>
+<li><strong>지시(Instructions)</strong>: 에이전트의 역할, 기능, 제약을 정의하는 명확한 프롬프트.</li>
+<li><strong>도구(Tools)</strong>: 에이전트가 작업을 수행하는 데 필요한 API, 데이터베이스, 계산기 등 다양한 기능.</li>
+<li><strong>기억(Memory)</strong>: 대화 맥락과 장기 정보를 저장한다.</li>
+<li><strong>안전장치(Guardrails)</strong>: 안전 조치와 출력 유효성 검사로, 에이전트가 부적절한 행동을 하지 않도록 방지한다.</li>
+<li><strong>조율(Orchestration)</strong>: 모든 구성 요소가 함께 작동하도록 관리하고 배포하는 과정.
+초기에는 LLM, 지시, 한두 개의 도구만으로 간단하게 시작하고, 필요에 따라 복잡도를 추가하는 것이 좋다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=zDvYnuo1aQw&amp;t=1901s">[31:41]</a>.</li>
+</ul>
+</li>
+<li><strong>평가</strong>: 테스트 케이스를 만들고 실행하여 에이전트의 성능을 측정하고 개선한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=zDvYnuo1aQw&amp;t=3043s">[50:43]</a>. 유용성, 정확성, 그리고 비즈니스 맞춤형 지표를 기준으로 평가한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=zDvYnuo1aQw&amp;t=3118s">[51:58]</a>.</li>
+<li><strong>배포 및 모니터링</strong>: 에이전트를 배포하고 지속적으로 모니터링하며 개선한다. 초기 테스트, 모니터링 설정, 안전장치 활성화, 점진적 배포, 지속적 개선 등의 체크리스트를 따른다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=zDvYnuo1aQw&amp;t=3245s">[54:05]</a>.</li>
+</ol>
+<h3>에이전트 구축 도구 및 MCP</h3>
+<p>no-code 도구로는 N8N, Make, Zapier Agents, Relevance AI 등이 있으며, 엔터프라이즈 솔루션으로는 OpenAI Agent Kit, Google Vertex AI, Amazon Bedrock, Microsoft Copilot Studio 등이 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=zDvYnuo1aQw&amp;t=2417s">[40:17]</a>. code 기반 도구로는 OpenAI Agents SDK, Amazon Bedrock SDK, Google ADK, Microsoft AutoGen, Semantic Kernel, 그리고 LangChain, LangGraph, CrewAI, AutoGPT 같은 오픈소스 프레임워크가 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=zDvYnuo1aQw&amp;t=2508s">[41:48]</a>.</p>
+<p>화자는 도구 자체보다는 에이전트를 구축하는 아키텍처, 구조, 그리고 과정, 즉 필수 구성 요소를 이해하는 것이 훨씬 중요하다고 강조한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=zDvYnuo1aQw&amp;t=2310s">[38:30]</a>. 도구는 계속 발전하고 변화하므로, 근본적인 이해가 있다면 어떤 도구든 쉽게 적용할 수 있기 때문이다.</p>
+<p>**MCP(Universal Agent-Tool Communication Protocol)**는 에이전트가 어떤 도구나 데이터 소스에도 원활하게 연결될 수 있도록 하는 보편적인 표준이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=zDvYnuo1aQw&amp;t=2901s">[48:21]</a>. 이전에는 각 도구마다 복잡한 연결 과정이 필요했지만, MCP는 마치 USB처럼 표준화된 방식으로 에이전트가 다양한 도구(날씨, 캘린더, 데이터베이스 등)에 쉽게 접근할 수 있게 하여 에이전트의 역량을 크게 강화했다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=zDvYnuo1aQw&amp;t=2931s">[48:51]</a>.</p>
+<h3>일반적인 함정과 해결책</h3>
+<p>AI 에이전트 개발 시 흔히 발생하는 문제점과 그 해결책은 다음과 같다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=zDvYnuo1aQw&amp;t=3301s">[55:01]</a>.</p>
+<ul>
+<li><strong>모호한 지시</strong>: 에이전트가 무엇을 해야 할지 모를 수 있다. → 매우 구체적인 프롬프트를 제공해야 한다.</li>
+<li><strong>너무 많은 도구</strong>: 에이전트가 혼란스러워할 수 있다. → 필수적인 두세 가지 도구로 시작하고 필요할 때만 추가한다.</li>
+<li><strong>메모리 관리 부재</strong>: 대화가 길어지면 토큰 제한에 걸리거나 비용이 증가한다. → 토큰 제한을 설정하고 요약 전략을 사용한다.</li>
+<li><strong>부실한 오류 처리</strong>: 에이전트가 완전히 멈출 수 있다. → 입력 유효성 검사, 예외 처리, 우아한 실패(graceful failures)를 구현한다.</li>
+<li><strong>과도한 비용</strong>: 에이전트가 24시간 작동하면 비용이 많이 든다. → 지출 한도를 설정하고, 결과를 캐싱하며, 필요할 때만 에이전트를 실행하여 비용을 줄인다.</li>
+<li><strong>느린 응답 시간</strong>: 사용자가 결과 대기 시간이 길어질 수 있다. → 프롬프트를 최적화하고, 도구 호출을 줄이며, 스트리밍 응답을 사용한다.</li>
+</ul>
+<h2>주요 통찰·논점</h2>
+<h3>1. 에이전트의 기초 원리 이해가 특정 도구 숙달보다 중요하다</h3>
+<p>화자는 AI 에이전트 개발에서 특정 도구 사용법을 익히는 것보다 에이전트의 아키텍처, 구조, 그리고 필수 구성 요소(LLM, 지시, 도구, 기억, 안전장치, 조율)를 이해하는 것이 훨씬 중요하다고 강조한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=zDvYnuo1aQw&amp;t=2310s">[38:30]</a>. AI 도구는 끊임없이 발전하고 변화하므로, 이러한 기초 지식이 있다면 새로운 도구가 나오더라도 쉽게 적용하고 유연하게 대처할 수 있기 때문이다. 이는 변화무쌍한 AI 기술 생태계에서 개발자가 지속적인 경쟁력을 유지하는 핵심 전략이다.</p>
+<h3>2. no-code는 신속한 검증, code는 완전한 제어와 확장성을 제공한다</h3>
+<p>AI 에이전트 개발 시 no-code와 code 접근 방식 중 하나를 선택하는 것은 프로젝트의 목표와 팀의 기술 수준에 따라 달라진다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=zDvYnuo1aQw&amp;t=2590s">[43:10]</a>. no-code는 학습 곡선이 낮고, 개발 속도가 빠르며, 간단한 워크플로우나 MVP(최소 기능 제품)를 신속하게 검증하는 데 이상적이다. 반면, code는 높은 학습 곡선과 긴 개발 시간을 요구하지만, 무한한 유연성과 확장성, 그리고 행동에 대한 완전한 제어를 가능하게 하여 복잡한 프로덕션 앱과 맞춤형 요구 사항에 적합하다. 화자는 기술적 배경이 불확실하다면 no-code로 아이디어를 빠르게 검증한 후, 필요에 따라 code로 전환할 것을 권장한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=zDvYnuo1aQw&amp;t=2744s">[45:44]</a>.</p>
+<h3>3. MCP는 에이전트의 도구 활용 능력을 혁신하는 표준이다</h3>
+<p>MCP(Universal Agent-Tool Communication Protocol)는 AI 에이전트가 외부 도구 및 데이터 소스와 통합하는 방식을 표준화하여 에이전트의 역량을 크게 향상시키는 중요한 기술이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=zDvYnuo1aQw&amp;t=2901s">[48:21]</a>. MCP 이전에는 각 도구마다 맞춤형 코드를 작성해야 했지만, MCP는 마치 USB처럼 보편적인 연결 표준을 제공하여 에이전트가 다양한 도구에 손쉽게 접근하고 활용할 수 있게 한다. 이 표준의 등장은 에이전트 시스템 개발의 복잡성을 줄이고, 더 광범위하고 강력한 AI 에이전트의 등장을 촉진하는 핵심 동력이 된다.</p>
+<h2>인상적인 지점</h2>
+<ul>
+<li><strong>&quot;측정되지 않는 것은 개선되지 않는다(What doesn't get measured doesn't get improved).&quot;</strong> <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=zDvYnuo1aQw&amp;t=3144s">[52:24]</a> 화자는 AI 에이전트 개발 과정에서 평가와 테스트의 중요성을 강조하며 이 인용문을 제시한다. 이는 에이전트의 성능을 객관적으로 파악하고 지속적으로 발전시키기 위한 필수적인 원칙이다.</li>
+<li>라이브 데모 실패 후 스스로 &quot;이게 제가 봇이 아니라는 증거다&quot;라고 말한 점 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=zDvYnuo1aQw&amp;t=1077s">[17:57]</a>. 데모의 오류에도 불구하고 이를 솔직하게 인정하고, 오히려 인간적인 면모를 어필하는 모습은 기술 강연에서 흔치 않은 인상적인 태도다.</li>
+<li>MCP를 설명하면서 &quot;USB 스틱과 같다&quot;는 비유를 사용한 점 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=zDvYnuo1aQw&amp;t=2976s">[49:36]</a>. 이전에는 하드웨어 연결 시 각기 다른 플러그가 필요했지만, USB-C나 USB-A 같은 표준이 생기면서 연결이 쉬워지고 혁신이 가속화되었던 경험에 빗대어 MCP의 중요성을 직관적으로 설명한다.</li>
+</ul>
+
+  </article>
+  <p class="post-end"><a href="https://www.youtube.com/watch?v=zDvYnuo1aQw" target="_blank" rel="noopener">YouTube에서 원본 보기 ↗</a> · <a href="./">← 목록으로</a></p>
+</main>
+<footer class="site-foot">
+  <a href="/projects/yt-digest-overview">yt-digest</a> 파이프라인이 자막을 읽고 자동으로 작성한 브리핑입니다. 오류가 있을 수 있으니 중요한 내용은 원본 영상으로 확인하세요.
+</footer>
+</body>
+</html>

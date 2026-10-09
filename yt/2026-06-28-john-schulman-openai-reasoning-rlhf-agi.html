@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>John Schulman (OpenAI Cofounder) — Reasoning, RLHF, &amp; plan for 2027 AGI — 유튜브 다이제스트</title>
+<meta name="description" content="OpenAI 공동 설립자이자 ChatGPT 개발을 이끈 존 슐먼은 대규모 언어 모델(LLM)의 발전에서 사전 훈련(pre-training)과 후처리 훈련(post-training), 특히 인간 피드백 기반 강화 학습(RLHF)의 역할을 논한다. 그는 AI가 장기적이고…">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="John Schulman (OpenAI Cofounder) — Reasoning, RLHF, &amp; plan for 2027 AGI — 유튜브 다이제스트">
+<meta property="og:description" content="OpenAI 공동 설립자이자 ChatGPT 개발을 이끈 존 슐먼은 대규모 언어 모델(LLM)의 발전에서 사전 훈련(pre-training)과 후처리 훈련(post-training), 특히 인간 피드백 기반 강화 학습(RLHF)의 역할을 논한다. 그는 AI가 장기적이고…">
+<meta property="og:image" content="https://i.ytimg.com/vi/Wo95ob_s_NI/hqdefault.jpg">
+<meta property="og:type" content="article">
+<link rel="icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+<script>
+// Follow the blog's saved light/dark choice (same origin, same key).
+(function () {
+  var saved = null
+  try { saved = localStorage.getItem("theme") } catch (e) {}
+  var dark = saved ? saved === "dark" : matchMedia("(prefers-color-scheme: dark)").matches
+  document.documentElement.dataset.theme = dark ? "dark" : "light"
+})()
+</script>
+</head>
+<body class="post-page">
+<header class="site-bar">
+  <a class="site-name" href="/">Johnny's</a>
+  <a class="back" href="./">← 유튜브 다이제스트</a>
+</header>
+<main class="post">
+  <a class="hero" href="https://www.youtube.com/watch?v=Wo95ob_s_NI" target="_blank" rel="noopener" aria-label="YouTube에서 보기">
+    <img src="https://i.ytimg.com/vi/Wo95ob_s_NI/hqdefault.jpg" alt="">
+    <span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+  </a>
+  <h1>John Schulman (OpenAI Cofounder) — Reasoning, RLHF, &amp; plan for 2027 AGI</h1>
+  <div class="post-meta"><span>Dwarkesh Patel</span><span>1:35:50</span><span>게시 2024-05-15</span></div>
+  <div class="tags"><a href="./?q=%23openai">#openai</a><a href="./?q=%23john-schulman">#john-schulman</a><a href="./?q=%23agi">#agi</a><a href="./?q=%23rlhf">#rlhf</a><a href="./?q=%23large-language-models">#large-language-models</a><a href="./?q=%23future-of-ai">#future-of-ai</a><a href="./?q=%23post-training">#post-training</a></div>
+  <article>
+<h2>TL;DR</h2>
+<p>OpenAI 공동 설립자이자 ChatGPT 개발을 이끈 존 슐먼은 대규모 언어 모델(LLM)의 발전에서 사전 훈련(pre-training)과 후처리 훈련(post-training), 특히 인간 피드백 기반 강화 학습(RLHF)의 역할을 논한다. 그는 AI가 장기적이고 복잡한 과제를 수행하는 미래와 AGI 도래 시나리오에 대비한 안전 및 정렬(alignment) 문제에 대한 OpenAI의 접근 방식을 설명하며, 인간의 개입과 국제적 조율의 중요성을 강조한다. 또한 ChatGPT 개발 비하인드 스토리와 모델의 일반화 능력, 그리고 향후 AI의 역할에 대한 심도 있는 통찰을 공유한다.</p>
+<h2>풀시청 판단</h2>
+<p>이 영상은 OpenAI의 핵심 인물이 직접 밝히는 AI 기술의 현주소와 미래 비전을 담고 있어 AI 분야의 연구자, 개발자, 정책 입안자뿐만 아니라 미래 기술 변화에 관심 있는 일반인에게도 매우 유용하다. 특히 AI 모델의 '능력'뿐 아니라 '행동 양식'을 결정하는 RLHF의 중요성을 깊이 있게 다루며, AGI 도래 시나리오와 그에 따른 사회적, 윤리적 문제에 대한 진솔한 고민을 엿볼 수 있다.</p>
+<p><strong>이 영상을 풀시청할 가치가 있는 대상:</strong></p>
+<ul>
+<li><strong>AI 연구자 및 개발자</strong>: 사전 훈련, 후처리 훈련, RLHF, 모델의 일반화 능력, 확장 법칙 등 기술적 논의를 통해 AI 연구의 최전선 통찰을 얻을 수 있다. 특히 ChatGPT 개발 비하인드 스토리는 실제 모델 개발 과정의 어려움과 해결책을 이해하는 데 도움이 된다.</li>
+<li><strong>AI 기업 경영진 및 투자자</strong>: AI 모델의 향후 발전 궤적, AGI 도래 시나리오, 경쟁 우위(moat)로서의 후처리 훈련의 가치, 그리고 AI가 경제와 산업에 미칠 영향에 대한 존 슐먼의 관점을 들을 수 있다.</li>
+<li><strong>정책 입안자 및 사회 과학자</strong>: AGI의 조기 도래 가능성, 안전 및 정렬 문제, 인간 개입의 필요성, 국제적 규제 및 조율의 어려움 등에 대한 논의는 AI 거버넌스 및 사회적 영향 연구에 중요한 시사점을 제공한다.</li>
+</ul>
+<p><strong>이 영상을 통해 얻을 수 있는 주요 가치:</strong></p>
+<ul>
+<li><strong>AI 발전의 핵심 동력 이해</strong>: RLHF가 모델의 단순한 기능 개선을 넘어 '인격'과 '윤리'를 형성하는 과정의 중요성을 강조한다.</li>
+<li><strong>AGI 도래 시나리오에 대한 현실적 논의</strong>: 단편적인 예측이 아닌, AGI가 예상보다 빨리 올 경우 OpenAI가 고민하는 실제적인 안전 및 대응 전략을 엿볼 수 있다.</li>
+<li><strong>ChatGPT 개발 과정의 생생한 이야기</strong>: 모델의 한계 인지 능력 향상, 환각 문제 해결 등 ChatGPT가 현재의 모습이 되기까지의 구체적인 과정과 어려움을 알 수 있다.</li>
+</ul>
+<p><strong>이 영상의 약점 및 한계:</strong></p>
+<ul>
+<li><strong>AGI 도래 시나리오 논의의 추상성</strong>: AGI 조기 도래 시나리오에 대한 대안은 '조율된 일시 정지'와 같은 이상적인 해결책에 가깝고, 현실적인 이행 방안은 아직 명확하지 않다.</li>
+<li><strong>기술적 설명의 심층성 부족</strong>: RL 알고리즘, 확장 법칙 등에 대한 설명은 직관적인 비유에 의존하는 경우가 많아, 해당 분야 전문가에게는 깊이가 부족하게 느껴질 수 있다.</li>
+<li><strong>시점 제한</strong>: 인터뷰 시점 이후의 새로운 연구나 돌파구는 반영되어 있지 않다.</li>
+</ul>
+<p><strong>일부만 봐도 핵심을 파악할 수 있는 챕터:</strong></p>
+<ul>
+<li>RLHF와 모델의 행동 양식 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Wo95ob_s_NI&amp;t=1785s">[29:45]</a></li>
+<li>ChatGPT 개발 과정과 RLHF의 중요성 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Wo95ob_s_NI&amp;t=2414s">[40:14]</a></li>
+<li>AGI 도래 시점과 잠재적 병목 현상, 그리고 안전 계획 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Wo95ob_s_NI&amp;t=551s">[9:11]</a>, <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Wo95ob_s_NI&amp;t=1040s">[17:20]</a></li>
+<li>AI의 미래 역할과 경제적 영향 — 인간 개입의 필요성 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Wo95ob_s_NI&amp;t=3618s">[1:00:18]</a></li>
+</ul>
+<h2>핵심 내용</h2>
+<h3>사전 훈련(Pre-training)과 후처리 훈련(Post-training)의 역할 분담</h3>
+<p>사전 훈련은 모델이 인터넷상의 모든 콘텐츠(웹사이트, 코드 등)를 모방하도록 학습시키는 과정이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Wo95ob_s_NI&amp;t=69s">[1:09]</a>. 이 훈련을 통해 모델은 임의의 웹페이지처럼 콘텐츠를 생성하고, 모든 토큰(단어 또는 단어의 일부)에 확률을 할당하여 매우 정교한(calibrated) 예측 능력을 갖게 된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Wo95ob_s_NI&amp;t=83s">[1:23]</a>. 기본 모델은 다양한 페르소나를 취하거나 여러 종류의 콘텐츠를 생성할 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Wo95ob_s_NI&amp;t=121s">[2:01]</a>. 반면, 후처리 훈련은 모델이 특정 행동 양식을 따르도록, 예를 들어 채팅 비서처럼 행동하도록 목표를 좁히는 과정이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Wo95ob_s_NI&amp;t=128s">[2:08]</a>. 이 단계에서는 인간이 선호하고 유용하다고 느끼는 출력을 생성하는 것이 목표다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Wo95ob_s_NI&amp;t=150s">[2:30]</a>.</p>
+<h3>모델의 미래 능력 — 더 길고 복잡한 과제 수행</h3>
+<p>향후 5년 내 AI 모델은 현재보다 훨씬 복잡하고 심층적인 과제를 수행할 수 있게 될 것이라고 존 슐먼은 예측한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Wo95ob_s_NI&amp;t=186s">[3:06]</a>. 예를 들어, 현재처럼 함수 하나를 작성하는 제안을 넘어, 고차원적인 지시를 받고 전체 코딩 프로젝트를 직접 수행하며 파일을 작성하고 테스트하며 오류를 수정하는 능력을 갖게 될 것이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Wo95ob_s_NI&amp;t=211s">[3:31]</a>. 이러한 발전은 더 어려운 과제에 대한 훈련과 함께 모델이 오류로부터 회복하고 엣지 케이스를 처리하는 능력이 향상되면서 가능해진다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Wo95ob_s_NI&amp;t=306s">[5:06]</a>. 모델은 더욱 샘플 효율적(sample efficient)이 되어, 적은 데이터로도 새로운 상황에 대처하고 문제를 해결할 수 있게 될 것이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Wo95ob_s_NI&amp;t=324s">[5:24]</a>.</p>
+<h3>AGI 도래 시점과 잠재적 병목 현상</h3>
+<p>현재 모델은 개별 토큰(per token basis) 단위에서는 매우 영리하지만, 장기간 일관성 있게(coherently) 행동하는 데 어려움을 겪는다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Wo95ob_s_NI&amp;t=551s">[9:11]</a>. 장기적 강화 학습(long-horizon RL)을 통해 이러한 일관성이 해결된다 해도, AGI 도달에는 여전히 다른 병목 현상이 존재할 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Wo95ob_s_NI&amp;t=613s">[10:13]</a>. 이러한 병목 현상으로는 인간 전문가가 가진 '감각(taste)', 모호성을 더 잘 다루는 능력, 연구와 같은 추상적인 작업을 수행하는 능력 등이 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Wo95ob_s_NI&amp;t=660s">[11:00]</a>. 또한, 모델이 사용자 인터페이스(UI)를 사용하고 물리적 세계와 상호 작용하는 능력 같은 실제적인 제약도 초기에 발전을 늦출 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Wo95ob_s_NI&amp;t=689s">[11:29]</a>. AGI가 예상보다 빨리 도래한다면, OpenAI는 훈련과 배포 속도를 늦추고, 모델의 행동과 능력을 신중하게 파악하며, 안전하게 다룰 수 있다는 확신이 들 때까지 기다리는 등 '매우 신중하게' 접근할 것이라고 밝힌다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Wo95ob_s_NI&amp;t=1054s">[17:34]</a>. 이는 다른 기관들과의 조율, 위험한 훈련 유형 회피, 그리고 광범위한 모니터링 시스템 구축을 포함한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Wo95ob_s_NI&amp;t=1217s">[20:17]</a>.</p>
+<h3>AI용 UI/UX와 모델의 일반화 능력</h3>
+<p>AI 모델은 시각 능력 향상 후 인간을 위해 설계된 웹사이트를 직접 사용할 수 있게 될 것이므로, UI를 즉시 변경할 필요는 없을 것이라고 본다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Wo95ob_s_NI&amp;t=733s">[12:13]</a>. 다만, AI가 효율적으로 활용할 수 있는 웹사이트는 AI를 위한 더 나은 사용자 경험(UX)을 제공하도록 설계될 가능성이 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Wo95ob_s_NI&amp;t=751s">[12:31]</a>. 모델의 일반화 능력은 매우 강력하다는 증거가 많다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Wo95ob_s_NI&amp;t=806s">[13:26]</a>. 예를 들어, 영어 데이터로만 미세 조정(fine-tuning)해도 모델은 스페인어 같은 다른 언어에서 합리적으로 작동하며, 다중 모달 데이터의 경우 텍스트만으로 미세 조정해도 이미지에 대한 합리적인 행동을 보인다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Wo95ob_s_NI&amp;t=847s">[14:07]</a>. 또한, 초기 ChatGPT에서 모델이 '이메일을 보낼 수 있다'고 환각하는 문제를 해결하기 위해 30개 정도의 매우 적은 양의 데이터를 사용했는데, 이것이 다른 많은 능력에 대한 모델의 한계 인지로 일반화되었다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Wo95ob_s_NI&amp;t=910s">[15:10]</a>.</p>
+<h3>추론 능력 향상 방식: 훈련 vs 추론 시 계산</h3>
+<p>모델의 추론 능력을 향상시키는 방법에는 두 가지 주요 접근 방식이 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Wo95ob_s_NI&amp;t=1892s">[31:32]</a>. 하나는 모델이 여러 사고 과정을 거쳐 올바른 답으로 이어지는 경로를 학습하고, 배포 전에 그 경로로 훈련하는 것이다. 다른 하나는 배포 시 추론 과정에서 많은 컴퓨팅 자원을 사용하여 모델이 스스로 대화하며 문제를 해결하도록 하는 것이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Wo95ob_s_NI&amp;t=1911s">[31:51]</a>. 존 슐먼은 추론이 '테스트 시점 계산(test time computation)'을 요구하는 작업이라고 정의하며, 훈련 시 연습을 통해 많은 이점을 얻을 수 있다고 말한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Wo95ob_s_NI&amp;t=1936s">[32:16]</a>. 현재 모델의 학습 방식(사전 훈련의 비효율성, 인컨텍스트 학습의 휘발성) 사이의 중간 지점, 즉 '중기 기억(medium-term memory)'과 '능동 학습(active learning)' 능력이 필요하다고 본다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Wo95ob_s_NI&amp;t=2026s">[33:46]</a>. 모델이 스스로의 지식 수준을 파악하고 부족한 부분을 능동적으로 찾아 학습하는 '성찰(introspection)' 능력은 환각이 덜 일어나는 현재 모델의 특성과 연결될 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Wo95ob_s_NI&amp;t=2262s">[37:42]</a>.</p>
+<h3>ChatGPT 개발 과정 — RLHF의 결정적 역할</h3>
+<p>ChatGPT 개발 이전, OpenAI는 정교한 프롬프트가 필요한 기본 모델과 이를 사용하기 쉽게 만든 '지시 따르기(instruction following)' 모델을 개발했다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Wo95ob_s_NI&amp;t=2448s">[40:48]</a>. 구글 등에서 챗봇 연구가 진행되었고, 존 슐먼도 웹 브라우징 기반 질문 답변 프로젝트(WebGPT)를 통해 대화형 모델의 필요성을 느꼈다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Wo95ob_s_NI&amp;t=2497s">[41:37]</a>. 2022년 초, GPT-3.5 훈련이 완료된 후, 모델이 언어와 코드에 매우 능숙하다는 것을 발견하면서 본격적인 대화형 챗봇 개발이 시작되었다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Wo95ob_s_NI&amp;t=2587s">[43:07]</a>. 특히 코딩 지원 능력에 주목했다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Wo95ob_s_NI&amp;t=2592s">[43:12]</a>. 초기 GPT-4 모델은 놀라운 출력을 생성했지만, 환각과 불안정성이 심했다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Wo95ob_s_NI&amp;t=2662s">[44:22]</a>. 하지만 '챗' 모델은 '지시 따르기' 모델보다 사용하기 쉽고, 모델이 스스로의 한계를 인지하는 등 훨씬 합리적인 행동을 보인다는 것을 깨달았다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Wo95ob_s_NI&amp;t=2703s">[45:03]</a>. '도움이 되는 로봇'에 대한 인간의 직관이 명확했기 때문에 데이터 라벨링이 더 쉬웠고, 결과적으로 모델이 더 일관된 성격과 안정적인 행동을 갖게 되었다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Wo95ob_s_NI&amp;t=2766s">[46:06]</a>. RLHF를 통해 환각 등 언어 모델의 근본적인 약점으로 여겨지던 문제들을 상당 부분 개선할 수 있었다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Wo95ob_s_NI&amp;t=2730s">[45:30]</a>.</p>
+<h3>후처리 훈련(Post-training)의 비중 증가와 GPT-4 개선</h3>
+<p>현재 사전 훈련 대비 후처리 훈련에 투입되는 컴퓨팅 자원 비율은 매우 불균형하다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Wo95ob_s_NI&amp;t=2971s">[49:31]</a>. 하지만 미래에는 모델이 생성하는 출력이 웹상의 대부분의 콘텐츠보다 품질이 높을 수 있으므로, 웹을 모방하는 훈련보다는 모델이 스스로 '사고하는' 훈련에 더 많은 자원을 투입하는 것이 합리적이라는 주장이 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Wo95ob_s_NI&amp;t=2993s">[49:53]</a>. 실제로 GPT-4 출시 후 Elo 점수가 100점 이상 향상된 것은 대부분 후처리 훈련의 개선 덕분이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Wo95ob_s_NI&amp;t=3031s">[50:31]</a>. 데이터 품질, 양, 훈련 과정의 반복, 어노테이션 방식 변경 등 다양한 개선점이 누적되어 효과적인 컴퓨팅 자원 증가 효과를 가져왔다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Wo95ob_s_NI&amp;t=3061s">[51:01]</a>. 이는 후처리 훈련이 모델 성능 향상에 큰 여지를 제공함을 의미한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Wo95ob_s_NI&amp;t=3085s">[51:25]</a>.</p>
+<h3>성장 둔화(plateau) 논쟁과 일반화의 중요성</h3>
+<p>GPT-4 출시 이후 모델 발전이 둔화되었다는 가설에 대해 존 슐먼은, 새로운 세대의 모델을 훈련하고 준비하는 데 시간이 걸리기 때문에 단정하기 어렵다고 반박한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Wo95ob_s_NI&amp;t=3183s">[53:03]</a>. 데이터 부족 문제에 대한 도전은 존재하지만, 당장 데이터의 벽에 부딪힐 것으로 예상하지는 않는다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Wo95ob_s_NI&amp;t=3292s">[54:52]</a>. 오히려 사전 훈련의 성격이 시간이 지남에 따라 변할 것이라고 본다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Wo95ob_s_NI&amp;t=3307s">[55:07]</a>. 다양한 유형의 사전 훈련 데이터 간의 일반화에 대한 과학적 연구는 어렵지만, 코드 훈련이 언어 추론 능력을 향상시키는 등 긍정적인 전이 효과가 있을 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Wo95ob_s_NI&amp;t=3229s">[53:49]</a>. 모델이 클수록 더 나은 '공유 표현(shared representations)'을 학습하여 암기에 의존하는 작은 모델과 달리 올바른 계산을 수행할 수 있다고 기대한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Wo95ob_s_NI&amp;t=3376s">[56:16]</a>.</p>
+<h3>확장 법칙(Scaling Law)의 미스터리: 왜 모델이 클수록 더 똑똑한가</h3>
+<p>모델의 파라미터 수(크기)에 따라 지능이 향상되는 확장 법칙에 대한 명확한 설명은 아직 없다고 슐먼은 말한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Wo95ob_s_NI&amp;t=3433s">[57:13]</a>. 그는 '회로 앙상블(ensemble of circuits)'이라는 비유를 들어 설명한다. 모델은 여러 회로가 병렬로 계산을 수행하고, 그 출력은 이들의 가중 조합이라는 것이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Wo95ob_s_NI&amp;t=3473s">[57:53]</a>. 모델이 커지면 더 많은 병렬 계산 회로를 갖게 되고, 따라서 올바른 기능을 수행할 수 있는 회로가 우연히 발견될 가능성이 높아진다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Wo95ob_s_NI&amp;t=3514s">[58:34]</a>. 즉, 더 큰 모델은 다양한 계산을 위한 더 큰 '라이브러리'를 가지며, 유용한 회로를 탐색할 수 있는 공간이 더 넓어진다고 설명한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Wo95ob_s_NI&amp;t=3594s">[59:54]</a>.</p>
+<h3>AI의 미래 역할과 경제적 영향 — 인간 개입의 필요성</h3>
+<p>존 슐먼은 AI가 더 많은 양상(modalities)을 통합하고 능력이 지속적으로 향상될 것이라고 예상한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Wo95ob_s_NI&amp;t=3658s">[1:00:58]</a>. AI는 아직 경제의 작은 부분이지만, 모델 개선과 함께 사람들이 AI를 다양한 프로세스에 통합하는 방법을 학습하면서 AI의 역할이 크게 성장할 것이라고 본다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Wo95ob_s_NI&amp;t=3684s">[1:01:24]</a>. 프로그래밍 프로젝트를 수행하거나 과학 연구를 가속화하는 등 기술적으로 더 정교한 작업에 활용될 것이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Wo95ob_s_NI&amp;t=3729s">[1:02:09]</a>. AI는 사람들의 의지를 확장하는 '도움이 되는 비서' 또는 '동료' 역할을 할 것이며, 사람들은 이러한 AI를 통해 더 많은 일을 할 수 있게 될 것이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Wo95ob_s_NI&amp;t=3768s">[1:02:48]</a>.</p>
+<p>하지만 AI가 궁극적으로 인간보다 모든 면에서 우월해진다면, 기업 전체를 AI가 운영할 가능성도 생긴다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Wo95ob_s_NI&amp;t=3853s">[1:04:13]</a>. 이 경우, 인간 개입이 없는 기업이 인간 개입이 있는 기업보다 경쟁 우위를 가질 수 있어, 인간 개입을 유지하기 위한 규제가 필요할 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Wo95ob_s_NI&amp;t=3960s">[1:06:00]</a>. 그러나 이러한 규제는 모든 국가의 조율을 필요로 하므로 쉽지 않은 문제다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Wo95ob_s_NI&amp;t=4033s">[1:07:13]</a>. 존 슐먼은 AI가 운영하는 기업이 단기적으로는 효율적일지 몰라도, 예상치 못한 상황에서 오작동할 가능성(꼬리 위험)이 더 높을 수 있으므로, 적어도 가까운 미래에는 중요한 의사 결정에 인간이 개입해야 한다고 강조한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Wo95ob_s_NI&amp;t=4141s">[1:09:01]</a>.</p>
+<h2>주요 통찰·논점</h2>
+<h3>RLHF는 AI의 핵심적인 정렬(alignment) 메커니즘이자 실질적인 지능 향상 동력이다</h3>
+<p>존 슐먼은 RLHF(인간 피드백 기반 강화 학습)가 모델의 행동과 성능을 결정하는 데 결정적인 역할을 한다고 강조한다. 그는 RLHF가 단순히 챗봇의 페르소나를 변경하는 것을 넘어, 모델이 '인간의 승인'을 최대화하려는 '드라이브' 또는 '목표'를 갖도록 만든다고 설명한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Wo95ob_s_NI&amp;t=1875s">[31:15]</a>. 이는 모델이 특정 유형의 출력을 선호하고, 인간이 유용하다고 판단할 만한 응답을 생성하도록 유도한다. ChatGPT 개발 과정에서 RLHF는 모델이 환각을 일으키거나, 스스로의 한계를 인지하지 못하는 문제를 해결하는 데 핵심적인 역할을 했다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Wo95ob_s_NI&amp;t=2730s">[45:30]</a>. 초기 GPT-4가 놀라운 능력을 보였음에도 불구하고 환각과 불안정성이 심했던 반면, RLHF를 통해 훈련된 챗 모델은 훨씬 안정적이고 일관된 행동을 보였다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Wo95ob_s_NI&amp;t=2668s">[44:28]</a>. 특히, GPT-4의 Elo 점수가 출시 이후 100점 이상 향상된 것의 대부분이 RLHF를 포함한 후처리 훈련 덕분이라는 발언은, RLHF가 단순한 미세 조정이 아니라 모델의 실질적인 지능과 유용성을 끌어올리는 강력한 메커니즘임을 시사한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Wo95ob_s_NI&amp;t=3031s">[50:31]</a>. 이러한 통찰은 AI의 '정렬' 문제가 단순히 윤리적 가이드라인을 주입하는 것을 넘어, 모델의 학습 목표 자체를 인간의 선호에 맞춰 최적화하는 기술적 과정의 핵심임을 보여준다.</p>
+<h3>AGI 도래는 예상보다 빠를 수 있으며, 이에 대비한 '신중한 접근'과 '범지구적 조율'이 필수적이다</h3>
+<p>존 슐먼은 AGI(범용 인공지능)가 예상보다 훨씬 빨리 도래할 수 있다는 가능성을 열어둔다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Wo95ob_s_NI&amp;t=1045s">[17:25]</a>. 그는 AGI가 다음 1~3년 내에 나타날 수 있다는 시나리오에 대해 논의하며, 이러한 급진적인 발전이 있을 경우 OpenAI가 '매우 신중하게' 접근할 것이라고 밝힌다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Wo95ob_s_NI&amp;t=1181s">[19:41]</a>. 이는 모델 훈련 및 배포 속도를 조절하고, 모델을 샌드박스 환경에 격리하며, 대규모 모니터링 시스템을 구축하여 예측 불가능한 문제를 감지하는 다층적 방어(defense in depth) 전략을 포함한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Wo95ob_s_NI&amp;t=1473s">[24:33]</a>. 그러나 AGI가 특정 기업이나 국가에만 국한되지 않을 것이라는 점을 고려할 때, 이러한 '신중한 접근'은 범지구적인 조율 없이는 지속 가능하기 어렵다고 지적한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Wo95ob_s_NI&amp;t=1147s">[19:07]</a>. 모든 주요 AI 개발 기관과 국가가 합리적인 배포 및 훈련 제한에 합의해야만 '경쟁 역학(race dynamics)'으로 인한 안전성 저해를 피할 수 있다는 것이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Wo95ob_s_NI&amp;t=1194s">[19:54]</a>. 이는 AGI의 안전한 개발과 배포가 단순한 기술적 문제가 아니라, 복잡한 지정학적, 사회적 합의를 요구하는 문제임을 명확히 보여주는 통찰이다.</p>
+<h3>모델 지능의 향상은 장기적인 코히어런스와 '자기 지식'에서 온다</h3>
+<p>현재 대규모 언어 모델의 주요 한계는 단기적인 지능은 뛰어나지만, 장기적으로 일관성 있게(coherently) 복잡한 작업을 수행하는 능력(long-horizon coherence)이 부족하다는 점이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Wo95ob_s_NI&amp;t=551s">[9:11]</a>. 존 슐먼은 미래 AI 모델의 발전이 이 장기적인 코히어런스를 해결하는 데 크게 좌우될 것이라고 본다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Wo95ob_s_NI&amp;t=186s">[3:06]</a>. 이를 위해서는 모델이 단순히 많은 정보를 기억하는 것을 넘어, 스스로의 지식 상태를 성찰(introspecting)하고, 부족한 지점을 능동적으로 찾아 학습하는 '자기 지식(self-knowledge)' 능력을 갖춰야 한다고 주장한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Wo95ob_s_NI&amp;t=2165s">[36:05]</a>. 이러한 능력은 모델이 현재 환각을 덜 일으키고 자신의 한계를 인지하는 특성과 연결될 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Wo95ob_s_NI&amp;t=2270s">[37:50]</a>. 궁극적으로 모델은 반복적인 시도를 통해 시행착오를 겪는 '정책 경사 알고리즘(policy gradient algorithm)'과 같은 느린 학습 방식에서 벗어나, 이미 학습된 알고리즘처럼 탐색하고 문제 해결의 가능성을 체계적으로 탐색하는 '학습된 탐색 알고리즘(learned search algorithms)'을 활용하게 될 것이라고 예측한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Wo95ob_s_NI&amp;t=2379s">[39:39]</a>. 이는 AI의 지능 향상이 단순한 데이터나 파라미터 확장을 넘어, 모델 내부의 인지적, 메타 인지적 능력의 발전을 통해 이루어질 것임을 시사한다.</p>
+<h3>AI 윤리와 안전은 복잡한 다중 이해관계자 문제이며, 이상적인 정렬은 현실적 타협의 연속이다</h3>
+<p>AI 시스템의 정렬(alignment)은 단순한 기술적 문제가 아니라, 다양한 이해관계자들의 상충하는 요구를 조율하는 복잡한 과정이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Wo95ob_s_NI&amp;t=4207s">[1:10:07]</a>. OpenAI는 '모델 스펙(Model Spec)' 문서를 통해 이러한 이해관계를 명시화하는데, 여기에는 최종 사용자, 개발자, 플랫폼(OpenAI), 그리고 인류 전체가 포함된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Wo95ob_s_NI&amp;t=4273s">[1:11:13]</a>. 예를 들어, 사용자의 지시를 따르는 것이 최우선이지만, 그 지시가 다른 사람들에게 해로울 경우 모델은 이를 거부해야 할 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Wo95ob_s_NI&amp;t=4344s">[1:12:24]</a>. 존 슐먼은 이러한 갈등을 해결하기 위한 명확한 정답이 없으며, 대부분의 경우 '거친 경험칙(rough heuristic)'에 따라 타협점을 찾아야 한다고 말한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Wo95ob_s_NI&amp;t=4376s">[1:12:56]</a>. 즉, 모델이 최대한 사용자 친화적이고 도움이 되어야 하지만, 타인의 행복이나 삶에 부정적인 영향을 미칠 때는 특정 사용을 차단해야 한다는 것이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Wo95ob_s_NI&amp;t=4393s">[1:13:13]</a>. 그는 이상적인 정렬이 특정 도덕적 또는 윤리적 입장을 모델에 주입하는 것을 의미하며, 이를 위해서는 단순히 간결한 지침이 아닌, 많은 사례와 설명이 포함된 '상당히 긴 문서'가 필요할 것이라고 설명한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Wo95ob_s_NI&amp;t=5171s">[1:26:11]</a>. 이러한 통찰은 AI 윤리와 안전이 기술 개발자의 일방적인 결정이 아닌, 사회적 합의와 지속적인 조정을 통해 발전해야 할 복잡한 영역임을 보여준다.</p>
+<h2>인상적인 지점</h2>
+<ul>
+<li><strong>영어로만 훈련해도 다른 언어로 일반화되는 모델</strong>: 영어 데이터로만 미세 조정된 모델이 스페인어와 같은 다른 언어로도 합리적으로 작동하는 모습은 모델의 강력한 일반화 능력을 보여주는 인상적인 사례다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Wo95ob_s_NI&amp;t=847s">[14:07]</a>.</li>
+<li><strong>ChatGPT 초기 버전의 '환각'과 그 해결</strong>: 초기 ChatGPT가 '이메일을 보낼 수 있다'고 주장하는 등 모델의 한계를 인지하지 못하는 문제가 있었는데, 이를 30개 정도의 매우 적은 데이터로 수정하여 많은 능력에 일반화시켰다는 일화가 흥미롭다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Wo95ob_s_NI&amp;t=910s">[15:10]</a>.</li>
+<li><strong>GPT-4 개선의 주된 요인</strong>: GPT-4의 Elo 점수가 출시 후 100점 이상 향상된 것의 대부분이 사전 훈련이 아닌 후처리 훈련 덕분이라는 언급은 RLHF의 중요성을 다시 한번 강조한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Wo95ob_s_NI&amp;t=3031s">[50:31]</a>.</li>
+<li><strong>모델 크기-지능 확장 법칙에 대한 '회로 앙상블' 비유</strong>: 모델이 커질수록 더 많은 병렬 계산 회로를 가지게 되어 유용한 기능을 찾을 확률이 높아진다는 설명은 추상적인 확장 법칙을 직관적으로 이해할 수 있게 한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Wo95ob_s_NI&amp;t=3433s">[57:13]</a>.</li>
+<li><strong>AI가 인간에게 미치는 영향</strong>: 챗봇이 자주 사용하는 &quot;delve(심층적으로 파고들다)&quot; 같은 단어가 라벨링 작업을 하는 사람들에게 역으로 전염되어 인간 화자가 스스로도 모르게 사용하게 되는 현상이 있다는 이야기는 AI가 인간의 행동 양식에 미치는 미묘한 영향을 보여준다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Wo95ob_s_NI&amp;t=4850s">[1:20:50]</a>.</li>
+<li><strong>AI 운영 기업의 '꼬리 위험'</strong>: AI가 기업을 운영할 경우 효율성은 높지만, 예상치 못한 극단적인 상황에서 오작동할 '꼬리 위험(tail risk)'이 인간 운영 기업보다 높을 수 있다는 주장은 AI가 가져올 경제적 변화에 대한 실용적인 통찰을 제공한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Wo95ob_s_NI&amp;t=4141s">[1:09:01]</a>.</li>
+<li><strong>AI 정렬의 미묘함</strong>: 인간의 선호와 가치가 매우 미묘하여 간단한 규칙으로는 완전히 포착하기 어렵기 때문에, GPT-6나 GPT-7과 같은 미래 모델에서도 여전히 '쌍별 선호도'와 같은 방식으로 학습시켜야 할 것이라는 통찰은 AI 정렬의 복잡성을 보여준다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Wo95ob_s_NI&amp;t=5049s">[1:24:09]</a>.</li>
+<li><strong>존 슐먼의 직업이 5년 안에 AI로 대체될 가능성</strong>: OpenAI 공동 설립자이자 핵심 연구 책임자가 자신의 직업이 5년 안에 AI로 대체될 수 있다고 예상하는 것은 AI 발전의 속도와 영향력에 대한 놀라운 예측이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Wo95ob_s_NI&amp;t=5681s">[1:34:41]</a>.</li>
+</ul>
+
+  </article>
+  <p class="post-end"><a href="https://www.youtube.com/watch?v=Wo95ob_s_NI" target="_blank" rel="noopener">YouTube에서 원본 보기 ↗</a> · <a href="./">← 목록으로</a></p>
+</main>
+<footer class="site-foot">
+  <a href="/projects/yt-digest-overview">yt-digest</a> 파이프라인이 자막을 읽고 자동으로 작성한 브리핑입니다. 오류가 있을 수 있으니 중요한 내용은 원본 영상으로 확인하세요.
+</footer>
+</body>
+</html>

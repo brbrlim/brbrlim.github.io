@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stanford CS25 V6: From Representation Learning to World Modeling (JEPA) — 유튜브 다이제스트</title>
+<meta name="description" content="월드 모델을 다루는 스탠퍼드 CS25 강의다. 발표자 둘이 얀 르쿤(Yann LeCun) 계열의 JEPA(Joint Embedding Predictive Architecture) 연구 두 편을 소개한다. JEPA의 발상은 한 줄로 요약된다 — 미래를 픽셀로 그려내지 말…">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="Stanford CS25 V6: From Representation Learning to World Modeling (JEPA) — 유튜브 다이제스트">
+<meta property="og:description" content="월드 모델을 다루는 스탠퍼드 CS25 강의다. 발표자 둘이 얀 르쿤(Yann LeCun) 계열의 JEPA(Joint Embedding Predictive Architecture) 연구 두 편을 소개한다. JEPA의 발상은 한 줄로 요약된다 — 미래를 픽셀로 그려내지 말…">
+<meta property="og:image" content="https://i.ytimg.com/vi/GBd7iuJkW08/hqdefault.jpg">
+<meta property="og:type" content="article">
+<link rel="icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+<script>
+// Follow the blog's saved light/dark choice (same origin, same key).
+(function () {
+  var saved = null
+  try { saved = localStorage.getItem("theme") } catch (e) {}
+  var dark = saved ? saved === "dark" : matchMedia("(prefers-color-scheme: dark)").matches
+  document.documentElement.dataset.theme = dark ? "dark" : "light"
+})()
+</script>
+</head>
+<body class="post-page">
+<header class="site-bar">
+  <a class="site-name" href="/">Johnny's</a>
+  <a class="back" href="./">← 유튜브 다이제스트</a>
+</header>
+<main class="post">
+  <a class="hero" href="https://www.youtube.com/watch?v=GBd7iuJkW08" target="_blank" rel="noopener" aria-label="YouTube에서 보기">
+    <img src="https://i.ytimg.com/vi/GBd7iuJkW08/hqdefault.jpg" alt="">
+    <span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+  </a>
+  <h1>Stanford CS25 V6: From Representation Learning to World Modeling (JEPA)</h1>
+  <div class="post-meta"><span>Stanford Online</span><span>1:11:03</span><span>게시 2026-04-22</span></div>
+  <div class="tags"><a href="./?q=%23ai">#ai</a><a href="./?q=%23world-model">#world-model</a><a href="./?q=%23jepa">#jepa</a><a href="./?q=%23self-supervised">#self-supervised</a><a href="./?q=%23object-centric">#object-centric</a><a href="./?q=%23yann-lecun">#yann-lecun</a><a href="./?q=%23lejepa">#lejepa</a></div>
+  <article>
+<h2>TL;DR</h2>
+<p>월드 모델을 다루는 스탠퍼드 CS25 강의다. 발표자 둘이 얀 르쿤(Yann LeCun) 계열의 JEPA(Joint Embedding Predictive Architecture) 연구 두 편을 소개한다. JEPA의 발상은 한 줄로 요약된다 — 미래를 픽셀로 그려내지 말고, 압축된 &quot;잠재 공간&quot;에서 예측하라. 영상의 모든 픽셀을 맞히려 하면 바람에 흔들리는 나뭇잎까지 모델링해야 하지만, 정작 중요한 건 &quot;다음에 무슨 일이 벌어질까&quot;뿐이기 때문이다. 1부(Brown 대학 Heejung Nam)는 장면을 픽셀 격자가 아니라 객체 단위로 보게 만들고, 객체 일부를 가려 &quot;이게 없으면 어떻게 될까&quot;를 강제로 묻는 Causal JEPA. 2부(Mila Lucas Maes)는 EMA·마스킹·사전학습 인코더 같은 잔기술을 전부 빼고 하이퍼파라미터 하나로 학습을 안정시킨 극단적으로 단순한 JEPA다. 두 발표를 관통하는 적은 하나 — 모델이 입력을 무시하고 모든 걸 똑같은 값으로 뭉개버리는 &quot;붕괴(collapse)&quot;이고, 두 연구 모두 이걸 어떻게 막느냐가 핵심이다.</p>
+<h2>풀시청 판단</h2>
+<p>자기지도 학습·월드 모델·로봇 플래닝을 직접 연구하는 사람에게 풀시청 가치가 높다. 솔직히 쉬운 강의는 아니다 — 디퓨전, 슬롯 어텐션, VICReg 같은 배경이 없으면 중반부가 버겁다. 아래 '핵심 내용'의 다섯 챕터 흐름만 따라가면 큰 그림은 들어온다. 개념만 빠르게 훑고 싶다면 &quot;JEPA의 한 수&quot;와 &quot;붕괴&quot;라는 두 챕터, 그리고 '인상적인 지점'의 &quot;물리 AI엔 월드 모델이 필수&quot;만 봐도 된다.</p>
+<h2>핵심 내용</h2>
+<h3>월드 모델 = 이전 상태 + 행동 → 다음 상태 (한마디로 시뮬레이터)</h3>
+<p>그냥 다음 프레임을 예측하는 모델로는 부족하다. 세상엔 불확실성이 있어 누가 지금 무언가를 던질지 알 수 없기 때문이다. 그래서 이전 상태에 **행동(action)**을 더해 다음 상태를 내놓는 함수가 월드 모델이고, 결국 학습된 시뮬레이터다. 발표자는 좋은 월드 모델에 세 가지가 필요하다고 정리한다<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=GBd7iuJkW08&amp;t=162s">[2:42]</a> — ① 좋은 상태 표현(원시 픽셀 말고, 세상을 충실히 담은 표현), ② 좋은 전이 규칙(중력처럼 환경을 지배하는 법칙을 알 것), ③ 좋은 동역학(내 행동에 제대로 반응할 것). 이 셋은 강의 끝에서 다시 점검한다.</p>
+<h3>JEPA의 한 수: 픽셀로 그리지 말고 '잠재 공간'에서 예측하라</h3>
+<p>여기가 JEPA의 핵심이다<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=GBd7iuJkW08&amp;t=282s">[4:42]</a>. 생성형 월드 모델은 현재 X를 넣어 미래 Y를 <strong>픽셀 단위로</strong> 그려내고 비교한다. 문제는 둘이다 — 화면의 모든 디테일을 다 맞혀야 하니 안 중요한 나뭇잎 흔들림까지 모델링하게 되고, 애초에 세상은 불확실해서 픽셀까지 똑같이 맞히는 건 불가능하다. JEPA는 X와 Y를 둘 다 인코더에 통과시켜 **잠재 공간(latent space)**으로 압축한 뒤 거기서 비교한다. 디코더가 없다는 게 핵심이 아니라, <strong>예측 가능하고 의미 있는 정보만 남긴다</strong>는 게 핵심이다 — 사람도 다음을 머릿속에서 픽셀로 렌더링하진 않는다. 르쿤은 이를 에너지 기반 모델로 본다 — 미래를 그리는 대신, &quot;X와 Y가 양립하는가(Y가 X의 그럴듯한 미래인가)&quot;에 낮은 에너지를 주도록 배운다. 즉 미래를 <strong>그리는</strong> 게 아니라 <strong>그럴듯한지 판정</strong>하는 쪽이다.</p>
+<h3>모든 JEPA 연구가 싸우는 적 — '붕괴(collapse)'</h3>
+<p>JEPA엔 치명적 함정이 있다<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=GBd7iuJkW08&amp;t=2151s">[35:51]</a>. &quot;인코딩 → 잠재 예측 → 정답과 맞추기&quot;만 시키면 모델이 손쉬운 꼼수를 찾는다 — 입력이 뭐든 전부 똑같은 상수 벡터(예: 0)로 인코딩해 버리는 것이다. 그러면 다음 잠재를 맞히는 일이 거저(역시 0)가 되어 예측 손실이 0으로 떨어지지만, 모델은 아무것도 안 배운 상태다. 표현이 한 점으로 &quot;붕괴&quot;한 것이다. <strong>그래서 JEPA 연구의 거의 전부가 &quot;어떻게 붕괴를 막느냐&quot;의 싸움이다.</strong> 기존 방법들은 저마다 다른 잔기술을 쓴다 — V-JEPA는 EMA(지수이동평균) 인코더와 스톱그래디언트로, DINO-WM은 아예 동결된 사전학습 인코더로(인코더를 안 건드려 우회), PLDM은 VICReg로(특징 차원들을 서로 탈상관시켜 한 점으로 못 뭉치게). 이어지는 두 연구는 이 적을 정반대 방식으로 상대한다.</p>
+<h3>1부 Causal JEPA — 장면을 객체로 쪼개고, 가려서 상호작용을 배우게 한다</h3>
+<p>첫 발표의 출발점은 단순한 불만이다<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=GBd7iuJkW08&amp;t=597s">[9:57]</a>. 지금 모델들은 이미지를 패치 격자로 쪼개 각 패치를 예측하는데, 그게 사람의 사고방식은 아니다. 사람은 장면을 <strong>객체 단위</strong>로 보고 객체끼리 어떻게 영향을 주는지 생각한다. 그래서 슬롯 어텐션으로 각 객체의 특징을 제 슬롯(바구니)에 담는다. 하지만 객체별로 표현했다고 끝이 아니다 — 그냥 다음 상태를 예측하게 두면 또 꼼수가 생긴다. 각 객체가 <strong>혼자 어떻게 움직이는지</strong>만 외워 적당히 보간(interpolation)해 버리고, 정작 객체 간 상호작용은 안 배운다.</p>
+<p>해법이 <strong>객체 마스킹</strong>이다<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=GBd7iuJkW08&amp;t=855s">[14:15]</a>. 슬롯 일부를 가리고 나머지로부터 추론하게 강제한다. 비유가 절묘하다 — 원숭이가 바나나를 먹는 장면에서 바나나를 천으로 가려도, 모델이 &quot;먹는다&quot;를 진짜 이해했다면 원숭이의 입 움직임만 보고 &quot;바나나가 짧아지고 있겠구나&quot;를 추론한다. 가린 걸 맞히려면 다른 객체를 봐야 하므로, 보간이 아니라 상호작용을 배우게 된다. 엔지니어링 디테일 둘 — 슬롯은 순서 없는 집합이라 첫 프레임을 각 객체의 &quot;신분증&quot;으로 쓰고, 행동은 패치에 이어붙이는 대신 <strong>그래프의 별도 노드</strong>로 다룬다(인과 그래프에서 행동도 하나의 원인이라는 관점). 결과가 동기를 입증한다<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=GBd7iuJkW08&amp;t=1330s">[22:10]</a> — 반사실 질문(&quot;이 물체가 없었다면?&quot;)에서 성능을 끌어올린 건 객체 표현 자체가 아니라 <strong>마스킹</strong>이고, 마스킹 없는 모델은 막대가 공중에 뜨는 물리적으로 불가능한 장면을 만든다(&quot;두 막대가 가까우면 붙어 있더라&quot; 식의 상관만 외운 탓). 한계는 객체 인코더가 가림(occlusion)이나 물체의 갑작스러운 등장·소멸에 약하다는 점이다.</p>
+<h3>2부 the world model — 잔기술을 다 빼고 손잡이 하나(SIGReg)로</h3>
+<p>두 번째 발표의 동기는 정반대다<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=GBd7iuJkW08&amp;t=2016s">[33:36]</a>. 붕괴를 막는 잔기술들이 JEPA를 너무 복잡하게 만들었다 — PLDM은 튜닝할 하이퍼파라미터가 여섯 개다. 그래서 &quot;the world model&quot;은 다 덜어낸다. EMA도, 마스킹도, 스톱그래디언트도, 사전학습 인코더도, 불안정한 손실도 없다. 하이퍼파라미터는 단 하나, 모델은 1,500만 파라미터라 GPU 한 장에서 돌고, 원시 픽셀에서 끝까지 한 번에 학습하며, 보조 정보도 안 쓴다. 그런데도 플래닝이 DINO-WM보다 50배 빠르다. 의사코드가 곧 실제 코드일 만큼 단순하고, 손잡이가 하나뿐이라 이분 탐색으로 최적값을 찾는다. 그 손잡이 하나의 정체는 다음 장에서 푼다.</p>
+<h2>주요 통찰·논점</h2>
+<h3>SIGReg: 어려운 고차원 검정을 쉬운 1차원 여럿으로 쪼갠다</h3>
+<p>그 손잡이가 **SIGReg(sketched isotropic Gaussian regularizer)**다<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=GBd7iuJkW08&amp;t=2446s">[40:46]</a> — 르쿤과 Randall Balestriero가 내놓은 것이다. 임베딩 분포를 사방으로 고르게 퍼진 &quot;둥근&quot; 가우시안으로 만들면, 한 점으로 뭉치거나 일부 차원이 죽는 붕괴가 원천 차단된다. 문제는 고차원에서 &quot;이 분포가 가우시안인가&quot;를 검정하는 게 차원의 저주에 걸린다는 것. 우회법이 영리하다 — 잠재 공간에 무작위 방향을 잔뜩 뽑아 임베딩을 그 방향으로 1차원에 사영하고, 각 1차원 분포만 가우시안으로 민다. Cramér-Wold 정리가 보장한다: 모든 1차원 사영이 가우시안이면 원래 고차원 분포도 가우시안이다. 어려운 고차원 문제를 쉬운 1차원 문제 여러 개로 쪼개 푸는 셈이다.</p>
+<h3>결과: 절반 파라미터로 이기고, 플래닝은 50배 빠르다</h3>
+<p>학습한 월드 모델로 무작위 행동 시퀀스를 뽑아 잠재 공간에서 미래를 굴려보고, 목표 잠재와의 거리(MSE)가 줄도록 미분 가능한 예측기를 통해 행동을 거꾸로 다듬는다<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=GBd7iuJkW08&amp;t=2750s">[45:50]</a>. PushT에선 보조 정보 없는 the world model이 그걸 쓴 DINO-WM을 절반 파라미터로 이긴다. 반대로 OGBench 큐브(3D 조작)에선 진다 — DINO-WM 인코더가 자연 이미지 1억 2,400만 장으로 사전학습돼 객체·3D 감각이 더 좋기 때문이다. 가장 결정적인 차이는 속도다 — DINO-WM은 모든 패치를 예측하느라 어텐션의 제곱 비용을 치러 플래닝에 47초가 걸리지만, the world model은 인코더의 CLS 토큰 하나만 잠재 상태로 써서 1초도 안 걸린다.</p>
+<h3>직관 물리: 색을 바꾸면 무덤덤, 순간이동시키면 '놀란다'</h3>
+<p>이 연구에서 가장 재밌는 실험이다<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=GBd7iuJkW08&amp;t=3155s">[52:35]</a>. 잠재를 프로빙해 보면 the world model 쪽이 시뮬레이션 계수를 더 정확히 복원한다 — 잠재 공간이 덜 얽혀 있다는 뜻이다(SIGReg가 각 차원을 어느 정도 풀어놓은 효과). 위반 탐지가 백미다 — 큐브의 <strong>색</strong>을 갑자기 바꿔도 예측 오차는 거의 안 움직인다(동역학에 색은 무관하니 안 신경 쓰는 게 맞다). 그런데 큐브를 <strong>순간이동</strong>시키면 오차가 확 치솟는다 — 마술사가 눈앞에서 동전을 사라지게 했을 때 사람이 흠칫 놀라는 것과 똑같다. 모델이 &quot;그건 내 세계관에 안 맞아&quot;라고 반응하는 셈이다. 흥미롭게도 디코더로 들여다보면 그리퍼의 회전은 끝내 못 배웠는데도 과제는 풀어낸다.</p>
+<h3>남은 과제: 짧은 지평, 단일 시간척도, 장난감 환경, 목표 명세</h3>
+<p>한계이자 다음 과제다<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=GBd7iuJkW08&amp;t=3415s">[56:55]</a> — 아직 짧은 구간만 내다본다(장기 플래닝), 시간 척도가 하나뿐이라 위계가 필요하다(공항 가기 → 차로 가기 → 근육 움직이기처럼 추상 수준을 나눠야 한다), 장난감 환경을 벗어나 실제 로봇이나 Minecraft 같은 확률적·부분관측 환경으로 가야 한다, 목표를 어떻게 지정할지도 문제다(목표 이미지 한 장은 &quot;어떻게&quot; 풀지를 안 알려준다 — 비행기 착륙은 &quot;부드럽게&quot;까지 명세해야 한다). 발표자들은 누구나 월드 모델을 쉽게 학습·비교할 수 있는 오픈소스 <strong>Stable World Model</strong> 라이브러리도 소개한다.</p>
+<h2>인상적인 지점</h2>
+<h3>&quot;물리 AI엔 월드 모델이 필수&quot; — VLA만으론 세상을 모른다</h3>
+<p>Q&amp;A에서 나온 가장 묵직한 답이다<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=GBd7iuJkW08&amp;t=3641s">[1:00:41]</a>. 요즘 VLA(비전-언어-행동) 모델은 행동의 <strong>결과</strong>를 예측하도록 훈련받지 않아서, 세상을 진짜 이해한다고 보기 어렵다. 사람이 일을 잘하는 이유는 내 행동이 어떤 결과를 낳을지 미리 그려보기 때문이다 — 실세계와 상호작용하려면 결과 예측이 반드시 필요하고, 그래서 월드 모델을 건너뛸 수 없다(춤처럼 자기 몸의 내부 동역학만 필요한 일이라면 VLA로도 충분하지만). 더불어 두 가지를 정리해 둘 만하다 — <strong>JEPA는 새 아키텍처가 아니라 월드 모델을 배우는 틀</strong>이고(인코더·예측기는 그냥 트랜스포머다), JEPA가 실세계에 접지(grounded)돼 있어 &quot;현실에 발 붙이지 않아 생기는&quot; LLM식 환각의 한 원천은 쉽게 없앤다는 점(다만 모델이 나쁘거나 범위 밖 행동을 내놓으면 다른 환각은 생긴다).</p>
+<h3>미래상: 시스템1/시스템2 — 어려우면 신중히, 익숙하면 반사적으로</h3>
+<p>마지막으로 미래상을 인간의 시스템1/시스템2에 빗댄다<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=GBd7iuJkW08&amp;t=4122s">[1:08:42]</a>. 익숙하지 않은 어려운 일에는 MPC(모델 예측 제어)로 신중히 플래닝하고, 충분히 숙달되면 그 플래닝을 증류해 즉각 반응하는 정책으로 바꾼다 — 운전을 배울 때 처음 20시간은 한 수 한 수 따져 가며 하다가, 익숙해지면 거의 반사적으로 모는 것과 같다.</p>
+
+  </article>
+  <p class="post-end"><a href="https://www.youtube.com/watch?v=GBd7iuJkW08" target="_blank" rel="noopener">YouTube에서 원본 보기 ↗</a> · <a href="./">← 목록으로</a></p>
+</main>
+<footer class="site-foot">
+  <a href="/projects/yt-digest-overview">yt-digest</a> 파이프라인이 자막을 읽고 자동으로 작성한 브리핑입니다. 오류가 있을 수 있으니 중요한 내용은 원본 영상으로 확인하세요.
+</footer>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Markov Decision Processes 1 - Value Iteration | Stanford CS221: AI (Autumn 2019) — 유튜브 다이제스트</title>
+<meta name="description" content="이 강의는 마르코프 의사결정 과정(MDP)의 기본 개념과 이를 해결하는 핵심 알고리즘인 정책 평가(policy evaluation) 및 가치 반복(value iteration)을 설명한다. 불확실한 환경에서 최적의 의사결정 정책을 찾아내는 방법을 수학적 정의, 직관적…">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="Markov Decision Processes 1 - Value Iteration | Stanford CS221: AI (Autumn 2019) — 유튜브 다이제스트">
+<meta property="og:description" content="이 강의는 마르코프 의사결정 과정(MDP)의 기본 개념과 이를 해결하는 핵심 알고리즘인 정책 평가(policy evaluation) 및 가치 반복(value iteration)을 설명한다. 불확실한 환경에서 최적의 의사결정 정책을 찾아내는 방법을 수학적 정의, 직관적…">
+<meta property="og:image" content="https://i.ytimg.com/vi/9g32v7bK3Co/hqdefault.jpg">
+<meta property="og:type" content="article">
+<link rel="icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+<script>
+// Follow the blog's saved light/dark choice (same origin, same key).
+(function () {
+  var saved = null
+  try { saved = localStorage.getItem("theme") } catch (e) {}
+  var dark = saved ? saved === "dark" : matchMedia("(prefers-color-scheme: dark)").matches
+  document.documentElement.dataset.theme = dark ? "dark" : "light"
+})()
+</script>
+</head>
+<body class="post-page">
+<header class="site-bar">
+  <a class="site-name" href="/">Johnny's</a>
+  <a class="back" href="./">← 유튜브 다이제스트</a>
+</header>
+<main class="post">
+  <a class="hero" href="https://www.youtube.com/watch?v=9g32v7bK3Co" target="_blank" rel="noopener" aria-label="YouTube에서 보기">
+    <img src="https://i.ytimg.com/vi/9g32v7bK3Co/hqdefault.jpg" alt="">
+    <span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+  </a>
+  <h1>Markov Decision Processes 1 - Value Iteration | Stanford CS221: AI (Autumn 2019)</h1>
+  <div class="post-meta"><span>Stanford Online</span><span>1:23:06</span><span>게시 2020-01-08</span></div>
+  <div class="tags"><a href="./?q=%23ai">#ai</a><a href="./?q=%23mdp">#mdp</a><a href="./?q=%23markov-decision-process">#markov-decision-process</a><a href="./?q=%23value-iteration">#value-iteration</a><a href="./?q=%23policy-evaluation">#policy-evaluation</a><a href="./?q=%23reinforcement-learning">#reinforcement-learning</a><a href="./?q=%23search-problem">#search-problem</a></div>
+  <article>
+<h2>TL;DR</h2>
+<p>이 강의는 마르코프 의사결정 과정(MDP)의 기본 개념과 이를 해결하는 핵심 알고리즘인 정책 평가(policy evaluation) 및 가치 반복(value iteration)을 설명한다. 불확실한 환경에서 최적의 의사결정 정책을 찾아내는 방법을 수학적 정의, 직관적 예시, 그리고 실제 코드 구현을 통해 깊이 있게 다룬다.</p>
+<h2>풀시청 판단</h2>
+<p>이 강의는 인공지능 분야에서 마르코프 의사결정 과정(MDP)과 강화 학습(reinforcement learning)의 기초를 탄탄하게 다지고 싶은 사람에게 매우 유용하다. 특히 AI/ML 분야의 학부생이나 대학원생, 또는 관련 연구자들이 MDP의 수학적 틀과 알고리즘적 해결책을 이해하는 데 큰 도움을 받을 수 있다.</p>
+<p>강의는 탐색 문제(search problem)와 MDP의 핵심적인 차이를 명확히 설명하고, 불확실성 속에서 어떻게 의사결정을 내려야 하는지에 대한 직관을 제공한다. 정책(policy), 효용(utility), 가치(value), 할인율(discount factor) 등 핵심 개념을 명확히 정의하며, 정책 평가와 가치 반복 알고리즘을 벨만 방정식(Bellman equation)을 바탕으로 상세히 유도하고 코드로 구현하는 과정을 보여준다.</p>
+<p>강의 내용의 약점으로는 2019년 영상이므로 최근 강화 학습의 발전 동향은 다루지 않는다는 점이 있다. 또한 강의 후반부 약 20분 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9g32v7bK3Co&amp;t=4474s">[1:14:34]</a>은 이전 강의에서 다룬 탐색 문제와 휴리스틱(heuristic)에 대한 복습이어서, MDP에만 관심 있는 시청자에게는 다소 관련성이 떨어질 수 있다. MDP 개념에만 집중하고 싶다면 약 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9g32v7bK3Co&amp;t=4440s">[1:14:00]</a>까지만 시청해도 좋다.</p>
+<h2>핵심 내용</h2>
+<h3>MDP 소개: 불확실성 속 의사결정 문제</h3>
+<p>마르코프 의사결정 과정(MDP)은 불확실성이 존재하는 환경에서 순차적인 의사결정 문제를 모델링하는 틀이다. 강의는 샌프란시스코에서 Mountain View로 가는 교통편을 선택하는 일상적인 예시로 불확실성 문제를 소개한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9g32v7bK3Co&amp;t=57s">[0:57]</a>. 자전거 타이어 펑크, 운전 중 교통 체증, Caltrain 지연 등 다양한 불확실성 요인이 단순한 최단 경로 탐색을 넘어선 복합적인 의사결정을 요구한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9g32v7bK3Co&amp;t=102s">[1:42]</a>.</p>
+<p>이러한 불확실성 문제는 로봇 공학 (액추에이터 고장, 예상치 못한 장애물) <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9g32v7bK3Co&amp;t=229s">[3:49]</a>, 자원 배분 (고객 수요 예측 불확실성) <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9g32v7bK3Co&amp;t=254s">[4:14]</a>, 농업 (날씨 및 작물 수확량 불확실성) <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9g32v7bK3Co&amp;t=283s">[4:43]</a> 등 다양한 실제 분야에서 발생한다. 기존의 확정적인 탐색 문제와 달리, MDP는 행동의 결과가 확률적으로 나타나는 상황을 다룬다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9g32v7bK3Co&amp;t=132s">[2:12]</a>. 행동을 취해도 항상 예상한 상태에 도달하는 것이 아니라, 여러 가능한 다음 상태 중 하나로 확률적으로 전이할 수 있음을 인정한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9g32v7bK3Co&amp;t=143s">[2:23]</a>.</p>
+<h3>MDP의 구성 요소 및 공식화</h3>
+<p>MDP는 탐색 문제와 유사하게 여러 요소를 정의하여 문제를 공식화한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9g32v7bK3Co&amp;t=790s">[13:10]</a>.</p>
+<ul>
+<li><strong>상태(States, S)</strong>: 시스템이 있을 수 있는 모든 가능한 상황 집합이다. (예: &quot;게임 중(in)&quot;, &quot;게임 종료(end)&quot;) <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9g32v7bK3Co&amp;t=811s">[13:31]</a>.</li>
+<li><strong>시작 상태(Start State, S0)</strong>: 문제가 시작되는 초기 상태이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9g32v7bK3Co&amp;t=997s">[16:37]</a>.</li>
+<li><strong>행동(Actions, A)</strong>: 각 상태에서 취할 수 있는 선택 가능한 행동들의 집합이다. (예: &quot;머무르기(stay)&quot;, &quot;그만두기(quit)&quot;) <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9g32v7bK3Co&amp;t=829s">[13:49]</a>.</li>
+<li><strong>전이 확률(Transition Probabilities, T(S, A, S'))</strong>: 현재 상태 S에서 행동 A를 취했을 때, 다음 상태 S'으로 전이할 확률을 나타낸다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9g32v7bK3Co&amp;t=1017s">[16:57]</a>. 이 확률들의 합은 항상 1이 되어야 한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9g32v7bK3Co&amp;t=1272s">[21:12]</a>.</li>
+<li><strong>보상(Reward, R(S, A, S'))</strong>: 상태 S에서 행동 A를 취하여 S'으로 전이했을 때 얻는 즉각적인 보상 또는 손실이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9g32v7bK3Co&amp;t=1034s">[17:14]</a>. MDP에서는 일반적으로 보상을 최대화하는 것을 목표로 한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9g32v7bK3Co&amp;t=1093s">[18:13]</a>.</li>
+<li><strong>종료 함수(IsEnd(S))</strong>: 특정 상태 S가 종료 상태인지 여부를 판별한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9g32v7bK3Co&amp;t=1102s">[18:22]</a>.</li>
+<li><strong>할인율(Discount Factor, γ)</strong>: 미래에 얻는 보상의 현재 가치를 얼마나 평가할지를 결정하는 0과 1 사이의 값이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9g32v7bK3Co&amp;t=1110s">[18:30]</a>. 이 값은 미래 보상이 현재 보상보다 덜 가치 있다고 가정할 때 사용된다.</li>
+</ul>
+<p>강의는 &quot;머무르기/그만두기&quot; 게임 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9g32v7bK3Co&amp;t=540s">[9:00]</a>과 트램(Tram) 문제 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9g32v7bK3Co&amp;t=1339s">[22:19]</a>를 예시로 들어 MDP 구성 요소를 상세히 설명하고 코드로 구현하는 과정을 보여준다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9g32v7bK3Co&amp;t=1388s">[23:08]</a>. 트램 문제는 '걷기'와 '트램 타기' 행동이 있으며, 트램은 50% 확률로 실패하여 현재 상태에 머무르지만 2분의 비용(보상 -2)을 지불하는 불확실성을 포함한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9g32v7bK3Co&amp;t=1349s">[22:29]</a>.</p>
+<h3>MDP 해법: 정책(Policy)과 그 가치</h3>
+<p>MDP의 해법은 최적 정책(<code>π_opt(S)</code>)을 찾는 것이다. 탐색 문제의 해법이 '경로(path)'인 것과 달리, MDP는 불확실성 때문에 '정책(policy)'이 필요하다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9g32v7bK3Co&amp;t=1762s">[29:22]</a>. 정책 <code>π(S)</code>는 모든 가능한 상태 S에 대해 어떤 행동 A를 취해야 하는지 알려주는 함수이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9g32v7bK3Co&amp;t=1796s">[29:56]</a>. 이는 어떤 상황에 놓이더라도 항상 최적의 행동을 선택할 수 있도록 해준다.</p>
+<p>정책의 좋고 나쁨을 평가하기 위해 '효용(utility)'과 '가치(value)' 개념을 사용한다.</p>
+<ul>
+<li><strong>효용(Utility)</strong>: 특정 정책을 따라 하나의 무작위 경로를 진행했을 때 얻는 모든 보상의 할인된 합이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9g32v7bK3Co&amp;t=1920s">[32:00]</a>. 이는 환경의 불확실성 때문에 경로마다 달라질 수 있는 무작위 변수이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9g32v7bK3Co&amp;t=1938s">[32:18]</a>.</li>
+<li><strong>가치(Value)</strong>: 특정 정책을 따를 때 얻을 수 있는 기대 효용(expected utility)이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9g32v7bK3Co&amp;t=2018s">[33:38]</a>. 효용은 무작위 변수이지만, 가치는 기댓값이므로 하나의 고정된 수치이며, 이를 통해 정책을 비교하고 최적화할 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9g32v7bK3Co&amp;t=2027s">[33:47]</a>.</li>
+</ul>
+<p>**할인율(Discount Factor, γ)**은 미래 보상을 현재 시점에서 얼마나 가치 있게 평가할지 결정하는 중요한 요소다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9g32v7bK3Co&amp;t=2258s">[37:38]</a>. <code>γ=1</code>이면 현재와 미래 보상을 동일하게 취급하며, 장기적인 목표를 중시하는 정책을 유도한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9g32v7bK3Co&amp;t=2283s">[38:03]</a>. <code>γ=0</code>이면 현재의 즉각적인 보상만 고려하고 미래 보상을 무시한다 (탐욕적 정책) <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9g32v7bK3Co&amp;t=2322s">[38:42]</a>. 현실적으로는 <code>0 &lt; γ &lt; 1</code> 사이의 값을 사용하여 미래 보상을 적절히 할인한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9g32v7bK3Co&amp;t=2364s">[39:24]</a>. 이는 문제의 성격에 따라 설계자가 결정하는 '설계 선택(design choice)'이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9g32v7bK3Co&amp;t=2376s">[39:36]</a>. 할인율이 1보다 작으면 순환 그래프에서도 가치가 유한하고 수렴이 보장된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9g32v7bK3Co&amp;t=4366s">[1:12:46]</a>.</p>
+<h3>정책 평가(Policy Evaluation): 주어진 정책의 가치 계산</h3>
+<p>정책 평가의 목표는 <strong>주어진 정책 <code>π</code>가 얼마나 좋은지</strong> 그 가치 <code>Vπ(S)</code>를 계산하는 것이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9g32v7bK3Co&amp;t=2511s">[41:51]</a>. 여기서 <code>Vπ(S)</code>는 상태 S에서 정책 <code>π</code>를 따를 때 얻을 수 있는 기대 효용이다. 이를 위해 <code>Qπ(S, A)</code>라는 개념도 정의하는데, 이는 상태 S에서 행동 A를 취하고 그 이후부터 정책 <code>π</code>를 따랐을 때 얻는 기대 효용이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9g32v7bK3Co&amp;t=2596s">[43:16]</a>.</p>
+<p><code>Vπ(S)</code>와 <code>Qπ(S, A)</code>는 다음의 벨만 재귀식을 통해 계산할 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9g32v7bK3Co&amp;t=2701s">[45:01]</a>.</p>
+<ul>
+<li>종료 상태 S에서는 <code>Vπ(S) = 0</code>이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9g32v7bK3Co&amp;t=2715s">[45:15]</a>.</li>
+<li>그 외 상태에서는, <code>Vπ(S) = Qπ(S, π(S))</code> 이다. (정책 <code>π</code>가 현재 상태 S에서 취할 행동 <code>π(S)</code>를 지정하므로) <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9g32v7bK3Co&amp;t=2737s">[45:37]</a>.</li>
+<li><code>Qπ(S, A) = Σ S' T(S, A, S') * (R(S, A, S') + γVπ(S'))</code> 이다.
+<ul>
+<li>이는 상태 S에서 행동 A를 취했을 때 도달할 수 있는 모든 다음 상태 S'에 대해, 전이 확률 <code>T(S, A, S')</code>에 다음 상태 S'에서 얻을 즉각적인 보상 <code>R(S, A, S')</code>과 할인된 미래 가치 <code>γVπ(S')</code>의 합을 곱한 뒤 모두 더한 것이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9g32v7bK3Co&amp;t=2779s">[46:19]</a>.</li>
+</ul>
+</li>
+</ul>
+<p>이 재귀식을 직접 풀기 어려울 때는 반복 알고리즘을 사용한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9g32v7bK3Co&amp;t=3107s">[51:47]</a>. 모든 상태의 <code>Vπ(S)</code> 값을 0으로 초기화한 뒤, 위 재귀식을 사용하여 각 상태의 <code>Vπ(S)</code> 값을 반복적으로 업데이트한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9g32v7bK3Co&amp;t=3128s">[52:08]</a>. 충분히 반복하면 <code>Vπ(S)</code> 값들이 수렴하여 실제 정책 가치에 근접하게 된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9g32v7bK3Co&amp;t=3212s">[53:32]</a>. 이 과정은 이전 시간 단계의 <code>Vπ</code> 값들을 사용하여 현재 시간 단계의 <code>Vπ</code> 값들을 계산하는 방식이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9g32v7bK3Co&amp;t=3166s">[52:46]</a>.</p>
+<p>강의는 &quot;머무르기/그만두기&quot; 게임에서 '계속 머무르는' 정책의 가치 <code>Vπ(in)</code>을 이 재귀식을 통해 12로 계산하는 과정을 직접 보여준다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9g32v7bK3Co&amp;t=2983s">[49:43]</a>.</p>
+<h3>가치 반복(Value Iteration): 최적 정책 찾기</h3>
+<p>가치 반복의 목표는 <strong>최적 정책 <code>π_opt(S)</code>를 찾아내는 것</strong>이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9g32v7bK3Co&amp;t=3564s">[59:24]</a>. 이를 위해 모든 가능한 정책 중에서 가장 높은 기대 효용을 제공하는 '최적 가치(optimal value)' <code>V_opt(S)</code>를 찾는다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9g32v7bK3Co&amp;t=3580s">[59:40]</a>. <code>Q_opt(S, A)</code>는 상태 S에서 행동 A를 취하고 그 이후 최적 정책을 따랐을 때 얻는 기대 효용이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9g32v7bK3Co&amp;t=3640s">[1:00:40]</a>.</p>
+<p>최적 정책을 찾기 위한 벨만 최적 방정식은 다음과 같다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9g32v7bK3Co&amp;t=3695s">[1:01:35]</a>.</p>
+<ul>
+<li>종료 상태 S에서는 <code>V_opt(S) = 0</code>이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9g32v7bK3Co&amp;t=3759s">[1:02:39]</a>.</li>
+<li>그 외 상태에서는, <code>V_opt(S) = max_A Q_opt(S, A)</code> 이다. (최적 가치는 현재 상태 S에서 취할 수 있는 모든 행동 A 중 <code>Q_opt(S, A)</code> 값을 최대화하는 행동을 선택했을 때의 가치이다) <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9g32v7bK3Co&amp;t=3771s">[1:02:51]</a>.</li>
+<li><code>Q_opt(S, A) = Σ S' T(S, A, S') * (R(S, A, S') + γV_opt(S'))</code> 이다. (정책 평가에서의 <code>Qπ</code>와 유사하나, 미래 가치로 <code>V_opt(S')</code>를 사용한다) <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9g32v7bK3Co&amp;t=3704s">[1:01:44]</a>.</li>
+</ul>
+<p>최적 정책 <code>π_opt(S)</code>는 <code>V_opt(S)</code>를 최대화하는 행동 A를 선택하는 것이다. 즉, <code>π_opt(S) = argmax_A Q_opt(S, A)</code> 이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9g32v7bK3Co&amp;t=3811s">[1:03:31]</a>.</p>
+<p>가치 반복 알고리즘은 정책 평가 알고리즘과 매우 유사하다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9g32v7bK3Co&amp;t=3949s">[1:05:49]</a>. 모든 상태의 <code>V_opt(S)</code> 값을 0으로 초기화하고, 위 벨만 최적 방정식을 사용하여 <code>V_opt(S)</code> 값을 반복적으로 업데이트한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9g32v7bK3Co&amp;t=3952s">[1:05:52]</a>. 이때, <code>max_A</code> 연산이 추가되어 모든 가능한 행동 중 최적의 행동을 선택한다. 이 알고리즘은 충분히 반복하면 <code>V_opt(S)</code>가 수렴하고, 이 수렴된 <code>V_opt(S)</code>를 통해 각 상태에서의 최적 행동(최적 정책)을 유도할 수 있다.</p>
+<p>강의는 트램 문제에 가치 반복 알고리즘을 적용하여 트램 실패 확률에 따른 최적 정책(걷기 또는 트램)이 어떻게 변화하는지 코드로 시각화하여 보여준다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9g32v7bK3Co&amp;t=3992s">[1:06:32]</a>. 가치 반복 알고리즘은 할인율 <code>γ &lt; 1</code>이거나 MDP 그래프가 비순환적(acyclic)일 때 수렴이 보장된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9g32v7bK3Co&amp;t=4366s">[1:12:46]</a>.</p>
+<h2>주요 통찰·논점</h2>
+<h3>불확실성 모델링의 핵심</h3>
+<p>탐색 문제(search problem)가 확정적인 환경에서 최적의 '경로'를 찾는 반면, 마르코프 의사결정 과정(MDP)은 행동의 결과가 확률적인 '불확실성' 환경에서 최적의 '정책'을 찾는 데 초점을 맞춘다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9g32v7bK3Co&amp;t=132s">[2:12]</a>. 이는 현실 세계의 많은 의사결정 문제가 예측 불가능한 요소를 포함하고 있기 때문에, 불확실성을 모델링하는 것이 실제적인 해법을 찾는 데 필수적임을 시사한다.</p>
+<h3>정책 기반 의사결정의 중요성</h3>
+<p>MDP에서 최적 '경로' 대신 최적 '정책'을 찾는다는 점은 중요한 통찰이다. 불확실성 때문에 계획된 경로가 항상 그대로 실행될 수 없으므로 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9g32v7bK3Co&amp;t=1830s">[30:30]</a>, 어떤 상태에 도달하든 그 상태에서 최적의 행동을 취할 수 있도록 미리 모든 상태에 대한 의사결정 규칙(정책)을 정의하는 것이 합리적이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9g32v7bK3Co&amp;t=1840s">[30:40]</a>. 이는 유연하고 강건한 의사결정 시스템을 구축하는 데 필수적인 접근 방식이다.</p>
+<h3>기대 효용을 통한 합리적 판단</h3>
+<p>정책의 좋고 나쁨을 평가할 때, 특정 경로에서 얻는 보상(utility)이 아닌, 모든 가능한 확률적 결과를 고려한 '기대 효용(expected utility)', 즉 '가치(value)'를 기준으로 삼는다는 점은 합리적인 의사결정의 기초가 된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9g32v7bK3Co&amp;t=2018s">[33:38]</a>. 이는 단편적인 최적 경로가 아닌, 장기적인 관점에서 가장 유리한 선택을 가능하게 한다.</p>
+<h3>벨만 방정식: 동적 계획법의 핵심</h3>
+<p>정책 평가와 가치 반복의 핵심인 벨만 방정식은 동적 계획법(dynamic programming)의 원리를 담고 있다 [45:01, 61:35]. 현재 상태의 최적 가치를 다음 상태의 최적 가치와 보상으로 재귀적으로 정의함으로써, 복잡한 문제를 작은 부분 문제로 나누어 해결할 수 있게 한다. 이는 강화 학습을 비롯한 많은 순차적 의사결정 문제 해결에 근간이 되는 통찰이다.</p>
+<h3>할인율의 전략적 의미와 수렴 보장</h3>
+<p>할인율 <code>γ</code>는 미래 보상에 대한 가중치를 조절하여 단기적 보상과 장기적 보상 사이의 균형을 문제의 특성에 맞게 조절하는 전략적 도구이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9g32v7bK3Co&amp;t=2258s">[37:38]</a>. 또한 <code>γ &lt; 1</code> 조건은 순환적인(cyclic) 그래프를 가진 MDP에서도 가치 함수가 유한한 값으로 수렴하게 하여 알고리즘의 안정성을 보장한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9g32v7bK3Co&amp;t=4366s">[1:12:46]</a>. 이는 이론적 타당성과 실용적 적용 가능성을 동시에 제공한다.</p>
+<h2>인상적인 지점</h2>
+<ul>
+<li>'화산 횡단' 예시에서 미끄러질 확률(10%, 20%, 30%)에 따라 안전과 보상 사이의 의사결정이 어떻게 변화하는지 직관적으로 보여준 점 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9g32v7bK3Co&amp;t=386s">[6:26]</a>. 특히 30% 확률에서는 횡단을 포기하는 것이 최적이라는 지점은 불확실성 하에서의 의사결정 과정을 생생하게 전달한다.</li>
+<li>'머무르기/그만두기' 게임 예시를 통해 정책의 가치 <code>Vπ(in)</code>이 12가 되는 과정을 벨만 재귀식을 사용하여 명확하게 유도하고, 반복 알고리즘으로도 동일한 값을 얻을 수 있음을 보여준 점 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9g32v7bK3Co&amp;t=2983s">[49:43]</a>. 이론적 계산과 반복적 접근 방식의 연관성을 명확히 한다.</li>
+<li>트램(Tram) 문제 코드 구현에서 트램 실패 확률(<code>fail_probability</code>)이라는 단 하나의 변수를 변경함으로써 최적 정책(걷기/트램)이 극적으로 달라지는 것을 시뮬레이션한 점 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9g32v7bK3Co&amp;t=4260s">[1:11:00]</a>. MDP 구성 요소가 정책에 미치는 영향을 직접적으로 시각화하여 이해를 돕는다.</li>
+</ul>
+
+  </article>
+  <p class="post-end"><a href="https://www.youtube.com/watch?v=9g32v7bK3Co" target="_blank" rel="noopener">YouTube에서 원본 보기 ↗</a> · <a href="./">← 목록으로</a></p>
+</main>
+<footer class="site-foot">
+  <a href="/projects/yt-digest-overview">yt-digest</a> 파이프라인이 자막을 읽고 자동으로 작성한 브리핑입니다. 오류가 있을 수 있으니 중요한 내용은 원본 영상으로 확인하세요.
+</footer>
+</body>
+</html>

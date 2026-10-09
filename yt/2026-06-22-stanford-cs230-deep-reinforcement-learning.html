@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stanford CS230 | Autumn 2025 | Lecture 5: Deep Reinforcement Learning — 유튜브 다이제스트</title>
+<meta name="description" content="이 강의는 딥러닝과 강화 학습을 결합한 딥 강화 학습(Deep Reinforcement Learning, DRL)의 기본 원리와 적용 사례를 설명한다. 특히 Q-러닝 알고리즘의 작동 방식, 한계, 그리고 이를 개선하는 전처리, 경험 리플레이, 엡실론-탐욕적 탐색 같은…">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="Stanford CS230 | Autumn 2025 | Lecture 5: Deep Reinforcement Learning — 유튜브 다이제스트">
+<meta property="og:description" content="이 강의는 딥러닝과 강화 학습을 결합한 딥 강화 학습(Deep Reinforcement Learning, DRL)의 기본 원리와 적용 사례를 설명한다. 특히 Q-러닝 알고리즘의 작동 방식, 한계, 그리고 이를 개선하는 전처리, 경험 리플레이, 엡실론-탐욕적 탐색 같은…">
+<meta property="og:image" content="https://i.ytimg.com/vi/4E27qlfYw0A/hqdefault.jpg">
+<meta property="og:type" content="article">
+<link rel="icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+<script>
+// Follow the blog's saved light/dark choice (same origin, same key).
+(function () {
+  var saved = null
+  try { saved = localStorage.getItem("theme") } catch (e) {}
+  var dark = saved ? saved === "dark" : matchMedia("(prefers-color-scheme: dark)").matches
+  document.documentElement.dataset.theme = dark ? "dark" : "light"
+})()
+</script>
+</head>
+<body class="post-page">
+<header class="site-bar">
+  <a class="site-name" href="/">Johnny's</a>
+  <a class="back" href="./">← 유튜브 다이제스트</a>
+</header>
+<main class="post">
+  <a class="hero" href="https://www.youtube.com/watch?v=4E27qlfYw0A" target="_blank" rel="noopener" aria-label="YouTube에서 보기">
+    <img src="https://i.ytimg.com/vi/4E27qlfYw0A/hqdefault.jpg" alt="">
+    <span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+  </a>
+  <h1>Stanford CS230 | Autumn 2025 | Lecture 5: Deep Reinforcement Learning</h1>
+  <div class="post-meta"><span>Stanford Online</span><span>1:45:01</span><span>게시 2025-10-31</span></div>
+  <div class="tags"><a href="./?q=%23deep-learning">#deep-learning</a><a href="./?q=%23reinforcement-learning">#reinforcement-learning</a><a href="./?q=%23deep-q-learning">#deep-q-learning</a><a href="./?q=%23rlhf">#rlhf</a><a href="./?q=%23llm">#llm</a></div>
+  <article>
+<h2>TL;DR</h2>
+<p>이 강의는 딥러닝과 강화 학습을 결합한 딥 강화 학습(Deep Reinforcement Learning, DRL)의 기본 원리와 적용 사례를 설명한다. 특히 Q-러닝 알고리즘의 작동 방식, 한계, 그리고 이를 개선하는 전처리, 경험 리플레이, 엡실론-탐욕적 탐색 같은 기법들을 다룬다. 강의 후반부에는 DRL이 LLM(대규모 언어 모델) 정렬에 어떻게 사용되는지, 즉 사람의 피드백을 통한 강화 학습(RLHF)이 ChatGPT와 같은 모델을 발전시킨 핵심 기술임을 상세히 설명한다.</p>
+<h2>풀시청 판단</h2>
+<p>이 영상은 딥 강화 학습(DRL)의 기초부터 최신 LLM 정렬 기법인 RLHF까지 심층적으로 다루어 풀시청할 가치가 높다.</p>
+<ul>
+<li>
+<p><strong>추천 대상</strong>:</p>
+<ul>
+<li>강화 학습(RL) 기본 개념과 Q-러닝 알고리즘의 상세한 작동 원리를 이해하고 싶은 사람.</li>
+<li>RL 알고리즘 학습을 어렵게 만드는 문제점(너무 많은 상태, 지연된 보상)과 이를 해결하는 실용적인 기법(경험 리플레이, 엡실론-탐욕적 탐색)을 알고 싶은 사람.</li>
+<li>LLM이 어떻게 사람의 선호도에 맞춰 정렬되는지, 즉 ChatGPT를 가능하게 한 RLHF의 메커니즘을 심도 있게 이해하고 싶은 사람.</li>
+<li>학술적 내용을 실용적인 예시(Go 게임, 아타리 브레이크아웃, 로봇 스모 게임)와 비유를 통해 쉽게 배우고 싶은 사람.</li>
+</ul>
+</li>
+<li>
+<p><strong>얻을 수 있는 것</strong>:</p>
+<ul>
+<li>DRL의 핵심 용어와 Bellman 최적화 방정식, 정책(Policy) 같은 핵심 개념에 대한 명확한 이해.</li>
+<li>DQN(Deep Q-Network)이 아타리 게임을 인간보다 잘하게 된 구체적인 방법론.</li>
+<li>지도 학습(Supervised Learning)의 한계를 강화 학습이 어떻게 극복하는지에 대한 통찰.</li>
+<li>RLHF가 LLM의 유용성, 안전성, 정렬성을 개선하는 데 어떤 역할을 하는지.</li>
+</ul>
+</li>
+<li>
+<p><strong>약점 및 한계</strong>:</p>
+<ul>
+<li>CS230 정규 강의의 일부이므로, 신경망(Neural Network)의 기본적인 구성 요소(CNN, ReLU 등)에 대한 사전 지식이 없으면 일부 내용 이해에 어려움을 겪을 수 있다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=4E27qlfYw0A&amp;t=27s">[0:27]</a> <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=4E27qlfYw0A&amp;t=3646s">[1:00:46]</a></li>
+<li>강화 학습 전반의 모든 알고리즘(예: PPO)을 자세히 다루지는 않는다. PPO는 소개만 하고 넘어간다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=4E27qlfYw0A&amp;t=5040s">[1:24:00]</a></li>
+<li>RLHF의 보상 모델(Reward Model) 학습에 사용되는 손실 함수(Loss function)는 시간 제약상 자세히 설명하지 않는다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=4E27qlfYw0A&amp;t=5992s">[1:39:52]</a></li>
+</ul>
+</li>
+</ul>
+<h2>핵심 내용</h2>
+<h3>지도 학습의 한계 — Go 게임으로 본 강화 학습의 필요성</h3>
+<p>Go와 같은 복잡한 전략 게임을 지도 학습으로 해결하기는 매우 어렵다.
+첫째, 가능한 보드 상태와 행동의 수가 너무 많아 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=4E27qlfYw0A&amp;t=412s">[6:52]</a> 모든 경우의 수를 학습 데이터로 제공할 수 없다. 전문 기사의 기보로 학습하더라도 전체 상태 공간을 커버하지 못한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=4E27qlfYw0A&amp;t=464s">[7:44]</a>
+둘째, 특정 한 수를 뒀을 때 그 수의 좋고 나쁨이 즉각적으로 드러나지 않고, 승패는 수십 수 이후에 결정되는 '지연된 보상' 문제가 발생한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=4E27qlfYw0A&amp;t=502s">[8:22]</a> 지도 학습은 당장의 행동(x)과 목표(y)를 연결하는 데 특화되어 있어, 이러한 장기적 전략을 반영하기 어렵다.
+셋째, 심지어 세계 최고 수준의 인간 플레이어도 항상 최적의 전략을 구사하지 않으므로, <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=4E27qlfYw0A&amp;t=561s">[9:21]</a> 인간의 기보를 '근거(ground truth)'로 삼아 학습하면 모델이 인간보다 더 나은 성능을 달성하기 어렵다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=4E27qlfYw0A&amp;t=586s">[9:46]</a> 이처럼 지도 학습이 가진 한계를 극복하기 위해 '좋은 의사결정의 연속'을 자동으로 만들어내는 강화 학습이 필요하다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=4E27qlfYw0A&amp;t=645s">[10:45]</a></p>
+<h3>강화 학습의 기본 — 에이전트, 환경, 행동, 상태, 보상, 그리고 할인율</h3>
+<p>강화 학습에서는 에이전트가 환경과 상호작용하며 학습한다. 에이전트는 특정 행동(action, <code>at</code>)을 수행하고, 환경은 다음 상태(state, <code>st+1</code>)로 변화하며, 에이전트는 새로운 상태에 대한 관측(observation, <code>ot</code>)과 보상(reward, <code>rt</code>)을 받는다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=4E27qlfYw0A&amp;t=842s">[14:02]</a> 관측이 상태의 부분 집합일 수 있으며(예: 스타크래프트의 안개), 에이전트의 목표는 얻는 보상의 총합인 '총 보상(return)'을 극대화하는 것이다. 이때 미래의 보상에는 '할인율(discount factor, gamma)'이 적용되는데, <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=4E27qlfYw0A&amp;t=1274s">[21:14]</a> 이는 미래 보상이 현재 보상보다 가치가 낮다는 개념을 반영한다(예: 로봇의 에너지 소모, 화폐의 시간 가치). 할인율을 통해 에이전트는 단기적 이득과 장기적 이득 사이의 균형을 학습한다.</p>
+<h3>Q-러닝의 핵심 — Q-테이블과 Bellman 최적화 방정식</h3>
+<p>Q-러닝은 특정 상태 <code>s</code>에서 행동 <code>a</code>를 취했을 때 얻을 수 있는 장기적인 기대 보상, 즉 Q-값(Q-value)을 학습한다. 이 Q-값들을 저장하는 Q-테이블은 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=4E27qlfYw0A&amp;t=1452s">[24:12]</a> 모든 상태-행동 쌍에 대한 최적의 가치를 담고 있어, 에이전트는 이 테이블을 참조하여 항상 최적의 행동을 선택할 수 있다. Q-테이블의 각 항목은 행동 <code>a</code>를 통해 즉각적인 보상 <code>r</code>을 얻고 다음 상태 <code>s'</code>로 이동했을 때, 그 다음 상태에서 얻을 수 있는 최대 Q-값에 할인율을 적용한 값을 더한 것과 같다. 이를 Bellman 최적화 방정식이라고 하며 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=4E27qlfYw0A&amp;t=1866s">[31:06]</a> <code>Q*(s,a) = r + gamma * max(Q*(s',a'))</code>로 표현된다. 이는 최적의 Q-함수(Q-function)가 만족해야 하는 재귀적 관계를 나타내며, 에이전트는 이를 통해 최적 정책(policy), 즉 어떤 상태에서 어떤 행동을 할지 결정하는 방법을 학습한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=4E27qlfYw0A&amp;t=1978s">[32:58]</a></p>
+<h3>딥 Q-러닝(DQN) — Q-테이블의 한계를 극복하는 신경망</h3>
+<p>Q-러닝의 가장 큰 문제는 상태와 행동 공간이 너무 클 때 Q-테이블의 크기가 감당할 수 없을 정도로 커진다는 점이다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=4E27qlfYw0A&amp;t=2053s">[34:13]</a> 예를 들어 Go 게임은 가능한 보드 상태가 천문학적인 숫자이다. 딥 Q-러닝(DQN)은 이러한 한계를 극복하기 위해 신경망을 Q-함수의 근사기로 사용한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=4E27qlfYw0A&amp;t=2131s">[35:31]</a> 즉, 상태 <code>s</code>와 행동 <code>a</code>를 입력받아 해당 Q-값을 출력하는 신경망을 학습시킨다. 이는 Q-테이블을 직접 조회하는 대신 신경망의 순전파(forward pass)를 통해 Q-값을 예측하게 함으로써, 방대한 상태-행동 공간에서도 Q-함수를 효과적으로 근사할 수 있다. 신경망은 Bellman 방정식을 기반으로 한 손실 함수를 통해 학습되는데, 이때 목표 <code>y</code>는 즉각적인 보상 <code>r</code>과 다음 상태 <code>s'</code>에서 얻을 수 있는 최대 Q-값(할인율 적용)의 합으로 정의된다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=4E27qlfYw0A&amp;t=2553s">[42:33]</a> 이 목표 <code>y</code>는 에이전트의 현재 Q-함수를 사용하여 계산되므로, Q-함수가 개선됨에 따라 <code>y</code> 또한 점진적으로 더 정확한 값으로 업데이트되는 방식으로 학습이 진행된다.</p>
+<h3>딥 Q-러닝 학습 기법 — 전처리, 경험 리플레이, 엡실론-탐욕적 탐색</h3>
+<p>DQN의 효과적인 학습을 위해 몇 가지 중요한 기법들이 사용된다.</p>
+<ol>
+<li><strong>전처리(Pre-processing)</strong>: 아타리 브레이크아웃 게임처럼 픽셀 데이터를 입력으로 사용할 때, <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=4E27qlfYw0A&amp;t=3240s">[54:00]</a> 입력 차원을 줄이고 핵심 정보를 추출하기 위해 화면을 회색조로 변환하고 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=4E27qlfYw0A&amp;t=3459s">[57:39]</a> 크기를 조정한다. 또한 공의 움직임과 같은 동적인 정보를 파악하기 위해 여러 프레임의 화면 기록을 입력으로 함께 사용한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=4E27qlfYw0A&amp;t=3546s">[59:06]</a></li>
+<li><strong>경험 리플레이(Experience Replay)</strong>: 에이전트가 환경과 상호작용하며 얻은 경험(상태, 행동, 보상, 다음 상태)들을 '리플레이 메모리(Replay Memory, D)'에 저장한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=4E27qlfYw0A&amp;t=3965s">[1:06:05]</a> 학습 시에는 이 메모리에서 무작위로 미니 배치를 샘플링하여 신경망을 업데이트한다. 이 방식은 순차적인 경험 간의 높은 상관관계를 줄여 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=4E27qlfYw0A&amp;t=3822s">[1:03:42]</a> 학습의 안정성을 높이고, 데이터를 여러 번 재사용할 수 있어 학습 효율성을 향상시킨다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=4E27qlfYw0A&amp;t=3890s">[1:04:50]</a></li>
+<li><strong>엡실론-탐욕적 탐색(Epsilon-Greedy Exploration)</strong>: 학습 초기에 에이전트가 최적의 행동을 모를 때, 특정 확률 엡실론(<code>epsilon</code>)으로 무작위 행동을 취하고 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=4E27qlfYw0A&amp;t=4442s">[1:14:02]</a> 나머지 확률로는 현재 Q-함수가 예측하는 최적 행동을 따른다. 이는 에이전트가 새로운 환경을 '탐색(exploration)'하여 더 좋은 보상을 찾을 기회를 제공하고, 이미 학습된 지식을 '활용(exploitation)'하여 점진적으로 성능을 향상시키는 균형을 맞춘다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=4E27qlfYw0A&amp;t=4384s">[1:13:04]</a> 이로써 에이전트가 특정 지역 최솟값(local minima)에 갇히는 것을 방지한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=4E27qlfYw0A&amp;t=4243s">[1:10:43]</a></li>
+</ol>
+<h3>RLHF — 대규모 언어 모델(LLM)을 인간의 선호도에 맞추는 기술</h3>
+<p>RLHF(사람의 피드백을 통한 강화 학습)는 LLM이 단순히 텍스트를 이어 쓰는 것을 넘어, <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=4E27qlfYw0A&amp;t=5451s">[1:30:51]</a> 인간에게 유용하고 공손하며 정렬된 응답을 생성하도록 만드는 핵심 기술이다.
+초기 LLM은 학습 데이터의 특성 때문에 질문에 대한 답변보다는 텍스트를 계속 이어나가는 경향이 있었고, '좋음'이나 '도움 됨'에 대한 개념이 없었다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=4E27qlfYw0A&amp;t=5537s">[1:32:17]</a> RLHF는 이를 해결하기 위해 두 단계를 거친다.</p>
+<ol>
+<li><strong>지도 미세 조정(Supervised Fine-Tuning, SFT)</strong>: 먼저 인간이 작성한 고품질 질의응답 쌍 데이터를 수집하고, <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=4E27qlfYw0A&amp;t=5664s">[1:34:24]</a> 이를 사용하여 사전 학습된 LLM을 미세 조정한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=4E27qlfYw0A&amp;t=5691s">[1:34:51]</a> 이 단계는 모델이 인간의 '좋은 행동'을 모방하도록 가르친다. 그러나 SFT는 데이터 수집 비용이 높고, 특정 예시에만 잘 작동하며 일반화가 어렵다는 한계가 있다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=4E27qlfYw0A&amp;t=5757s">[1:35:57]</a></li>
+<li><strong>보상 모델(Reward Model, RM) 학습 및 강화 학습</strong>: SFT의 한계를 극복하기 위해 '보상 모델'이라는 별도의 신경망을 학습시킨다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=4E27qlfYw0A&amp;t=5822s">[1:37:02]</a> 이 모델은 동일한 프롬프트에 대한 여러 응답 중 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=4E27qlfYw0A&amp;t=5853s">[1:37:33]</a> 인간이 어떤 응답을 더 선호하는지에 대한 '선호도 데이터'로 학습된다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=4E27qlfYw0A&amp;t=5902s">[1:38:22]</a> RM은 프롬프트와 응답을 입력으로 받아 스칼라 형태의 보상 값을 출력하는데, <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=4E27qlfYw0A&amp;t=5942s">[1:39:02]</a> 이는 인간의 선호도를 대리한다. 이렇게 학습된 RM은 인간 평가자를 대신하여 강화 학습 에이전트(LLM)에게 보상을 제공하는 '평가 모델(critic)' 역할을 한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=4E27qlfYw0A&amp;t=6019s">[1:40:19]</a>
+마지막으로, SFT 모델을 강화 학습 에이전트로 사용하여 RM이 부여하는 보상을 최대화하도록 학습시킨다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=4E27qlfYw0A&amp;t=6065s">[1:41:05]</a> LLM은 프롬프트(상태)를 받아 토큰(행동)을 하나씩 생성하고, 최종 응답이 완성되면 RM으로부터 보상을 받는다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=4E27qlfYw0A&amp;t=6170s">[1:42:50]</a> 이때 중간 토큰 생성에는 보상이 없고, 완성된 시퀀스에 대해서만 보상이 주어지는 '희소 보상(sparse reward)' 문제에 직면한다. 이를 통해 모델은 인간의 선호도에 맞는 응답을 생성하는 방법을 학습하며, 이것이 GPT-2가 ChatGPT로 발전하는 데 결정적인 역할을 했다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=4E27qlfYw0A&amp;t=96s">[1:36]</a></li>
+</ol>
+<h2>주요 통찰·논점</h2>
+<h3>Bellman 최적화 방정식 — 최적 정책 학습의 수학적 근거</h3>
+<p>Bellman 최적화 방정식은 강화 학습의 핵심 이론적 기반이며, <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=4E27qlfYw0A&amp;t=1866s">[31:06]</a> 에이전트가 장기적으로 최대 보상을 얻기 위한 최적의 Q-값을 재귀적으로 정의한다. 이 방정식은 현재 상태에서의 최적 Q-값이 즉각적인 보상과 다음 상태에서 얻을 수 있는 최대 미래 할인 보상의 합임을 명시한다. DQN은 이 방정식을 학습 목표로 삼아 신경망이 Q-값을 점진적으로 개선하도록 유도하며, <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=4E27qlfYw0A&amp;t=2415s">[40:15]</a> 이는 방대한 상태 공간에서 최적 정책을 찾아내는 수학적 근거가 된다. 이 방정식이 존재하기 때문에 지도 학습과 달리 명시적인 '정답' 데이터 없이도 에이전트 스스로 학습할 수 있다.</p>
+<h3>경험 리플레이 — 데이터 효율성과 안정적인 학습의 열쇠</h3>
+<p>강화 학습에서 에이전트가 얻는 경험은 시간적으로 매우 강한 상관관계를 가진다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=4E27qlfYw0A&amp;t=3822s">[1:03:42]</a> 예를 들어 아타리 게임에서 공이 한 방향으로 이동하는 동안의 연속적인 화면은 대부분 비슷하다. 이러한 상관된 데이터를 순차적으로 학습하면 신경망이 특정 경험에 편향되거나 불안정하게 학습될 수 있다. 경험 리플레이는 에이전트의 경험을 메모리에 저장한 후 무작위로 샘플링하여 학습에 사용함으로써 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=4E27qlfYw0A&amp;t=3965s">[1:06:05]</a> 데이터의 독립성을 높이고 학습의 안정성을 크게 향상시킨다. 또한 한번 얻은 경험을 여러 번 재사용할 수 있어 데이터 효율성 측면에서도 매우 효과적이다.</p>
+<h3>탐색과 활용의 균형 — 지능적인 행동을 위한 필수 요소</h3>
+<p>에이전트가 최적의 행동을 학습하기 위해서는 두 가지 상반된 목표를 조화롭게 달성해야 한다. 첫째는 '활용(exploitation)'으로, 현재까지 학습된 지식을 바탕으로 가장 높은 보상을 얻을 것으로 예상되는 행동을 선택하는 것이다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=4E27qlfYw0A&amp;t=4411s">[1:13:31]</a> 둘째는 '탐색(exploration)'으로, 아직 시도해보지 않은 새로운 행동이나 경로를 탐험하여 더 큰 보상을 얻을 수 있는 기회를 찾는 것이다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=4E27qlfYw0A&amp;t=4432s">[1:13:52]</a> 엡실론-탐욕적 탐색은 이 두 가지의 균형을 맞추는 가장 기본적인 방법이다. 학습 초기에 탐색의 비율을 높게 설정하고, 학습이 진행됨에 따라 점진적으로 활용의 비율을 늘려 에이전트가 효율적으로 최적 정책을 찾아낼 수 있도록 돕는다.</p>
+<h3>보상 모델 — 인간 가치를 기계적으로 이해하는 다리</h3>
+<p>RLHF에서 보상 모델(RM)은 LLM을 인간의 의도와 선호도에 맞추는 데 결정적인 역할을 한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=4E27qlfYw0A&amp;t=5822s">[1:37:02]</a> RM은 인간 평가자들이 응답의 품질에 대해 내린 선호도 판단(예: 이 응답이 저 응답보다 낫다)을 학습하여, <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=4E27qlfYw0A&amp;t=5902s">[1:38:22]</a> 실제 인간을 대신해 LLM이 생성한 텍스트에 보상을 부여하는 '대리 평가자(proxy critic)'가 된다. 이는 인간이 모든 응답을 일일이 평가할 필요 없이, 방대한 양의 텍스트 생성에 대해 효율적으로 피드백을 제공할 수 있게 하여 LLM 학습의 확장성을 크게 높였다.</p>
+<h2>인상적인 지점</h2>
+<ul>
+<li><strong>AlphaGo의 '비직관적인' 수</strong>: AlphaGo가 인간에게는 이해하기 어려운 비직관적인 수를 두는 모습은 에이전트가 인간과 다른 방식으로 목표를 달성하려 함을 보여준다. 인간은 이기려면 상대를 압도적으로 이기는 것을 선호하지만, AlphaGo는 단순히 '이기기'만 하면 되므로 가장 효율적인 경로를 택해 근소한 차이로 이기는 전략을 발견하기도 한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=4E27qlfYw0A&amp;t=5343s">[1:29:03]</a> 이는 인공지능이 인간의 사고방식을 넘어선 새로운 전략을 창출할 수 있음을 시사한다.</li>
+<li><strong>Montezuma's Revenge의 '인간 직관'</strong>: 이 게임에서 열쇠를 얻기 위한 복잡한 일련의 행동(사다리를 내려가고, 밧줄을 잡고, 적을 뛰어넘는 등)은 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=4E27qlfYw0A&amp;t=4869s">[1:21:09]</a> 인간에게는 '사전 지식'과 '직관'으로 쉽게 이해되지만, 강화 학습 에이전트에게는 보상이 극도로 지연되어 학습이 매우 어려운 문제이다. 이는 인간이 일상 경험에서 얻는 폭넓은 지식이 복잡한 문제 해결에 얼마나 중요한지 상기시킨다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=4E27qlfYw0A&amp;t=4915s">[1:21:55]</a></li>
+<li><strong>로봇 스모의 '상위 행동(Emergent Behavior)'</strong>: 두 로봇 에이전트가 서로 스모 경기를 하면서 예상치 못한 상위 행동을 학습하는 모습은 인상적이다. 상대방의 발을 공격하거나, 무게중심을 낮춰 안정성을 확보하는 등의 행동은 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=4E27qlfYw0A&amp;t=5234s">[1:27:14]</a> 개발자가 명시적으로 프로그래밍하지 않았음에도 불구하고 에이전트 스스로 학습을 통해 발견해낸 전략이다. 이는 강화 학습이 복잡한 환경에서 창의적인 해결책을 찾아낼 수 있는 잠재력을 보여준다.</li>
+</ul>
+
+  </article>
+  <p class="post-end"><a href="https://www.youtube.com/watch?v=4E27qlfYw0A" target="_blank" rel="noopener">YouTube에서 원본 보기 ↗</a> · <a href="./">← 목록으로</a></p>
+</main>
+<footer class="site-foot">
+  <a href="/projects/yt-digest-overview">yt-digest</a> 파이프라인이 자막을 읽고 자동으로 작성한 브리핑입니다. 오류가 있을 수 있으니 중요한 내용은 원본 영상으로 확인하세요.
+</footer>
+</body>
+</html>

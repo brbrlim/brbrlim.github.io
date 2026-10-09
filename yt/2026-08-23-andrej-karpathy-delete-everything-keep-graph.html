@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>&quot;Delete Everything, Keep Graph” - Andrej Karpathy Stanford Lecture — 유튜브 다이제스트</title>
+<meta name="description" content="안드레이 카르파티는 지난 70년간 이어진 소프트웨어 1.0(알고리즘 설계)과 신경망 기반의 소프트웨어 2.0(데이터 엔진)을 넘어, 프롬프트(prompt)를 통해 LLM(대규모 언어 모델)을 프로그래밍하는 '소프트웨어 3.0' 시대가 도래했음을 강조한다. 그는 LLM이…">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="&quot;Delete Everything, Keep Graph” - Andrej Karpathy Stanford Lecture — 유튜브 다이제스트">
+<meta property="og:description" content="안드레이 카르파티는 지난 70년간 이어진 소프트웨어 1.0(알고리즘 설계)과 신경망 기반의 소프트웨어 2.0(데이터 엔진)을 넘어, 프롬프트(prompt)를 통해 LLM(대규모 언어 모델)을 프로그래밍하는 '소프트웨어 3.0' 시대가 도래했음을 강조한다. 그는 LLM이…">
+<meta property="og:image" content="https://i.ytimg.com/vi/XdbpCM4yGyE/hqdefault.jpg">
+<meta property="og:type" content="article">
+<link rel="icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+<script>
+// Follow the blog's saved light/dark choice (same origin, same key).
+(function () {
+  var saved = null
+  try { saved = localStorage.getItem("theme") } catch (e) {}
+  var dark = saved ? saved === "dark" : matchMedia("(prefers-color-scheme: dark)").matches
+  document.documentElement.dataset.theme = dark ? "dark" : "light"
+})()
+</script>
+</head>
+<body class="post-page">
+<header class="site-bar">
+  <a class="site-name" href="/">Johnny's</a>
+  <a class="back" href="./">← 유튜브 다이제스트</a>
+</header>
+<main class="post">
+  <a class="hero" href="https://www.youtube.com/watch?v=XdbpCM4yGyE" target="_blank" rel="noopener" aria-label="YouTube에서 보기">
+    <img src="https://i.ytimg.com/vi/XdbpCM4yGyE/hqdefault.jpg" alt="">
+    <span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+  </a>
+  <h1>&quot;Delete Everything, Keep Graph” - Andrej Karpathy Stanford Lecture</h1>
+  <div class="post-meta"><span>philia</span><span>1:08:30</span><span>게시 2026-08-14</span></div>
+  <div class="tags"><a href="./?q=%23ai">#ai</a><a href="./?q=%23deep-learning">#deep-learning</a><a href="./?q=%23transformers">#transformers</a><a href="./?q=%23prompt-engineering">#prompt-engineering</a><a href="./?q=%23software-development">#software-development</a><a href="./?q=%23llm">#llm</a><a href="./?q=%23neural-networks">#neural-networks</a></div>
+  <article>
+<h2>TL;DR</h2>
+<p>안드레이 카르파티는 지난 70년간 이어진 소프트웨어 1.0(알고리즘 설계)과 신경망 기반의 소프트웨어 2.0(데이터 엔진)을 넘어, 프롬프트(prompt)를 통해 LLM(대규모 언어 모델)을 프로그래밍하는 '소프트웨어 3.0' 시대가 도래했음을 강조한다. 그는 LLM이 런타임에 재구성 가능한 범용 컴퓨터처럼 작동하며, 영어가 가장 인기 있는 프로그래밍 언어가 되었다고 주장한다. 이 혁명의 중심에는 트랜스포머(Transformer) 아키텍처가 있으며, 그 유연성, 최적화 가능성, 효율성이 AI 기술 발전의 핵심 동력이라고 설명한다.</p>
+<h2>풀시청 판단</h2>
+<p>이 영상은 안드레이 카르파티가 AI 프로그래밍 패러다임의 변화와 트랜스포머 아키텍처의 핵심을 설명하는 밀도 높은 강의다.</p>
+<p><strong>풀시청할 가치:</strong></p>
+<ul>
+<li><strong>컴퓨터 과학 및 AI 분야 전공자/개발자:</strong> 소프트웨어 패러다임의 역사적 진화, LLM의 작동 방식, 트랜스포머의 내부 메커니즘 및 구현(nanoGPT 코드 리뷰)에 대한 깊이 있는 통찰을 얻을 수 있다. 특히 어텐션(attention) 메커니즘에 대한 화자의 직관적인 설명은 이해를 돕는다.</li>
+<li><strong>LLM 및 프롬프트 엔지니어링에 관심 있는 비전문가:</strong> LLM이 어떻게 &quot;범용 컴퓨터&quot;로 기능하며 프롬프트 엔지니어링이 왜 중요한지에 대한 개념을 명확히 이해할 수 있다. 다양한 실용 사례(Linux 터미널 시뮬레이션, 스마트 홈 비서, 백엔드 LLM)는 흥미로운 영감을 제공한다.</li>
+</ul>
+<p><strong>얻을 수 있는 것:</strong></p>
+<ul>
+<li><strong>새로운 프로그래밍 패러다임에 대한 이해:</strong> 소프트웨어 1.0(알고리즘)에서 2.0(데이터)을 거쳐 3.0(프롬프트)으로 진화하는 과정을 명쾌하게 설명한다.</li>
+<li><strong>트랜스포머와 어텐션의 핵심 개념:</strong> 트랜스포머가 여러 AI 분야에서 왜 보편적인 아키텍처가 되었는지, 그리고 어텐션 메커니즘이 어떻게 작동하는지에 대한 깊이 있는 설명을 얻을 수 있다.</li>
+<li><strong>LLM의 잠재력에 대한 폭넓은 시각:</strong> 프롬프트를 통해 LLM을 다루는 다양한 창의적 방법을 제시하며, LLM이 단순한 텍스트 생성기를 넘어선 범용 시뮬레이터 및 컴퓨터임을 보여준다.</li>
+</ul>
+<p><strong>약점 및 한계:</strong></p>
+<ul>
+<li><strong>빠른 기술 발전 속도:</strong> 강의가 2023년 2월에 진행되어, 언급된 특정 LLM 모델이나 성능 수치는 현재 기준 최신 정보가 아닐 수 있다. 다만, 트랜스포머의 기본 원리와 LLM의 개념적 변화에 대한 통찰은 여전히 유효하다.</li>
+<li><strong>기술적 깊이의 편차:</strong> 강의 초반의 프롬프트 엔지니어링 사례는 비교적 쉽게 이해할 수 있지만, 후반부의 트랜스포머 구현(nanoGPT) 설명은 PyTorch 및 딥러닝 구현에 대한 배경 지식이 없다면 따라가기 어려울 수 있다. 따라서 일부 섹션 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=3076s">[51:16]</a>은 비전문가에게는 난해하게 느껴질 수 있다.</li>
+<li><strong>특정 주제 생략:</strong> 트랜스포머의 핵심 주제를 다루지만, 일부 세부 사항(예: 로터리 위치 인코딩 등)은 시간이 부족하여 간략히 언급되거나 생략된다.</li>
+</ul>
+<h2>핵심 내용</h2>
+<h3>소프트웨어 1.0에서 3.0까지 — 프로그래밍 패러다임의 진화</h3>
+<p>프로그래밍 패러다임은 지난 70년간 변화하지 않던 소프트웨어 1.0 시대를 지나 급변하고 있다. 전통적인 소프트웨어 1.0은 C++와 같이 컴퓨터에 명시적인 명령을 주어 알고리즘을 설계하는 방식이었다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=193s">[3:13]</a>. 이 방식은 Linux와 같은 복잡한 소프트웨어 프로젝트를 가능하게 했지만, 이미지 인식, 체스 게임, 자율 주행 시스템, 범용 인공지능(AGI)과 같은 문제에서는 한계에 부딪혔다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=241s">[4:01]</a>.</p>
+<p>이에 새로운 프로그래밍 방식인 소프트웨어 2.0이 등장했다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=288s">[4:48]</a>. 소프트웨어 2.0은 신경망을 활용하며, 데이터셋을 구축하고 반복하여 신경망을 학습시키는 '데이터 엔진' 방식으로 프로그래밍한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=300s">[5:00]</a>. 학습된 신경망 가중치(weights)가 최종 프로그램이 된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=316s">[5:16]</a>. 이 방식은 컴퓨터 비전, 체스 엔진, 음성 인식 등에서 큰 성공을 거두었으며, 기존 소프트웨어 1.0 위에 쌓이는 형태로 작동한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=370s">[6:10]</a>.</p>
+<p>최근 2~3년 사이에 또 다른 중요한 전환이 일어나고 있으며, 이를 소프트웨어 3.0이라고 부른다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=416s">[6:56]</a>. 소프트웨어 3.0은 대규모 언어 모델(LLM)을 기반으로 하며, '프롬프트'를 설계하는 방식으로 LLM을 프로그래밍한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=1238s">[20:38]</a>. 이는 LLM을 특정 작업을 수행하도록 조건화하는 과정이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=1243s">[20:43]</a>.</p>
+<h3>LLM: 차세대 범용 시뮬레이터이자 런타임 재구성 가능한 컴퓨터</h3>
+<p>LLM은 기본적으로 다음 단어를 예측하는 모델이지만, 수조 개의 매개변수와 방대한 인터넷 데이터를 학습하면서 마법 같은 능력을 보여준다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=430s">[7:10]</a>. LLM은 텍스트를 생성할 수 있을 뿐만 아니라, 적절한 프롬프트 설계를 통해 복잡한 작업을 수행할 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=476s">[7:56]</a>. 예를 들어, 질문-답변 예시를 몇 개 제공하는 '맥락 내 학습(in-context learning)' 방식으로 모델을 조건화하면, 새로운 질문에 답하게 만들 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=486s">[8:06]</a>.</p>
+<p>LLM은 단순히 정답을 내놓는 것을 넘어, '단계별로 생각하라(let's think step by step)'는 프롬프트와 같이 문제 해결 과정을 분해하도록 유도하면 정확도가 크게 향상된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=544s">[9:04]</a>. 심지어 '정답을 얻고 싶으면'이라는 표현을 넣으면 모델이 '정답을 얻고 싶어'하도록 조건화되어 더 높은 정확도를 보인다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=609s">[10:09]</a>. 이는 모델이 인터넷에 존재하는 다양한 답변 중 우리가 원하는 특정 '슬라이스'의 예측을 수행하도록 유도해야 함을 시사한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=666s">[11:06]</a>.</p>
+<p>LLM은 가상의 환경을 시뮬레이션하는 능력도 탁월하다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=681s">[11:21]</a>. GPT에 Linux 터미널 역할을 요청하고 <code>pwd</code>, <code>ls</code> 등의 명령어를 입력하면, GPT는 가상의 파일 시스템을 생성하고 조작하며 응답한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=697s">[11:37]</a>. Python 프로그램 실행이나 <code>ping BBC.com</code>, <code>curl</code> 명령 시뮬레이션도 가능하다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=780s">[13:00]</a>. 이는 네트워크의 '마음속'에 완전히 가상의 시스템을 인스턴스화하는 것으로, 프롬프트만으로 시스템의 동작을 정의할 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=844s">[14:04]</a>.</p>
+<p>이러한 특성은 실제 애플리케이션 개발에도 활용될 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=857s">[14:17]</a>. GPT에게 스마트 홈의 두뇌 역할을 요청하고 기능과 가전제품 목록을 텍스트로 설명하면, 사용자의 자연어 요청에 따라 JSON 형식의 명령을 생성하여 가전제품을 제어할 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=879s">[14:39]</a>. 심지어 백엔드 코드 없이 LLM 하나로 프론트엔드 요청에 따라 앱의 상태(JSON)를 변경하고 응답하는 To-Do 리스트 앱도 개발 가능하다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=980s">[16:20]</a>. Microsoft의 Bing 챗봇 'Sydney'도 복잡한 텍스트 프롬프트로 프로그램되었을 가능성이 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=1077s">[17:57]</a>.</p>
+<h3>프롬프트 엔지니어링: 영어가 가장 인기 있는 새 프로그래밍 언어가 되다</h3>
+<p>프롬프트는 LLM의 동작을 결정하는 매우 중요한 요소이며, 이를 설계하는 것은 예술이자 과학이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=1156s">[19:16]</a>. 최근 '프롬프트 엔지니어(prompt engineer)'라는 직업이 생겨났으며, 스케일(Scale)의 라일리 굿사이드(Riley Goodside)가 대표적인 인물로 꼽힌다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=1161s">[19:21]</a>. 이는 과거의 신경망이 특정 작업을 위해 설계된 특수 목적 컴퓨터였다면, LLM, 특히 GPT는 자연어 프로그램을 실행하도록 런타임에 재구성 가능한 '범용 컴퓨터'임을 시사한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=1190s">[19:50]</a>. 프로그램은 프롬프트로 지정되고, GPT는 문서 완성을 통해 프로그램을 실행한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=1208s">[20:08]</a>.</p>
+<p>카르파티는 &quot;가장 인기 있는 새로운 프로그래밍 언어는 영어&quot;라고 강조하며 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=1218s">[20:18]</a>, 이는 놀랍고도 흥미로운 현상이라고 말한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=1220s">[20:20]</a>. 더욱이, 프롬프트로 소프트웨어를 프로그래밍하는 방식은 인간을 프로그래밍하는 방식과도 유사하다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=1255s">[20:55]</a>. 인간에게 어떤 일을 시키려면 '프롬프트'를 통해 지시하는 것처럼, 기술이 인간의 사고방식으로 수렴하고 있다는 점은 주목할 만하다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=1257s">[20:57]</a>.</p>
+<h3>트랜스포머의 등장 — AI 분야의 언어 통합</h3>
+<p>2011년경 컴퓨터 비전 연구는 수많은 기능 설명자(feature descriptor)를 수집하고 SVM(서포트 벡터 머신) 위에 쌓아 올리는 복잡한 파이프라인으로 이루어져 있었다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=1867s">[31:07]</a>. 각 분야마다 완전히 다른 어휘를 사용했기에, 컴퓨터 비전 전문가가 자연어 처리(NLP) 논문을 이해하기는 거의 불가능했다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=1930s">[32:10]</a>.</p>
+<p>이러한 상황은 2012년 AlexNet의 성공 이후 신경망이 대규모 데이터셋에서 강력한 성능을 발휘한다는 사실이 입증되면서 변화하기 시작했다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=1956s">[32:36]</a>. 신경망이 컴퓨팅 자원과 데이터만 충분하면 잘 작동한다는 인식이 확산되며, 컴퓨터 비전, NLP, 음성, 번역, 강화 학습 등 모든 AI 분야에서 신경망이 보편적인 도구이자 모델링 틀로 자리 잡았다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=1976s">[32:56]</a>. 이로 인해 각 분야의 진입 장벽이 낮아지고 논문들이 유사해졌다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=1987s">[33:07]</a>.</p>
+<p>결정적인 변화는 2017년 트랜스포머 아키텍처가 등장하면서 일어났다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=2012s">[33:32]</a>. 트랜스포머는 단순한 기계 번역 논문으로 시작했지만, 곧 이 아키텍처가 모든 AI 분야에 복사-붙여넣기 되어 사용될 수 있음이 밝혀졌다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=2028s">[33:48]</a>. 이제 각 분야별로 달라지는 것은 데이터의 세부 사항과 처리 방식뿐이며, 논문들이 더욱 유사해졌다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=2034s">[33:54]</a>. 카르파티는 이러한 아키텍처의 수렴이 뇌가 시각, 청각 피질 등 모든 영역에서 균질하고 균일한 구조를 보이는 것과 유사하며, 강력하고 보편적인 학습 알고리즘으로 수렴하는 힌트일 수 있다고 말한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=2053s">[34:13]</a>.</p>
+<h3>어텐션 메커니즘의 탄생과 트랜스포머의 핵심 원리</h3>
+<p>트랜스포머의 역사는 2003년 얀 르쿤(Yann LeCun) 등의 언어 모델링 논문에서 시작된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=2078s">[34:38]</a>. 이 논문은 세 단어를 입력받아 네 번째 단어의 확률 분포를 예측하는 단순한 신경망을 사용했다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=2090s">[34:50]</a>. 2014년의 '시퀀스-투-시퀀스(sequence-to-sequence)' 논문은 LSTM(Long Short-Term Memory)을 활용하여 임의 길이의 영어 문장을 프랑스어 문장으로 번역하는 모델을 제시했다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=2106s">[35:06]</a>. 하지만 이 모델에는 인코더 LSTM이 전체 영어 문장의 정보를 단일 벡터에 압축하여 디코더로 전달하는 '인코더 병목 현상'이라는 큰 문제가 있었다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=2156s">[35:56]</a>.</p>
+<p>이 병목 현상을 해결하기 위해 2014년 바흐다나우(Bahdanau) 등이 발표한 '어텐션(attention)' 개념이 등장했다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=2175s">[36:15]</a>. 이들은 디코더가 타겟 단어를 예측할 때, 소스 문장의 관련 부분에 '소프트 검색(soft search)'을 통해 집중(attention)하도록 제안했다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=2194s">[36:34]</a>. 이 '소프트 어텐션 메커니즘'은 디코딩 과정에서 인코더의 모든 단어 상태를 가중합하여 맥락 벡터를 생성하는 방식이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=2211s">[36:51]</a>. 여기서 사용된 '어텐션'이라는 용어는 당시 조슈아 벤지오(Yoshua Bengio)가 논문 검토 과정에서 제안한 것으로 알려졌다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=2331s">[38:51]</a>.</p>
+<p>2017년 '어텐션 이즈 올 유 니드(Attention Is All You Need)' 논문은 혁명적이었다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=2352s">[39:12]</a>. 이 논문은 인코더-디코더 RNN 구조에서 어텐션 컴포넌트만 남기고 모든 RNN을 제거해도 잘 작동할 뿐만 아니라 더 좋은 성능을 보인다는 것을 입증했다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=2364s">[39:24]</a>. 어텐션은 집합(sets)에 대해 작동하므로, 입력값에 '위치 인코딩(positional encoding)'을 추가하여 단어의 순서 정보를 제공해야 했다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=2401s">[40:01]</a>. 이 논문은 잔차 연결(residual connections), 레이어 정규화(layer norms), 멀티 헤드 어텐션(multi-headed attention) 등 여러 혁신적인 요소를 결합하고 최적의 하이퍼파라미터(hyperparameter)를 제시하여 현재까지도 GPT 등 대부분의 LLM이 사용하는 2017년 아키텍처의 놀라운 견고함을 확립했다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=2412s">[40:12]</a>.</p>
+<p>GPT-3 논문에서는 트랜스포머의 '맥락 내 학습(in-context learning)' 또는 '메타 학습(meta-learning)' 능력이 주목받았다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=2480s">[41:20]</a>. 트랜스포머는 프롬프트 내에 주어진 예시들을 학습하여, 별도의 경사 하강법(gradient descent) 기반의 미세 조정(fine-tuning) 없이도 새로운 작업을 수행하는 능력을 보여준다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=2522s">[42:02]</a>. 일부 연구는 트랜스포머 내부의 활성화 값(activations)에서 경사 기반 학습과 유사한 과정이 일어날 수 있음을 시사한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=2589s">[43:09]</a>.</p>
+<h3>트랜스포머 성공의 세 가지 비결: 표현력, 최적화 가능성, 효율성</h3>
+<p>트랜스포머 아키텍처는 세 가지 중요한 특성을 동시에 최적화했기에 성공할 수 있었다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=2627s">[43:47]</a>.</p>
+<ol>
+<li><strong>표현력(Expressiveness)</strong>: 트랜스포머는 매우 복잡하고 흥미로운 함수를 구현할 수 있으며, 심지어 메타 학습까지 수행할 수 있는 잠재력을 가졌다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=2633s">[43:53]</a>.</li>
+<li><strong>최적화 가능성(Optimisability)</strong>: 잔차 연결과 레이어 정규화 덕분에 경사 하강법을 통한 학습이 매우 원활하다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=2642s">[44:02]</a>. 이는 역전파(backpropagation) 시 경사가 잘 흐르도록 돕는다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=3962s">[1:06:02]</a>.</li>
+<li><strong>효율성(Efficiency)</strong>: 트랜스포머는 '얕고 넓은' 컴퓨팅 그래프 구조를 가지므로, GPU의 병렬 처리 능력을 극대화하여 매우 효율적으로 실행될 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=2647s">[44:07]</a>. 딥러닝에서 규모(scale)가 중요하기 때문에, 현재 하드웨어에서 효율적이라는 점은 네트워크를 더 크게 만들 수 있게 하여 성능 향상에 결정적인 역할을 했다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=3994s">[1:06:34]</a>. RNN이 '길고 얇은' 그래프로 직렬 처리에 의존하여 비효율적이고 최적화하기 어려웠던 것과 대조된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=3926s">[1:05:26]</a>.</li>
+</ol>
+<h3>어텐션: 방향 그래프 기반의 데이터 의존적 메시지 전달</h3>
+<p>카르파티는 어텐션을 트랜스포머의 '통신 단계(communication phase)'로 설명한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=2689s">[44:49]</a>. 트랜스포머는 통신 단계(멀티 헤드 어텐션)와 계산 단계(다층 퍼셉트론, MLP)를 교차로 수행한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=2702s">[45:02]</a>.</p>
+<p>어텐션은 방향 그래프(directed graph)에서 데이터 의존적 메시지 전달 방식으로 작동한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=2704s">[45:04]</a>. 각 노드(예: 텍스트의 토큰)는 벡터 형태의 고유한 정보를 저장하며, 이 노드들은 서로 통신한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=2713s">[45:13]</a>.</p>
+<ol>
+<li><strong>쿼리(Query), 키(Key), 값(Value) 생성</strong>: 각 노드는 자신의 데이터 벡터를 선형 변환하여 '쿼리(내가 찾는 것)', '키(내가 가진 것)', '값(내가 전달할 것)' 벡터를 생성한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=2740s">[45:40]</a>.</li>
+<li><strong>친밀도 계산</strong>: 특정 노드(질문자)의 쿼리 벡터와 자신에게 연결된 다른 노드들(답변 후보)의 키 벡터가 내적(dot product)을 통해 상호작용하여 '친밀도' 점수(unnormalized weight)를 얻는다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=2772s">[46:12]</a>. 이는 질문자가 찾고 있는 정보와 답변 후보가 가진 정보 사이의 유사성을 측정한다.</li>
+<li><strong>정규화</strong>: 이 점수들을 소프트맥스(softmax) 함수로 정규화하여 총합이 1이 되는 확률 분포를 만든다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=2810s">[46:50]</a>.</li>
+<li><strong>값 전달 및 업데이트</strong>: 정규화된 점수를 가중치로 사용하여 답변 후보 노드들의 값 벡터를 가중합하고, 이 가중합된 값을 질문자 노드의 정보 업데이트에 사용한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=2816s">[46:56]</a>.</li>
+</ol>
+<p>이러한 메시지 전달 과정은 멀티 헤드 어텐션에서 여러 개의 '헤드'를 통해 병렬로 독립적으로 수행되며 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=2861s">[47:41]</a>, 각 헤드는 다른 종류의 정보를 탐색하고 수집한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=2964s">[49:24]</a>. '셀프 어텐션(self-attention)'은 모든 노드가 스스로 쿼리, 키, 값을 생성하여 서로 통신하는 방식이며 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=2984s">[49:44]</a>, '크로스 어텐션(cross-attention)'은 쿼리는 현재 노드에서 생성하지만, 키와 값은 인코더와 같은 외부 소스에서 가져오는 방식이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=2998s">[49:58]</a>.</p>
+<h3>나노 GPT(nanoGPT)로 살펴본 디코더 전용 트랜스포머의 구현</h3>
+<p>카르파티는 본인이 직접 구현한 최소한의 트랜스포머 모델인 nanoGPT를 통해 디코더 전용 트랜스포머의 작동 방식을 설명한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=3076s">[51:16]</a>. 이 모델은 Shakespeare 텍스트를 학습하여 새로운 셰익스피어 스타일의 텍스트를 생성할 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=3174s">[52:54]</a>.</p>
+<ol>
+<li><strong>데이터 준비</strong>: 원본 텍스트를 문자 단위로 정수 시퀀스로 변환한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=3189s">[53:09]</a>. 모델은 이 정수 시퀀스를 입력으로 받는다. 여러 문서의 경우 특수 토큰으로 문서 경계를 표시한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=3221s">[53:41]</a>.</li>
+<li><strong>배치 처리</strong>: 변환된 정수 시퀀스를 '블록 크기(block size, 최대 맥락 길이)'와 '배치 크기(batch size, 병렬 처리할 시퀀스 수)'로 나누어 배치(batch) 형태로 처리한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=3236s">[53:56]</a>. 각 배치 내에는 여러 개의 입력-타겟 쌍이 포함되어 모델이 다음 문자를 예측하도록 학습된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=3280s">[54:40]</a>.</li>
+<li><strong>임베딩 및 위치 인코딩</strong>: 모델의 순방향(forward) 단계에서 입력 정수들은 임베딩 조회 테이블(embedding lookup table)을 통해 벡터로 변환된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=3360s">[56:00]</a>. 트랜스포머는 기본적으로 집합을 처리하므로, 토큰의 순서 정보를 제공하기 위해 '위치 임베딩(positional embedding)'을 추가한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=3379s">[56:19]</a>. 이 두 정보는 더해져(additively) 트랜스포머 블록의 입력이 된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=3397s">[56:37]</a>.</li>
+<li><strong>트랜스포머 블록</strong>: 트랜스포머는 여러 개의 블록을 순차적으로 적용한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=3459s">[57:39]</a>. 각 블록은 '통신 단계(멀티 헤드 셀프 어텐션)'와 '계산 단계(MLP)'로 구성된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=3463s">[57:43]</a>. 디코더 전용 모델이므로 미래 정보를 차단하는 '마스킹(masking)' 처리가 어텐션 과정에 적용되어, 특정 토큰이 미래의 토큰을 참조하지 못하게 한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=3557s">[59:17]</a>.</li>
+<li><strong>출력 로짓 및 손실</strong>: 블록을 통과한 최종 출력에 선형 계층(linear layer)을 적용하여 다음 토큰에 대한 로짓(logits)을 얻고 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=3417s">[56:57]</a>, 크로스 엔트로피 손실(cross entropy loss)을 사용하여 모델을 학습시킨다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=3452s">[57:32]</a>.</li>
+<li><strong>텍스트 생성</strong>: 학습된 모델로 텍스트를 생성할 때는 초기 토큰을 입력하고, 모델이 예측한 다음 토큰을 다시 입력으로 사용하여 반복적으로 시퀀스를 확장한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=3701s">[1:01:41]</a>. 맥락 길이가 블록 크기를 초과하면, 가장 오래된 토큰부터 잘라내어 일정한 맥락 길이를 유지한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=3751s">[1:02:31]</a>.</li>
+<li><strong>인코더-디코더 변형</strong>: 마스킹 라인을 삭제하면 모든 노드가 서로 통신할 수 있는 인코더 블록이 되고 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=3787s">[1:03:07]</a>, 인코더의 출력을 키와 값으로 사용하는 크로스 어텐션 블록을 추가하면 인코더-디코더 트랜스포머(예: T5)가 된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=3818s">[1:03:38]</a>. BERT와 같은 인코더 전용 모델은 전체 문장을 입력으로 받아 감성 분류와 같은 작업을 수행한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=3810s">[1:03:30]</a>.</li>
+</ol>
+<h2>주요 통찰·논점</h2>
+<h3>프로그래밍의 본질이 '설계'의 대상 변화로 진화하고 있다</h3>
+<p>소프트웨어 1.0에서는 '알고리즘'을 설계했고, 소프트웨어 2.0에서는 '데이터셋'을 설계하는 것이 핵심이었다. 이제 소프트웨어 3.0에서는 '프롬프트'를 설계하는 것이 프로그래밍의 본질이 되었다. 이러한 변화는 인간이 컴퓨터와 상호작용하는 방식과 컴퓨터가 '무엇을 할지'를 정의하는 근본적인 패러다임의 전환을 보여준다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=1226s">[20:26]</a>.</p>
+<h3>LLM은 런타임에 재구성 가능한 '범용 컴퓨터'이다</h3>
+<p>LLM은 특정 작업을 위해 고정된 특수 목적 컴퓨터가 아니라, 자연어 프롬프트라는 '프로그램'을 통해 런타임에 그 동작을 동적으로 재구성할 수 있는 범용 컴퓨터와 같다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=1190s">[19:50]</a>. 이는 개발자가 코드를 작성하는 대신 텍스트로 시스템의 동작을 정의할 수 있음을 의미하며, 리눅스 터미널이나 스마트 홈 비서, 심지어 애플리케이션 백엔드까지 LLM을 통해 구현하는 사례들은 이 주장을 뒷받침한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=697s">[11:37]</a>.</p>
+<h3>영어는 새로운 시대의 가장 강력한 프로그래밍 언어가 되었다</h3>
+<p>&quot;가장 인기 있는 새로운 프로그래밍 언어는 영어&quot;라는 주장은 기존의 코드 기반 프로그래밍을 넘어, 자연어 기반의 지시와 상호작용이 시스템을 제어하는 핵심 수단이 되었음을 상징적으로 보여준다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=1218s">[20:18]</a>. 프롬프트 엔지니어링은 이러한 새로운 프로그래밍 방식의 핵심 기술이며, 이는 인간이 인간을 프로그램하는 방식과도 유사하여 기술과 인간 간의 수렴 현상을 시사한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=1255s">[20:55]</a>.</p>
+<h3>트랜스포머는 AI 연구의 '통합 언어'이자 '보편적 아키텍처'이다</h3>
+<p>트랜스포머 아키텍처는 과거 각 분야별로 파편화되어 있던 AI 모델들을 단일한 구조로 수렴시켰다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=2012s">[33:32]</a>. 컴퓨터 비전, 자연어 처리, 음성 인식, 강화 학습 등 모든 분야에서 데이터를 '시퀀스'나 '패치' 형태로 변환하여 트랜스포머에 적용할 수 있게 되었다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=1483s">[24:43]</a>. 이는 뇌의 피질이 균질한 구조로 다양한 기능을 수행하는 것과 유사하게, 강력하고 보편적인 학습 알고리즘의 가능성을 보여주는 중요한 통찰이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=2053s">[34:13]</a>.</p>
+<h3>트랜스포머의 '메타 학습' 능력은 내부 활성화 값에서 비롯된다</h3>
+<p>GPT-3 논문에서 밝혀진 트랜스포머의 '맥락 내 학습' 능력은 모델이 별도의 경사 하강법 없이도 프롬프트 내 예시를 통해 새로운 작업을 학습할 수 있음을 보여준다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=2480s">[41:20]</a>. 이는 트랜스포머가 내부 활성화 값에서 자체적으로 경사 기반 학습과 유사한 '내부 루프(inner loop)' 학습을 수행하고 있을 수 있다는 가능성을 제시하며 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=2550s">[42:30]</a>, 트랜스포머의 놀라운 유연성과 적응력의 근간을 이룬다.</p>
+<h2>인상적인 지점</h2>
+<ul>
+<li><strong>GPT가 리눅스 터미널을 시뮬레이션하는 예시</strong> <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=697s">[11:37]</a>: 실제 컴퓨터 없이 GPT가 <code>pwd</code>, <code>ls</code>, <code>cd</code>, <code>make file</code> 등의 명령에 응답하며 가상의 파일 시스템을 유지하는 모습은 LLM의 시뮬레이션 능력이 얼마나 강력한지 직관적으로 보여준다. 심지어 <code>ping bbc.com</code>을 요청하면 가상의 IP 주소와 레이턴시를 응답하는 대목은 현실과 환상의 경계를 넘나드는 LLM의 특성을 잘 드러낸다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=798s">[13:18]</a>.</li>
+<li><strong>스마트 홈 비서와 백엔드 LLM</strong> <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=857s">[14:17]</a>: 텍스트 프롬프트만으로 스마트 홈의 가전제품을 제어하거나, 파이썬 코드 없이 LLM이 애플리케이션의 백엔드 역할을 수행하며 JSON 상태를 관리하는 사례는 '영어가 프로그래밍 언어'라는 주장을 실제 애플리케이션으로 구현해낸 창의적인 해킹으로 다가온다.</li>
+<li><strong>Dmitry Bahdanau의 '어텐션' 영감</strong> <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=2295s">[38:15]</a>: 기계 번역을 연구하던 디미트리 바흐다나우가 영어를 배우던 중, 모국어와 영어 문장 사이에서 시선을 오가며 번역하던 경험에서 '소프트 검색'이라는 어텐션 아이디어를 얻었다는 일화는 인간의 직관이 기술 혁신에 미치는 영향을 보여준다.</li>
+<li><strong>2017년 트랜스포머 아키텍처의 놀라운 견고함</strong> <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XdbpCM4yGyE&amp;t=2461s">[41:01]</a>: '어텐션 이즈 올 유 니드' 논문이 제시한 트랜스포머 아키텍처가 5년이 지난 오늘날까지도 GPT를 포함한 대부분의 LLM에서 큰 변화 없이 사용되고 있다는 사실은 해당 아키텍처의 탁월한 설계와 잠재력을 증명한다. 수많은 연구에도 불구하고 이 기본 구조가 흔들림 없이 유지된다는 점이 매우 인상적이다.</li>
+</ul>
+
+  </article>
+  <p class="post-end"><a href="https://www.youtube.com/watch?v=XdbpCM4yGyE" target="_blank" rel="noopener">YouTube에서 원본 보기 ↗</a> · <a href="./">← 목록으로</a></p>
+</main>
+<footer class="site-foot">
+  <a href="/projects/yt-digest-overview">yt-digest</a> 파이프라인이 자막을 읽고 자동으로 작성한 브리핑입니다. 오류가 있을 수 있으니 중요한 내용은 원본 영상으로 확인하세요.
+</footer>
+</body>
+</html>

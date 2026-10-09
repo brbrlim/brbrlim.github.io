@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jeff Dean: The 1% Rule for Building in AI — 유튜브 다이제스트</title>
+<meta name="description" content="구글 AI 수석 과학자 제프 딘(Jeff Dean)은 AI 분야의 과거와 현재, 미래에 대한 통찰을 공유한다. 그는 AI 모델이 이미 초급 엔지니어 수준에 도달했다고 평가하며, 향후 AI 시스템 스스로가 ML 시스템의 역량을 개선하는 방향으로 발전할 것으로 예측한다.…">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="Jeff Dean: The 1% Rule for Building in AI — 유튜브 다이제스트">
+<meta property="og:description" content="구글 AI 수석 과학자 제프 딘(Jeff Dean)은 AI 분야의 과거와 현재, 미래에 대한 통찰을 공유한다. 그는 AI 모델이 이미 초급 엔지니어 수준에 도달했다고 평가하며, 향후 AI 시스템 스스로가 ML 시스템의 역량을 개선하는 방향으로 발전할 것으로 예측한다.…">
+<meta property="og:image" content="https://i.ytimg.com/vi/CxXgV54KzpQ/hqdefault.jpg">
+<meta property="og:type" content="article">
+<link rel="icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+<script>
+// Follow the blog's saved light/dark choice (same origin, same key).
+(function () {
+  var saved = null
+  try { saved = localStorage.getItem("theme") } catch (e) {}
+  var dark = saved ? saved === "dark" : matchMedia("(prefers-color-scheme: dark)").matches
+  document.documentElement.dataset.theme = dark ? "dark" : "light"
+})()
+</script>
+</head>
+<body class="post-page">
+<header class="site-bar">
+  <a class="site-name" href="/">Johnny's</a>
+  <a class="back" href="./">← 유튜브 다이제스트</a>
+</header>
+<main class="post">
+  <a class="hero" href="https://www.youtube.com/watch?v=CxXgV54KzpQ" target="_blank" rel="noopener" aria-label="YouTube에서 보기">
+    <img src="https://i.ytimg.com/vi/CxXgV54KzpQ/hqdefault.jpg" alt="">
+    <span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+  </a>
+  <h1>Jeff Dean: The 1% Rule for Building in AI</h1>
+  <div class="post-meta"><span>Y Combinator</span><span>57:07</span><span>게시 2026-07-30</span></div>
+  <div class="tags"><a href="./?q=%23ai">#ai</a><a href="./?q=%23machine-learning">#machine-learning</a><a href="./?q=%23hardware">#hardware</a><a href="./?q=%23agents">#agents</a><a href="./?q=%23startups">#startups</a><a href="./?q=%23google">#google</a><a href="./?q=%23jeff-dean">#jeff-dean</a></div>
+  <article>
+<h2>TL;DR</h2>
+<p>구글 AI 수석 과학자 제프 딘(Jeff Dean)은 AI 분야의 과거와 현재, 미래에 대한 통찰을 공유한다. 그는 AI 모델이 이미 초급 엔지니어 수준에 도달했다고 평가하며, 향후 AI 시스템 스스로가 ML 시스템의 역량을 개선하는 방향으로 발전할 것으로 예측한다. 특히, 스타트업에게는 대규모 일반 모델이 잘 해결하지 못하는 틈새 문제를 찾아 ‘1%의 기회’를 포착해야 한다고 강조한다.</p>
+<h2>풀시청 판단</h2>
+<p>이 영상은 구글의 AI 연구를 이끌어온 제프 딘의 광범위한 경험과 통찰을 바탕으로 AI 분야의 현재와 미래 동향, 그리고 창업가가 주목해야 할 기회에 대한 심층적인 관점을 제공한다. AI 기술의 발전 방향, 하드웨어의 중요성, 에이전트 시스템, 그리고 스타트업이 경쟁력을 가질 수 있는 영역에 대한 구체적인 조언을 얻을 수 있다.</p>
+<p><strong>시청을 추천하는 대상:</strong></p>
+<ul>
+<li>AI 분야의 기술 동향과 미래 예측에 관심 있는 연구자 및 엔지니어</li>
+<li>AI 스타트업을 준비하거나 운영 중인 창업가</li>
+<li>AI 시스템 설계 및 최적화에 대한 깊이 있는 이해를 얻고자 하는 개발자</li>
+<li>AI 시대에 필요한 역량과 중요한 문제 정의 방법에 대해 고민하는 이들</li>
+</ul>
+<p><strong>주목할 만한 챕터:</strong></p>
+<ul>
+<li>
+<h3>AI는 이미 초급 엔지니어 수준, 곧 ML 시스템 자체의 자동화가 온다</h3>
+</li>
+<li>
+<h3>지금은 '추론 하드웨어'의 전성기, 50배 빠른 저지연 시스템이 가능해진다</h3>
+</li>
+<li>
+<h3>계산은 1피코줄, 데이터 이동은 1천 피코줄 — 데이터 입출력 최적화가 시스템 설계의 핵심</h3>
+</li>
+<li>
+<h3>스타트업의 기회: 일반 모델이 실패하는 1%의 문제, 특정 데이터나 틈새 영역에 집중하라</h3>
+</li>
+<li>
+<h3>희소한 자원: 좋은 문제를 정의하는 ‘안목(taste)’이 가장 중요한 기술이다</h3>
+</li>
+<li>
+<h3>사고 실험: 당연하게 받아들여지는 전제에 의문을 제기하며 새로운 길을 찾는다</h3>
+</li>
+<li>
+<h3>AI가 AI를 만드는 시대: 과학적 방법론을 자동화해 발견 속도를 가속화한다</h3>
+</li>
+</ul>
+<p><strong>약점 및 한계:</strong></p>
+<ul>
+<li>영상은 대담 형식으로 진행되어, 특정 주제에 대한 심층적인 설명보다는 폭넓은 질문과 답변 위주로 이어진다.</li>
+<li>일부 내용은 구글의 내부 시스템이나 연구 사례를 기반으로 하여, 외부 스타트업이 즉시 적용하기에는 추가적인 해석과 노력이 필요할 수 있다.</li>
+<li>인터뷰 시점(2024년 5월) 이후 AI 기술은 빠르게 변화하고 있으므로, 일부 예측이나 언급된 기술적 세부 사항은 시차가 발생할 수 있다.</li>
+</ul>
+<h2>핵심 내용</h2>
+<h3>AI는 이미 초급 엔지니어 수준, 곧 ML 시스템 자체의 자동화가 온다</h3>
+<p>제프 딘은 2025년 AI가 초급 엔지니어 수준에 도달할 것이라는 지난 예측이 현재 꽤 정확하다고 평가한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=CxXgV54KzpQ&amp;t=46s">[0:46]</a>. AI 모델은 에이전트 기반의 긴 코딩 작업을 수행하는 데 크게 향상되었으며, 코딩 외 다른 분야에서도 에이전트 기반 시스템이 두각을 나타내고 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=CxXgV54KzpQ&amp;t=92s">[1:32]</a>. 그는 2027년까지 ML 시스템 자체의 자동화가 크게 진전될 것으로 예측한다. 이는 ML 시스템이 많은 실험을 실행하고, 문제를 하위 문제로 분해한 뒤 자동화된 실험 루프를 통해 개선된 시스템을 도출하는 방식으로 이루어진다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=CxXgV54KzpQ&amp;t=111s">[1:51]</a>. 이 자동화된 문제 분해 및 실험 방식은 ML뿐만 아니라 측정 가능한 목표를 가진 모든 과학 및 공학 분야에 적용되어 큰 발전을 가져올 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=CxXgV54KzpQ&amp;t=147s">[2:27]</a>.</p>
+<h3>지금은 '추론 하드웨어'의 전성기, 50배 빠른 저지연 시스템이 가능해진다</h3>
+<p>2001년 구글 검색 색인(search index)이 RAM에 전부 들어갈 수 있게 되면서 구글 검색 속도가 혁신적으로 빨라진 사례처럼 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=CxXgV54KzpQ&amp;t=162s">[2:42]</a>, 현재 AI 분야에서는 '추론 하드웨어'가 중요한 변곡점을 맞고 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=CxXgV54KzpQ&amp;t=220s">[3:40]</a>. 모두가 추론(inference)이 에이전트 기반 시스템을 더 많은 사람이 사용할 수 있게 하는 핵심이며, 지연 시간(latency)이 매우 중요하다고 깨닫고 있기 때문이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=CxXgV54KzpQ&amp;t=231s">[3:51]</a>. TPU(Tensor Processing Unit) 개발 경험에서 보듯, 특정 작업을 위해 하드웨어를 전문화하면 범용 컴퓨팅 장치보다 에너지 효율이 높고 지연 시간이 훨씬 짧은 시스템을 만들 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=CxXgV54KzpQ&amp;t=243s">[4:03]</a>. 이는 50배 더 나은 지연 시간을 가진 시스템을 상상할 수 있게 한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=CxXgV54KzpQ&amp;t=274s">[4:34]</a>.</p>
+<p>현재 많은 사람이 AI 에이전트 시스템이 몇 시간 동안만 문제 해결에 작동한다고 생각하지만, 실제로는 특정 문제 영역과 고성능 모델을 사용하면 에이전트가 며칠 또는 몇 주 동안 복잡한 작업을 실행할 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=CxXgV54KzpQ&amp;t=300s">[5:00]</a>. 예를 들어, 에이전트에게 더 나은 안전성이나 성능 특성을 가진 새로운 소프트웨어 버전을 다른 프로그래밍 언어로 구현하도록 지시하면, 에이전트가 이를 매우 진지하게 수행할 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=CxXgV54KzpQ&amp;t=343s">[5:43]</a>.</p>
+<h3>계산은 1피코줄, 데이터 이동은 1천 피코줄 — 데이터 입출력 최적화가 시스템 설계의 핵심</h3>
+<p>오늘날 AI 시스템 설계에서 가장 중요한 측정 단위는 '에너지'다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=CxXgV54KzpQ&amp;t=732s">[12:12]</a>. 단일 계산이나 연산에는 약 1피코줄(picojoule)의 에너지가 들지만, 데이터를 이동시키는 데는 그보다 1,000배 더 많은 에너지가 소모된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=CxXgV54KzpQ&amp;t=738s">[12:18]</a>. 이러한 에너지 격차는 어떤 제품이 가능하고 AI 알고리즘이 어떻게 구축되는지를 결정한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=CxXgV54KzpQ&amp;t=753s">[12:33]</a>.</p>
+<p>이 때문에 ML에서는 데이터 이동 비용을 상쇄하기 위해 여러 예시나 토큰을 한 번에 묶어 처리하는 배치(batching)가 필수적이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=CxXgV54KzpQ&amp;t=786s">[13:06]</a>. 이는 모델의 문제가 아니라 시스템의 데이터 입출력(data IO) 문제에 가깝다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=CxXgV54KzpQ&amp;t=843s">[14:03]</a>. 특히 추론(inference) 단계에서는 매우 낮은 지연 시간이 중요하므로, 데이터 이동을 최소화하고 극도로 낮은 정밀도 연산을 사용하는 하드웨어 전문화의 여지가 크다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=CxXgV54KzpQ&amp;t=884s">[14:44]</a>.</p>
+<h3>모델을 넘어선 ‘문맥 엔지니어링’과 ‘에이전트 시스템’이 AI 발전의 핵심이 된다</h3>
+<p>과거 AI 발전은 더 많은 데이터와 큰 모델, 많은 파라미터로 더 나은 모델을 만드는 것을 의미했지만 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=CxXgV54KzpQ&amp;t=976s">[16:16]</a>, 이제는 검색 도구(retrieval tools), 기억(memory), 에이전트 도구 등 모델 주변의 모든 요소가 중요해지고 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=CxXgV54KzpQ&amp;t=991s">[16:31]</a>. 이를 '문맥 엔지니어링(context engineering)'이라 부르기도 한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=CxXgV54KzpQ&amp;t=999s">[16:39]</a>. 모델은 전체 시스템의 한 부분일 뿐이며, 다양한 도구를 사용하고 관련 정보를 검색하며, 과거 문제 해결 기록을 활용하여 모델의 문맥에 정보를 주입할 수 있어야 한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=CxXgV54KzpQ&amp;t=1005s">[16:45]</a>.</p>
+<p>문맥에 직접 주입된 정보는 모델이 학습한 수조 개의 토큰보다 훨씬 명확하다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=CxXgV54KzpQ&amp;t=1035s">[17:15]</a>. 에이전트가 어떤 도구를 사용할지, 문제를 어떻게 분해하고 여러 접근 방식을 시도하며 그 결과를 평가할지 이해하는 능력이 점점 더 중요해지고 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=CxXgV54KzpQ&amp;t=1059s">[17:39]</a>. 이는 복잡한 에이전트 및 다중 에이전트 시스템의 조정(orchestration)에 해당하며, 특히 일반 모델 학습에 필요한 막대한 자원 없이도 API를 통해 Gemini 같은 모델을 활용하여 각자의 검색, 도구 호출 등을 구축할 수 있어 창업가들에게 기회가 된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=CxXgV54KzpQ&amp;t=1091s">[18:11]</a>. 에이전트의 실패는 종종 모델이 학습 분포에서 벗어나기 때문인데, 모델에게 '기술(skills)'과 힌트를 제공하여 잘 알려진 경로에 머물도록 하거나, 여러 에이전트가 다양한 접근 방식을 시도하고 다른 에이전트가 이를 평가하도록 하는 다중 에이전트 시스템이 효과적이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=CxXgV54KzpQ&amp;t=1381s">[23:01]</a>.</p>
+<h3>스타트업의 기회: 일반 모델이 실패하는 1%의 문제, 특정 데이터나 틈새 영역에 집중하라</h3>
+<p>구글과 같은 대기업은 범용적인 모델과 하드웨어 인프라를 구축하여 거의 모든 작업을 수행하도록 하지만 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=CxXgV54KzpQ&amp;t=1557s">[25:57]</a>, 이는 특정 도메인에 대한 깊은 관심이 부족할 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=CxXgV54KzpQ&amp;t=1574s">[26:14]</a>. 소규모 스타트업은 특정 도메인에 대한 깊은 이해와 열정을 바탕으로 매우 정확하고 품질 높은 서비스를 구축하여 상당한 이점을 얻을 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=CxXgV54KzpQ&amp;t=1593s">[26:33]</a>. 그러나 일반 모델이 끊임없이 발전하고 더 넓은 범위의 작업을 잘 수행하게 되므로, 스타트업은 자신이 선택한 영역이 얼마나 지속 가능할지, 즉 대기업의 모델이 앞으로 6~12개월 안에 그 영역을 따라잡을지, 아니면 몇 년 동안은 따라잡기 어려울지 신중하게 판단해야 한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=CxXgV54KzpQ&amp;t=1614s">[26:54]</a>.</p>
+<p>창업가들은 먼저 자신이 열정을 가지고 세상에 유용하다고 믿는 문제를 선택해야 한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=CxXgV54KzpQ&amp;t=1662s">[27:42]</a>. 다음으로, 해당 문제 영역에서 현재 일반 모델이 무엇을 할 수 있는지 테스트하고, 모델이 &quot;0% 또는 1%의 시간만 성공&quot;하는 영역을 찾아야 한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=CxXgV54KzpQ&amp;t=1728s">[28:48]</a>. 모델이 20% 정도 성공한다면, 이는 모델의 능력이 이미 발현되기 시작했으며 더 많은 훈련 데이터나 규모 확장을 통해 개선될 가능성이 높다는 신호이기 때문이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=CxXgV54KzpQ&amp;t=1710s">[28:30]</a>.</p>
+<p>이러한 기회는 두 가지 형태로 나타난다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=CxXgV54KzpQ&amp;t=1806s">[30:06]</a>. 첫째, 일반 모델이 접근할 수 없는 특정 종류의 데이터, 예를 들어 사용자의 개인 정보에 접근할 수 있는 제품을 만드는 경우이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=CxXgV54KzpQ&amp;t=1748s">[29:08]</a>. 둘째, 알파폴드(AlphaFold)와 같이 특정 문제에 대해 매우 정확하고 틈새 시장을 공략하는 모델을 저렴한 비용으로 훈련할 수 있는 경우이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=CxXgV54KzpQ&amp;t=1833s">[30:33]</a>. 재료 과학이나 칩 설계와 같은 영역에서 이러한 접근 방식이 유용할 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=CxXgV54KzpQ&amp;t=1863s">[31:03]</a>.</p>
+<h2>주요 통찰·논점</h2>
+<h3>희소한 자원: 좋은 문제를 정의하는 ‘안목(taste)’이 가장 중요한 기술이다</h3>
+<p>수많은 에이전트를 동시에 운영하며 코드를 자동으로 생성하는 시대가 오면 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=CxXgV54KzpQ&amp;t=2033s">[33:53]</a>, 가장 희소한 기술은 에이전트에게 어떤 문제를 해결하라고 지시할지 결정하는 '탁월한 안목'이 될 것이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=CxXgV54KzpQ&amp;t=2043s">[34:03]</a>. 연구자가 모든 도구와 기술을 가지고 있더라도, 어떤 문제에 시간을 투자할지 결정하는 것이 전투의 절반 이상을 차지한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=CxXgV54KzpQ&amp;t=2055s">[34:15]</a>. 흥미롭지 않은 문제를 훌륭하게 해결하는 것보다 좋은 문제를 선택하고 성공적으로 해결하는 것이 훨씬 중요하다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=CxXgV54KzpQ&amp;t=2070s">[34:30]</a>. 모델은 이러한 고차원적인 지혜, 즉 '무엇을 할 것인가'를 결정하는 데 능숙하지 않으므로, 인간이 AI 기반 컴퓨팅을 이끌어 위대한 일을 성취해야 한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=CxXgV54KzpQ&amp;t=2086s">[34:46]</a>.</p>
+<p>이러한 '안목'은 측정 가능한 목표가 있는 것은 아니지만, 과거에 다양한 문제를 다루면서 미래에 흥미로운 문제가 무엇일지 배우는 경험에서 나온다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=CxXgV54KzpQ&amp;t=2133s">[35:33]</a>. 또한, 앞으로 12개월 동안 중요할 것이라고 생각하는 아이디어를 목록으로 작성하고, 1년 뒤에 어떤 아이디어가 실제로 중요해졌는지, 혹은 다른 사람들이 어떤 것을 만들었는지 평가하며 자신의 '안목'을 단련할 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=CxXgV54KzpQ&amp;t=2162s">[36:02]</a>.</p>
+<h3>사고 실험: 당연하게 받아들여지는 전제에 의문을 제기하며 새로운 길을 찾는다</h3>
+<p>'안목'을 키우는 또 다른 방법은 '사고 실험'을 하는 것이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=CxXgV54KzpQ&amp;t=2197s">[36:37]</a>. 대부분의 사람이 당연하게 여기는 전제에 의문을 제기하는 것이 중요하다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=CxXgV54KzpQ&amp;t=2209s">[36:49]</a>. 예를 들어, 지난 60년간 반도체 산업은 극도로 낮은 오류율을 가진 트랜지스터를 만드는 데 주력해 왔다. 모든 칩이 동일하고 비트 오류가 없어야 한다는 전제 때문이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=CxXgV54KzpQ&amp;t=2222s">[37:02]</a>. 그러나 대규모 분산 시스템은 개별 부품의 비신뢰성 위에서 신뢰성을 구축한다(예: 디스크는 고장 나지만 데이터는 안전). 그렇다면 트랜지스터 수준에서 이 가정을 뒤집는다면 어떨까 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=CxXgV54KzpQ&amp;t=2261s">[37:41]</a>? 하루에 20개씩 오류가 발생하는 트랜지스터로 시스템을 구축한다면 어떻게 될까 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=CxXgV54KzpQ&amp;t=2312s">[38:32]</a>.</p>
+<p>이러한 사고 실험은 항상 성공하는 것은 아니지만, 기존의 가정을 주기적으로 재검토하는 것이 중요하다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=CxXgV54KzpQ&amp;t=2357s">[39:17]</a>. 제프 딘의 경력에서도 TPU와 MapReduce가 이러한 사고 실험의 결과였다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=CxXgV54KzpQ&amp;t=2415s">[40:15]</a>. MapReduce는 웹페이지 콘텐츠를 처리하는 복잡한 수동 병렬화 코드 속에서 기능형 언어의 관점을 적용하여, 핵심 로직과 병렬화/신뢰성 메커니즘을 분리함으로써 단순하고 견고한 대규모 컴퓨팅 방식을 만들었다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=CxXgV54KzpQ&amp;t=2487s">[41:27]</a>.</p>
+<h3>AI가 AI를 만드는 시대: 과학적 방법론을 자동화해 발견 속도를 가속화한다</h3>
+<p>알파칩(AlphaChip)이 칩을 설계하고 알파이볼브(AlphaEvolve)가 솔루션을 제안하고 평가하는 등 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=CxXgV54KzpQ&amp;t=2537s">[42:17]</a>, AI가 AI를 만들고 스스로 개선하는 시스템이 구축되고 있다. 이는 과학적 방법론의 자동화와 일맥상통한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=CxXgV54KzpQ&amp;t=2552s">[42:32]</a>. 가설을 세우고, 실험을 구현하며, 평가하고, 결과를 얻는 전체 루프가 자동화되어 수많은 실험을 매우 낮은 지연 시간으로 실행할 수 있게 된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=CxXgV54KzpQ&amp;t=2570s">[42:50]</a>. 이러한 시스템은 고수준의 목표를 하위 문제로 분해하고, 각 하위 문제를 자동화된 루프를 통해 최적으로 해결하며, 그 솔루션들을 다시 조합하여 전체 문제를 해결한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=CxXgV54KzpQ&amp;t=2611s">[43:31]</a>.</p>
+<p>이러한 접근 방식은 기계 학습 자체의 발전, 과학 및 공학 문제 해결, 칩 설계 등을 가속화할 것이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=CxXgV54KzpQ&amp;t=2638s">[43:58]</a>. 특히, 양자 화학(quantum chemistry) 분야에서 동료들이 수행한 연구처럼, 값비싼 시뮬레이터의 결과를 바탕으로 신경망 기반의 근사 시뮬레이터를 훈련하여 30만 배 빠른 검증 모델을 만든 사례는 과학 탐구 방식을 완전히 바꿔놓을 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=CxXgV54KzpQ&amp;t=2672s">[44:32]</a>. 모델이 스스로 실험을 실행하고 결과를 통합하여 새로운 아키텍처나 접근 방식을 훨씬 빠르게 발견하는, '자기 개선(self-improve)'하는 ML 모델을 만드는 것이 궁극적인 목표이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=CxXgV54KzpQ&amp;t=2790s">[46:30]</a>.</p>
+<h3>실패는 성장의 자양분: 증류(Distillation) 논문 퇴짜 사례가 보여주는 끈기의 중요성</h3>
+<p>2014년 제프 딘과 제프 힌튼(Geoffrey Hinton) 등이 공동 집필한 증류(distillation) 논문은 대규모 '교사 모델(teacher model)'을 사용하여 더 작고 효율적인 '학생 모델(student model)'을 훈련하는 기법을 다루었다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=CxXgV54KzpQ&amp;t=2884s">[48:04]</a>. 이 기법은 현재 업계에서 널리 사용되고 있지만, 당시 NeurIPS 학회에서 &quot;영향력이 없을 것&quot;이라는 평가를 받고 거절당했다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=CxXgV54KzpQ&amp;t=2912s">[48:32]</a>. 논문 작성자들은 당시 값싼 고성능 모델의 필요성을 절실히 느꼈기에 문제의 중요성을 확신했지만, 심사위원은 대규모 AI 서비스에 대한 경험이 부족하여 그 잠재력을 인지하지 못했을 수 있다고 제프 딘은 설명한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=CxXgV54KzpQ&amp;t=2935s">[48:55]</a>. 비록 거절당했지만, 이들은 아카이브에 논문을 공개했고, 사람들은 이를 읽고 활용했다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=CxXgV54KzpQ&amp;t=2969s">[49:29]</a>. 현재 Gemini의 Flash 모델은 이 증류 기법을 활용하여 크기와 속도 대비 매우 뛰어난 성능을 보인다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=CxXgV54KzpQ&amp;t=2974s">[49:34]</a>. 이 사례는 비록 거절당하더라도 자신의 아이디어에 대한 확신이 있다면 끈기 있게 나아가야 한다는 교훈을 준다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=CxXgV54KzpQ&amp;t=2992s">[49:52]</a>.</p>
+<h2>인상적인 지점</h2>
+<ul>
+<li><strong>&quot;냅킨 계산(napkin math)&quot;의 중요성</strong>: 제프 딘은 2013년 구글 음성 인식이 크게 개선되자, 모든 사용자가 하루 3분씩만 음성 인식을 사용해도 구글 서버가 두 배로 필요해진다는 냅킨 계산을 통해 TPU 개발의 필요성을 깨달았다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=CxXgV54KzpQ&amp;t=370s">[6:10]</a>. 이는 병목 현상을 식별하고 1~2단계 더 나은 성능을 위한 근본적인 해결책을 찾는 데 큰 영감을 주었다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=CxXgV54KzpQ&amp;t=586s">[9:46]</a>.</li>
+<li><strong>컴퓨팅 비용보다 데이터 이동 비용이 1000배 높다</strong>: 하나의 계산에는 1피코줄, 데이터 이동에는 1,000피코줄의 에너지가 소모된다는 점 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=CxXgV54KzpQ&amp;t=738s">[12:18]</a>' 작성**: 에이전트가 코드를 작성하는 시대에는 인간이 에이전트에게 &quot;무엇을 원하는지&quot; 명확하게 명시하는 능력이 더욱 중요해진다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=CxXgV54KzpQ&amp;t=1920s">[32:00]</a>. 예를 들어, 특정 언어로 작성된 소프트웨어를 다른 언어로 번역하도록 요청하면, 모델은 매우 상세한 원본 코드를 명세로 삼아 엄청난 능력을 발휘한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=CxXgV54KzpQ&amp;t=1984s">[33:04]</a>.</li>
+</ul>
+
+  </article>
+  <p class="post-end"><a href="https://www.youtube.com/watch?v=CxXgV54KzpQ" target="_blank" rel="noopener">YouTube에서 원본 보기 ↗</a> · <a href="./">← 목록으로</a></p>
+</main>
+<footer class="site-foot">
+  <a href="/projects/yt-digest-overview">yt-digest</a> 파이프라인이 자막을 읽고 자동으로 작성한 브리핑입니다. 오류가 있을 수 있으니 중요한 내용은 원본 영상으로 확인하세요.
+</footer>
+</body>
+</html>

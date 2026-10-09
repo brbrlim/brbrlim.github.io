@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>트랜스포머, ChatGPT가 트랜스포머로 만들어졌죠. - DL5 — 유튜브 다이제스트</title>
+<meta name="description" content="이 영상은 오늘날 가장 널리 쓰이는 인공지능 모델 구조인 트랜스포머(Transformer)의 기본 원리를 시각적으로 설명한다. 특히 입력 텍스트가 어떻게 토큰화되어 고차원 벡터로 변환되고, 이 벡터들이 어떻게 의미를 학습하며, 최종적으로 다음 단어의 확률 분포를 예측하…">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="트랜스포머, ChatGPT가 트랜스포머로 만들어졌죠. - DL5 — 유튜브 다이제스트">
+<meta property="og:description" content="이 영상은 오늘날 가장 널리 쓰이는 인공지능 모델 구조인 트랜스포머(Transformer)의 기본 원리를 시각적으로 설명한다. 특히 입력 텍스트가 어떻게 토큰화되어 고차원 벡터로 변환되고, 이 벡터들이 어떻게 의미를 학습하며, 최종적으로 다음 단어의 확률 분포를 예측하…">
+<meta property="og:image" content="https://i.ytimg.com/vi/g38aoGttLhI/hqdefault.jpg">
+<meta property="og:type" content="article">
+<link rel="icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+<script>
+// Follow the blog's saved light/dark choice (same origin, same key).
+(function () {
+  var saved = null
+  try { saved = localStorage.getItem("theme") } catch (e) {}
+  var dark = saved ? saved === "dark" : matchMedia("(prefers-color-scheme: dark)").matches
+  document.documentElement.dataset.theme = dark ? "dark" : "light"
+})()
+</script>
+</head>
+<body class="post-page">
+<header class="site-bar">
+  <a class="site-name" href="/">Johnny's</a>
+  <a class="back" href="./">← 유튜브 다이제스트</a>
+</header>
+<main class="post">
+  <a class="hero" href="https://www.youtube.com/watch?v=g38aoGttLhI" target="_blank" rel="noopener" aria-label="YouTube에서 보기">
+    <img src="https://i.ytimg.com/vi/g38aoGttLhI/hqdefault.jpg" alt="">
+    <span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+  </a>
+  <h1>트랜스포머, ChatGPT가 트랜스포머로 만들어졌죠. - DL5</h1>
+  <div class="post-meta"><span>3Blue1Brown 한국어</span><span>26:53</span><span>게시 2025-07-29</span></div>
+  <div class="tags"><a href="./?q=%23deep-learning">#deep-learning</a><a href="./?q=%23transformer">#transformer</a><a href="./?q=%23gpt">#gpt</a><a href="./?q=%23ai-model">#ai-model</a><a href="./?q=%23machine-learning">#machine-learning</a></div>
+  <article>
+<h2>TL;DR</h2>
+<p>이 영상은 오늘날 가장 널리 쓰이는 인공지능 모델 구조인 트랜스포머(Transformer)의 기본 원리를 시각적으로 설명한다. 특히 입력 텍스트가 어떻게 토큰화되어 고차원 벡터로 변환되고, 이 벡터들이 어떻게 의미를 학습하며, 최종적으로 다음 단어의 확률 분포를 예측하는 과정을 임베딩 행렬과 소프트맥스 함수를 중심으로 자세히 다룬다.</p>
+<h2>풀시청 판단</h2>
+<p>이 영상은 트랜스포머 모델의 내부 작동 방식에 대한 이해를 깊이하고 싶은 사람에게 매우 유용하다. 특히 딥러닝이나 기계 학습에 대한 기본적인 지식이 있는 개발자, 데이터 과학자, 혹은 관련 분야 전공자에게는 풀시청할 가치가 충분하다. 복잡한 수학적 개념보다는 시각적인 비유와 흐름에 초점을 맞추어 설명하므로, 이 분야를 처음 접하는 학습자도 큰 그림을 이해하는 데 도움이 된다.</p>
+<p>다만, 모델 훈련의 핵심인 어텐션(Attention) 메커니즘 자체는 다음 영상에서 다루므로, 이 영상만으로는 트랜스포머의 모든 핵심을 파악하기는 어렵다. 선형 회귀, 역전파, 소프트맥스 등 머신러닝의 기본 개념에 이미 익숙하다면 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=g38aoGttLhI&amp;t=418s">[6:58]</a> 이후의 내용부터 집중해서 보아도 좋다. 모델의 구체적인 구현 방식이나 코드를 다루지는 않으며, 어디까지나 원리 이해에 중점을 둔다.</p>
+<h2>핵심 내용</h2>
+<h3>GPT의 핵심은 트랜스포머, 그 다양한 쓰임새</h3>
+<p>오늘날 가장 널리 사용되는 AI 모델인 GPT(생성 사전 학습 트랜스포머)의 핵심은 이름 그대로 트랜스포머에 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=g38aoGttLhI&amp;t=21s">[0:21]</a>. 트랜스포머는 2017년 구글이 번역을 위해 개발했으나, 지금은 텍스트 입력으로 이미지를 생성하는 달리(DALL-E), 미드저니(Midjourney) 같은 모델부터 음성 인식, 음성 생성 등 다양한 분야에 활용된다. 이처럼 트랜스포머는 텍스트뿐 아니라 음성이나 이미지 등 여러 형태의 데이터를 처리하고 예측하는 데 기반이 되는 강력한 신경망 구조이다.</p>
+<h3>다음 단어 예측이 곧 생성의 시작</h3>
+<p>트랜스포머 기반의 언어 모델은 기본적으로 다음에 올 단어의 확률 분포를 예측하는 방식으로 작동한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=g38aoGttLhI&amp;t=95s">[1:35]</a>. 이 예측 모델에 한 단어를 주고 다음 단어를 예측하게 한 뒤, 그 예측된 단어를 다시 입력으로 넣어 반복하면 놀랍도록 긴 문장을 계속 생성할 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=g38aoGttLhI&amp;t=110s">[1:50]</a>. GPT-2 같은 초기 모델은 다소 어색한 문장을 만들기도 했지만, GPT-3처럼 규모가 커질수록 훨씬 더 자연스럽고 그럴듯한 이야기가 생성된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=g38aoGttLhI&amp;t=146s">[2:26]</a>. 챗봇과의 대화 또한 이처럼 단어 하나하나를 순차적으로 예측하며 생성되는 원리이다.</p>
+<h3>모델의 기본 작동 원리: 토큰화, 벡터 변환, 정보 교환</h3>
+<p>트랜스포머의 데이터 처리 과정은 크게 네 단계로 요약할 수 있다. 먼저 입력은 토큰(token)이라는 작은 단위로 쪼개진다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=g38aoGttLhI&amp;t=201s">[3:21]</a>. 텍스트의 경우 단어나 단어의 일부가 될 수 있고, 이미지나 오디오의 경우에도 작은 조각이 토큰이 된다. 각 토큰은 의미를 포착하는 숫자 목록, 즉 벡터로 변환된다. 이때 의미가 유사한 단어들은 고차원 공간에서 서로 가까운 벡터로 배치된다. 이 벡터들은 어텐션 블록을 통해 서로 정보를 교환하며 현재 단어의 의미를 문맥에 맞게 업데이트한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=g38aoGttLhI&amp;t=237s">[3:57]</a>. 예를 들어, &quot;모델&quot;이라는 단어가 기계 학습 모델을 의미하는지 패션 모델을 의미하는지 주변 단어와의 관계를 통해 파악하는 것이다. 이후 벡터들은 피드포워드 네트워크와 같은 추가 연산을 거치며 각자의 역할을 계산하고 업데이트된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=g38aoGttLhI&amp;t=273s">[4:33]</a>. 이러한 과정은 여러 층을 거쳐 반복되며, 마지막으로 최종 벡터로부터 다음 올 토큰들의 확률 분포를 생성한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=g38aoGttLhI&amp;t=326s">[5:26]</a>.</p>
+<h3>임베딩 행렬: 단어를 의미 벡터로 변환하는 모델의 첫 번째 '뇌'</h3>
+<p>딥러닝 모델에서 입력 텍스트를 처리하는 첫 단계는 각 단어를 벡터로 변환하는 것이다. 이를 '단어 임베딩(word embedding)'이라고 부른다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=g38aoGttLhI&amp;t=816s">[13:36]</a>. 모델은 미리 정해진 단어 사전(GPT-3의 경우 약 5만 개)을 가지고 있으며, 이 사전의 각 단어는 임베딩 행렬이라는 가중치 행렬의 한 열에 해당한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=g38aoGttLhI&amp;t=780s">[13:00]</a>. 이 행렬은 단어를 12,288차원(GPT-3 기준)의 고차원 벡터로 변환하는 역할을 한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=g38aoGttLhI&amp;t=829s">[13:49]</a>. 학습 과정을 통해 이 벡터들은 의미론적 방향성을 획득한다. 예를 들어, '왕'에서 '남성'을 빼고 '여성'을 더하면 '여왕'에 가까운 벡터가 되는 것처럼 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=g38aoGttLhI&amp;t=901s">[15:01]</a>, 공간 내의 특정 방향이 특정 의미를 나타내도록 학습된다. 이 임베딩 행렬은 모델의 첫 번째 가중치 묶음이며, GPT-3의 경우 약 6억 1,700만 개의 매개변수로 구성된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=g38aoGttLhI&amp;t=1091s">[18:11]</a>.</p>
+<h3>컨텍스트 크기의 중요성과 언임베딩/소프트맥스</h3>
+<p>트랜스포머는 단순한 단어의 의미를 넘어 문맥을 이해하기 위해 일정한 '컨텍스트 크기' 내에서 정보를 학습한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=g38aoGttLhI&amp;t=1185s">[19:45]</a>. GPT-3는 2,048개의 토큰을 동시에 처리할 수 있는 컨텍스트 크기로 훈련되었는데 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=g38aoGttLhI&amp;t=1194s">[19:54]</a>, 이는 한 번에 처리할 수 있는 텍스트의 양을 나타낸다. 초기 챗봇 모델에서 긴 대화 시 대화 흐름이 끊기는 듯한 느낌을 주었던 이유도 이 고정된 컨텍스트 크기 때문이었다.</p>
+<p>모델은 최종적으로 다음 단어의 확률 분포를 예측하기 위해 마지막 벡터에 언임베딩 행렬을 곱한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=g38aoGttLhI&amp;t=1257s">[20:57]</a>. 이 행렬은 임베딩 행렬과 유사하게 약 6억 개의 매개변수로 이루어져 있으며, 최종 벡터를 5만 개 항목의 목록(로짓)으로 변환한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=g38aoGttLhI&amp;t=1270s">[21:10]</a>. 이 목록은 음수나 1보다 큰 값을 포함할 수 있으므로, 소프트맥스(Softmax) 함수를 사용하여 모든 값을 0에서 1 사이의 확률값으로 정규화하고 합이 1이 되도록 만든다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=g38aoGttLhI&amp;t=1382s">[23:02]</a>.</p>
+<h2>주요 통찰·논점</h2>
+<h3>딥러닝 모델의 모든 것은 '가중치'와 '행렬 곱셈'이다</h3>
+<p>딥러닝 모델은 수많은 입력-출력 쌍을 학습하며 매개변수(가중치)를 조정하여 입력에 대한 출력을 성공적으로 예측하는 함수를 찾아내는 과정이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=g38aoGttLhI&amp;t=486s">[8:06]</a>. GPT-3의 1,750억 개에 달하는 엄청난 수의 가중치는 대부분 행렬 곱셈 형태로 데이터와 상호작용한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=g38aoGttLhI&amp;t=666s">[11:06]</a>. 이 가중치들은 모델의 '뇌'와 같아서, 이들이 학습되는 방식이 모델의 작동 방식을 결정한다. 따라서 모델 내부의 계산 대부분이 행렬-벡터 곱셈으로 이루어진다는 점을 이해하는 것이 중요하다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=g38aoGttLhI&amp;t=714s">[11:54]</a>.</p>
+<h3>단어 임베딩: 고차원 벡터 공간에 의미를 불어넣다</h3>
+<p>단어 임베딩은 단순히 단어를 숫자로 변환하는 것을 넘어, 고차원 벡터 공간에서 단어들 간의 의미론적 관계를 포착하게 한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=g38aoGttLhI&amp;t=866s">[14:26]</a>. '여성-남성' 벡터 차이를 '여왕-왕'에 적용할 수 있는 것처럼 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=g38aoGttLhI&amp;t=901s">[15:01]</a>, 특정 방향이 특정 의미를 띠게 학습된다. 더 흥미로운 예시로는 '이탈리아'에서 '독일'을 빼고 '히틀러'를 더하면 '무솔리니'와 가까워지는 경우가 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=g38aoGttLhI&amp;t=959s">[15:59]</a>. 이는 단어들이 단순히 개별적인 의미를 가지는 것이 아니라, 역사적 맥락이나 문법적 특징(예: 복수형 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=g38aoGttLhI&amp;t=1031s">[17:11]</a>)까지 벡터 공간 내의 방향으로 학습된다는 점을 보여준다. 두 벡터의 유사성은 내적(dot product)을 통해 측정할 수 있는데, 같은 방향이면 양수, 직교하면 0, 반대 방향이면 음수가 된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=g38aoGttLhI&amp;t=1011s">[16:51]</a>.</p>
+<h3>소프트맥스와 '온도' 매개변수로 생성 텍스트의 다양성을 조절한다</h3>
+<p>소프트맥스 함수는 모델의 최종 출력을 0과 1 사이의 확률 분포로 변환하여, 다음 단어를 예측할 수 있게 하는 표준적인 방법이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=g38aoGttLhI&amp;t=1382s">[23:02]</a>. 이때 '온도(temperature)'라는 매개변수를 추가하여 생성되는 텍스트의 다양성을 조절할 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=g38aoGttLhI&amp;t=1441s">[24:01]</a>. 온도가 높으면 낮은 확률의 단어도 선택될 기회가 늘어나 문장이 더 창의적이거나 예측 불가능해지고 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=g38aoGttLhI&amp;t=1488s">[24:48]</a>, 온도가 낮으면 높은 확률의 단어만 선택되어 일반적이고 예측 가능한 문장이 생성된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=g38aoGttLhI&amp;t=1482s">[24:42]</a>. 이 온도는 챗봇 같은 서비스에서 완전히 터무니없는 결과가 나오는 것을 방지하기 위해 일정 수준 이상으로 설정되지 못하도록 제한되기도 한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=g38aoGttLhI&amp;t=1516s">[25:16]</a>.</p>
+<h2>인상적인 지점</h2>
+<p>GPT3가 1,750억 개의 매개변수를 가지고 있는데, 이 영상에서 설명하는 임베딩 행렬과 언임베딩 행렬을 합쳐도 약 10억 개 정도에 불과하다는 언급은 인상 깊었다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=g38aoGttLhI&amp;t=1338s">[22:18]</a>. 나머지 수많은 매개변수들이 어텐션 블록과 피드포워드 네트워크에 숨어있다는 암시는 다음 영상에 대한 기대감을 높인다. 또한, &quot;왕에서 남성을 빼고 여성을 더하면 여왕이 된다&quot;는 흔한 비유 외에도 &quot;이탈리아에서 독일을 빼고 히틀러를 더하면 무솔리니가 된다&quot;는 역사적 맥락을 반영한 비유 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=g38aoGttLhI&amp;t=959s">[15:59]</a>나, &quot;독일에서 일본을 빼고 스시를 더하면 브라트부르스트가 나온다&quot;는 재치 있는 예시는 단어 임베딩의 풍부한 의미 학습 능력을 직관적으로 보여주었다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=g38aoGttLhI&amp;t=979s">[16:19]</a>.</p>
+
+  </article>
+  <p class="post-end"><a href="https://www.youtube.com/watch?v=g38aoGttLhI" target="_blank" rel="noopener">YouTube에서 원본 보기 ↗</a> · <a href="./">← 목록으로</a></p>
+</main>
+<footer class="site-foot">
+  <a href="/projects/yt-digest-overview">yt-digest</a> 파이프라인이 자막을 읽고 자동으로 작성한 브리핑입니다. 오류가 있을 수 있으니 중요한 내용은 원본 영상으로 확인하세요.
+</footer>
+</body>
+</html>

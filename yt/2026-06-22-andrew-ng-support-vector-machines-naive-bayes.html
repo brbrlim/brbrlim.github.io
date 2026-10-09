@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lecture 6 - Support Vector Machines | Stanford CS229: Machine Learning Andrew Ng (Autumn 2018) — 유튜브 다이제스트</title>
+<meta name="description" content="이 강의는 텍스트 분류를 위한 나이브 베이즈(Naive Bayes) 알고리즘의 한계를 극복하는 라플라스 스무딩(Laplace Smoothing) 기법을 소개하고, 두 가지 나이브 베이즈 모델(다변량 베르누이 및 다항 사건 모델)을 비교한다. 이어 기계 학습 프로젝트 진…">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="Lecture 6 - Support Vector Machines | Stanford CS229: Machine Learning Andrew Ng (Autumn 2018) — 유튜브 다이제스트">
+<meta property="og:description" content="이 강의는 텍스트 분류를 위한 나이브 베이즈(Naive Bayes) 알고리즘의 한계를 극복하는 라플라스 스무딩(Laplace Smoothing) 기법을 소개하고, 두 가지 나이브 베이즈 모델(다변량 베르누이 및 다항 사건 모델)을 비교한다. 이어 기계 학습 프로젝트 진…">
+<meta property="og:image" content="https://i.ytimg.com/vi/lDwow4aOrtg/hqdefault.jpg">
+<meta property="og:type" content="article">
+<link rel="icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+<script>
+// Follow the blog's saved light/dark choice (same origin, same key).
+(function () {
+  var saved = null
+  try { saved = localStorage.getItem("theme") } catch (e) {}
+  var dark = saved ? saved === "dark" : matchMedia("(prefers-color-scheme: dark)").matches
+  document.documentElement.dataset.theme = dark ? "dark" : "light"
+})()
+</script>
+</head>
+<body class="post-page">
+<header class="site-bar">
+  <a class="site-name" href="/">Johnny's</a>
+  <a class="back" href="./">← 유튜브 다이제스트</a>
+</header>
+<main class="post">
+  <a class="hero" href="https://www.youtube.com/watch?v=lDwow4aOrtg" target="_blank" rel="noopener" aria-label="YouTube에서 보기">
+    <img src="https://i.ytimg.com/vi/lDwow4aOrtg/hqdefault.jpg" alt="">
+    <span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+  </a>
+  <h1>Lecture 6 - Support Vector Machines | Stanford CS229: Machine Learning Andrew Ng (Autumn 2018)</h1>
+  <div class="post-meta"><span>Stanford Online</span><span>1:20:57</span><span>게시 2020-04-17</span></div>
+  <div class="tags"><a href="./?q=%23machine-learning">#machine-learning</a><a href="./?q=%23cs229">#cs229</a><a href="./?q=%23naive-bayes">#naive-bayes</a><a href="./?q=%23svm">#svm</a><a href="./?q=%23laplace-smoothing">#laplace-smoothing</a><a href="./?q=%23text-classification">#text-classification</a><a href="./?q=%23optimal-margin-classifier">#optimal-margin-classifier</a></div>
+  <article>
+<h2>TL;DR</h2>
+<p>이 강의는 텍스트 분류를 위한 나이브 베이즈(Naive Bayes) 알고리즘의 한계를 극복하는 라플라스 스무딩(Laplace Smoothing) 기법을 소개하고, 두 가지 나이브 베이즈 모델(다변량 베르누이 및 다항 사건 모델)을 비교한다. 이어 기계 학습 프로젝트 진행 시 효과적인 전략으로 &quot;빠르고 간단한 구현(quick and dirty)&quot;의 중요성을 강조한 뒤, 새로운 분류기인 서포트 벡터 머신(Support Vector Machine, SVM)의 기본 개념, 즉 함수 마진과 기하 마진을 설명하며 최적 마진 분류기(optimal margin classifier)를 도출하는 과정을 다룬다.</p>
+<h2>풀시청 판단</h2>
+<p>이 영상은 머신러닝의 기초 분류 알고리즘인 나이브 베이즈와 서포트 벡터 머신(SVM)에 대한 심도 있는 이해를 제공한다. 특히 앤드류 응 교수의 명쾌한 설명과 실제 사례(스팸 분류, 스탠퍼드 풋볼팀)를 통한 직관적인 개념 전달이 강점이다.</p>
+<ul>
+<li><strong>누구에게 유용한가</strong>:
+<ul>
+<li><strong>머신러닝 초보자</strong>: 나이브 베이즈와 SVM의 기본적인 작동 원리와 개념을 처음 접하는 사람들에게 매우 적합하다. 복잡한 수식을 직관적인 설명과 함께 이해할 수 있다.</li>
+<li><strong>CS229 수강생 및 유사 강의 학습자</strong>: 강의 노트와 함께 보면 이론적 배경을 확실히 다질 수 있다.</li>
+<li><strong>머신러닝 프로젝트 실무자</strong>: &quot;빠르고 간단한 구현&quot; 및 오류 분석에 대한 조언은 실제 프로젝트 접근 방식에 큰 도움을 준다.</li>
+</ul>
+</li>
+<li><strong>무엇을 얻을 수 있는가</strong>:
+<ul>
+<li>나이브 베이즈의 약점(영 확률 문제)과 라플라스 스무딩의 필요성 및 적용 방법을 배운다.</li>
+<li>텍스트 분류를 위한 두 가지 나이브 베이즈 모델(다변량 베르누이, 다항 사건 모델)의 차이점을 명확히 이해한다.</li>
+<li>실용적인 머신러닝 프로젝트 개발 전략과 오류 분석의 중요성을 깨닫는다.</li>
+<li>SVM의 핵심 아이디어인 함수 마진, 기하 마진, 그리고 최적 마진 분류기의 개념을 파악한다.</li>
+</ul>
+</li>
+<li><strong>약점 및 한계</strong>:
+<ul>
+<li><strong>시간 경과</strong>: 2018년 강의이므로, 최신 딥러닝 기술이나 NLP 분야의 최신 기법(워드 임베딩 관련 언급은 있지만, 깊게 다루지는 않는다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lDwow4aOrtg&amp;t=2685s">[44:45]</a>)에 대한 내용은 다루지 않는다. SVM 자체도 현재는 많은 문제에서 신경망에 비해 효과가 떨어진다고 언급한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lDwow4aOrtg&amp;t=2980s">[49:40]</a>.</li>
+<li><strong>SVM 심화 부족</strong>: SVM의 핵심인 커널 기법과 비선형 분리 가능 데이터 처리는 다음 강의로 미뤄진다. 이 강의만으로는 SVM 전체를 이해하기 어렵다.</li>
+<li><strong>수식 증명 생략</strong>: 일부 복잡한 수식의 유도나 증명(예: 유클리드 거리 공식 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lDwow4aOrtg&amp;t=4472s">[1:14:32]</a>)은 강의 노트에 맡겨 실제 증명 과정을 영상에서 전부 다루지는 않는다.</li>
+</ul>
+</li>
+</ul>
+<p><strong>일부만 봐도 된다면</strong>:</p>
+<ul>
+<li><strong>나이브 베이즈와 라플라스 스무딩</strong>: <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lDwow4aOrtg&amp;t=282s">[4:42]</a>부터 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lDwow4aOrtg&amp;t=2116s">[35:16]</a>까지.</li>
+<li><strong>머신러닝 프로젝트 조언</strong>: <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lDwow4aOrtg&amp;t=2133s">[35:33]</a>부터 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lDwow4aOrtg&amp;t=2605s">[43:25]</a>까지.</li>
+<li><strong>SVM 기본 개념(마진)</strong>: <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lDwow4aOrtg&amp;t=3260s">[54:20]</a>부터 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lDwow4aOrtg&amp;t=4626s">[1:17:06]</a>까지.</li>
+</ul>
+<h2>핵심 내용</h2>
+<h3>나이브 베이즈의 문제점: '영(0) 확률'과 라플라스 스무딩의 필요성</h3>
+<p>나이브 베이즈는 텍스트 분류, 특히 스팸 분류에 사용되는 생성 모델(generative model) 기반의 학습 알고리즘이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lDwow4aOrtg&amp;t=67s">[1:07]</a>. 이 모델은 각 단어의 출현 여부를 특성(feature)으로 삼아 특정 클래스(예: 스팸)에 속할 조건부 확률을 추정한다. 그러나 최대 우도 추정(maximum likelihood estimation) 방식을 사용하면, 훈련 데이터에서 한 번도 나타나지 않은 단어에 대해 해당 단어의 출현 확률이 0으로 추정되는 문제가 발생한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lDwow4aOrtg&amp;t=352s">[5:52]</a>. 이는 스팸 분류기 예시에서 'NIPS'와 같은 새로운 단어가 등장했을 때, 전체 확률 계산식이 0이 되어 분류기가 제대로 작동하지 않게 만든다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lDwow4aOrtg&amp;t=492s">[8:12]</a>. 통계적으로 단지 보지 못했다는 이유만으로 확률을 0으로 단정하는 것은 좋지 않다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lDwow4aOrtg&amp;t=548s">[9:08]</a>.</p>
+<p>이러한 문제를 해결하기 위해 라플라스 스무딩(Laplace smoothing)이 도입된다. 이는 각 가능한 결과에 대해 가상의 횟수(보통 1)를 추가하여 확률 추정치가 0이 되지 않도록 하는 기법이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lDwow4aOrtg&amp;t=727s">[12:07]</a>. 예를 들어, 스탠퍼드 풋볼팀이 4번의 경기에서 모두 졌을 때, 승리 확률을 0으로 추정하는 대신, 라플라스 스무딩을 적용하여 1/6과 같이 더 합리적인 확률을 부여한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lDwow4aOrtg&amp;t=751s">[12:31]</a>. 일반적으로, k개의 가능한 결과가 있는 경우 분자에 1을 더하고 분모에 k를 더하여 확률을 추정한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lDwow4aOrtg&amp;t=872s">[14:32]</a>.</p>
+<h3>두 가지 나이브 베이즈 모델: 다변량 베르누이와 다항 사건 모델</h3>
+<p>텍스트 분류를 위한 나이브 베이즈 모델에는 두 가지 주요 변형이 있다.</p>
+<ul>
+<li><strong>다변량 베르누이(Multivariate Bernoulli) 사건 모델</strong>: 지금까지 다룬 모델로, 딕셔너리에 있는 각 단어의 출현 여부(0 또는 1)를 특성으로 사용한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lDwow4aOrtg&amp;t=1451s">[24:11]</a>. 이 모델은 단어의 출현 횟수와 같은 정보를 버리고, 단순히 단어가 존재했는지 여부만 고려한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lDwow4aOrtg&amp;t=1303s">[21:43]</a>. 즉, 텍스트가 아무리 길어도 항상 동일한 길이의 특성 벡터(딕셔너리 크기)로 표현된다.</li>
+<li><strong>다항(Multinomial) 사건 모델</strong>: 이 모델은 이메일에 나타난 단어의 순서를 무시하고 각 위치에서 어떤 단어가 나타났는지를 특성으로 사용한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lDwow4aOrtg&amp;t=1414s">[23:34]</a>. 즉, 이메일의 길이가 n이면 n차원 특성 벡터를 사용하며, 각 특성(X_j)은 딕셔너리 내 단어의 인덱스(1부터 10,000)를 나타낸다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lDwow4aOrtg&amp;t=1375s">[22:55]</a>. 이 모델에서는 단어가 여러 번 등장했을 때 그 횟수를 반영할 수 있다는 장점이 있다. 라플라스 스무딩 적용 시에는 딕셔너리 크기(k)만큼 분모에 더해준다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lDwow4aOrtg&amp;t=2012s">[33:32]</a>. 두 모델은 겉보기에는 유사한 수식을 사용하지만, <code>x_j</code>의 정의와 <code>n</code>의 의미가 다르다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lDwow4aOrtg&amp;t=1582s">[26:22]</a>.</li>
+</ul>
+<h3>기계 학습 프로젝트 개발을 위한 실용적인 조언: &quot;빠르고 간단하게&quot;</h3>
+<p>대부분의 머신러닝 프로젝트는 새로운 알고리즘을 개발하는 것보다 기존 알고리즘을 실제 문제에 적용하는 데 중점을 둔다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lDwow4aOrtg&amp;t=2195s">[36:35]</a>. 이때 가장 중요한 조언은 **&quot;빠르고 간단하게(quick and dirty) 시작하라&quot;**는 것이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lDwow4aOrtg&amp;t=2228s">[37:08]</a>. 복잡한 알고리즘을 처음부터 설계하기보다, 단순한 알고리즘(예: 나이브 베이즈, 로지스틱 회귀)을 먼저 구현하고 그 성능을 평가한 뒤, 오류 분석을 통해 문제의 병목 지점(가장 많은 오류를 유발하는 원인)을 파악하여 개선 방향을 정하는 것이 효과적이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lDwow4aOrtg&amp;t=2329s">[38:49]</a>.</p>
+<p>예를 들어, 스팸 분류기를 개발할 때 스패머들이 의도적으로 단어의 철자를 잘못 쓰는 문제(<a href="M0RTGAGE">m0rtgage</a> vs. mortgage <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lDwow4aOrtg&amp;t=2372s">[39:32]</a>), 이메일 헤더 위조, URL 분석 등 여러 개선 아이디어가 있을 수 있다. 이 중 어떤 아이디어가 가장 효과적일지는 미리 알기 어렵다. 따라서 간단한 분류기를 먼저 만들고, 실제로 오분류되는 스팸 메일을 분석하여 철자 오류가 가장 큰 문제임을 확인했을 때, 그 문제 해결에 집중하는 것이 시간과 노력을 효율적으로 투자하는 방법이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lDwow4aOrtg&amp;t=2493s">[41:33]</a>. 나이브 베이즈나 가우시안 판별 분석(Gaussian Discriminant Analysis, GDA) 같은 알고리즘은 계산 효율성이 높고 구현이 간단하여 이러한 &quot;빠르고 간단한&quot; 접근 방식에 유용하다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lDwow4aOrtg&amp;t=2549s">[42:29]</a>.</p>
+<h3>서포트 벡터 머신(SVM)의 도입: 비선형 결정 경계와 '턴키(turn-key)' 특성</h3>
+<p>서포트 벡터 머신(SVM)은 로지스틱 회귀(logistic regression)나 가우시안 판별 분석으로는 어려운 <strong>매우 비선형적인 결정 경계</strong>를 학습할 수 있는 강력한 분류 알고리즘이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lDwow4aOrtg&amp;t=2812s">[46:52]</a>. 기존 방식으로는 특성 벡터 <code>x</code>를 <code>x^2</code>, <code>x^3</code>, <code>x1x2</code>와 같은 고차원 특성 <code>phi(x)</code>로 매핑하여 비선형성을 처리했지만, SVM은 이러한 특성 매핑 작업을 훨씬 더 체계적이고 효율적으로 수행할 수 있게 한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lDwow4aOrtg&amp;t=2842s">[47:22]</a>.</p>
+<p>SVM의 주요 장점 중 하나는 <strong>'턴키(turn-key)' 방식의 알고리즘</strong>이라는 점이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lDwow4aOrtg&amp;t=2935s">[48:55]</a>. 이는 사용자가 미세 조정해야 할 매개변수가 적고, 잘 구축된 소프트웨어 패키지가 많아 쉽게 적용하고 좋은 성능을 얻을 수 있음을 의미한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lDwow4aOrtg&amp;t=2964s">[49:24]</a>. 현재는 딥러닝이 많은 문제에서 더 효과적이지만, SVM 역시 여전히 유용하게 사용되는 중요한 도구로 남아있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lDwow4aOrtg&amp;t=3192s">[53:12]</a>.</p>
+<h3>SVM의 핵심: 함수 마진과 기하 마진</h3>
+<p>SVM은 **결정 경계(decision boundary)**로부터 훈련 데이터까지의 거리를 최대화하는 원리로 작동한다. 이를 위해 **마진(margin)**이라는 개념을 사용한다.</p>
+<ul>
+<li><strong>함수 마진(functional margin)</strong>: 분류기가 개별 훈련 예제를 얼마나 정확하고 <strong>확신 있게</strong> 분류하는지를 나타내는 척도이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lDwow4aOrtg&amp;t=3260s">[54:20]</a>. SVM에서는 클래스 레이블을 -1 또는 +1로 설정하고, <code>y_i * (w^T x_i + b)</code>로 정의한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lDwow4aOrtg&amp;t=3905s">[1:05:05]</a>. 이 값이 클수록 분류기가 해당 예제를 더욱 확신 있게 올바르게 분류하고 있다는 뜻이다. 훈련 세트 전체의 함수 마진은 모든 훈련 예제 중 가장 작은 개별 함수 마진 값으로 정의된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lDwow4aOrtg&amp;t=4081s">[1:08:01]</a>.</li>
+<li><strong>함수 마진의 문제</strong>: 단순히 매개변수 <code>w</code>와 <code>b</code>를 상수로 스케일링(예: 2배, 10배)해도 함수 마진 값은 비례하여 커지지만, 실제 결정 경계나 분류 성능에는 아무런 변화가 없다는 '속임수' 문제가 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lDwow4aOrtg&amp;t=4151s">[1:09:11]</a>.</li>
+<li><strong>기하 마진(geometric margin)</strong>: 이 문제를 해결하기 위해 도입된 개념으로, 결정 경계로부터 훈련 예제까지의 <strong>실제 유클리드 거리</strong>를 측정한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lDwow4aOrtg&amp;t=3553s">[59:13]</a>. 기하 마진은 함수 마진을 <code>w</code> 벡터의 L2 노름(Euclidean length)으로 나눈 값, 즉 <code>(y_i * (w^T x_i + b)) / ||w||</code>으로 정의된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lDwow4aOrtg&amp;t=4528s">[1:15:28]</a>. 이 정의는 <code>w</code>와 <code>b</code>의 스케일링에 영향을 받지 않으므로, 결정 경계와 데이터 사이의 진정한 물리적 분리 정도를 나타낸다. 훈련 세트의 기하 마진 역시 가장 작은 개별 기하 마진 값으로 정의된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lDwow4aOrtg&amp;t=4570s">[1:16:10]</a>.</li>
+</ul>
+<h3>최적 마진 분류기: 기하 마진 최대화</h3>
+<p>**최적 마진 분류기(optimal margin classifier)**는 훈련 데이터를 선형적으로 분리하는 여러 결정 경계 중에서 <strong>가장 큰 기하 마진</strong>을 갖는 경계를 찾는 알고리즘이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lDwow4aOrtg&amp;t=4626s">[1:17:06]</a>. 이는 모든 훈련 예제에 대해 최소한의 기하 마진 <code>gamma</code>를 보장하면서 <code>gamma</code>를 최대화하는 <code>w</code>와 <code>b</code>를 찾는 최적화 문제로 정식화된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lDwow4aOrtg&amp;t=4696s">[1:18:16]</a>.</p>
+<p>수학적으로, 이 문제는 <code>w</code>의 L2 노름을 최소화하는 문제(<code>min ||w||</code>)로 다시 작성될 수 있으며, 이는 볼록 최적화(convex optimization) 문제이기 때문에 전역 최적해(global optimum)를 찾을 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lDwow4aOrtg&amp;t=4790s">[1:19:50]</a>. 이 최적 마진 분류기는 SVM의 기본 틀이 되며, 나중에 '커널(kernels)' 개념을 추가하면 비선형 데이터까지 처리할 수 있는 완전한 SVM이 된다.</p>
+<h2>주요 통찰·논점</h2>
+<h3>머신러닝 프로젝트의 실용성: &quot;첫 술에 배부르랴&quot;</h3>
+<p>앤드류 응 교수가 반복 강조하는 &quot;빠르고 간단하게 구현하고 오류 분석을 통해 개선하라&quot;는 조언은 이론 중심적인 학계 분위기와 대조되는 매우 실용적인 통찰이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lDwow4aOrtg&amp;t=2225s">[37:05]</a>. 이는 마치 1만 줄짜리 코드를 한 번에 다 작성하고 컴파일하는 것보다, 작은 모듈을 만들고 테스트하며 점진적으로 개발하는 방식과 유사하다는 비유를 든다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lDwow4aOrtg&amp;t=2291s">[38:11]</a>. 이 접근 방식은 문제의 핵심을 빠르게 파악하고 효율적으로 개선하는 데 필수적이다. 특히 나이브 베이즈처럼 간단한 알고리즘은 초기 프로토타이핑에 매우 유용하다.</p>
+<h3>SVM의 강력함: 숨겨진 복잡성을 단순하게</h3>
+<p>SVM이 '턴키' 방식의 알고리즘이라는 점은, 복잡한 비선형 결정 경계를 학습하기 위한 고차원 특성 매핑(<code>phi(x)</code>)의 부담을 사용자로부터 덜어준다는 의미에서 강력하다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lDwow4aOrtg&amp;t=2931s">[48:51]</a>. 사용자가 일일이 <code>x^2</code>, <code>sqrt(x1)</code> 등의 특성을 손으로 지정할 필요 없이, 커널이라는 개념을 통해 잠재적으로 무한한 차원의 특성 공간에서 선형 분류를 수행할 수 있게 해준다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lDwow4aOrtg&amp;t=3067s">[51:07]</a>. 이는 알고리즘 자체의 복잡성은 높지만, 사용자 경험 측면에서는 단순함을 제공하여 광범위한 적용을 가능하게 하는 중요한 설계 원칙이다.</p>
+<h3>통계적 확신과 물리적 거리의 구별</h3>
+<p>함수 마진과 기하 마진의 구별은 통계 모델의 '확신도'와 데이터 공간에서의 '물리적 거리'라는 두 가지 중요한 개념을 명확히 구분하는 통찰을 제공한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lDwow4aOrtg&amp;t=3553s">[59:13]</a>. 함수 마진은 분류기의 내부적인 판단 강도를 나타내지만, 매개변수 스케일링에 취약하다는 약점이 있다. 반면 기하 마진은 결정 경계와 데이터 포인트 사이의 실제 거리를 반영하여, 분류기의 '안정성' 또는 '견고성'을 직관적으로 측정할 수 있게 한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lDwow4aOrtg&amp;t=4151s">[1:09:11]</a>. SVM이 기하 마진을 최대화하는 방향으로 학습하는 것은 분류기가 새로운 데이터에 대해서도 안정적으로 작동할 가능성을 높이는 핵심 전략이다.</p>
+
+  </article>
+  <p class="post-end"><a href="https://www.youtube.com/watch?v=lDwow4aOrtg" target="_blank" rel="noopener">YouTube에서 원본 보기 ↗</a> · <a href="./">← 목록으로</a></p>
+</main>
+<footer class="site-foot">
+  <a href="/projects/yt-digest-overview">yt-digest</a> 파이프라인이 자막을 읽고 자동으로 작성한 브리핑입니다. 오류가 있을 수 있으니 중요한 내용은 원본 영상으로 확인하세요.
+</footer>
+</body>
+</html>

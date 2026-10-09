@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stanford CS25: V2 I Introduction to Transformers w/ Andrej Karpathy — 유튜브 다이제스트</title>
+<meta name="description" content="이 강의는 스탠포드 CS25 &quot;Transformers United V2&quot; 강좌의 서론으로, 트랜스포머의 역사적 맥락, 핵심 구성 요소 및 광범위한 적용 분야를 다룬다. 강사는 트랜스포머가 인공지능 분야의 파편화를 끝내고 모델 아키텍처를 수렴시키는 원동력이 되었으며, 어…">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="Stanford CS25: V2 I Introduction to Transformers w/ Andrej Karpathy — 유튜브 다이제스트">
+<meta property="og:description" content="이 강의는 스탠포드 CS25 &quot;Transformers United V2&quot; 강좌의 서론으로, 트랜스포머의 역사적 맥락, 핵심 구성 요소 및 광범위한 적용 분야를 다룬다. 강사는 트랜스포머가 인공지능 분야의 파편화를 끝내고 모델 아키텍처를 수렴시키는 원동력이 되었으며, 어…">
+<meta property="og:image" content="https://i.ytimg.com/vi/XfpMkf4rD6E/hqdefault.jpg">
+<meta property="og:type" content="article">
+<link rel="icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+<script>
+// Follow the blog's saved light/dark choice (same origin, same key).
+(function () {
+  var saved = null
+  try { saved = localStorage.getItem("theme") } catch (e) {}
+  var dark = saved ? saved === "dark" : matchMedia("(prefers-color-scheme: dark)").matches
+  document.documentElement.dataset.theme = dark ? "dark" : "light"
+})()
+</script>
+</head>
+<body class="post-page">
+<header class="site-bar">
+  <a class="site-name" href="/">Johnny's</a>
+  <a class="back" href="./">← 유튜브 다이제스트</a>
+</header>
+<main class="post">
+  <a class="hero" href="https://www.youtube.com/watch?v=XfpMkf4rD6E" target="_blank" rel="noopener" aria-label="YouTube에서 보기">
+    <img src="https://i.ytimg.com/vi/XfpMkf4rD6E/hqdefault.jpg" alt="">
+    <span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+  </a>
+  <h1>Stanford CS25: V2 I Introduction to Transformers w/ Andrej Karpathy</h1>
+  <div class="post-meta"><span>Stanford Online</span><span>1:11:40</span><span>게시 2023-05-19</span></div>
+  <div class="tags"></div>
+  <article>
+<h2>TL;DR</h2>
+<p>이 강의는 스탠포드 CS25 &quot;Transformers United V2&quot; 강좌의 서론으로, 트랜스포머의 역사적 맥락, 핵심 구성 요소 및 광범위한 적용 분야를 다룬다. 강사는 트랜스포머가 인공지능 분야의 파편화를 끝내고 모델 아키텍처를 수렴시키는 원동력이 되었으며, 어텐션 메커니즘을 통한 유연한 메시지 패싱과 탁월한 효율성으로 '범용적인 학습 기계' 역할을 한다고 강조한다. 특히 인컨텍스트 학습(in-context learning) 능력이 모델의 특별한 강점이라고 설명한다.</p>
+<h2>풀시청 판단</h2>
+<p>이 강의는 트랜스포머의 기본적인 작동 원리와 역사적 배경, 그리고 다양한 분야에서의 성공 사례를 폭넓게 이해하고 싶은 초보자들에게 특히 유용하다. 인공지능 분야의 핵심적인 아키텍처인 트랜스포머가 어떻게 발전해왔고, 왜 이렇게 보편적으로 사용되는지에 대한 큰 그림을 제공한다.</p>
+<p><strong>이런 사람에게 추천:</strong></p>
+<ul>
+<li>트랜스포머의 역사적 맥락과 주요 개념을 개괄적으로 알고 싶은 사람</li>
+<li>어텐션 메커니즘이 어떻게 작동하는지 직관적으로 이해하고 싶은 사람</li>
+<li>나노GPT(nanoGPT) 구현을 통해 트랜스포머의 내부 구조를 파악하고 싶은 사람 (기본적인 딥러닝 지식과 파이토치(PyTorch) 코드 이해 능력이 있다면 더욱 좋다)</li>
+<li>트랜스포머가 자연어 처리 외의 컴퓨터 비전, 음성 인식, 강화 학습 등 다양한 분야에서 어떻게 활용되는지 궁금한 사람</li>
+<li>트랜스포머가 갖는 '인컨텍스트 학습'이라는 특별한 능력과 그것이 시사하는 바에 대해 고민하고 싶은 사람</li>
+</ul>
+<p><strong>다음과 같은 약점과 한계가 있다:</strong>
+강사의 설명이 때때로 다소 추상적이거나 명확하지 않을 수 있다. 특히 어텐션 메커니즘을 그래프의 메시지 패싱으로 비유하는 부분 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XfpMkf4rD6E&amp;t=1831s">[30:31]</a>에서는 청중과 강사 모두 혼란을 겪는 모습이 보인다. 파이토치(PyTorch) 코드 설명 부분 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XfpMkf4rD6E&amp;t=1858s">[30:58]</a>은 딥러닝 구현 경험이 없는 사람에게는 어렵게 느껴질 수 있다. 또한, 2023년 겨울에 녹화된 강의이므로, 이후 쏟아져 나온 최신 트랜스포머 연구 동향이나 새로운 아키텍처(예: Mixtral, Gemini 등)에 대한 내용은 포함되어 있지 않다.</p>
+<h2>핵심 내용</h2>
+<h3>트랜스포머 이전 시대: 파편화된 AI 분야와 RNN의 한계</h3>
+<p>강사는 자신이 인공지능 분야에 발을 들였던 2012년 무렵에는 분야가 매우 파편화되어 있었다고 회상한다. 예를 들어, 컴퓨터 비전 분야에서는 이미지 분류를 위해 수십 가지의 복잡한 특징 추출기(feature descriptor)를 조합하고 그 위에 SVM을 얹는 식의 방식이 주를 이루었다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XfpMkf4rD6E&amp;t=677s">[11:17]</a>. 이는 코드 수집의 악몽이었으며 성능도 좋지 않았다. 자연어 처리(NLP) 분야 역시 품사 태깅(part-of-speech tagging), 구문 분석(syntactic parsing) 등 고유의 복잡한 용어와 방법론이 있어 다른 분야의 논문을 읽기 어려웠다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XfpMkf4rD6E&amp;t=748s">[12:28]</a>.</p>
+<p>이러한 파편성은 2012년 알렉스넷(AlexNet)이 대규모 신경망(neural network)과 대규모 데이터셋(dataset)의 조합으로 강력한 성능을 보여주면서 변화하기 시작했다. 이로써 신경망이라는 단일한 모델링 틀(framework)이 컴퓨터 비전, 자연어 처리, 음성 등 여러 분야로 확산되었고, 분야 간의 진입 장벽이 크게 낮아졌다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XfpMkf4rD6E&amp;t=810s">[13:30]</a>. 그러나 여전히 핵심 아키텍처는 분야별로 달랐다.</p>
+<p>RNN은 시퀀스 데이터를 처리하는 데 사용되었지만, 긴 시퀀스의 정보를 인코딩하는 데 매우 취약했고, 특히 먼 과거의 맥락(context)을 이해하는 데 한계를 보였다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XfpMkf4rD6E&amp;t=313s">[5:13]</a>. &quot;나는 프랑스에서 자랐다. ... 나는 유창하게 네덜란드어를 구사한다&quot;와 같은 문장에서 '네덜란드어'를 보고 '프랑스'라는 먼 맥락을 유추하기 어렵다는 예시를 들며 RNN의 한계를 설명한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XfpMkf4rD6E&amp;t=321s">[5:21]</a>.</p>
+<h3>어텐션의 등장: 인코더 병목 현상을 해결하다</h3>
+<p>RNN 기반의 인코더-디코더(encoder-decoder) 모델은 가변 길이의 입력 시퀀스를 처리하기 위해 인코더 RNN이 전체 입력 문장을 하나의 고정된 벡터로 압축하고, 이를 디코더 RNN이 받아 출력 시퀀스를 생성하는 방식이었다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XfpMkf4rD6E&amp;t=943s">[15:43]</a>. 강사는 이 '인코더 병목 현상(encoder bottleneck)'이 너무 많은 정보를 단일 벡터에 담아야 하는 문제였다고 지적한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XfpMkf4rD6E&amp;t=1000s">[16:40]</a>.</p>
+<p>이 문제 해결을 위해 2014년 등장한 것이 '어텐션(attention)' 메커니즘이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XfpMkf4rD6E&amp;t=1022s">[17:02]</a>. 이 모델은 디코더가 출력 단어를 예측할 때, 인코더의 모든 입력 단어에 대해 '부드러운 탐색(soft search)'을 통해 관련 있는 부분을 동적으로 찾아 가중치를 부여하는 방식으로 병목 현상을 완화했다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XfpMkf4rD6E&amp;t=1039s">[17:19]</a>. 강사는 어텐션의 첫 저자 드미트리(Dzmitry)와의 이메일 교환 일화를 공유하며, 그가 통번역 경험에서 영감을 얻어 &quot;시퀀스를 가로지르며 커서를 옮겨다니는&quot; 개념을 착안했다고 밝힌다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XfpMkf4rD6E&amp;t=1154s">[19:14]</a>. 또한 '어텐션'이라는 이름은 요슈아 벤지오(Yoshua Bengio)가 논문 최종 검토 단계에서 제안한 것이라고 덧붙인다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XfpMkf4rD6E&amp;t=1188s">[19:48]</a>.</p>
+<h3>&quot;Attention Is All You Need&quot; — 트랜스포머 아키텍처의 탄생</h3>
+<p>2017년 논문 &quot;Attention Is All You Need&quot;는 기존 인코더-디코더 모델에서 RNN을 완전히 제거하고, 어텐션 메커니즘만으로 시퀀스 처리를 수행하는 트랜스포머(Transformer) 아키텍처를 제안했다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XfpMkf4rD6E&amp;t=1211s">[20:11]</a>. 이 논문은 기존의 잔차 연결(residual connection), 계층 정규화(layer normalization), 다중 헤드 어텐션(multi-headed attention) 등 여러 혁신적인 아이디어를 독특하게 결합하여 당시 최고의 성능을 달성했다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XfpMkf4rD6E&amp;t=1241s">[20:41]</a>. 놀랍게도 2023년 현재까지도 GPT 모델 등에서 사용되는 기본 아키텍처는 2017년 제안된 틀에서 크게 벗어나지 않고 견고함을 증명하고 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XfpMkf4rD6E&amp;t=1326s">[22:06]</a>.</p>
+<p>트랜스포머는 그 자체로 시퀀스 내 요소들의 공간 개념을 인식하지 못하므로, 입력에 '위치 인코딩(positional encoding)'을 추가하여 각 토큰의 상대적 또는 절대적 위치 정보를 제공한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XfpMkf4rD6E&amp;t=1265s">[21:05]</a>.</p>
+<h3>어텐션 메커니즘의 직관적 이해: 데이터 의존적 메시지 패싱</h3>
+<p>강사는 어텐션 메커니즘을 '데이터 의존적인 방향 그래프에서의 메시지 패싱(message passing on directed graphs)'으로 비유하며 설명한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XfpMkf4rD6E&amp;t=1383s">[23:03]</a>.</p>
+<ul>
+<li><strong>노드(node):</strong> 시퀀스의 각 토큰은 하나의 노드에 해당하며, 고유한 데이터 벡터를 가지고 있다.</li>
+<li><strong>쿼리(Query, Q):</strong> &quot;내가 찾고 있는 것은 무엇인가?&quot;</li>
+<li><strong>키(Key, K):</strong> &quot;내가 가지고 있는 것은 무엇인가?&quot;</li>
+<li><strong>값(Value, V):</strong> &quot;내가 전달할 정보는 무엇인가?&quot;
+이 세 가지는 노드의 데이터 벡터에 선형 변환을 적용하여 얻는다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XfpMkf4rD6E&amp;t=1434s">[23:54]</a>.</li>
+</ul>
+<p>통신 단계에서는 각 노드가 쿼리(Q)를 생성하고, 연결된 다른 노드들이 키(K)를 브로드캐스트한다. 쿼리와 키의 내적(dot product)을 통해 노드 간의 '유사성' 또는 '흥미도' 점수를 계산하고 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XfpMkf4rD6E&amp;t=1485s">[24:45]</a>, 이를 소프트맥스(softmax) 함수로 정규화하여 가중치 분포를 얻는다. 이 가중치를 해당 노드들의 값(V)에 곱하여 가중합을 계산함으로써, 각 노드는 자신의 쿼리에 가장 관련 있는 정보만을 취합하여 업데이트된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XfpMkf4rD6E&amp;t=1513s">[25:13]</a>.</p>
+<p>이러한 메시지 패싱은 여러 개의 '헤드(head)'를 통해 병렬적으로 수행되며, 각 헤드는 다른 종류의 정보를 탐색할 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XfpMkf4rD6E&amp;t=1655s">[27:35]</a>. 또한, 인코더-디코더 모델에서는 셀프-어텐션(self-attention)과 크로스-어텐션(cross-attention)이라는 두 가지 종류의 어텐션이 사용된다. 셀프-어텐션은 노드의 키와 값이 자신과 같은 시퀀스에서 오는 경우를, 크로스-어텐션은 키와 값이 다른 시퀀스(예: 인코더 출력)에서 오는 경우를 의미한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XfpMkf4rD6E&amp;t=1754s">[29:14]</a>.</p>
+<h3>나노GPT(nanoGPT)로 보는 디코더 전용 트랜스포머의 작동 원리</h3>
+<p>강사는 자신이 구현한 나노GPT(nanoGPT) 코드를 통해 디코더 전용 트랜스포머(decoder-only transformer, GPT 모델의 기본)의 작동 방식을 설명한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XfpMkf4rD6E&amp;t=1861s">[31:01]</a>.</p>
+<ol>
+<li><strong>데이터 준비:</strong> 입력 텍스트(예: 셰익스피어 희곡)를 글자 단위 또는 서브워드 단위의 정수 시퀀스로 변환한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XfpMkf4rD6E&amp;t=1920s">[32:00]</a>.</li>
+<li><strong>배치 처리:</strong> 이 긴 정수 시퀀스를 '블록 크기(block size)'(최대 컨텍스트 길이)와 '배치 크기(batch size)'에 맞춰 여러 청크(chunk)로 나눈다. 각 청크는 독립적인 학습 예시가 된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XfpMkf4rD6E&amp;t=1980s">[33:00]</a>.</li>
+<li><strong>임베딩:</strong> 각 정수 토큰은 '토큰 임베딩(token embedding)' 테이블을 통해 벡터로 변환되며, 여기에 '위치 임베딩(positional embedding)'이 더해져 토큰의 내용과 위치 정보가 모두 인코딩된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XfpMkf4rD6E&amp;t=2115s">[35:15]</a>.</li>
+<li><strong>트랜스포머 블록:</strong> 이 임베딩 벡터들은 여러 개의 트랜스포머 블록(block)을 순차적으로 통과한다. 각 블록은 메시지 패싱을 위한 다중 헤드 셀프-어텐션 계층과 계산을 위한 MLP(다층 퍼셉트론) 계층으로 구성된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XfpMkf4rD6E&amp;t=2228s">[37:08]</a>.</li>
+<li><strong>인과적 셀프-어텐션(Causal Self-Attention):</strong> 디코더 전용 모델에서는 현재 토큰이 미래 토큰의 정보를 볼 수 없도록 '마스킹(masking)' 처리하여, 순차적인 예측이 가능하도록 한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XfpMkf4rD6E&amp;t=2343s">[39:03]</a>.</li>
+<li><strong>출력:</strong> 블록을 거친 후, 선형 계층(linear layer)을 통해 다음 토큰에 대한 로짓(logit)이 출력되고, 이는 교차 엔트로피 손실(cross entropy loss)을 통해 학습된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XfpMkf4rD6E&amp;t=2182s">[36:22]</a>.</li>
+</ol>
+<p>생성(generation) 시에는 초기 토큰(예: 개행 문자)을 입력하고, 모델이 예측한 다음 토큰을 다시 입력으로 넣어주는 방식으로 순차적으로 새로운 텍스트를 생성한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XfpMkf4rD6E&amp;t=2501s">[41:41]</a>. 이때 모델은 정해진 블록 크기까지만 컨텍스트를 활용하며, 이를 넘어서면 컨텍스트를 잘라내야 한다.</p>
+<p>강사는 이 나노GPT 코드에서 '마스킹' 부분을 제거하면 인코더와 같은 완전한 어텐션(full attention)이 가능해지고 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XfpMkf4rD6E&amp;t=2591s">[43:11]</a>, 여기에 인코더의 출력을 가져오는 크로스-어텐션 계층을 추가하면 완전한 인코더-디코더 트랜스포머를 만들 수 있다고 설명한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XfpMkf4rD6E&amp;t=2633s">[43:53]</a>.</p>
+<h3>트랜스포머의 놀라운 유연성: 모든 것을 &quot;집합&quot;으로 다루다</h3>
+<p>트랜스포머는 그 태생이 자연어 처리 모델임에도 불구하고, 컴퓨터 비전(Vision Transformer, ViT) <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XfpMkf4rD6E&amp;t=3171s">[52:51]</a>, 음성 인식(Whisper) <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XfpMkf4rD6E&amp;t=3222s">[53:42]</a>, 강화 학습(Decision Transformer) <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XfpMkf4rD6E&amp;t=3240s">[54:00]</a>, 심지어 생물학(AlphaFold) <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XfpMkf4rD6E&amp;t=3253s">[54:13]</a> 등 다양한 분야에서 획기적인 성공을 거두었다.</p>
+<p>강사는 트랜스포머의 성공 비결 중 하나로 '유연성(flexibility)'을 꼽는다. 기존 합성곱 신경망(CNN)은 유클리드 공간(Euclidean space)이라는 강력한 구조적 편향(inductive bias)을 가지고 있었지만, 트랜스포머는 모든 입력 데이터를 '집합(set)'으로 취급한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XfpMkf4rD6E&amp;t=3311s">[55:11]</a>. 이미지도 작은 조각(patch)으로 잘라 토큰처럼 처리하고, 음성도 멜-스펙트로그램(melSpectrogram)을 조각으로 나누어 입력한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XfpMkf4rD6E&amp;t=3171s">[52:51]</a>.</p>
+<p>테슬라(Tesla)의 자율주행 예를 들며, 카메라 이미지 외에 레이더(Radar) 정보, 지도 정보, 차량 종류, 오디오 등 다양한 모달리티(modality)의 데이터를 신경망에 어떻게 통합할지가 난제인데 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XfpMkf4rD6E&amp;t=3271s">[54:31]</a>, 트랜스포머에서는 &quot;모든 것을 조각내어 한데 섞어 넣어 버리면(chop up everything and throw it into the mix)&quot; 셀프-어텐션 메커니즘이 스스로 모든 정보의 통신 방식을 학습한다고 설명한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XfpMkf4rD6E&amp;t=3307s">[55:07]</a>. 이는 개발자가 복잡한 입력 통합 방식을 고민할 필요 없이, 트랜스포머의 유연한 구조가 데이터 간의 관계를 파악하게 하는 강력한 장점이다.</p>
+<h3>트랜스포머 성공의 비결: 인컨텍스트 학습(in-context learning) 능력</h3>
+<p>강사는 트랜스포머, 특히 GPT-3와 같은 대규모 언어 모델(LLM)이 특별히 효과적인 이유로 '인컨텍스트 학습(in-context learning)' 또는 '메타 학습(meta-learning)' 능력을 꼽는다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XfpMkf4rD6E&amp;t=3343s">[55:43]</a>.</p>
+<p>이는 모델이 프롬프트(prompt) 내에 제공된 소수의 예시(few-shot)를 통해 새로운 작업을 수행하는 능력이다. 즉, 별도의 경사 하강법(gradient descent) 기반 미세 조정(fine-tuning) 없이, 단순히 프롬프트에 예시를 추가하는 것만으로 정확도가 향상되는 현상이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XfpMkf4rD6E&amp;t=3391s">[56:31]</a>. 강사는 이를 트랜스포머의 '활성화(activation)' 내부에서 일어나는 '내부 루프(inner loop)' 학습으로 설명하며, 이는 마치 가중치 자체에서 일종의 경사 하강법과 유사한 메타 학습이 일어나는 것처럼 보인다고 덧붙인다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XfpMkf4rD6E&amp;t=3421s">[57:01]</a>.</p>
+<p>잔차 연결(residual connection)이 업데이트 과정에서 가중치를 더하는 방식과 유사하고, 트랜스포머가 잔차 연결 구조를 가지고 있다는 점에서 이러한 '내부 경사 하강법' 비유가 완전히 불가능한 것은 아니라고 언급한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XfpMkf4rD6E&amp;t=3467s">[57:47]</a>.</p>
+<h2>주요 통찰·논점</h2>
+<h3>AI 연구의 통합과 트랜스포머 아키텍처의 보편성</h3>
+<p>강사는 지난 10년간 AI 연구 분야가 '파편화'에서 '수렴(convergence)'으로 나아갔다고 강조한다. 2012년 알렉스넷(AlexNet)으로 신경망(neural network)이라는 방법론이 다양한 분야에 공통으로 적용되기 시작했고 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XfpMkf4rD6E&amp;t=797s">[13:17]</a>, 2017년 트랜스포머의 등장은 아키텍처 수준에서의 수렴을 이끌어냈다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XfpMkf4rD6E&amp;t=837s">[13:57]</a>. 이제 많은 AI 연구자들이 거의 동일한 트랜스포머 아키텍처를 기반으로 데이터를 다루는 방식만 바꿔가며 연구하고 있으며, 강사는 이를 뇌의 시각 피질, 청각 피질 등이 표면적으로는 매우 유사하게 작동하는 것과 같은 현상으로 비유한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XfpMkf4rD6E&amp;t=888s">[14:48]</a>. 이는 어쩌면 인공지능이 &quot;균일하고 강력한 학습 알고리즘&quot;으로 수렴하고 있다는 힌트일 수 있다고 본다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XfpMkf4rD6E&amp;t=901s">[15:01]</a>.</p>
+<h3>어텐션 메커니즘의 핵심: 쿼리(Query), 키(Key), 값(Value) 상호작용</h3>
+<p>어텐션 메커니즘의 핵심은 쿼리, 키, 값이라는 세 가지 추상화된 개념을 통해 데이터 의존적인 방식으로 정보 흐름을 제어한다는 점이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XfpMkf4rD6E&amp;t=1434s">[23:54]</a>. 쿼리는 특정 정보에 대한 '요청'을, 키는 자신이 보유한 정보의 '식별자'를, 값은 실제로 전달할 '정보'를 나타낸다. 이러한 QKV 메커니즘은 단순한 내적 연산과 소프트맥스 정규화를 통해 입력 시퀀스 내의 모든 요소가 서로의 관련성을 측정하고, 가장 중요한 정보만을 선택적으로 취합할 수 있게 한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XfpMkf4rD6E&amp;t=1485s">[24:45]</a>. 이는 기존 RNN이 가졌던 장거리 의존성 문제와 정보 병목 현상을 근본적으로 해결하는 강력한 방식이다.</p>
+<h3>트랜스포머는 '범용적이고 효율적이며 최적화 가능한 컴퓨터'다</h3>
+<p>강사는 트랜스포머의 성공 요인을 세 가지 핵심 속성으로 요약한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XfpMkf4rD6E&amp;t=3507s">[58:27]</a>:</p>
+<ol>
+<li><strong>높은 표현력(expressive):</strong> 순방향 연산(forward pass)에서 매우 흥미로운 함수, 심지어 메타 학습(meta-learning)까지 구현할 수 있는 능력이 있다.</li>
+<li><strong>높은 최적화 가능성(optimizable):</strong> 잔차 연결(residual connection), 계층 정규화(layer normalization) 덕분에 경사 하강법(gradient descent)으로 쉽게 최적화될 수 있다.</li>
+<li><strong>뛰어난 효율성(efficient):</strong> 트랜스포머는 계산 그래프 관점에서 '얕고 넓은(shallow, wide)' 네트워크 구조를 가지는데 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XfpMkf4rD6E&amp;t=3531s">[58:51]</a>, 이는 GPU의 병렬 처리 능력을 최대한 활용하기에 완벽하다.</li>
+</ol>
+<p>강사는 &quot;Attention Is All You Need&quot; 논문 제목을 &quot;범용적이고 효율적이며 최적화 가능한 컴퓨터(General Purpose Efficient Optimizable Computer)&quot;로 바꾸고 싶었다고 말하며 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XfpMkf4rD6E&amp;t=3561s">[59:21]</a>, 트랜스포머가 강력한 데이터를 학습하면 '텍스트를 위한 범용 컴퓨터'가 되어 프롬프트를 통해 프로그램을 실행하는 것과 같다고 비유한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XfpMkf4rD6E&amp;t=3600s">[1:00:00]</a>. 이 세 가지 속성이 결합되어 트랜스포머는 전례 없는 규모의 모델을 훈련하고 다양한 태스크에 적용할 수 있게 되었다는 점을 강조한다.</p>
+<h2>인상적인 지점</h2>
+<ul>
+<li><strong>역사적 일화: '어텐션'이라는 이름의 탄생</strong>
+어텐션(attention) 메커니즘의 초기 개발자 드미트리(Dzmitry)는 원래 이를 'RNN 서치(RNN Search)'라고 불렀는데, 요슈아 벤지오(Yoshua Bengio)가 논문 최종본 검토 중 &quot;어텐션&quot;이라는 더 나은 이름을 제안하여 지금의 용어가 되었다는 일화가 흥미롭다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XfpMkf4rD6E&amp;t=1188s">[19:48]</a>. 논문의 제목이 &quot;Attention Is All You Need&quot;가 아니라 &quot;RNN Search Is All You Need&quot;가 될 뻔했다는 점이 역사의 재미있는 우연을 보여준다.</li>
+<li><strong>강력한 비유: 트랜스포머는 '범용 컴퓨터'이며 프롬프트는 '프로그램'이다</strong>
+강사는 GPT를 &quot;런타임에 재구성 가능한 범용 컴퓨터&quot;로 비유하며, 프롬프트가 곧 &quot;자연어 프로그램&quot;이 되고 GPT는 이 프로그램을 실행하여 문서를 완성한다고 설명한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XfpMkf4rD6E&amp;t=3600s">[1:00:00]</a>. 이 비유는 트랜스포머의 놀라운 유연성과 인컨텍스트 학습 능력을 매우 직관적이고 강력하게 전달한다.</li>
+<li><strong>미래 비전: 트랜스포머에 '노트패드'를 주면 인간처럼 정보를 활용할 수 있다</strong>
+트랜스포머의 한계 중 하나인 유한한 컨텍스트 길이(finite context length)를 해결하기 위한 아이디어로, 강사는 모델에게 '스크래치 패드(scratch pad)' 또는 '노트패드'와 같은 외부 기억 장치를 제공하는 방안을 제시한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XfpMkf4rD6E&amp;t=4172s">[1:09:32]</a>. 모델이 &quot;스크래치 패드 시작&quot; 토큰을 발행하면 정보를 기록하고, 필요할 때 이를 참조하게 함으로써 마치 사람이 중요한 정보를 노트에 적어두고 필요할 때 찾아보는 것처럼 기억 능력을 확장할 수 있을 것이라는 비유는 미래 LLM의 발전 방향에 대한 통찰력을 제공한다.</li>
+</ul>
+
+  </article>
+  <p class="post-end"><a href="https://www.youtube.com/watch?v=XfpMkf4rD6E" target="_blank" rel="noopener">YouTube에서 원본 보기 ↗</a> · <a href="./">← 목록으로</a></p>
+</main>
+<footer class="site-foot">
+  <a href="/projects/yt-digest-overview">yt-digest</a> 파이프라인이 자막을 읽고 자동으로 작성한 브리핑입니다. 오류가 있을 수 있으니 중요한 내용은 원본 영상으로 확인하세요.
+</footer>
+</body>
+</html>

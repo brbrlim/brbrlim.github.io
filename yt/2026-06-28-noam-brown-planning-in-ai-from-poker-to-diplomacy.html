@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Parables on the Power of Planning in AI: From Poker to Diplomacy: Noam Brown (OpenAI) — 유튜브 다이제스트</title>
+<meta name="description" content="본 영상에서 OpenAI의 노엄 브라운은 다양한 게임 AI 사례를 통해 AI 성능 향상에 있어 '계획(planning)'의 중요성을 역설한다. 초기 포커 AI 개발 경험을 시작으로 바둑, 하비, 체스, 디플로머시 등 여러 영역에서 계획 능력 추가가 모델 크기 확장이나…">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="Parables on the Power of Planning in AI: From Poker to Diplomacy: Noam Brown (OpenAI) — 유튜브 다이제스트">
+<meta property="og:description" content="본 영상에서 OpenAI의 노엄 브라운은 다양한 게임 AI 사례를 통해 AI 성능 향상에 있어 '계획(planning)'의 중요성을 역설한다. 초기 포커 AI 개발 경험을 시작으로 바둑, 하비, 체스, 디플로머시 등 여러 영역에서 계획 능력 추가가 모델 크기 확장이나…">
+<meta property="og:image" content="https://i.ytimg.com/vi/eaAonE58sLU/hqdefault.jpg">
+<meta property="og:type" content="article">
+<link rel="icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+<script>
+// Follow the blog's saved light/dark choice (same origin, same key).
+(function () {
+  var saved = null
+  try { saved = localStorage.getItem("theme") } catch (e) {}
+  var dark = saved ? saved === "dark" : matchMedia("(prefers-color-scheme: dark)").matches
+  document.documentElement.dataset.theme = dark ? "dark" : "light"
+})()
+</script>
+</head>
+<body class="post-page">
+<header class="site-bar">
+  <a class="site-name" href="/">Johnny's</a>
+  <a class="back" href="./">← 유튜브 다이제스트</a>
+</header>
+<main class="post">
+  <a class="hero" href="https://www.youtube.com/watch?v=eaAonE58sLU" target="_blank" rel="noopener" aria-label="YouTube에서 보기">
+    <img src="https://i.ytimg.com/vi/eaAonE58sLU/hqdefault.jpg" alt="">
+    <span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+  </a>
+  <h1>Parables on the Power of Planning in AI: From Poker to Diplomacy: Noam Brown (OpenAI)</h1>
+  <div class="post-meta"><span>Paul G. Allen School</span><span>56:53</span><span>게시 2024-09-17</span></div>
+  <div class="tags"><a href="./?q=%23ai-planning">#ai-planning</a><a href="./?q=%23game-ai">#game-ai</a><a href="./?q=%23poker-ai">#poker-ai</a><a href="./?q=%23alphago">#alphago</a><a href="./?q=%23llm-reasoning">#llm-reasoning</a><a href="./?q=%23inference-compute">#inference-compute</a></div>
+  <article>
+<h2>TL;DR</h2>
+<p>본 영상에서 OpenAI의 노엄 브라운은 다양한 게임 AI 사례를 통해 AI 성능 향상에 있어 '계획(planning)'의 중요성을 역설한다. 초기 포커 AI 개발 경험을 시작으로 바둑, 하비, 체스, 디플로머시 등 여러 영역에서 계획 능력 추가가 모델 크기 확장이나 학습 데이터 증가보다 훨씬 더 큰 성능 개선 효과를 가져왔음을 보여준다. 그는 현재 LLM 분야에서도 계획 기법 적용을 통한 추론 역량 강화가 큰 잠재력을 가졌다고 강조한다.</p>
+<h2>풀시청 판단</h2>
+<p>이 영상은 AI 연구자와 개발자, 특히 게임 AI, 강화 학습, 대규모 언어 모델(LLM)의 추론 능력 향상에 관심 있는 모든 이에게 시청을 권한다. 노엄 브라운은 직접 개발에 참여한 AI 시스템(리브라투스, 시세로 등)의 구체적인 개발 과정과 그 안에 담긴 핵심 통찰을 명확한 데이터와 비유로 설명한다. 모델 크기 확장과 학습 데이터 증대라는 현재 주류 AI 발전 방식의 한계를 이해하고, 인공지능이 더 높은 지능을 달성하기 위한 대안적인 접근법인 '계획'에 대해 깊이 있는 관점을 얻을 수 있다.</p>
+<ul>
+<li><strong>게임 AI의 계획 능력 도입 과정과 놀라운 성과</strong>: <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=eaAonE58sLU&amp;t=60s">[1:00]</a>부터 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=eaAonE58sLU&amp;t=1630s">[27:10]</a>까지 포커, 바둑(AlphaGo Zero), 하비, 헥스 등의 게임에서 AI가 인간 수준을 넘어선 배경에 '계획' 능력이 어떻게 핵심적으로 작용했는지 구체적인 데이터와 함께 설명한다. 특히 모델 크기 확장만으로는 상상하기 어려운 성능 향상 폭을 명확히 보여주므로, AI의 잠재력에 대한 인식을 전환할 수 있다.</li>
+<li><strong>계획 능력의 가치가 과소평가된 이유</strong>: <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=eaAonE58sLU&amp;t=594s">[9:54]</a>부터 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=eaAonE58sLU&amp;t=789s">[13:09]</a>까지 포커 AI 연구 커뮤니티에서 왜 계획 능력이 중요하게 다뤄지지 않았는지에 대한 문화적, 제도적, 인식적 요인을 분석한다. 이는 현재 AI 연구 흐름을 비판적으로 성찰하는 데 도움이 된다.</li>
+<li><strong>LLM의 추론 능력 향상을 위한 계획 기법</strong>: <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=eaAonE58sLU&amp;t=2484s">[41:24]</a>부터 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=eaAonE58sLU&amp;t=2802s">[46:42]</a>까지는 언어 모델에 '합의(Consensus)', 'N개 중 최적(Best of N)', '단계별 보상 모델(Process Reward Models)'과 같은 계획 기법을 적용하여 수학 문제 해결 능력을 비약적으로 향상시킨 사례를 소개한다. LLM의 추론 능력을 높이는 현실적인 방법에 대한 통찰을 얻을 수 있다.</li>
+<li><strong>AI 연구의 미래 방향과 학계 조언</strong>: <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=eaAonE58sLU&amp;t=2880s">[48:00]</a>부터 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=eaAonE58sLU&amp;t=3080s">[51:20]</a>까지 계획 능력을 통한 추론 계산량 증대의 일반화가 AI의 궁극적인 지능으로 이어질 것이라는 비전을 제시한다. 또한 학계 연구자들이 이러한 방향에서 기여할 수 있는 방법을 조언한다.</li>
+</ul>
+<p>단, 영상은 현재 OpenAI의 내부 연구 방향이나 미공개된 최신 기술에 대한 깊이 있는 내용은 다루지 않는다.</p>
+<h2>핵심 내용</h2>
+<h3>계획 능력의 부재가 초래한 포커 AI의 패배 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=eaAonE58sLU&amp;t=146s">[2:26]</a></h3>
+<p>노엄 브라운은 2012년부터 포커 AI 연구를 시작했다. 당시 AI 커뮤니티는 포커 AI가 이미 해결된 문제이며, 단지 모델을 더 키우는 스케일링 작업만 남았다고 여겼다. 매년 컴퓨터 포커 대회에서 모델 크기를 100배씩 키우며 성능을 개선해왔으나, 2015년 최고 수준의 인간 포커 전문가 4명과의 '브레인즈 대 AI 포커 대회(Brains vs. AI poker competition)'에서 그들의 봇인 클라우디오(Claudico)는 상당한 차이로 패배했다.</p>
+<p>대회 중 브라운은 흥미로운 점을 발견했다. 클라우디오는 수개월 동안 수천 개의 CPU로 1조(trillion) 핸드의 포커를 학습했지만, 실제 게임에서는 즉시(30밀리초 내외) 다음 수를 두었다. 반면 인간 전문가들은 어려운 상황에 직면하면 5초에서 길게는 5분까지도 숙고했다. 브라운은 이 '생각하는 시간', 즉 '계획(planning)' 능력이 AI 봇에 결여되어 있다고 판단했다.</p>
+<h3>계획 능력 추가가 가져온 100,000배 스케일링 효과 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=eaAonE58sLU&amp;t=243s">[4:03]</a></h3>
+<p>브라운은 이 가설을 검증하기 위해 2017년 연구에서 AI 봇에 30초 동안 계획할 수 있는 능력을 추가했다. 그 결과, 내쉬 균형(Nash equilibrium)으로부터의 거리(낮을수록 성능이 좋음)가 모델 크기를 100배 키웠을 때보다 7배 더 크게 감소했다. 이는 모델 크기를 100,000배 확장하는 것과 맞먹는 효과였다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=eaAonE58sLU&amp;t=379s">[6:19]</a>. 당시 3년 동안 모델을 100배 키운 자신의 박사 연구가 계획 능력 하나로 압도당하는 결과였다.</p>
+<p>이후 연구팀은 계획 능력 확장에 집중했고, 2017년 인간 전문가들과의 재대결에서 봇(리브라투스)이 큰 차이로 승리했다. 심지어 2019년에는 6인 포커 봇을 개발했는데, 이 봇은 훈련 비용이 150달러 미만으로, 1990년대에도 비슷한 성능을 낼 수 있었을 만큼 효율적이었다. 이는 단순한 모델 크기 확장이 아니라, 핵심적인 방법론적 전환, 즉 '계획'이 AI 성능을 근본적으로 끌어올렸음을 보여준다.</p>
+<h3>포커 AI 커뮤니티가 계획 능력을 간과한 이유 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=eaAonE58sLU&amp;t=594s">[9:54]</a></h3>
+<p>브라운은 계획 능력이 이처럼 큰 효과를 가져왔음에도 불구하고, 과거 포커 AI 커뮤니티에서 그 중요성을 충분히 인식하지 못했던 몇 가지 이유를 설명한다.</p>
+<ul>
+<li><strong>문화적 요인</strong>: 게임 이론을 기반으로 연구하던 학자들은 균형(equilibrium)을 계산하고 이를 완전히 검증하는 데 중점을 두었다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=eaAonE58sLU&amp;t=631s">[10:31]</a>. 계획은 실시간으로 해답을 찾아나가므로 전체 해답을 미리 알 수 없어 균형과의 거리를 정확히 측정하기 어려웠고, 이는 학계의 선호도에 부합하지 않았다.</li>
+<li><strong>실험의 어려움</strong>: 계획을 도입하면 모델이 한 수(hand)를 두는 데 30초처럼 긴 시간이 소요되므로, 수백만 핸드를 플레이해야 하는 실험 환경에서 평가 비용이 급증하고 실험 진행이 매우 어려워졌다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=eaAonE58sLU&amp;t=675s">[11:15]</a>.</li>
+<li><strong>단기적인 인센티브</strong>: 매년 열리는 컴퓨터 포커 대회(ACPC)는 테스트 시점의 계산 자원(CPU 코어)을 제한했다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=eaAonE58sLU&amp;t=707s">[11:47]</a>. 연구자들은 이 단기적인 목표 달성에 집중했고, 인간 전문가를 이기는 더 중요한 벤치마크나 장기적인 기술 개발에는 상대적으로 소홀했다.</li>
+<li><strong>효과의 과소평가</strong>: 가장 큰 요인은 사람들이 계획 능력의 효과를 극단적으로 과소평가했다는 점이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=eaAonE58sLU&amp;t=755s">[12:35]</a>. 브라운 자신도 초기에는 10배 정도의 성능 향상을 예상했지만, 실제로는 100,000배에 달하는 효과가 있었다.</li>
+</ul>
+<h3>바둑 AI (AlphaGo Zero)에서도 드러난 계획 능력의 압도적 효율 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=eaAonE58sLU&amp;t=1154s">[19:14]</a></h3>
+<p>계획 능력의 중요성은 포커에만 국한되지 않는다. 바둑 AI인 AlphaGo Zero 역시 유사한 패턴을 보인다. AlphaGo Zero는 신경망과 몬테카를로 트리 탐색(Monte Carlo Tree Search, MCTS) 알고리즘을 함께 사용하여 압도적인 성능을 냈다. 하지만 MCTS 없이 순수한 신경망(raw neural net)만으로는 최고 수준의 인간 성능에도 미치지 못한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=eaAonE58sLU&amp;t=1228s">[20:28]</a>.</p>
+<p>브라운은 MCTS와 같은 계획 능력 없이 AlphaGo Zero 수준의 ELO 점수(5200점)를 달성하려면 순수 신경망의 모델 크기와 학습량을 100,000배 확장해야 할 것이라고 추정한다. 이는 포커와 마찬가지로, 계획 능력이 엄청난 양의 연산 자원 투자 없이도 비약적인 성능 향상을 가져올 수 있음을 시사한다. 심지어 MCTS는 훈련 과정에도 사용되어 모델의 잠재력을 높였다.</p>
+<h3>하비(Hanabi) 및 헥스(Hex) 게임에서의 계획 효과 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=eaAonE58sLU&amp;t=1387s">[23:07]</a></h3>
+<p>브라운은 완전히 협력적이고 불완전한 정보 게임인 하비에서도 유사한 현상이 나타났다고 말한다. 딥마인드가 제안한 심층 강화 학습(Deep RL) 알고리즘이 58.6%의 승률을 기록했을 때, 브라운 팀은 가장 간단한 형태의 탐색(search) 알고리즘을 추가하여 75%의 승률을 달성하며 인간 수준을 넘어섰다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=eaAonE58sLU&amp;t=1482s">[24:42]</a>. 단일 CPU 코어로 1초만 계획해도, 단순히 휴리스틱 기반 봇에 계획을 더하면 기존 딥러닝 봇을 능가하는 58% 승률을 달성했으며, 최신 딥러닝 봇에 계획을 더하면 72%까지 성능이 향상됐다. 당시 팀원들은 너무나 큰 성능 향상에 버그라고 생각했을 정도였다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=eaAonE58sLU&amp;t=1610s">[26:50]</a>.</p>
+<p>헥스 게임에 대한 스케일링 법칙 연구에서는 훈련 연산량 10배 증가가 테스트 시점 연산량 15배 증가와 맞먹는 효과를 보였다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=eaAonE58sLU&amp;t=1696s">[28:16]</a>. 이는 훈련에 수십억 달러를 쓰는 대신 추론 비용을 15배 늘리는 것이 특정 도메인에서는 훨씬 효율적일 수 있음을 보여준다.</p>
+<h3>체스 AI (Maya)와 디플로머시(Diplomacy)에서 인간 모방 및 상호작용 능력 향상 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=eaAonE58sLU&amp;t=1745s">[29:05]</a></h3>
+<p>체스 AI 마야(Maya)는 인간처럼 플레이하는 봇을 목표로 수억 개의 인간 체스 게임을 학습했다. 하지만 높은 ELO 등급의 인간을 모방하는 데는 한계가 있었는데, 이는 신경망이 인간의 복잡한 계획 과정을 근사하기 어렵기 때문으로 추정된다. 실제로 인간이 계획할 시간이 거의 없는 '블릿 체스(Bullet Chess)'에서는 ELO 격차가 없었다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=eaAonE58sLU&amp;t=1838s">[30:38]</a>.</p>
+<p>브라운 팀은 마야 모델에 MCTS를 추가하여 인간의 움직임을 예측하는 정확도를 향상시켰다. 적절한 초매개변수(hyperparameter)를 사용하여 MCTS를 도입하면, 순수하게 데이터만으로 학습한 모델보다 예측 정확도가 1.5%포인트 상승했다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=eaAonE58sLU&amp;t=1973s">[32:53]</a>. 이는 4배 더 큰 신경망과 4배 더 많은 훈련 데이터에 해당하는 효과였다.</p>
+<p>자연어 전략 게임인 디플로머시(Diplomacy) AI 시세로(Cicero)는 이 아이디어를 적용했다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=eaAonE58sLU&amp;t=2124s">[35:24]</a>. 시세로는 보드 상태와 대화 기록을 기반으로 다른 플레이어의 행동을 예측하고, 이 예측을 통해 계획 엔진에서 여러 번 반복하여 다음 행동을 정교화했다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=eaAonE58sLU&amp;t=2258s">[37:38]</a>. 이렇게 계획된 행동은 다시 대화 모델에 입력되어 메시지 생성에 영향을 미쳤다. 이 복잡한 계획 과정은 메시지 하나를 보내는 데 수십 개의 GPU를 사용하고 10초 이상이 걸리는 고비용 작업이었지만, 시세로는 인간 플레이어에게 AI임을 들키지 않고 상위 10%의 성능을 기록하며 인간 수준을 뛰어넘었다.</p>
+<h2>주요 통찰·논점</h2>
+<h3>생성-검증 간극(generator-verifier gap): 계획이 효과적인 근본적인 이유 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=eaAonE58sLU&amp;t=2345s">[39:05]</a></h3>
+<p>계획이 다양한 도메인에서 강력한 이유는 '생성-검증 간극' 때문이다. 많은 문제에서 좋은 해결책을 '생성'하는 것보다 생성된 해결책이 좋은지 '검증'하는 것이 훨씬 쉽다. 예를 들어, 포커에서 균형 전략을 계산하는 것보다 현재 전략이 균형에 얼마나 가까운지 검증하는 것이 쉽다. 체스에서 좋은 보드 상태를 찾는 경로를 생성하는 것보다 현재 보드 상태가 얼마나 좋은지 평가하는 것이 쉽다. 스도쿠나 수학 문제, 증명에서도 마찬가지다.</p>
+<p>이러한 간극이 존재하는 도메인에서는, 좋은 해결책을 생성하기 위해 더 많은 계산 자원을 투입한 다음, 강력한 검증기로 그 해결책의 품질을 평가하여 최적의 것을 선택하는 '계획' 방식이 매우 효과적이다. 반면 정보 검색이나 이미지 인식처럼 검증이 생성만큼 어렵지 않은 도메인에서는 계획이 큰 효과를 발휘하기 어렵다.</p>
+<h3>LLM 추론 능력 향상을 위한 계획 기법들 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=eaAonE58sLU&amp;t=2484s">[41:24]</a></h3>
+<p>대규모 언어 모델(LLM)에서도 추론 시 계산량(inference compute)을 늘리는 계획 기법들이 적용되고 있다. 사람들은 그 효과를 과소평가하는 경향이 있지만, 실제로는 큰 차이를 만들어낸다.</p>
+<ul>
+<li><strong>합의(Consensus)</strong>: 여러 개의 해결책을 생성하고 그중 가장 흔한(common) 해결책을 채택하는 단순한 방법이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=eaAonE58sLU&amp;t=2506s">[41:46]</a>. 구글의 미네르바(Minerva)는 MATH 벤치마크에서 1,000개의 샘플을 생성하고 합의를 통해 성능을 33.6%에서 50.3%로 크게 향상시켰다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=eaAonE58sLU&amp;t=2567s">[42:47]</a>. 숫자 정답과 같이 명확한 결과가 있는 문제에 특히 유용하다.</li>
+<li><strong>N개 중 최적(Best-of-N)</strong>: 보상 모델(reward model)을 사용하여 생성된 N개의 해결책 중 가장 품질이 높은 것을 선택한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=eaAonE58sLU&amp;t=2598s">[43:18]</a>. 보상 모델의 품질이 충분히 좋다면 합의보다 우수할 수 있지만, 보상 모델이 좋지 않으면 과적합(overfitting)되어 성능이 떨어질 수 있다. 승패가 명확한 체스나 스도쿠처럼 '근거(ground truth)'가 있는 도메인에서 유용하다.</li>
+<li><strong>단계별 보상 모델(Process Reward Models)</strong>: 최종 해결책뿐만 아니라, 해결 과정의 모든 단계를 개별적으로 검증하여 보상 모델을 훈련하는 기법이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=eaAonE58sLU&amp;t=2687s">[44:47]</a>. OpenAI가 발표한 'Let's Verify Step by Step' 논문에서 이 방법을 통해 MATH 벤치마크 성공률을 78.2%까지 끌어올렸다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=eaAonE58sLU&amp;t=2740s">[45:40]</a>. GPT-4 모델이 tan(100°) + 4*sin(100°) 같은 복잡한 수학 문제를 푸는 데 있어, 단계별 검증을 통해 성공률이 1/1000에서 비약적으로 상승했다.</li>
+</ul>
+<h3>'비터 레슨(Bitter Lesson)'의 확장: 탐색(Search)의 잠재력 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=eaAonE58sLU&amp;t=3080s">[51:20]</a></h3>
+<p>리처드 서튼(Richard Sutton)의 '비터 레슨(Bitter Lesson)'은 AI 연구 70년간의 가장 큰 교훈으로 '계산량을 활용하는 일반적인 방법론이 궁극적으로 가장 효과적'이라고 말하며, 이러한 방법으로 '탐색(search)'과 '학습(learning)'을 꼽았다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=eaAonE58sLU&amp;t=3090s">[51:30]</a>. 브라운은 현재 AI 커뮤니티가 학습(스케일링 학습 모델)에는 매우 뛰어난 성과를 보여 비터 레슨을 잘 내면화했다고 평가한다.</p>
+<p>그러나 그는 '탐색', 즉 추론 시 계산량(inference compute)을 늘리는 방식에는 아직 더 많은 노력이 필요하다고 강조한다. 현재 LLM은 대부분 즉각적인 저비용 응답에 초점을 맞추지만 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=eaAonE58sLU&amp;t=2856s">[47:36]</a>, 리만 가설 증명, 신약 개발, 해리 포터 같은 소설 창작과 같은 고차원적인 문제에서는 AI가 응답을 생성하는 데 몇 시간, 며칠, 심지어 몇 주를 소비하더라도 기꺼이 받아들일 수 있다. 브라운은 추론 계산량 확장의 일반적인 방법을 개발하는 것이 AI의 미래를 엿볼 수 있는 창이 될 것이라고 주장한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=eaAonE58sLU&amp;t=2948s">[49:08]</a>.</p>
+<p>학계 연구자들에게는, 거대 기업들이 낮은 추론 비용을 선호하는 것과 달리, 학계는 개념 증명(proof of concept)에 집중할 수 있으므로 '계획' 연구가 상대적으로 더 유리한 영역일 수 있다고 조언한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=eaAonE58sLU&amp;t=2977s">[49:37]</a>. 또한 외부 검증기(external verifier)가 있는 도메인을 선택하면 보상 모델의 품질에 발목 잡히는 것을 피할 수 있다고 덧붙였다.</p>
+<h2>인상적인 지점</h2>
+<p>포커 봇이 2017년 인간 전문가들과의 대결에서 이기기 전, 봇은 팟에 100달러가 있을 때 보통 50~100달러를 거는 인간과 달리 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=eaAonE58sLU&amp;t=3338s">[55:38]</a> 20,000달러와 같은 매우 큰 금액을 베팅하는 경향이 있었다. 인간 플레이어들은 이를 보면서 봇을 &quot;농담&quot;으로 여겼고, 초반에는 봇의 승률에 대한 베팅 시장의 배당률이 4:1로 봇에 불리했다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=eaAonE58sLU&amp;t=459s">[7:39]</a>. 그러나 봇의 전략은 특정 상황에서 매우 효과적이었고, 결과적으로 인간 플레이어들이 봇의 이러한 '큰 베팅' 전략을 자신들의 게임에 적용하기 시작했다는 점이 인상적이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=eaAonE58sLU&amp;t=3364s">[56:04]</a>. 이는 AI가 인간의 직관을 넘어서는 새로운 전략적 통찰을 제공할 수 있음을 보여준다.</p>
+
+  </article>
+  <p class="post-end"><a href="https://www.youtube.com/watch?v=eaAonE58sLU" target="_blank" rel="noopener">YouTube에서 원본 보기 ↗</a> · <a href="./">← 목록으로</a></p>
+</main>
+<footer class="site-foot">
+  <a href="/projects/yt-digest-overview">yt-digest</a> 파이프라인이 자막을 읽고 자동으로 작성한 브리핑입니다. 오류가 있을 수 있으니 중요한 내용은 원본 영상으로 확인하세요.
+</footer>
+</body>
+</html>

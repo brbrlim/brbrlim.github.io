@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stanford CS224N NLP with Deep Learning | 2023 | Lecture 8 - Self-Attention and Transformers — 유튜브 다이제스트</title>
+<meta name="description" content="이 강의는 현대 자연어 처리(NLP)와 광범위한 AI 시스템의 근간을 이루는 자기 주의(self-attention)와 트랜스포머(Transformer) 아키텍처를 상세히 설명한다. 기존 순환 신경망(RNN)의 한계인 선형적 상호작용 거리 문제와 비병렬화 가능성을 지적하…">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="Stanford CS224N NLP with Deep Learning | 2023 | Lecture 8 - Self-Attention and Transformers — 유튜브 다이제스트">
+<meta property="og:description" content="이 강의는 현대 자연어 처리(NLP)와 광범위한 AI 시스템의 근간을 이루는 자기 주의(self-attention)와 트랜스포머(Transformer) 아키텍처를 상세히 설명한다. 기존 순환 신경망(RNN)의 한계인 선형적 상호작용 거리 문제와 비병렬화 가능성을 지적하…">
+<meta property="og:image" content="https://i.ytimg.com/vi/LWMzyfvuehA/hqdefault.jpg">
+<meta property="og:type" content="article">
+<link rel="icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+<script>
+// Follow the blog's saved light/dark choice (same origin, same key).
+(function () {
+  var saved = null
+  try { saved = localStorage.getItem("theme") } catch (e) {}
+  var dark = saved ? saved === "dark" : matchMedia("(prefers-color-scheme: dark)").matches
+  document.documentElement.dataset.theme = dark ? "dark" : "light"
+})()
+</script>
+</head>
+<body class="post-page">
+<header class="site-bar">
+  <a class="site-name" href="/">Johnny's</a>
+  <a class="back" href="./">← 유튜브 다이제스트</a>
+</header>
+<main class="post">
+  <a class="hero" href="https://www.youtube.com/watch?v=LWMzyfvuehA" target="_blank" rel="noopener" aria-label="YouTube에서 보기">
+    <img src="https://i.ytimg.com/vi/LWMzyfvuehA/hqdefault.jpg" alt="">
+    <span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+  </a>
+  <h1>Stanford CS224N NLP with Deep Learning | 2023 | Lecture 8 - Self-Attention and Transformers</h1>
+  <div class="post-meta"><span>Stanford Online</span><span>1:17:03</span><span>게시 2023-09-20</span></div>
+  <div class="tags"><a href="./?q=%23nlp">#nlp</a><a href="./?q=%23deep-learning">#deep-learning</a><a href="./?q=%23self-attention">#self-attention</a><a href="./?q=%23transformers">#transformers</a><a href="./?q=%23machine-translation">#machine-translation</a><a href="./?q=%23language-models">#language-models</a></div>
+  <article>
+<h2>TL;DR</h2>
+<p>이 강의는 현대 자연어 처리(NLP)와 광범위한 AI 시스템의 근간을 이루는 자기 주의(self-attention)와 트랜스포머(Transformer) 아키텍처를 상세히 설명한다. 기존 순환 신경망(RNN)의 한계인 선형적 상호작용 거리 문제와 비병렬화 가능성을 지적하고, 자기 주의가 이를 어떻게 해결하는지 설명한다. 이어서 트랜스포머의 핵심 구성 요소인 다중 헤드 자기 주의(multi-head self-attention), 위치 임베딩, 잔여 연결, 계층 정규화를 다루며, 트랜스포머가 NLP 분야에 가져온 혁신과 그 한계를 분석한다.</p>
+<h2>풀시청 판단</h2>
+<p>이 강의는 자기 주의와 트랜스포머 아키텍처의 이론적 기반과 실제 구현의 핵심적인 세부 사항을 깊이 있게 이해하고자 하는 사람들에게 매우 유용하다. 특히 NLP 또는 딥러닝을 공부하는 학생, 연구원, 엔지니어라면 풀시청할 가치가 충분하다. RNN의 한계를 시작으로 자기 주의의 기본 원리, 이의 단점을 보완하는 필수 요소들, 그리고 최종적으로 트랜스포머 인코더-디코더까지 논리적인 흐름으로 설명하기 때문에, 트랜스포머의 등장 배경부터 핵심 메커니즘을 체계적으로 파악할 수 있다.</p>
+<p>강의의 가장 큰 장점은 어려운 개념을 직관적인 비유와 시각 자료, 수학적 설명(행렬 연산)을 함께 사용하여 이해도를 높인다는 점이다. 다중 헤드 자기 주의나 계층 정규화 같은 복잡한 개념도 차근차근 단계별로 설명하므로, 트랜스포머를 처음 접하는 이들도 충분히 따라갈 수 있다. 또한, 현재 트랜스포머가 직면한 2차 연산 문제와 같은 현실적인 한계점까지 솔직하게 언급하여 실용적인 관점을 제공한다.</p>
+<p>다만, 2023년 강의이므로 트랜스포머와 관련하여 2024년에 등장한 최신 연구 동향이나 아키텍처 변형(예: Mamba, RWKV 등)은 다루지 않는다. 그러나 트랜스포머의 기본 구조와 동작 원리는 여전히 유효하며, 새로운 아키텍처를 이해하는 데 필수적인 기초 지식을 제공한다.</p>
+<h2>핵심 내용</h2>
+<h3>기존 순환 신경망(RNN)의 한계: 선형적 상호작용 거리와 비병렬화 가능성</h3>
+<p>강의는 자기 주의와 트랜스포머를 소개하기에 앞서, 기존 순환 신경망(RNN), 특히 양방향 장단기 기억망(LSTM)의 두 가지 주요 한계를 지적한다. 첫째는 <strong>선형적 상호작용 거리 문제</strong>이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=LWMzyfvuehA&amp;t=274s">[4:34]</a>. RNN은 문장을 왼쪽에서 오른쪽으로(혹은 그 반대로) 순차적으로 처리하므로, 멀리 떨어져 있는 단어 간의 의존성을 학습하기 어렵다. 예를 들어, &quot;요리사(chef)가 시장에 가서 마늘을 좋아하고... [중략] ...있었다(was)&quot;와 같은 문장에서 '요리사'와 '있었다'처럼 문법적으로 연결된 단어라도, RNN은 그 사이에 있는 많은 단어를 순차적으로 거쳐야만 상호작용할 수 있다. 이는 기울기 소실(vanishing gradient) 문제로 이어져 장거리 의존성 학습을 방해한다. 둘째는 <strong>비병렬화 가능성 문제</strong>이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=LWMzyfvuehA&amp;t=442s">[7:22]</a>. RNN은 이전 시간 단계의 은닉 상태(hidden state) 계산이 완료되어야 다음 시간 단계의 계산을 시작할 수 있는 본질적인 순차성을 가진다. 이 때문에 GPU와 같은 병렬 처리 장치의 이점을 온전히 활용하기 어렵고, 긴 시퀀스(sequence) 처리 시 계산 시간이 선형적으로 증가한다.</p>
+<h3>자기 주의(Self-Attention)의 핵심 아이디어: 키-값 저장소의 불명확한 탐색</h3>
+<p>자기 주의는 RNN의 문제를 해결하기 위해 고안된 핵심 메커니즘이다. 강의는 자기 주의를 **키-값 저장소(key-value store)의 불명확한 탐색(fuzzy lookup)**으로 비유하여 설명한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=LWMzyfvuehA&amp;t=719s">[11:59]</a>. 전통적인 키-값 탐색이 정확한 일치(exact match)를 통해 하나의 값을 반환한다면, 자기 주의는 질의(query)와 모든 키(key) 간의 유사도를 측정하여 모든 값(value)을 소프트하게 가중 평균하여 반환한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=LWMzyfvuehA&amp;t=764s">[12:44]</a>. 이는 문장 내 각 단어의 표현을 구축할 때, 다른 모든 단어로부터 필요한 정보를 유연하게 '조회'하고 '통합'하는 방식으로 동작한다. 예를 들어 '배웠다(learned)'는 단어의 표현을 만들 때, 이 단어가 '스탠퍼드 CS224N'과 같은 관련 정보를 얼마나 많이 '참조'해야 하는지를 유사도 기반으로 결정한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=LWMzyfvuehA&amp;t=830s">[13:50]</a>. 이러한 접근 방식 덕분에 자기 주의는 단어 간의 거리에 상관없이 직접적인 상호작용을 가능하게 하고, 각 단어의 출력을 병렬적으로 계산할 수 있어 RNN의 두 가지 주요 한계를 해결한다.</p>
+<h3>자기 주의의 수학적 정식화: QKV와 가중 합</h3>
+<p>자기 주의는 각 입력 단어 임베딩 <code>xᵢ</code>를 세 가지 다른 학습 가능한 행렬 <code>Q</code>, <code>K</code>, <code>V</code>를 통해 질의 <code>qᵢ</code>, 키 <code>kᵢ</code>, 값 <code>vᵢ</code> 벡터로 변환한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=LWMzyfvuehA&amp;t=908s">[15:08]</a>.</p>
+<ul>
+<li><strong>질의 (Query, Q)</strong>: 현재 단어가 다른 단어들을 &quot;찾아보는&quot; 데 사용되는 벡터.</li>
+<li><strong>키 (Key, K)</strong>: 다른 단어들이 현재 단어에 &quot;자신을 알리는&quot; 데 사용되는 벡터.</li>
+<li><strong>값 (Value, V)</strong>: 다른 단어들의 정보 콘텐츠를 담는 벡터.</li>
+</ul>
+<p>자기 주의의 계산 과정은 다음과 같다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=LWMzyfvuehA&amp;t=963s">[16:03]</a>:</p>
+<ol>
+<li><strong>유사도 계산</strong>: 현재 단어 <code>i</code>의 질의 <code>qᵢ</code>와 모든 단어 <code>j</code>의 키 <code>kⱼ</code> 간의 내적(dot product)을 계산하여 유사도 점수 <code>eᵢⱼ</code>를 얻는다. 이는 <code>qᵢ</code>가 <code>kⱼ</code>를 얼마나 &quot;주목해야 하는지&quot;를 나타낸다.</li>
+<li><strong>정규화</strong>: 이 점수 <code>eᵢⱼ</code>들을 소프트맥스(softmax) 함수에 통과시켜 각 단어 <code>j</code>에 대한 가중치 <code>αᵢⱼ</code>를 얻는다. <code>αᵢⱼ</code>는 모든 <code>j</code>에 대해 합이 1이 되도록 정규화된다.</li>
+<li><strong>가중 합</strong>: 얻은 가중치 <code>αᵢⱼ</code>를 모든 단어 <code>j</code>의 값 <code>vⱼ</code> 벡터에 곱하고 합산하여 최종 출력 <code>yᵢ</code>를 얻는다. 이는 현재 단어 <code>i</code>의 문맥적 표현이다.</li>
+</ol>
+<p>이 모든 과정은 행렬 연산을 통해 전체 시퀀스에 대해 효율적으로 병렬 처리될 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=LWMzyfvuehA&amp;t=2750s">[45:50]</a>.</p>
+<h3>자기 주의의 초기 문제점 극복: 위치 정보, 비선형성, 미래 마스킹</h3>
+<p>순수한 형태의 자기 주의는 세 가지 주요 한계를 가진다:</p>
+<ol>
+<li><strong>시퀀스 순서의 부재</strong>: 자기 주의는 단어들의 집합(set)에 대한 연산이므로, 단어들의 절대적인 위치나 순서 정보를 인코딩하지 않는다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=LWMzyfvuehA&amp;t=1289s">[21:29]</a>. 이 문제를 해결하기 위해 **위치 임베딩(positional embedding)**을 도입한다. 각 위치 인덱스에 해당하는 벡터를 학습하거나(학습된 위치 임베딩) <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=LWMzyfvuehA&amp;t=1554s">[25:54]</a> 사인파(sinusoidal) 함수를 사용하여 고정된 벡터를 생성한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=LWMzyfvuehA&amp;t=1465s">[24:25]</a>. 이 위치 임베딩 벡터를 단어 임베딩에 더하여 단어의 위치 정보를 모델에 주입한다. 학습된 위치 임베딩은 최대 시퀀스 길이에 제한을 받는다는 단점이 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=LWMzyfvuehA&amp;t=1593s">[26:33]</a>.</li>
+<li><strong>비선형성의 부재</strong>: 자기 주의 연산 자체는 기본적으로 선형적인 가중 평균이므로, 심층 학습(deep learning)의 표현력에 필요한 비선형성이 부족하다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=LWMzyfvuehA&amp;t=1830s">[30:30]</a>. 이를 보완하기 위해 자기 주의 계층의 각 출력 벡터를 독립적으로 처리하는 <strong>순방향 신경망(feed-forward network)</strong>(주로 다층 퍼셉트론(MLP))을 추가한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=LWMzyfvuehA&amp;t=1867s">[31:07]</a>. 이 순방향 신경망은 병렬화가 매우 효율적이어서 GPU 활용에 유리하다.</li>
+<li><strong>미래 단어 &quot;엿보기&quot; 문제</strong>: 언어 모델링이나 기계 번역 디코더처럼 순차적으로 다음 단어를 예측하는 태스크에서는 미래 단어를 미리 참조하는 것을 방지해야 한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=LWMzyfvuehA&amp;t=1983s">[33:03]</a>. 이를 위해 <strong>마스킹(masking)</strong> 기법을 사용한다. 즉, 현재 단어 이후의 모든 단어에 대한 유사도 점수를 음의 무한대(<code>-inf</code>)로 설정하여, 소프트맥스 이후 해당 단어들에 대한 가중치가 0이 되도록 만든다. 이로써 모델은 미래 정보를 활용하지 않고 다음 단어를 예측할 수 있다.</li>
+</ol>
+<h3>트랜스포머 디코더: 다중 헤드 자기 주의와 최적화 기법의 결합</h3>
+<p>앞서 언급된 자기 주의의 세 가지 문제점을 해결한 &quot;최소한의 자기 주의 빌딩 블록&quot;은 실제 트랜스포머 아키텍처의 기반이 되지만, 실제로 단독으로 사용되지는 않는다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=LWMzyfvuehA&amp;t=2484s">[41:24]</a>. 트랜스포머는 여기에 더해 몇 가지 중요한 요소를 추가한다.</p>
+<ol>
+<li><strong>다중 헤드 자기 주의(Multi-head Self-Attention)</strong>: 단일 자기 주의는 문장 내 다양한 종류의 관계(예: 구문론적, 의미론적 관계)를 한 번에 포착하기 어렵다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=LWMzyfvuehA&amp;t=2630s">[43:50]</a>. 다중 헤드 자기 주의는 여러 개의 독립적인 Q, K, V 행렬을 사용하여 자기 주의 연산을 <code>h</code>번 병렬로 수행한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=LWMzyfvuehA&amp;t=2880s">[48:00]</a>. 각 &quot;헤드(head)&quot;는 입력 임베딩을 다른 저차원 공간으로 투영하여 자신만의 관점에서 단어 간의 관계를 학습한다. 각 헤드의 출력을 연결(concatenate)한 후 최종 선형 변환을 적용하여 하나의 출력으로 통합한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=LWMzyfvuehA&amp;t=2959s">[49:19]</a>. 이는 계산 비용을 크게 증가시키지 않으면서 모델의 표현력을 향상시킨다.</li>
+<li><strong>스케일드 내적 주의(Scaled Dot-Product Attention)</strong>: 모델 임베딩 차원 D가 커지면 Q와 K의 내적 값이 커져 소프트맥스 함수가 너무 극단적인(sharp) 확률 분포를 만들고 기울기가 작아지는 문제가 발생한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=LWMzyfvuehA&amp;t=3399s">[56:39]</a>. 이를 완화하기 위해 내적 값(<code>Q ⋅ Kᵀ</code>)을 키 벡터 차원의 제곱근 <code>√D_k</code>으로 나누어 스케일링한다.</li>
+<li><strong>잔여 연결(Residual Connections)</strong>: 각 하위 계층(자기 주의 또는 순방향 신경망)의 입력을 출력에 더하는 방식으로 잔여 연결을 사용한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=LWMzyfvuehA&amp;t=3541s">[59:01]</a>. 이는 깊은 신경망의 학습을 용이하게 하여 기울기 소실 문제를 완화하고, 네트워크가 초기화 시 항등 함수(identity function)처럼 동작하도록 돕는다.</li>
+<li><strong>계층 정규화(Layer Normalization)</strong>: 잔여 연결 이후 각 단어 벡터의 차원별 평균을 0, 분산을 1로 정규화하는 계층 정규화를 적용한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=LWMzyfvuehA&amp;t=3662s">[1:01:02]</a>. 이는 활성화 값의 분포를 안정화하여 학습 속도를 가속화한다. 이 정규화는 시퀀스 내 다른 단어나 배치(batch) 내 다른 예시와 독립적으로 각 단어 벡터 자체의 통계량에 기반하여 수행된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=LWMzyfvuehA&amp;t=3911s">[1:05:11]</a>.</li>
+</ol>
+<p>이러한 요소들을 결합하여 트랜스포머 디코더의 &quot;블록(block)&quot;이 완성된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=LWMzyfvuehA&amp;t=4004s">[1:06:44]</a>. 각 블록은 마스킹된 다중 헤드 자기 주의 계층과 순방향 신경망 계층으로 구성되며, 각 계층 뒤에는 잔여 연결과 계층 정규화가 따른다.</p>
+<h3>트랜스포머 인코더 및 인코더-디코더 아키텍처</h3>
+<p>트랜스포머 인코더는 디코더와 거의 동일하지만, 미래 단어를 보지 않도록 하는 마스킹이 적용되지 않는다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=LWMzyfvuehA&amp;t=4175s">[1:09:35]</a>. 이는 인코더가 입력 시퀀스 전체에 대한 양방향 문맥 정보를 활용하여 각 단어의 표현을 구축할 수 있도록 한다.</p>
+<p>트랜스포머는 원래 <strong>인코더-디코더 아키텍처</strong>로 제안되었다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=LWMzyfvuehA&amp;t=4201s">[1:10:01]</a>. 이 구조는 기계 번역과 같은 시퀀스-투-시퀀스(sequence-to-sequence) 태스크에 사용된다.</p>
+<ul>
+<li><strong>인코더</strong>: 원본 언어 문장을 입력받아 문맥화된 표현 벡터 시퀀스를 생성한다.</li>
+<li><strong>디코더</strong>: 인코더의 출력과 함께 대상 언어 문장을 순차적으로 생성한다. 디코더는 자체적으로 마스킹된 다중 헤드 자기 주의를 사용하여 이전에 생성된 단어를 참조한다. 여기에 추가로 <strong>교차 주의(cross-attention)</strong> 계층이 포함되는데 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=LWMzyfvuehA&amp;t=4233s">[1:10:33]</a>, 이는 디코더의 현재 단어 표현을 질의로 사용하여 인코더의 출력 벡터 시퀀스를 키와 값으로 참조한다. 이를 통해 디코더는 번역 문장을 생성하면서 원본 문장의 관련 부분에 집중할 수 있다.</li>
+</ul>
+<h2>주요 통찰·논점</h2>
+<h3>자기 주의: RNN의 본질적 한계를 극복한 새로운 패러다임</h3>
+<p>자기 주의는 RNN이 가진 선형적 상호작용 거리 및 병렬화 불가능성이라는 근본적인 한계를 효과적으로 해결하며 NLP 모델의 성능을 비약적으로 향상시킨 핵심 아이디어이다. 모든 단어가 서로에게 직접적으로 '질의'하고 '응답'할 수 있는 구조는 장거리 의존성을 훨씬 잘 포착하며, 동시에 모든 단어의 연산이 병렬로 이루어질 수 있다는 점에서 현대 하드웨어(GPU)의 이점을 최대한 활용하게 한다. 이는 &quot;주의(Attention)는 당신이 필요한 전부이다(Attention Is All You Need)&quot;라는 트랜스포머 원 논문의 제목이 시사하듯, NLP 모델링의 패러다임을 바꾼 중요한 통찰이다.</p>
+<h3>다중 헤드 주의: 다양한 관점에서 정보를 통합하는 능력</h3>
+<p>다중 헤드 자기 주의는 단순히 계산량을 늘리는 것을 넘어, 모델이 문장 내 단어 간의 다양한 종류의 관계를 동시에 학습하고 통합할 수 있도록 돕는다. 각 헤드는 마치 서로 다른 전문가처럼 문장 내 특정 관계(예: 주어-동사 관계, 개체명 관계)에 집중하여 정보를 추출하고, 이들이 결합되어 더욱 풍부하고 강건한 단어 표현을 만들어낸다. 이는 모델의 표현력과 학습 효율성을 크게 높이는 중요한 설계 결정이었다.</p>
+<h3>학습 안정화 및 효율성을 위한 엔지니어링의 중요성</h3>
+<p>트랜스포머 아키텍처의 성공은 자기 주의라는 핵심 메커니즘뿐만 아니라, 위치 임베딩, 순방향 신경망, 잔여 연결, 계층 정규화, 스케일드 내적 주의와 같은 다양한 엔지니어링 및 최적화 기법들의 결합 덕분이다. 특히 잔여 연결과 계층 정규화는 깊은 신경망의 학습 안정성을 획기적으로 개선하며, 트랜스포머가 수십, 수백 개의 계층으로도 성공적으로 학습될 수 있는 기반을 제공한다. 이는 딥러닝 모델 설계에 있어 핵심 아이디어만큼이나 학습 과정의 안정화와 효율성을 위한 세부적인 기법들이 중요함을 보여준다.</p>
+<h3>트랜스포머의 성공과 2차 연산 문제라는 그림자</h3>
+<p>트랜스포머는 기계 번역, 언어 모델링, 문서 생성 등 다양한 NLP 태스크에서 RNN 기반 모델을 압도하며 혁신을 가져왔다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=LWMzyfvuehA&amp;t=4384s">[1:13:04]</a>. 특히 대규모 데이터를 활용한 사전 학습(pre-training) 시대의 도래를 가능하게 했다. 하지만 자기 주의 연산이 시퀀스 길이에 대해 2차(quadratic) 복잡도(<code>O(N²)</code>)를 갖는다는 근본적인 한계를 안고 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=LWMzyfvuehA&amp;t=4464s">[1:14:24]</a>. 이는 시퀀스 길이가 길어질수록 메모리 사용량과 계산 시간이 급격히 증가하여, 소설 전체나 위키피디아 페이지와 같은 매우 긴 문서를 처리하기 어렵게 만든다. 이 문제는 여전히 활발한 연구 주제이며, 이를 해결하기 위한 다양한 변형 모델이 제안되고 있다.</p>
+<h2>인상적인 지점</h2>
+<ul>
+<li><strong>잔여 연결에 대한 시각적 비유</strong> <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=LWMzyfvuehA&amp;t=3622s">[1:00:22]</a>: 손실 함수 공간(loss landscape)을 등산하는 것에 비유하여, 잔여 연결이 울퉁불퉁하고 함정이 많은 길을 평평하고 쉬운 길로 만들어 주는 모습은 잔여 연결의 효과를 직관적으로 이해시키는 탁월한 비유이다.</li>
+<li><strong>계층 정규화 설명의 솔직함</strong> <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=LWMzyfvuehA&amp;t=3911s">[1:05:11]</a>: 계층 정규화가 시퀀스 내 다른 단어나 배치 내 다른 예시와 독립적으로 각 단어 벡터 자체의 통계량에 기반하여 수행된다는 점을 설명하며, &quot;왜 그런지는 나도 완전히 이해한다고 말할 수 없다(I can't pretend I understand totally why)&quot;고 솔직하게 인정하는 대목은 학계의 미해결 과제와 현실적인 연구자의 태도를 엿볼 수 있게 한다.</li>
+<li><strong>트랜스포머의 근본적인 한계 지적</strong> <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=LWMzyfvuehA&amp;t=4464s">[1:14:24]</a>: 트랜스포머의 성공을 강조하면서도, 자기 주의의 2차 연산 복잡도가 긴 시퀀스 처리에 걸림돌이 된다는 점을 RNN과 비교하여 명확히 지적하는 부분은 비판적 사고를 촉진하고 트랜스포머 이후의 연구 방향에 대한 힌트를 제공한다.</li>
+</ul>
+
+  </article>
+  <p class="post-end"><a href="https://www.youtube.com/watch?v=LWMzyfvuehA" target="_blank" rel="noopener">YouTube에서 원본 보기 ↗</a> · <a href="./">← 목록으로</a></p>
+</main>
+<footer class="site-foot">
+  <a href="/projects/yt-digest-overview">yt-digest</a> 파이프라인이 자막을 읽고 자동으로 작성한 브리핑입니다. 오류가 있을 수 있으니 중요한 내용은 원본 영상으로 확인하세요.
+</footer>
+</body>
+</html>

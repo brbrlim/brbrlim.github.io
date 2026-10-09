@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>20250419 한국인공지능데이터과학협회 온톨로지 기반 AI agent 이해와 활용 — 유튜브 다이제스트</title>
+<meta name="description" content="이 강연은 온톨로지(ontology)를 AI 에이전트 구축의 핵심 요소로 제시한다. 온톨로지는 기업의 관리 노하우와 프로세스를 체계화하는 스키마 역할을 하며, 대규모 언어 모델(LLM)이 개발자의 의도를 정확하게 파악하여 맞춤형 에이전트 프로그램을 생성하도록 돕는다.…">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="20250419 한국인공지능데이터과학협회 온톨로지 기반 AI agent 이해와 활용 — 유튜브 다이제스트">
+<meta property="og:description" content="이 강연은 온톨로지(ontology)를 AI 에이전트 구축의 핵심 요소로 제시한다. 온톨로지는 기업의 관리 노하우와 프로세스를 체계화하는 스키마 역할을 하며, 대규모 언어 모델(LLM)이 개발자의 의도를 정확하게 파악하여 맞춤형 에이전트 프로그램을 생성하도록 돕는다.…">
+<meta property="og:image" content="https://i.ytimg.com/vi/H2k8mIY-GZA/hqdefault.jpg">
+<meta property="og:type" content="article">
+<link rel="icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+<script>
+// Follow the blog's saved light/dark choice (same origin, same key).
+(function () {
+  var saved = null
+  try { saved = localStorage.getItem("theme") } catch (e) {}
+  var dark = saved ? saved === "dark" : matchMedia("(prefers-color-scheme: dark)").matches
+  document.documentElement.dataset.theme = dark ? "dark" : "light"
+})()
+</script>
+</head>
+<body class="post-page">
+<header class="site-bar">
+  <a class="site-name" href="/">Johnny's</a>
+  <a class="back" href="./">← 유튜브 다이제스트</a>
+</header>
+<main class="post">
+  <a class="hero" href="https://www.youtube.com/watch?v=H2k8mIY-GZA" target="_blank" rel="noopener" aria-label="YouTube에서 보기">
+    <img src="https://i.ytimg.com/vi/H2k8mIY-GZA/hqdefault.jpg" alt="">
+    <span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+  </a>
+  <h1>20250419 한국인공지능데이터과학협회 온톨로지 기반 AI agent 이해와 활용</h1>
+  <div class="post-meta"><span>한국인공지능데이터과학협회_캐다(KAIDA)</span><span>1:32:55</span><span>게시 2025-05-18</span></div>
+  <div class="tags"><a href="./?q=%23ontology">#ontology</a><a href="./?q=%23ai-agent">#ai-agent</a><a href="./?q=%23llm">#llm</a><a href="./?q=%23digital-twin">#digital-twin</a><a href="./?q=%23enterprise-architecture">#enterprise-architecture</a><a href="./?q=%23vector-db">#vector-db</a><a href="./?q=%23knowledge-graph">#knowledge-graph</a></div>
+  <article>
+<h2>TL;DR</h2>
+<p>이 강연은 온톨로지(ontology)를 AI 에이전트 구축의 핵심 요소로 제시한다. 온톨로지는 기업의 관리 노하우와 프로세스를 체계화하는 스키마 역할을 하며, 대규모 언어 모델(LLM)이 개발자의 의도를 정확하게 파악하여 맞춤형 에이전트 프로그램을 생성하도록 돕는다. 특히 디지털 트윈 환경에서 시뮬레이션 및 의사결정 지원에 활용될 때 위험을 최소화하고 효과를 극대화할 수 있다.</p>
+<h2>풀시청 판단</h2>
+<p>이 강연은 온톨로지 기반 AI 에이전트의 개념부터 실제 적용 사례(프로토타입), 그리고 미래의 기업 생태계 변화까지 폭넓게 다룬다. LLM의 등장으로 오랜 역사를 가진 온톨로지 개념이 어떻게 기업 환경에 실질적으로 적용될 수 있는지 구체적인 방법론과 사례를 제시하므로, 다음과 같은 이들에게 풀시청 가치가 있다.</p>
+<ul>
+<li><strong>기업 IT 담당자 및 개발자</strong>: 온톨로지 스키마 설계, Vector DB 및 지식 그래프(Knowledge Graph) 연동, 프롬프트 템플릿(prompt template) 작성 등 에이전트 개발의 기술적 접근 방식에 대한 실질적인 아이디어를 얻을 수 있다.</li>
+<li><strong>비즈니스 리더 및 컨설턴트</strong>: 온톨로지 기반 에이전트가 기업의 노하우 관리, 의사결정 지원, 프로세스 개선 등 비즈니스 가치를 창출하는 방식을 이해하고, 디지털 트윈을 활용한 저위험 도입 전략을 고민하는 데 도움이 된다.</li>
+<li><strong>데이터 과학자 및 AI 연구자</strong>: 온톨로지, Vector DB, 지식 그래프 등 다양한 데이터 관리 및 표현 방식이 LLM과 결합하여 시너지를 내는 실제 구현 사례와 그 배경을 이해할 수 있다.</li>
+</ul>
+<p>다만, 강연자는 본인의 지식이 얕고 최근에 느낀 단편적인 경험을 공유하는 것이며 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=H2k8mIY-GZA&amp;t=76s">[1:16]</a>, 주로 제조 및 유통 분야의 전사적 자원 관리(ERP), 공급망 관리(SCM), 제조 실행 시스템(MES) 등 기업 정보 시스템(MIS) 관점에서 이야기함을 강조한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=H2k8mIY-GZA&amp;t=241s">[4:01]</a>. 또한, 제시된 시연은 개념 증명(POC) 및 프로토타입 수준이며 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=H2k8mIY-GZA&amp;t=3682s">[1:01:22]</a>, 실제 상용화에는 추가적인 정교화 작업이 필요하다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=H2k8mIY-GZA&amp;t=3686s">[1:01:26]</a>. 빠르게 진행되는 강연으로 인해 일부 내용이 다소 압축적으로 설명될 수 있다.</p>
+<p>풀시청이 어렵다면, 온톨로지 기반 에이전트 구축의 전반적인 논증 흐름을 파악하기 위해 &quot;핵심 내용&quot; 섹션을 먼저 살펴보고, 특히 관심 있는 기술적 깊이나 비즈니스 적용 사례는 &quot;주요 통찰·논점&quot;을 참고하는 것이 좋다.</p>
+<h2>핵심 내용</h2>
+<h3>온톨로지: AI 에이전트 구축을 위한 본질적인 해법</h3>
+<p>LLM 시대가 도래하며 언어 기반의 LLM과 언어학적 토대를 가진 온톨로지가 잘 부합한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=H2k8mIY-GZA&amp;t=43s">[0:43]</a>. 강연자는 에이전트 개발을 하면서 궁극적으로 온톨로지 외에 다른 해법이 없다고 느꼈다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=H2k8mIY-GZA&amp;t=115s">[1:55]</a>. 여기서 온톨로지는 거버넌스나 오케스트레이션(orchestration)이라고 부를 수 있는, LLM을 개발자가 원하는 대로 움직이도록 유도하는 데이터셋에 가깝다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=H2k8mIY-GZA&amp;t=139s">[2:19]</a>. 팔란티어(Palantir)가 온톨로지 개념을 실제 구현하여 경험적으로 검증했기에 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=H2k8mIY-GZA&amp;t=153s">[2:33]</a>, 온톨로지 기반 에이전트 구축은 이론을 넘어선 실질적인 해결책이 된다.</p>
+<h3>온톨로지가 구현하는 에이전트와 반복적 개선 과정</h3>
+<p>에이전트는 온톨로지에 구현된 스키마나 개념을 실현하는 프로그램이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=H2k8mIY-GZA&amp;t=223s">[3:43]</a>. 온톨로지 기반으로 에이전트를 실행한 후 발생하는 피드백(feedback)을 온톨로지에 다시 반영하여 끊임없이 개선하는 순환 구조를 갖는다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=H2k8mIY-GZA&amp;t=268s">[4:28]</a>. 이 과정에서 온톨로지는 계속해서 업그레이드될 수 있으며 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=H2k8mIY-GZA&amp;t=1502s">[25:02]</a>, 그 변경 이력 관리도 중요하다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=H2k8mIY-GZA&amp;t=2060s">[34:20]</a>. 에이전트의 신뢰성에 대한 불안감을 해소하기 위해 온톨로지가 더욱 필요하다는 주장이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=H2k8mIY-GZA&amp;t=1491s">[24:51]</a>.</p>
+<h3>온톨로지 기반 에이전트의 활용: 기업 노하우 관리와 디지털 트윈</h3>
+<p>온톨로지 기반 에이전트는 기업의 노하우 관리 시스템으로 활용할 때 위험을 최소화하고 이익을 극대화할 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=H2k8mIY-GZA&amp;t=549s">[9:09]</a>. 특히 디지털 트윈(digital twin) 환경에서 경영진과 관리자가 시뮬레이션을 통해 의사결정을 지원받는 에이전트를 만들 경우 큰 성과를 기대할 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=H2k8mIY-GZA&amp;t=610s">[10:10]</a>. 이는 곧 디지털 트윈을 가상 공간에서 압력 없이 시뮬레이션을 돌려보는 용도로 활용하는 것과 일맥상통한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=H2k8mIY-GZA&amp;t=309s">[5:09]</a>.</p>
+<h3>온톨로지: LLM의 체계적인 프롬프트 생성을 위한 스키마</h3>
+<p>에이전트는 사용자의 의도를 LLM에 전달하여 프로그램을 생성하고 실행하는 역할을 한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=H2k8mIY-GZA&amp;t=683s">[11:23]</a>. 이때 개발자가 원하는 프로그램이 만들어지도록 LLM에 체계적인 명령을 내리는 것이 중요한데, 온톨로지는 이러한 체계적인 프롬프트를 만드는 데 필요한 스키마 작업을 의미한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=H2k8mIY-GZA&amp;t=716s">[11:56]</a>. 온톨로지에 애플리케이션의 구조와 철학을 담아 프롬프트를 보강하면, LLM은 개발자가 의도한 대로 프로그램을 생성하게 된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=H2k8mIY-GZA&amp;t=730s">[12:10]</a>. 이는 LLM에 대한 프롬프트 수준이 사용자에 따라 달라질 수 있는 문제를 해결하는 중요한 방법이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=H2k8mIY-GZA&amp;t=794s">[13:14]</a>.</p>
+<h3>Vector DB와 의미 기반(semantic-based) 소통의 중요성</h3>
+<p>LLM은 벡터 DB(Vector DB)로 구성되어 있으므로, 벡터 DB를 활용하여 LLM에 요청이나 데이터를 전송하면 LLM이 이를 잘 이해한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=H2k8mIY-GZA&amp;t=187s">[3:07]</a>. 따라서 장기적으로 온톨로지를 구축할 때 벡터 DB를 활용하여 LLM과 의미 기반으로 소통하는 것이 더 적절하다고 강조한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=H2k8mIY-GZA&amp;t=821s">[13:41]</a>. 이를 통해 LLM에 의도를 정확히 전달할 수 있고 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=H2k8mIY-GZA&amp;t=2424s">[40:24]</a>, 이는 온톨로지 스키마 설계에 중요한 개념이 된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=H2k8mIY-GZA&amp;t=1590s">[26:30]</a>.</p>
+<h3>온톨로지 구축: 기존 시스템 및 방법론의 활용</h3>
+<p>온톨로지 구축은 기존 시스템의 경험을 바탕으로 해야 한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=H2k8mIY-GZA&amp;t=1569s">[26:09]</a>. ERP나 SCM 같은 기존 시스템에는 프로세스와 데이터가 이미 잘 통합되어 있고 검증된 가치를 지니기 때문이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=H2k8mIY-GZA&amp;t=1574s">[26:14]</a>. 또한, 기업 아키텍처(Enterprise Architecture)의 TOGAF와 같은 프레임워크에서 제시하는 '역량(capability)' 개념을 온톨로지 구성에 활용하면 도움이 된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=H2k8mIY-GZA&amp;t=912s">[15:12]</a>, <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=H2k8mIY-GZA&amp;t=1416s">[23:36]</a>. ISP나 P(Process Innovation)와 같은 컨설팅 방법론도 온톨로지에 경영 관점을 담는 데 참고할 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=H2k8mIY-GZA&amp;t=964s">[16:04]</a>.</p>
+<h3>온톨로지는 UI, API, 에이전트 생성을 위한 스키마</h3>
+<p>온톨로지는 데이터 수준에 이르기까지 마스터 데이터와 트랜잭션 처리 로직을 통합하여 비즈니스 프로세스 시스템과 데이터 시스템을 정합하게 만든다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=H2k8mIY-GZA&amp;t=1130s">[18:50]</a>. 생산 계획, 작업 지시, 생산 실적과 같은 업무 흐름 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=H2k8mIY-GZA&amp;t=1165s">[19:25]</a>의 내용, 비즈니스 규칙(예: 단가 관리, 로트 관리) 등을 온톨로지 스키마에 포함하면 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=H2k8mIY-GZA&amp;t=1194s">[19:54]</a>.</p>
+<h3>온톨로지와 프롬프트 템플릿: 한 몸처럼 작동하는 시스템</h3>
+<p>온톨로지는 데이터 스키마를 생성하고, 프롬프트 템플릿(Prompt Template)은 워크플로(workflow)를 조직한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=H2k8mIY-GZA&amp;t=2260s">[37:40]</a>. 프롬프트 템플릿은 사용자의 의도(문제 해결, 개선 과제)를 온톨로지에 담긴 철학에 따라 LLM이 이해할 수 있는 체계적인 형태로 변환하는 역할을 한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=H2k8mIY-GZA&amp;t=2318s">[38:38]</a>. 이 둘은 서로 다른 역할이지만 사실상 한 몸처럼 작동하여 신뢰할 수 있는 에이전트를 생산한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=H2k8mIY-GZA&amp;t=2279s">[37:59]</a>.</p>
+<h3>RAG(Retrieval Augmented Generation) 순환 모델을 통한 온톨로지 강화</h3>
+<p>사용자의 의도를 온톨로지에 담아 프롬프트 템플릿으로 만들고, 이를 Vector DB를 통해 LLM에 전달하여 에이전트를 생성하는 과정이 반복된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=H2k8mIY-GZA&amp;t=2589s">[43:09]</a>.</p>
+<ol>
+<li><strong>온톨로지 스키마 생성</strong>: Streamlit을 활용하여 MIS 기능(재고, 구매, 생산 등)을 담은 온톨로지 스키마를 만든다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=H2k8mIY-GZA&amp;t=1859s">[30:59]</a>.</li>
+<li><strong>프롬프트 템플릿 생성</strong>: 사용자의 의도(&quot;생산 계획 및 구매 주문 최적화&quot;)를 입력하면, 온톨로지에 담긴 철학에 따라 구체적인 작업 지시(예: BOM 확인, 중간 작업 플랫폼 제공)를 포함하는 프롬프트 템플릿이 자동으로 생성된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=H2k8mIY-GZA&amp;t=2631s">[43:51]</a>.</li>
+<li><strong>에이전트 생성 및 실행</strong>: 생성된 프롬프트 템플릿을 실행하면 원하는 프로그램(예: 작업 지시 프로그램)을 갖춘 에이전트가 생성되고 구동된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=H2k8mIY-GZA&amp;t=2749s">[45:49]</a>.</li>
+<li><strong>디지털 트윈 환경 활용</strong>: 생성된 에이전트는 디지털 트윈 환경에서 의사결정 시뮬레이션을 수행한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=H2k8mIY-GZA&amp;t=2961s">[49:21]</a>를 확인하고, 변경 변수를 조정하여 시뮬레이션하며, 메시지 그룹을 통해 팀원들과 소통하는 등 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=H2k8mIY-GZA&amp;t=3051s">[50:51]</a>.</li>
+</ol>
+<h3>AI 에이전트의 역할 확장: 비서에서 중간 관리자까지</h3>
+<p>AI 에이전트의 역할은 단순히 비서 수준을 넘어 중간 관리자의 역할까지 수행할 수 있다고 본다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=H2k8mIY-GZA&amp;t=3187s">[53:07]</a>. 사용자나 관리자가 제기한 이슈를 에이전트가 해결책을 제시하고, 관련 KPI를 보여주며, 메시지 교환을 통해 의사결정을 지원함으로써 기업 내 관리 변화를 이끌어낼 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=H2k8mIY-GZA&amp;t=3246s">[54:06]</a>.</p>
+<h2>주요 통찰·논점</h2>
+<h3>Vector DB의 한계 극복을 위한 지식 그래프(Knowledge Graph)와의 융합</h3>
+<p>Vector DB는 LLM과 의미 기반 소통에 강점이 있으나, 비즈니스 의미를 정확히 전달하는 데 한계가 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=H2k8mIY-GZA&amp;t=2409s">[40:09]</a>. 이를 극복하기 위해 지식 그래프의 강점(노드 간의 풍부한 관계)을 Vector DB에 통합하여 조화로운 형태의 하이브리드 데이터셋을 만들어야 한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=H2k8mIY-GZA&amp;t=2424s">[40:24]</a>. 지식 그래프는 RDB나 OLTP에서 단순히 키(key)로 연결하던 방식과는 달리, 관계 자체에 많은 의미를 부여하여 자연스러운 의미 처리를 가능하게 한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=H2k8mIY-GZA&amp;t=2467s">[41:07]</a>.</p>
+<h3>정량적 데이터와 정성적 데이터의 통합: '역량(Capability)'의 활용</h3>
+<p>기업에서 정량적 데이터(예: ERP 데이터)와 정성적 데이터(예: 노하우, 관계)는 특성이 달라 연결하기 어렵다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=H2k8mIY-GZA&amp;t=5085s">[1:24:45]</a>' 개념을 이 둘을 연결하는 단위 키(key)로 제안한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=H2k8mIY-GZA&amp;t=5107s">[1:25:07]</a>. 역량은 KPI와 같은 정량적 데이터와 연결될 수 있고 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=H2k8mIY-GZA&amp;t=5441s">[1:30:41]</a>이 미래 시장의 승패를 가른다
+LLM 시대에는 데이터 모델링이나 데이터 아키텍처와 같은 기술적인 부분은 LLM이 대부분 처리할 것이며 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=H2k8mIY-GZA&amp;t=3755s">[1:02:35]</a>별 앱을 개발하여 시장 지배력을 구축하는 곳이 승리할 것이라는 전망이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=H2k8mIY-GZA&amp;t=3890s">[1:04:50]</a>'**: 온톨로지에 심어진 철학이 에이전트가 제멋대로 움직이지 않도록 통제하는 '고삐' 역할을 한다는 비유는 사용자의 의도를 정확히 반영하는 에이전트의 중요성을 직관적으로 보여준다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=H2k8mIY-GZA&amp;t=2677s">[44:37]</a>.</p>
+<ul>
+<li><strong>프롬프트는 DB의 '스토어드 프로시저(Stored Procedure)'</strong>: 프롬프트가 단순히 쿼리가 아니라, 데이터를 조직하고 프로세스를 만드는 스토어드 프로시저와 같다는 비유는 프롬프트의 체계성과 역할에 대한 이해를 높인다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=H2k8mIY-GZA&amp;t=2256s">[37:36]</a>.</li>
+<li><strong>'아메바 경영' 비유</strong>: 각 기업의 고유한 경영 시스템과 노하우를 '아메바 경영'과 같이 독특하게 표현하며, 이러한 기업별 노하우를 온톨로지에 담아내는 것이 중요함을 강조한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=H2k8mIY-GZA&amp;t=597s">[9:57]</a>.</li>
+</ul>
+
+  </article>
+  <p class="post-end"><a href="https://www.youtube.com/watch?v=H2k8mIY-GZA" target="_blank" rel="noopener">YouTube에서 원본 보기 ↗</a> · <a href="./">← 목록으로</a></p>
+</main>
+<footer class="site-foot">
+  <a href="/projects/yt-digest-overview">yt-digest</a> 파이프라인이 자막을 읽고 자동으로 작성한 브리핑입니다. 오류가 있을 수 있으니 중요한 내용은 원본 영상으로 확인하세요.
+</footer>
+</body>
+</html>

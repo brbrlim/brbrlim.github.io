@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>StatQuest with Josh Starmer — Neural Networks Pt. 2: Backpropagation Main Ideas — 유튜브 다이제스트</title>
+<meta name="description" content="이 영상은 신경망의 핵심 학습 알고리즘인 역전파(backpropagation)의 주요 개념을 설명한다. 단일 편향(bias) 매개변수를 최적화하는 과정을 예시로 삼아, 손실 함수(loss function)의 미분 값을 연쇄 법칙(chain rule)으로 계산하고, 이를…">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="StatQuest with Josh Starmer — Neural Networks Pt. 2: Backpropagation Main Ideas — 유튜브 다이제스트">
+<meta property="og:description" content="이 영상은 신경망의 핵심 학습 알고리즘인 역전파(backpropagation)의 주요 개념을 설명한다. 단일 편향(bias) 매개변수를 최적화하는 과정을 예시로 삼아, 손실 함수(loss function)의 미분 값을 연쇄 법칙(chain rule)으로 계산하고, 이를…">
+<meta property="og:image" content="https://i.ytimg.com/vi/IN2XmBhILt4/hqdefault.jpg">
+<meta property="og:type" content="article">
+<link rel="icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+<script>
+// Follow the blog's saved light/dark choice (same origin, same key).
+(function () {
+  var saved = null
+  try { saved = localStorage.getItem("theme") } catch (e) {}
+  var dark = saved ? saved === "dark" : matchMedia("(prefers-color-scheme: dark)").matches
+  document.documentElement.dataset.theme = dark ? "dark" : "light"
+})()
+</script>
+</head>
+<body class="post-page">
+<header class="site-bar">
+  <a class="site-name" href="/">Johnny's</a>
+  <a class="back" href="./">← 유튜브 다이제스트</a>
+</header>
+<main class="post">
+  <a class="hero" href="https://www.youtube.com/watch?v=IN2XmBhILt4" target="_blank" rel="noopener" aria-label="YouTube에서 보기">
+    <img src="https://i.ytimg.com/vi/IN2XmBhILt4/hqdefault.jpg" alt="">
+    <span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+  </a>
+  <h1>StatQuest with Josh Starmer — Neural Networks Pt. 2: Backpropagation Main Ideas</h1>
+  <div class="post-meta"><span>StatQuest with Josh Starmer</span><span>17:33</span><span>게시 2020-10-19</span></div>
+  <div class="tags"><a href="./?q=%23machine-learning">#machine-learning</a><a href="./?q=%23neural-networks">#neural-networks</a><a href="./?q=%23backpropagation">#backpropagation</a><a href="./?q=%23gradient-descent">#gradient-descent</a><a href="./?q=%23chain-rule">#chain-rule</a></div>
+  <article>
+<h2>TL;DR</h2>
+<p>이 영상은 신경망의 핵심 학습 알고리즘인 역전파(backpropagation)의 주요 개념을 설명한다. 단일 편향(bias) 매개변수를 최적화하는 과정을 예시로 삼아, 손실 함수(loss function)의 미분 값을 연쇄 법칙(chain rule)으로 계산하고, 이를 경사 하강법(gradient descent)에 적용하여 최적 매개변수를 찾아내는 과정을 직관적으로 시연한다.</p>
+<h2>풀시청 판단</h2>
+<p>신경망 학습의 기본 원리인 역전파를 이해하고 싶은 입문자에게 매우 유용한 영상이다. 특히 수학적 개념(미분, 연쇄 법칙, 경사 하강법)이 신경망에 어떻게 적용되는지 직관적으로 파악하고 싶은 사람들에게 추천한다.</p>
+<p>영상은 다음과 같은 이점을 제공한다.</p>
+<ul>
+<li><strong>직관적인 설명:</strong> 복잡한 수학 공식 대신 그래프와 시각화를 통해 역전파의 핵심 아이디어를 쉽게 전달한다. 연쇄 법칙이 어떻게 적용되는지, 경사 하강법이 어떻게 작동하는지 그림으로 명확하게 보여준다.</li>
+<li><strong>단계별 해설:</strong> 단일 편향 값을 최적화하는 과정을 처음부터 끝까지 상세하고 차근차근 설명하여, 각 단계의 의미를 놓치지 않도록 돕는다.</li>
+<li><strong>이해 증진:</strong> 역전파를 구성하는 연쇄 법칙과 경사 하강법이라는 두 가지 주요 아이디어가 어떻게 상호작용하는지 명확히 보여준다.</li>
+</ul>
+<p>단점과 한계는 다음과 같다.</p>
+<ul>
+<li><strong>사전 지식 요구:</strong> 신경망의 기본 개념, 연쇄 법칙, 경사 하강법에 대한 사전 이해가 있다고 가정하므로, 이들에 익숙하지 않다면 관련 영상을 먼저 시청해야 한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=IN2XmBhILt4&amp;t=19s">[0:19]</a>.</li>
+<li><strong>제한된 범위:</strong> 복잡한 신경망의 모든 매개변수를 동시에 최적화하는 방법을 다루지 않고, 가장 단순한 형태인 마지막 편향 하나를 최적화하는 예시에 집중한다. 이는 다음 영상에서 다루어질 예정이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=IN2XmBhILt4&amp;t=112s">[1:52]</a>.</li>
+<li><strong>간소화된 수학:</strong> 이해를 돕기 위해 일부 수학적 복잡성을 간소화했으므로, 엄밀한 수학적 증명이나 심도 있는 이해를 목표로 한다면 추가 학습이 필요하다.</li>
+</ul>
+<h2>핵심 내용</h2>
+<h3>역전파의 목표: 신경망 가중치와 편향 최적화 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=IN2XmBhILt4&amp;t=93s">[1:33]</a></h3>
+<p>신경망 Part 1 영상에서 다뤘듯이, 신경망은 입력 데이터에 맞춰 초록색 스퀴글(green squiggle) 형태의 예측 곡선을 생성한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=IN2XmBhILt4&amp;t=57s">[0:57]</a>. 이 예측 곡선은 가중치(w1, w2, w3, w4)와 편향(b1, b2, b3)이라는 매개변수들이 활성화 함수(activation function)에 적용되면서 만들어진다. 그러나 Part 1에서는 이 가중치와 편향을 어떻게 최적의 값으로 추정하는지는 다루지 않았다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=IN2XmBhILt4&amp;t=87s">[1:27]</a>. 역전파(backpropagation)는 이 매개변수들을 최적화하는 핵심적인 과정이다. 개념적으로 역전파는 마지막 매개변수부터 역순으로 거슬러 올라가 모든 매개변수를 추정한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=IN2XmBhILt4&amp;t=180s">[3:00]</a>. 이 영상에서는 마지막 편향인 b3 하나만을 최적화하는 과정을 통해 역전파의 주요 아이디어를 설명한다.</p>
+<h3>손실 함수 정의: 오차 제곱합(Sum of Squared Residuals) <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=IN2XmBhILt4&amp;t=358s">[5:58]</a></h3>
+<p>신경망의 성능을 평가하고 매개변수를 최적화하기 위해서는 예측이 얼마나 정확한지 측정하는 손실 함수가 필요하다. 여기서는 오차 제곱합(sum of squared residuals)을 손실 함수로 사용한다. 잔차(residual)는 실제 관측값과 신경망의 예측값(초록색 스퀴글) 사이의 차이를 의미한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=IN2XmBhILt4&amp;t=372s">[6:12]</a>. 각 잔차를 제곱하여 모두 더한 값이 오차 제곱합이 된다. 예를 들어, b3 값이 0일 때 오차 제곱합은 20.4였다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=IN2XmBhILt4&amp;t=423s">[7:03]</a>. b3 값을 1, 2, 3으로 변화시키면 오차 제곱합은 각각 7.8, 1.11, 0.46으로 감소하는 것을 보여주며, 이는 b3와 오차 제곱합 사이의 관계를 나타내는 분홍색 곡선(pink curve)으로 시각화된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=IN2XmBhILt4&amp;t=462s">[7:42]</a>. 우리의 목표는 이 분홍색 곡선의 가장 낮은 지점, 즉 오차 제곱합을 최소화하는 b3 값을 찾아내는 것이다.</p>
+<h3>연쇄 법칙(Chain Rule)으로 편향 b3에 대한 손실 함수의 미분 계산 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=IN2XmBhILt4&amp;t=615s">[10:15]</a></h3>
+<p>오차 제곱합을 최소화하는 b3 값을 빠르게 찾기 위해 경사 하강법을 사용하는데, 이를 위해서는 b3에 대한 오차 제곱합의 미분 값이 필요하다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=IN2XmBhILt4&amp;t=519s">[8:39]</a>. 오차 제곱합은 신경망의 예측값(초록색 스퀴글)을 통해 b3와 연결된다. 즉, b3가 바뀌면 예측값이 바뀌고, 예측값이 바뀌면 오차 제곱합이 바뀐다. 따라서 연쇄 법칙(chain rule)을 사용하여 이 간접적인 관계를 미분한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=IN2XmBhILt4&amp;t=622s">[10:22]</a>.
+연쇄 법칙은 &quot;오차 제곱합을 b3에 대해 미분하는 것은 오차 제곱합을 예측값에 대해 미분한 값과 예측값을 b3에 대해 미분한 값을 곱하는 것과 같다&quot;고 말한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=IN2XmBhILt4&amp;t=641s">[10:41]</a>.</p>
+<ol>
+<li><strong>오차 제곱합을 예측값에 대해 미분:</strong> 오차 제곱합 공식(Σ(관측값 - 예측값)²)을 예측값에 대해 미분하면 -2 * (관측값 - 예측값)이 된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=IN2XmBhILt4&amp;t=673s">[11:13]</a>.</li>
+<li><strong>예측값을 b3에 대해 미분:</strong> 예측값은 파란색 곡선, 주황색 곡선, 그리고 b3의 합으로 구성된다. 파란색 및 주황색 곡선은 b3와 무관하므로 b3에 대해 미분하면 0이 된다. b3를 b3에 대해 미분하면 1이 된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=IN2XmBhILt4&amp;t=723s">[12:03]</a>. 따라서 예측값을 b3에 대해 미분한 값은 1이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=IN2XmBhILt4&amp;t=756s">[12:36]</a>.
+이 두 미분 값을 곱하면 최종적으로 b3에 대한 오차 제곱합의 미분 값은 -2 * (관측값 - 예측값)이 된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=IN2XmBhILt4&amp;t=766s">[12:46]</a>.</li>
+</ol>
+<h3>경사 하강법(Gradient Descent)으로 편향 b3 최적화 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=IN2XmBhILt4&amp;t=810s">[13:30]</a></h3>
+<p>계산된 미분 값을 경사 하강법에 적용하여 b3를 최적화한다.</p>
+<ol>
+<li><strong>초기화 및 미분 값 계산:</strong> b3를 0으로 초기 설정하고, 이 b3 값에 해당하는 예측값으로 미분 값을 계산하면 -15.7이라는 기울기를 얻는다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=IN2XmBhILt4&amp;t=853s">[14:13]</a>.</li>
+<li><strong>보폭(step size) 계산:</strong> 이 기울기 값에 학습률(learning rate) 0.1을 곱하여 보폭을 계산한다. 보폭은 -1.57이 된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=IN2XmBhILt4&amp;t=865s">[14:25]</a>.</li>
+<li><strong>b3 업데이트:</strong> 현재 b3 값(0)에서 계산된 보폭(-1.57)을 빼서 새로운 b3 값(1.57)을 얻는다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=IN2XmBhILt4&amp;t=881s">[14:41]</a>. 새로운 b3 값은 초록색 스퀴글을 위로 이동시켜 잔차를 줄인다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=IN2XmBhILt4&amp;t=900s">[15:00]</a>.
+이 과정을 보폭이 거의 0에 가까워질 때까지 반복한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=IN2XmBhILt4&amp;t=944s">[15:44]</a>. 영상에서는 b3가 2.61일 때 보폭이 0에 가까워지며, 이 값을 b3의 최적 값으로 결정한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=IN2XmBhILt4&amp;t=951s">[15:51]</a>.</li>
+</ol>
+<h2>주요 통찰·논점</h2>
+<h3>역전파의 핵심 원리: 연쇄 법칙과 경사 하강법의 결합 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=IN2XmBhILt4&amp;t=966s">[16:06]</a></h3>
+<p>역전파의 주요 아이디어는 두 가지 핵심 개념의 결합에 있다. 첫째, 연쇄 법칙을 사용하여 알 수 없는 매개변수(예: b3)에 대한 손실 함수(예: 오차 제곱합)의 미분 값을 계산하는 것이다. 이 미분 값은 매개변수를 변화시켰을 때 손실 함수가 얼마나, 어떤 방향으로 변하는지를 나타낸다. 둘째, 이렇게 계산된 미분 값을 경사 하강법에 활용하여 매개변수를 반복적으로 최적화하는 것이다. 즉, 미분으로 매개변수와 손실 함수 간의 관계를 파악하고, 그 정보를 바탕으로 경사 하강법을 통해 손실을 최소화하는 방향으로 매개변수를 점진적으로 조정해나가는 반복 과정이 바로 역전파의 핵심이다.</p>
+<h3>후방 전달(backwards) 개념: 출력층에서 입력층으로 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=IN2XmBhILt4&amp;t=180s">[3:00]</a></h3>
+<p>'역전파'라는 이름처럼, 이 알고리즘은 신경망의 출력층에 가장 가까운 매개변수부터 역순으로 최적화를 시작한다. 영상에서는 이 원리를 설명하기 위해 신경망의 마지막 편향인 b3부터 최적화하는 과정을 보여줬다. 이는 실제 복잡한 신경망에서 모든 가중치와 편향을 한꺼번에 최적화하기보다, 손실 함수에 직접적으로 영향을 미치는 출력층의 매개변수부터 시작하여 점차 입력층 쪽으로 그 영향을 '전달'하면서 전체 신경망을 조정하는 효율적인 방식이다.</p>
+<h2>인상적인 지점</h2>
+<ul>
+<li>영상 도입부의 &quot;Backpropagation is a really big word, but it's not a really big deal.&quot; (역전파는 거창한 단어지만, 그리 대단한 일은 아니다)라는 화자의 자신감 있는 발언 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=IN2XmBhILt4&amp;t=0s">[0:00]</a>은 시청자의 학습 부담감을 덜어주고 흥미를 유발한다.</li>
+<li>최적화된 매개변수와 미최적화 매개변수를 각각 초록색과 빨간색으로 시각화한 점 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=IN2XmBhILt4&amp;t=214s">[3:34]</a>은 설명의 흐름을 명확하게 이해하는 데 큰 도움을 준다.</li>
+<li>설명 중간중간 &quot;Bam!&quot;, &quot;Double bam!&quot;, &quot;Triple bam!&quot;과 같은 화자의 특유의 추임새는 어려운 주제를 유쾌하게 만드는 데 일조한다.</li>
+</ul>
+
+  </article>
+  <p class="post-end"><a href="https://www.youtube.com/watch?v=IN2XmBhILt4" target="_blank" rel="noopener">YouTube에서 원본 보기 ↗</a> · <a href="./">← 목록으로</a></p>
+</main>
+<footer class="site-foot">
+  <a href="/projects/yt-digest-overview">yt-digest</a> 파이프라인이 자막을 읽고 자동으로 작성한 브리핑입니다. 오류가 있을 수 있으니 중요한 내용은 원본 영상으로 확인하세요.
+</footer>
+</body>
+</html>

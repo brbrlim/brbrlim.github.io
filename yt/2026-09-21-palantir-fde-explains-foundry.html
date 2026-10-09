@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>실제 팔란티어 FDE가 설명하는 팔란티어 - 이 영상 하나로 팔란티어가 완벽히 이해된다. — 유튜브 다이제스트</title>
+<meta name="description" content="이 영상은 팔란티어(Palantir)의 Field Deployment Engineer(FDE)가 팔란티어 파운드리(Foundry) 플랫폼의 핵심 개념과 실제 작동 방식을 시연한다. 파운드리는 이질적인 데이터 소스를 통합하고, 이를 실제 세계의 객체(object)로 변환…">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="실제 팔란티어 FDE가 설명하는 팔란티어 - 이 영상 하나로 팔란티어가 완벽히 이해된다. — 유튜브 다이제스트">
+<meta property="og:description" content="이 영상은 팔란티어(Palantir)의 Field Deployment Engineer(FDE)가 팔란티어 파운드리(Foundry) 플랫폼의 핵심 개념과 실제 작동 방식을 시연한다. 파운드리는 이질적인 데이터 소스를 통합하고, 이를 실제 세계의 객체(object)로 변환…">
+<meta property="og:image" content="https://i.ytimg.com/vi/C_Z310xg13I/hqdefault.jpg">
+<meta property="og:type" content="article">
+<link rel="icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+<script>
+// Follow the blog's saved light/dark choice (same origin, same key).
+(function () {
+  var saved = null
+  try { saved = localStorage.getItem("theme") } catch (e) {}
+  var dark = saved ? saved === "dark" : matchMedia("(prefers-color-scheme: dark)").matches
+  document.documentElement.dataset.theme = dark ? "dark" : "light"
+})()
+</script>
+</head>
+<body class="post-page">
+<header class="site-bar">
+  <a class="site-name" href="/">Johnny's</a>
+  <a class="back" href="./">← 유튜브 다이제스트</a>
+</header>
+<main class="post">
+  <a class="hero" href="https://www.youtube.com/watch?v=C_Z310xg13I" target="_blank" rel="noopener" aria-label="YouTube에서 보기">
+    <img src="https://i.ytimg.com/vi/C_Z310xg13I/hqdefault.jpg" alt="">
+    <span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+  </a>
+  <h1>실제 팔란티어 FDE가 설명하는 팔란티어 - 이 영상 하나로 팔란티어가 완벽히 이해된다.</h1>
+  <div class="post-meta"><span>빅데이터닥터 BIGDATA DOCTOR</span><span>8:50</span><span>게시 2026-09-19</span></div>
+  <div class="tags"><a href="./?q=%23palantir">#palantir</a><a href="./?q=%23foundry">#foundry</a><a href="./?q=%23data-integration">#data-integration</a><a href="./?q=%23ontology">#ontology</a><a href="./?q=%23llm">#llm</a><a href="./?q=%23enterprise-ai">#enterprise-ai</a><a href="./?q=%23decision-making">#decision-making</a></div>
+  <article>
+<h2>TL;DR</h2>
+<p>이 영상은 팔란티어(Palantir)의 Field Deployment Engineer(FDE)가 팔란티어 파운드리(Foundry) 플랫폼의 핵심 개념과 실제 작동 방식을 시연한다. 파운드리는 이질적인 데이터 소스를 통합하고, 이를 실제 세계의 객체(object)로 변환하는 온톨로지(Ontology) 계층을 구축하여 유연하고 확장 가능한 데이터 기반을 마련한다. 이 기반 위에 사용자 중심의 애플리케이션(Workshop)과 대규모 언어 모델(LLM) 기반의 에이전트(AIP Logic)를 구축해 데이터 기반 의사결정과 문제 해결을 돕는 통합 플랫폼이다.</p>
+<h2>풀시청 판단</h2>
+<p>팔란티어 파운드리가 무엇인지, 그리고 복잡한 기업 환경에서 어떻게 데이터를 통합하고 활용하는지 궁금한 사람들에게 유용하다. 특히 온톨로지, 워크숍(Workshop), AIP 로직(AIP Logic) 등 파운드리의 주요 구성 요소가 서로 어떻게 연결되고 작동하는지 직관적으로 이해하고 싶은 사람에게 추천한다.</p>
+<p>이 영상을 통해 시청자는 다음과 같은 점을 얻을 수 있다.</p>
+<ul>
+<li><strong>팔란티어의 핵심 철학:</strong> 문제 해결의 출발점이 항상 '사용자'와 '원하는 결과'라는 점을 강조한다.</li>
+<li><strong>파운드리의 데이터 처리 흐름:</strong> 기존 시스템의 원시 데이터가 어떻게 온톨로지 객체로 변환되고 활용되는지 데이터 계보(data lineage)를 통해 시각적으로 이해한다.</li>
+<li><strong>온톨로지의 역할:</strong> 유연하고 확장 가능한 데이터 백본으로서 온톨로지가 어떻게 서로 다른 데이터 계층을 분리하고 변화에 대응하는지 설명한다.</li>
+<li><strong>실제 애플리케이션 구축:</strong> 워크숍(Workshop)이라는 도구를 활용해 온톨로지 위에 사용자 인터페이스(UI)가 어떻게 구축되는지 보여준다.</li>
+<li><strong>LLM 통합 방식:</strong> AIP 로직(AIP Logic)을 통해 대규모 언어 모델(LLM)이 온톨로지의 풍부한 맥락 정보를 활용하여 강력한 에이전트로 작동하는 방식이 시연된다.</li>
+</ul>
+<p>다만, 짧은 영상 길이(9분 미만)로 인해 각 기능에 대한 심층적인 기술적 설명이나 복잡한 구현 사례는 다루지 않는다. 파운드리의 비즈니스 모델이나 실제 고객 성공 사례에 대한 자세한 내용은 부족할 수 있다. 영상을 통해 '완벽히' 이해하기보다는 파운드리의 주요 기능과 작동 원리에 대한 '개념적이고 직관적인' 이해를 돕는 데 초점을 맞추고 있다.</p>
+<h2>핵심 내용</h2>
+<h3>문제 해결의 핵심은 사용자 이해와 목표 명확화다</h3>
+<p>팔란티어는 문제를 해결할 때 가장 먼저 &quot;이 문제의 사용자는 누구인가?&quot;, &quot;그들은 무엇을 얻고자 하는가?&quot;라는 질문을 던진다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=C_Z310xg13I&amp;t=7s">[0:07]</a>. 문제 해결을 위한 엔지니어는 사용자의 이름뿐만 아니라 그들의 취향까지 알아야 한다고 강조한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=C_Z310xg13I&amp;t=10s">[0:10]</a>. 원하는 결과(outcome)를 정확히 이해하는 것이 중요하며, 예를 들어 집을 빨간색으로 칠하는 작업을 완벽하게 수행했더라도 고객이 파란색을 원했다면 그 작업은 실패한 것이라고 비유한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=C_Z310xg13I&amp;t=51s">[0:51]</a>.</p>
+<h3>파운드리의 데이터 처리: 원시 데이터에서 온톨로지 객체로 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=C_Z310xg13I&amp;t=78s">[1:18]</a></h3>
+<p>파운드리는 먼저 기존 시스템(Oracle, SAP, DataBricks 등)에 흩어져 있는 원시 데이터(raw data)를 통합하는 데이터 계보(data lineage)를 구축한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=C_Z310xg13I&amp;t=97s">[1:37]</a>. 수만 개의 데이터세트가 있더라도 그 가치를 이해하지 못하면 의미가 없으므로 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=C_Z310xg13I&amp;t=113s">[1:53]</a>, 코드 저장소(code repo)나 LLM을 통해 이 데이터를 변환하여 더 인간이 읽기 쉬운 형태(노란색 데이터세트)로 합성한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=C_Z310xg13I&amp;t=120s">[2:00]</a>. 이렇게 변환된 데이터세트는 온톨로지 계층의 기반이 된다.</p>
+<h3>온톨로지: Foundry의 핵심 데이터 백본 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=C_Z310xg13I&amp;t=134s">[2:14]</a></h3>
+<p>온톨로지는 파운드리가 구축하는 모든 것의 궁극적인 백본이다. 시스템 내의 모든 파란색 객체들은 온톨로지 객체로, 실제 세계의 사물이나 개념(예: 공장, 제품, 위치)을 표현하며 모든 워크플로를 구동하는 핵심적인 역할을 한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=C_Z310xg13I&amp;t=141s">[2:21]</a>. 온톨로지는 소스 데이터, 로직, 그리고 이를 기반으로 하는 애플리케이션 계층을 분리함으로써 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=C_Z310xg13I&amp;t=199s">[3:19]</a>, 기반 데이터 소스가 변경되더라도 전체 시스템을 다시 구축할 필요 없이 유연하게 대응하고 빠르게 확장할 수 있도록 돕는다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=C_Z310xg13I&amp;t=170s">[2:50]</a>.</p>
+<h3>Workshop: 온톨로지 기반의 사용자 인터페이스 구축 도구 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=C_Z310xg13I&amp;t=214s">[3:34]</a></h3>
+<p>워크숍(Workshop)은 파운드리에서 사용자 인터페이스(UI)를 구축하는 내부 도구다. 원시 데이터부터 사용자가 매일 보는 데스크톱 화면까지 모든 도구를 제공하며, 맞춤 위젯(custom widget) 생성을 쉽게 한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=C_Z310xg13I&amp;t=221s">[3:41]</a>. 예시로, 의료기기 원자재 수급 및 최종 목적지를 보여주는 글로벌 관제탑(global control tower)을 시연하며 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=C_Z310xg13I&amp;t=244s">[4:04]</a>, 온톨로지 객체(예: Boston 공장, Detroit 공장)가 이 시각화의 결과물임을 보여준다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=C_Z310xg13I&amp;t=265s">[4:25]</a>. 워크숍은 데이터 계층을 사용자 친화적으로 시각화하고 빠르게 반복(iteration)하며, 현장의 사람들이 즉시 반응할 수 있도록 돕는다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=C_Z310xg13I&amp;t=287s">[4:47]</a>.</p>
+<h3>Workflow Builder: UI와 온톨로지 객체의 연결 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=C_Z310xg13I&amp;t=297s">[4:57]</a></h3>
+<p>워크플로 빌더(Workflow Builder)는 워크숍의 데이터 계보와 같아서, UI를 구성하는 데 어떤 요소와 온톨로지 객체가 사용되었는지 보여준다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=C_Z310xg13I&amp;t=300s">[5:00]</a>. 파운드리는 단순히 합성된 데이터를 보여주는 것을 넘어, 실제 행동과 연결하는 것을 목표로 한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=C_Z310xg13I&amp;t=327s">[5:27]</a>. 데이터 대시보드를 보여주는 것만으로는 의미가 없으며, 데이터를 기반으로 실제로 행동하고 필요한 신호를 보낼 수 있어야 한다고 강조한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=C_Z310xg13I&amp;t=335s">[5:35]</a>. 프로젝트 객체에 대한 편집, 삭제, 수정 등 모든 가능한 행동을 워크플로 빌더 내에서 정의하고 수행할 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=C_Z310xg13I&amp;t=347s">[5:47]</a>.</p>
+<h3>AIP Logic: LLM을 활용한 지능형 에이전트 구축 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=C_Z310xg13I&amp;t=358s">[5:58]</a></h3>
+<p>AIP 로직(AIP Logic)은 팔란티어가 LLM의 강력한 기능을 파운드리 플랫폼에 통합하는 방법 중 하나다. 이는 코드 없는(no-code) 도구로, LLM 코드 블록을 사용하여 입력-출력 기능을 구축한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=C_Z310xg13I&amp;t=402s">[6:42]</a>. 직접 LLM을 사용하는 대신, 필요한 작업을 수행하는 에이전트(agent) 역할을 하는 함수를 만든다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=C_Z310xg13I&amp;t=411s">[6:51]</a>. 예를 들어, 온톨로지 객체에서 값을 가져와 &quot;고객 서비스 에이전트&quot; 역할을 하는 LLM 에이전트를 간단한 클릭과 타이핑만으로 구축할 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=C_Z310xg13I&amp;t=429s">[7:09]</a>.</p>
+<h3>AIP Logic의 강점: 온톨로지 기반의 풍부한 맥락 인식 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=C_Z310xg13I&amp;t=443s">[7:23]</a></h3>
+<p>AIP 로직의 가장 큰 장점은 LLM이 온톨로지로부터 데이터 계층에 대한 깊은 맥락을 얻는다는 점이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=C_Z310xg13I&amp;t=452s">[7:32]</a>. 온톨로지가 성장함에 따라 LLM은 데이터, 권한, 그 위에 구축된 로직, 모델 평가 등 모든 관련 정보를 학습한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=C_Z310xg13I&amp;t=460s">[7:40]</a>. 이를 통해 LLM은 단순히 데이터를 처리하는 것을 넘어, 파운드리 작동 방식에 대한 내부 지식과 온톨로지 계층의 모든 정보를 바탕으로 문제를 더 깊이 이해하고 빠르게 해결하는 지능형 지원 그룹으로 기능한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=C_Z310xg13I&amp;t=489s">[8:09]</a>. 사용자는 실제 문제 해결에만 집중할 수 있게 된다.</p>
+<h2>주요 통찰·논점</h2>
+<h3>온톨로지는 기업 데이터의 유연하고 확장 가능한 단일 진실 공급원이다</h3>
+<p>파운드리의 온톨로지 계층은 단순히 데이터를 통합하는 것을 넘어, 기업 데이터의 소스, 로직, 애플리케이션 계층을 분리하여 시스템의 유연성과 확장성을 극대화한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=C_Z310xg13I&amp;t=187s">[3:07]</a>. 어떤 하위 데이터 소스가 변경되더라도 온톨로지 자체는 그대로 유지되면서 시간이 지남에 따라 더욱 풍부해지고 복합적으로 활용될 수 있다. 이는 복잡한 엔터프라이즈 환경에서 데이터 기반 시스템을 지속적으로 진화시키고 확장하는 데 필수적인 핵심 아이디어다.</p>
+<h3>데이터는 '행동'을 유발해야 의미가 있다</h3>
+<p>팔란티어는 단순한 데이터 시각화나 대시보드 제공에 그치지 않고, 데이터를 기반으로 실제 행동을 유발하는 것에 중점을 둔다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=C_Z310xg13I&amp;t=333s">[5:33]</a>. 의미 없는 데이터 나열은 가치가 없으며, 의사결정자가 데이터를 활용해 문제에 즉각적으로 대응하고 필요한 조치를 취할 수 있도록 하는 것이 중요하다고 강조한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=C_Z310xg13I&amp;t=338s">[5:38]</a>. 워크숍과 워크플로 빌더를 통해 데이터를 시각화하고 동시에 편집, 삭제, 수정 등의 행동을 직접 수행할 수 있도록 지원하는 것이 이 철학의 구현이다.</p>
+<h3>LLM은 온톨로지의 풍부한 맥락을 통해 더 강력한 에이전트가 된다</h3>
+<p>AIP 로직은 LLM을 파운드리에 통합하여 지능형 에이전트를 구축하지만, 그 진정한 강점은 LLM이 온톨로지에서 파생되는 깊은 맥락 정보(데이터, 권한, 로직, 모델 평가 등)를 활용할 수 있다는 점이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=C_Z310xg13I&amp;t=460s">[7:40]</a>. 이는 LLM이 단순히 텍스트를 처리하는 것을 넘어, 기업의 고유한 운영 방식과 데이터 구조에 대한 내재적 지식을 가지고 문제 해결에 직접 참여할 수 있게 한다. 결과적으로 LLM은 더 빠르게 문제를 파악하고, 데이터를 더 깊이 이해하며, 더 효과적인 해결책을 제시하는 데 기여한다.</p>
+<h2>인상적인 지점</h2>
+<ul>
+<li>**&quot;슬라이드를 정말 싫어한다&quot; <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=C_Z310xg13I&amp;t=81s">[1:21]</a>**는 발언과 함께 실제 시스템을 라이브로 시연하는 방식이 인상적이었다. 팔란티어가 추구하는 실용성과 문제 해결 중심적인 접근 방식을 보여준다.</li>
+<li>**집을 빨간색으로 칠하는 비유 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=C_Z310xg13I&amp;t=60s">[1:00]</a>**는 &quot;원하는 결과&quot;를 명확히 정의하는 것의 중요성을 쉽고 직관적으로 설명한다.</li>
+<li>**AIP 로직으로 LLM 에이전트를 클릭과 타이핑만으로 구축 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=C_Z310xg13I&amp;t=438s">[7:18]</a>**하는 시연은 복잡한 AI 기술을 비전문가도 쉽게 활용할 수 있도록 추상화하는 팔란티어의 역량을 보여준다.</li>
+</ul>
+
+  </article>
+  <p class="post-end"><a href="https://www.youtube.com/watch?v=C_Z310xg13I" target="_blank" rel="noopener">YouTube에서 원본 보기 ↗</a> · <a href="./">← 목록으로</a></p>
+</main>
+<footer class="site-foot">
+  <a href="/projects/yt-digest-overview">yt-digest</a> 파이프라인이 자막을 읽고 자동으로 작성한 브리핑입니다. 오류가 있을 수 있으니 중요한 내용은 원본 영상으로 확인하세요.
+</footer>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>[AI 콜로퀴움] 영상 인식 인공지능 기술의 발전과 응용 (이준석 / 서울대학교 데이터사이언스학과 교수) — 유튜브 다이제스트</title>
+<meta name="description" content="이 영상은 서울대학교 이준석 교수가 영상 인식 및 생성 인공지능 기술의 발전과 응용을 소개한다. 특히 참조 이미지 분할, 영상 요약, 신원 보존 이미지 편집 분야의 최신 연구를 다루며, 데이터셋의 한계, '가짜 벤치마크' 문제, 잠재 공간 왜곡 등 현재 AI 연구가 직…">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="[AI 콜로퀴움] 영상 인식 인공지능 기술의 발전과 응용 (이준석 / 서울대학교 데이터사이언스학과 교수) — 유튜브 다이제스트">
+<meta property="og:description" content="이 영상은 서울대학교 이준석 교수가 영상 인식 및 생성 인공지능 기술의 발전과 응용을 소개한다. 특히 참조 이미지 분할, 영상 요약, 신원 보존 이미지 편집 분야의 최신 연구를 다루며, 데이터셋의 한계, '가짜 벤치마크' 문제, 잠재 공간 왜곡 등 현재 AI 연구가 직…">
+<meta property="og:image" content="https://i.ytimg.com/vi/DHAsXcdNd3Y/hqdefault.jpg">
+<meta property="og:type" content="article">
+<link rel="icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+<script>
+// Follow the blog's saved light/dark choice (same origin, same key).
+(function () {
+  var saved = null
+  try { saved = localStorage.getItem("theme") } catch (e) {}
+  var dark = saved ? saved === "dark" : matchMedia("(prefers-color-scheme: dark)").matches
+  document.documentElement.dataset.theme = dark ? "dark" : "light"
+})()
+</script>
+</head>
+<body class="post-page">
+<header class="site-bar">
+  <a class="site-name" href="/">Johnny's</a>
+  <a class="back" href="./">← 유튜브 다이제스트</a>
+</header>
+<main class="post">
+  <a class="hero" href="https://www.youtube.com/watch?v=DHAsXcdNd3Y" target="_blank" rel="noopener" aria-label="YouTube에서 보기">
+    <img src="https://i.ytimg.com/vi/DHAsXcdNd3Y/hqdefault.jpg" alt="">
+    <span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+  </a>
+  <h1>[AI 콜로퀴움] 영상 인식 인공지능 기술의 발전과 응용 (이준석 / 서울대학교 데이터사이언스학과 교수)</h1>
+  <div class="post-meta"><span>서울대학교AI연구원</span><span>1:10:38</span><span>게시 2025-12-04</span></div>
+  <div class="tags"><a href="./?q=%23ai">#ai</a><a href="./?q=%23computer-vision">#computer-vision</a><a href="./?q=%23video-summarization">#video-summarization</a><a href="./?q=%23image-editing">#image-editing</a><a href="./?q=%23diffusion-models">#diffusion-models</a><a href="./?q=%23machine-learning">#machine-learning</a><a href="./?q=%23academic-integrity">#academic-integrity</a></div>
+  <article>
+<h2>TL;DR</h2>
+<p>이 영상은 서울대학교 이준석 교수가 영상 인식 및 생성 인공지능 기술의 발전과 응용을 소개한다. 특히 참조 이미지 분할, 영상 요약, 신원 보존 이미지 편집 분야의 최신 연구를 다루며, 데이터셋의 한계, '가짜 벤치마크' 문제, 잠재 공간 왜곡 등 현재 AI 연구가 직면한 실제 난제들을 해결하려는 시도와 그 과정의 통찰을 공유한다. 이를 통해 AI 모델의 성능 향상과 더불어 연구 커뮤니티의 건전한 발전을 위한 비판적 시각을 제시한다.</p>
+<h2>풀시청 판단</h2>
+<p>이 영상은 AI, 특히 컴퓨터 비전 및 생성 모델 분야의 학문적·기술적 도전에 관심 있는 연구자, 학생, 실무자에게 매우 유용하다. 이준석 교수는 최신 연구 동향을 깊이 있게 다루면서도 비전공자도 이해하기 쉽도록 실제 사례와 직관적인 설명을 덧붙여 강연을 구성했다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=DHAsXcdNd3Y&amp;t=415s">[6:55]</a>.</p>
+<p>특히 다음 내용을 얻을 수 있다.</p>
+<ul>
+<li><strong>AI 연구의 실제적인 난제와 해결 과정</strong>: 단순히 최신 최고 성능 모델(SOTA)을 소개하는 것을 넘어, AI 모델이 실제 환경에서 직면하는 문제점(쉬운 문제만 풀고 어려운 문제는 못 푸는 현상, 데이터셋의 한계, 모델의 개념 혼재 등)과 이를 해결하기 위한 연구자의 사고 흐름을 엿볼 수 있다.</li>
+<li><strong>학계의 '가짜 벤치마크' 문제에 대한 비판적 통찰</strong>: 영상 요약 분야에서 테스트 데이터셋 과적합(overfitting)으로 인해 실제보다 성능이 부풀려진 '가짜 벤치마크'가 만연한 현실을 신랄하게 비판하며, 학문적 투명성과 재현성의 중요성을 강조한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=DHAsXcdNd3Y&amp;t=1629s">[27:09]</a></li>
+<li><strong>생성형 AI의 평가 지표 설계의 중요성</strong>: 특히 이미지 편집과 같은 생성 모델에서 성능을 객관적으로 평가하는 지표를 설계하는 것이 얼마나 어려운 과제인지를 보여주며, 이는 향후 생성형 AI 연구의 중요한 방향성을 시사한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=DHAsXcdNd3Y&amp;t=3351s">[55:51]</a>.</li>
+</ul>
+<p>다만, 영상의 후반부로 갈수록 확산 모델(diffusion model)의 세부 메커니즘이나 특정 손실 함수(loss function)에 대한 설명 등 다소 전문적인 내용이 포함되어 있어 AI 및 기계 학습(machine learning)에 대한 기초 지식이 없는 시청자는 일부 이해하기 어려울 수 있다. 하지만 핵심 아이디어와 연구 흐름은 충분히 이해할 수 있도록 구성되어 있다.</p>
+<h2>핵심 내용</h2>
+<h3>AI 연구의 큰 흐름: 인식에서 생성, 그리고 인간-AI 상호작용</h3>
+<p>AI의 발전은 크게 두 가지 능력, 즉 '정보를 받아들이고 이해하는 능력(인식)'과 '새로운 정보를 만들어내는 능력(생성)'을 중심으로 진행됐다. 2012년 딥러닝 혁명 이후 트랜스포머(Transformer)와 CLIP 같은 기술이 등장하며 음성, 시각, 텍스트 인식 능력이 빠르게 발전해 인간의 능력을 뛰어넘는 수준에 도달했다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=DHAsXcdNd3Y&amp;t=490s">[8:10]</a>. 이후 약 3년이 지나 생성 모델(Gen model)이 도입되면서 텍스트를 쓰거나 그림을 그리는 등 AI의 생성 능력이 비약적으로 발전했다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=DHAsXcdNd3Y&amp;t=547s">[9:07]</a>. 이제는 이 두 가지 능력이 모두 가능해지면서 인간과 AI가 서로 작업을 주고받고 피드백하며 협력하는 시대가 열렸다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=DHAsXcdNd3Y&amp;t=582s">[9:42]</a>. 이준석 교수의 연구실은 이러한 큰 흐름 속에서 인식, 표현 학습(representation learning), 생성, 그리고 상호작용(추천 시스템)의 세 분야를 아우르는 연구를 진행한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=DHAsXcdNd3Y&amp;t=620s">[10:20]</a>.</p>
+<h3>참조 이미지 분할(Referring Image Segmentation): AI가 쉬운 것만 맞추는 문제</h3>
+<p>참조 이미지 분할(referring image segmentation)은 이미지와 텍스트 설명이 주어졌을 때, 텍스트에 해당하는 객체를 이미지에서 찾아 분할하는 작업이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=DHAsXcdNd3Y&amp;t=742s">[12:22]</a>. 예를 들어, &quot;파란 셔츠를 입고 눈 위에 앉아있는 젊은 여성&quot;이라는 설명에 맞춰 이미지를 분할하는 식이다. 이 작업은 사람에게는 매우 쉽지만, AI에게는 텍스트를 완벽하게 이해하고 해당 객체를 정확히 찾아 분할하는 고차원적인 능력을 요구한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=DHAsXcdNd3Y&amp;t=790s">[13:10]</a>.</p>
+<p>현재 최신 최고 성능 모델(SOTA)들의 정확도는 60%대에 머무는데 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=DHAsXcdNd3Y&amp;t=823s">[13:43]</a>, 이는 AI가 쉬운 문제는 대부분 맞추고 어려운 문제는 거의 틀리기 때문이라는 가설을 세웠다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=DHAsXcdNd3Y&amp;t=905s">[15:05]</a>. 예를 들어, 이미지에 SUV가 하나만 있다면 &quot;하얀색 Ford SUV&quot;는 &quot;SUV&quot;만으로도 답을 찾을 수 있는 쉬운 문제이지만, &quot;여성과 SUV 사이에 있는 표지판&quot;처럼 여러 표지판이 있는 상황에서는 정확한 모호성 해소(disambiguation)가 필요한 어려운 문제가 된다. 실제 실험 결과, 쉬운 문제에서는 80%에 육박하는 정확도를 보였지만 어려운 문제에서는 50% 미만으로 떨어졌다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=DHAsXcdNd3Y&amp;t=966s">[16:06]</a>.</p>
+<h3>데이터셋의 한계를 극복하는 무료 데이터 증강(Data Augmentation)</h3>
+<p>기존 데이터셋들은 대부분 쉬운 문제들로 구성되어 있거나, 어렵다고 알려진 데이터셋조차도 특정 단어만으로 답을 쉽게 찾을 수 있는 경우가 많았다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=DHAsXcdNd3Y&amp;t=1000s">[16:40]</a>. 진정으로 어려운 문제를 담은 대규모 데이터셋을 수동으로 구축하는 것은 막대한 시간과 비용이 드는 비현실적인 방법이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=DHAsXcdNd3Y&amp;t=1104s">[18:24]</a>.</p>
+<p>이에 이준석 교수 연구팀은 수동 라벨링 없이 데이터를 증강하는 방법을 고안했다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=DHAsXcdNd3Y&amp;t=1141s">[19:01]</a>. 초기에는 정답 이미지를 포함한 여러 이미지를 무작위로 조합해 모자이크처럼 만들었지만, 이 방법은 여전히 쉬운 문제가 다수 발생하는 한계가 있었다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=DHAsXcdNd3Y&amp;t=1226s">[20:26]</a>. 개선된 방법은 CLIP 모델을 활용해 목표 이미지와 '유사한' 이미지를 선별적으로 조합하는 것이다. 이때 너무 유사한 이미지들을 조합하면 정답이 모호해지는 문제(다중 정답)가 발생하므로 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=DHAsXcdNd3Y&amp;t=1291s">[21:31]</a>, 유사도 상위 <code>타워 퍼센트(Tower percentage)</code>를 제거하고 그 다음 <code>k</code>개의 유사한 이미지들 중에서 무작위로 선택하여 모자이크를 만든다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=DHAsXcdNd3Y&amp;t=1327s">[22:07]</a>. 이 방식은 다양성과 난이도 균형을 맞추어 모델이 모호성을 해소하는 능력을 훈련하도록 돕는다. 이러한 데이터 증강 기법을 적용한 결과, 특히 어려운 데이터셋에서 성능 향상을 확인했다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=DHAsXcdNd3Y&amp;t=1407s">[23:27]</a>.</p>
+<h3>영상 요약(Video Summarization): '가짜 벤치마크'로 망가진 연구 생태계</h3>
+<p>영상 요약(video summarization)은 긴 영상의 핵심 부분을 압축하여 짧은 영상으로 만드는 작업이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=DHAsXcdNd3Y&amp;t=1580s">[26:20]</a>. 유튜브의 10분 영화 요약이나 5분 스포츠 경기 요약 같은 것들을 떠올릴 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=DHAsXcdNd3Y&amp;t=1590s">[26:30]</a>. 이 작업은 세 가지 이유로 매우 어렵다. 첫째, 어떤 부분이 중요한지는 사람마다 다르게 판단하는 '주관적'인 문제이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=DHAsXcdNd3Y&amp;t=1623s">[27:03]</a>. 둘째, 이 주관적인 정답 데이터를 만들기 위해서는 90분짜리 영상을 20명 가까운 사람이 모두 시청하고 요약하는 매우 비효율적인 과정을 거쳐야 한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=DHAsXcdNd3Y&amp;t=1688s">[28:08]</a>. 셋째, 이로 인해 데이터셋의 규모가 극히 작아서(50개 또는 25개 영상) 딥러닝 시대의 모델을 훈련하기에 턱없이 부족하다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=DHAsXcdNd3Y&amp;t=1727s">[28:47]</a>.</p>
+<p>이러한 데이터셋의 한계는 영상 요약 연구 커뮤니티의 심각한 문제를 야기했다. 많은 연구자들이 소규모 테스트 데이터셋에 모델을 과적합(overfitting)시켜 높은 점수를 보고하며, 심지어 테스트셋으로 여러 번 돌려 가장 높은 결과를 보고하는 '치팅'이 만연했다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=DHAsXcdNd3Y&amp;t=1758s">[29:18]</a>. 이준석 교수는 이러한 논문들의 코드를 직접 실행해보고 검증 데이터셋(validation set)을 도입하여 평가한 결과, 보고된 성능이 실제로는 무작위 선택과 크게 다르지 않다는 것을 밝혀냈다. 즉, 많은 최신 최고 성능 모델이 실제로는 요약 기능을 전혀 수행하지 못하고 25개 데이터에 과적합하는 '가짜' 결과들을 내고 있었다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=DHAsXcdNd3Y&amp;t=1824s">[30:24]</a>. 이 연구 결과는 5번의 심사 거절 끝에 NeurIPS 2023에 발표되었다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=DHAsXcdNd3Y&amp;t=1852s">[30:52]</a>.</p>
+<h3>유튜브 데이터로 거짓을 드러내고 새로운 데이터셋을 만들다</h3>
+<p>이러한 문제를 근본적으로 해결하기 위해 연구팀은 대규모의 새로운 데이터셋을 구축하기로 결정했다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=DHAsXcdNd3Y&amp;t=1868s">[31:08]</a>. 수동 라벨링의 한계를 넘어, 유튜브의 '가장 많이 재생된 구간(Most Replayed)' 통계를 활용했다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=DHAsXcdNd3Y&amp;t=1902s">[31:42]</a>. 사용자들이 특정 구간을 되감아 다시 보는 행위는 그 구간이 흥미롭거나 중요하다는 의미로 해석될 수 있으며, 이는 영상 요약의 '하이라이트' 라벨로 활용될 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=DHAsXcdNd3Y&amp;t=1936s">[32:16]</a>. 5만 명 이상이 시청한 영상에 대한 통계는 15~20명의 사람이 직접 라벨링한 것보다 훨씬 안정적이고 객관적인 데이터가 된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=DHAsXcdNd3Y&amp;t=1957s">[32:37]</a>. 연구팀은 이를 통해 3만 개 영상에 대한 대규모 데이터셋인 Mr. Hysum을 구축했으며, 이 데이터셋은 1,000개 이상의 샘플이 있어야 실제 모델 성능 차이를 안정적으로 판별할 수 있음을 보였다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=DHAsXcdNd3Y&amp;t=2021s">[33:41]</a>.</p>
+<h3>확산 모델(Diffusion Model)로 영상 요약의 '주관성'을 담아내다</h3>
+<p>영상 요약의 주관성 문제를 해결하기 위해 연구팀은 확산 모델(diffusion model)을 활용했다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=DHAsXcdNd3Y&amp;t=2179s">[36:19]</a>. 기존 모델들은 여러 사람의 요약 의견을 평균하여 '중요도 점수(Importance Score)'라는 단일 값을 생성했는데 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=DHAsXcdNd3Y&amp;t=2072s">[34:32]</a>, 이는 만약 절반의 사람이 전반부를, 나머지 절반이 후반부를 최고 요약이라고 평가했을 때 모든 구간의 중요도 점수가 0.5가 되어 실제 사람들의 다양한 선호를 반영하지 못하는 문제가 있었다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=DHAsXcdNd3Y&amp;t=2130s">[35:30]</a>.</p>
+<p>확산 모델은 노이즈를 추가한 후 다시 노이즈를 제거하는 과정을 반복하며, 그럴듯한 이미지(혹은 여기서는 '그럴듯한 요약 점수 분포')를 생성하는 방법을 학습한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=DHAsXcdNd3Y&amp;t=2187s">[36:27]</a>. 연구팀은 이 모델에 영상 특징(video feature)을 조건으로 부여하여, 해당 영상에 대한 다양한 사람들의 요약 선호 분포를 학습하도록 설계했다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=DHAsXcdNd3Y&amp;t=2289s">[38:09]</a>. 이러한 접근 방식은 기존 모델 대비 압도적인 성능 향상을 보였을 뿐만 아니라, 사람들의 주관적인 요약 방식(PCA 분석 결과 3가지 모드)을 여러 초기값으로 시뮬레이션했을 때, 모델이 2~3가지 모드를 모두 포괄하는 다양한 요약 결과를 생성할 수 있음을 확인했다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=DHAsXcdNd3Y&amp;t=2428s">[40:28]</a>. 이는 모델이 단순한 평균을 넘어 실제 사람들의 다양한 선호를 반영하여 요약을 생성할 수 있다는 의미이다.</p>
+<h3>개인화된 이미지 편집(Image Editing): '나'를 잊지 않는 AI 만들기</h3>
+<p>이미지 편집(image editing) 분야에서는 텍스트 지시(예: &quot;머리색을 노란색으로 바꿔줘&quot;)에 따라 이미지를 자연스럽게 수정하되, 원본 이미지의 '신원(identity)'을 그대로 유지하는 것이 중요한 과제이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=DHAsXcdNd3Y&amp;t=2549s">[42:29]</a>. 좋은 이미지 편집 결과물은 (1) 사실적인 이미지, (2) 텍스트 지시 내용 반영, (3) 지시 외 나머지 부분의 신원 보존이라는 세 가지 조건을 만족해야 한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=DHAsXcdNd3Y&amp;t=2590s">[43:10]</a>.</p>
+<p>하지만 현재 최신 최고 성능 모델들은 이러한 신원 보존 측면에서 한계를 보인다. 예를 들어 &quot;안경을 씌워줘&quot;라고 하면 안경을 쓴 사람이 나오지만, 원본 인물의 모습과는 전혀 다른 사람이 생성되는 경우가 많다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=DHAsXcdNd3Y&amp;t=2656s">[44:16]</a>. 이는 모델이 학습 데이터셋에서 유명인의 얼굴은 많이 보았지만, 개인의 사진처럼 처음 보는 얼굴은 학습하지 못했기 때문에 신원을 유지하지 못하는 것이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=DHAsXcdNd3Y&amp;t=2693s">[44:53]</a>.</p>
+<h3>두 개 이상의 새로운 객체를 다룰 때 발생하는 '개념 혼재(concept entanglement)' 문제</h3>
+<p>더 나아가, 모델에게 두 개 이상의 '새롭게 학습된' 특별한 객체(예: '내 강아지 V1', '내 장난감 V2')를 동시에 그리도록 지시할 때 더 심각한 문제가 발생한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=DHAsXcdNd3Y&amp;t=2728s">[45:28]</a>. 기존 모델들은 &quot;V1 강아지를 V2 장난감 옆에 그려줘&quot;와 같은 명령을 수행하면, (1) 특정 개념을 아예 생략하거나 (개념 생략, concept omission) <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=DHAsXcdNd3Y&amp;t=2763s">[46:03]</a>, (2) 두 개념의 특성을 뒤섞어 그리는 (개념 혼재, concept entanglement) 현상을 보인다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=DHAsXcdNd3Y&amp;t=2776s">[46:16]</a>. 예를 들어, '보라색 가방과 하늘색 캔'을 그리라고 하면 '하늘색 가방과 보라색 캔'이 나오는 식이다. 이는 모델이 잠재 공간(latent space)에서 새로 학습한 개념들을 제대로 분리하지 못하고 얽히게 만들었기 때문으로 추정된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=DHAsXcdNd3Y&amp;t=2812s">[46:52]</a>.</p>
+<h3>잠재 공간 왜곡을 막는 증류 정규화(Distillation Regularizer)</h3>
+<p>이러한 문제를 해결하기 위해 연구팀은 '증류 정규화(distillation regularizer)' 기법을 제안했다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=DHAsXcdNd3Y&amp;t=2970s">[49:30]</a>. 새로 학습하려는 모델에, 원래 훈련된 Stable Diffusion 모델을 '교사 모델(teacher model)'로 삼아 추가적인 손실 함수를 부여하는 방식이다. 이 손실 함수는 새로 생성된 이미지가 교사 모델이 생성했을 법한 이미지와 크게 다르지 않도록 유도하며, 모델 내부의 어텐션 특징(attention feature) 또한 유사성을 유지하도록 한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=DHAsXcdNd3Y&amp;t=3003s">[50:03]</a>. 이를 통해 새로운 객체를 학습할 때 기존 잠재 공간이 과도하게 왜곡되거나 손상되는 것을 방지하고, 개념 혼재 현상을 줄일 수 있었다.</p>
+<p>이 방법을 적용한 결과, 단일 객체 편집 시에는 기존 모델보다 신원 보존이 훨씬 우수했으며 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=DHAsXcdNd3Y&amp;t=3068s">[51:08]</a>, 여러 객체를 동시에 편집할 때도 개념 혼재 없이 정확하게 생성하는 것을 확인했다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=DHAsXcdNd3Y&amp;t=3194s">[53:14]</a>. 이는 정량적 평가에서도 높은 CLIP 점수, 프롬프트 충실도(Prompt Fidelity), 이미지 충실도(Image Fidelity)를 기록하며 증명되었다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=DHAsXcdNd3Y&amp;t=3118s">[51:58]</a>. 잠재 공간 분석을 통해 기존 모델이 새로운 객체를 '장난감' 클래스 근처에 위치시켜 혼란을 야기한 반면, 제안 모델은 '강아지' 클래스 근처에 더 가깝게 배치하여 개념 분리가 잘 이루어졌음도 확인했다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=DHAsXcdNd3Y&amp;t=3281s">[54:41]</a>.</p>
+<h2>주요 통찰·논점</h2>
+<h3>AI 연구에서 데이터셋의 중요성: 양적, 질적, 그리고 접근성</h3>
+<p>이준석 교수는 영상 요약 연구의 '가짜 벤치마크' 문제와 참조 이미지 분할의 난제를 해결하는 과정에서 데이터셋의 근본적인 중요성을 강조한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=DHAsXcdNd3Y&amp;t=1868s">[31:08]</a>. AI 모델의 성능은 단순히 양질의 데이터가 많다고만 해결되는 것이 아니라, 데이터가 실제 문제를 얼마나 정확하게 반영하고 있는지(질적 측면), 그리고 연구자들이 이러한 데이터를 얼마나 쉽게 접근하고 활용할 수 있는지(접근성 측면)가 핵심임을 보여준다. 유튜브 '가장 많이 재생된 구간' 통계처럼, 간접적이더라도 대규모의 '안정적인' 데이터를 확보하는 것이 연구 발전에 필수적이라는 통찰을 제공한다.</p>
+<h3>ML 분야의 '가짜 벤치마크' 문제와 검증의 중요성</h3>
+<p>영상 요약 분야에서 만연했던 '가짜 벤치마크'는 기계 학습(ML) 연구 커뮤니티의 고질적인 문제를 드러낸다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=DHAsXcdNd3Y&amp;t=1629s">[27:09]</a>. 작은 데이터셋에서 테스트셋 과적합(test-set overfitting)을 통해 성능을 부풀리는 행위는 학문적 무결성을 훼손하고 연구의 신뢰도를 떨어뜨린다. 이 교수는 이러한 문제에 대해 비판적인 시각을 제시하며, 다른 연구자의 모델을 직접 재현(reproduce)하고, 한계점을 파악하며, 새로운 데이터셋으로 검증하는 과정이 다음 연구의 중요한 출발점임을 강조한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=DHAsXcdNd3Y&amp;t=3637s">[1:00:37]</a>.</p>
+<h3>생성형 AI 모델 평가의 어려움과 평가 지표 설계의 중요성</h3>
+<p>생성형 AI 모델, 특히 이미지 편집과 같은 분야에서는 모델의 성능을 객관적으로 평가하는 것이 매우 어렵다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=DHAsXcdNd3Y&amp;t=3351s">[55:51]</a>. 최종 결과물이 '사람들이 보기에 좋은지'라는 주관적인 판단에 크게 의존하기 때문이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=DHAsXcdNd3Y&amp;t=3856s">[1:04:16]</a>. 따라서 CLIP 점수, 프롬프트 충실도(Prompt Fidelity), 이미지 충실도(Image Fidelity) 등 여러 지표를 복합적으로 활용하여 모델의 다양한 성능 측면을 측정해야 한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=DHAsXcdNd3Y&amp;t=3118s">[51:58]</a>. 이 교수는 사람들이 원하는 바를 효과적으로 반영하는 평가 지표를 신중하게 설계하고 설득력 있게 제시하는 것이 생성 모델 연구에서 가장 중요한 과제 중 하나라고 역설한다.</p>
+<h3>대규모 사전 학습 모델의 한계와 학계의 역할</h3>
+<p>Stable Diffusion과 같은 대규모 사전 학습 모델(pre-trained model)은 강력한 성능을 제공하지만, 학계 연구자들에게는 '블랙박스'와 같은 한계가 존재한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=DHAsXcdNd3Y&amp;t=3805s">[1:03:25]</a>. 모델의 내부 구조를 재훈련하거나 세부 사항을 파악하기 어렵기 때문에, 제한된 리소스 내에서 기존 모델의 문제를 해결해야 하는 경우가 많다. 이 교수는 이러한 상황에서 학계의 역할은 대기업이 풀기 어려운 특정 문제에 집중하거나, 대규모 모델을 더 가볍고 효율적으로 만드는 연구를 통해 산업과 협력하고 상호보완적인 관계를 구축해야 함을 제안한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=DHAsXcdNd3Y&amp;t=3990s">[1:06:30]</a>.</p>
+<h2>인상적인 지점</h2>
+<ul>
+<li>영상 요약 연구의 어려움을 설명하며 &quot;25개 데이터 가지고 뭘 하겠냐&quot; <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=DHAsXcdNd3Y&amp;t=1735s">[28:55]</a>고 반문하는 대목에서 현 데이터셋의 한계가 극명하게 드러난다.</li>
+<li>'가짜 벤치마크'를 비판하며 &quot;그 사람 코드를 딱 그대로 돌려보니까&quot; <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=DHAsXcdNd3Y&amp;t=1814s">[30:14]</a> 실제 성능이 폭락했음을 보여주는 대목은 학문적 투명성의 중요성을 강하게 일깨운다.</li>
+<li>데이터 증강 연구를 시작하며 &quot;세계는 그리 호락호락하지 않았다&quot; <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=DHAsXcdNd3Y&amp;t=1228s">[20:28]</a>는 말은 연구 과정의 시행착오를 담담하게 보여준다.</li>
+<li>개념 혼재로 인해 엉뚱한 이미지를 생성하는 AI를 보며 &quot;AI는 참 창의적이다&quot; <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=DHAsXcdNd3Y&amp;t=2761s">[46:01]</a>라고 언급하는 부분에서, 인간의 의도를 벗어나는 AI의 예측 불가능성을 유머러스하게 표현한다.</li>
+<li>생성 모델 연구에서 &quot;가장 어려운 부분&quot;은 기술적인 구현이 아니라 &quot;문제 정의&quot;와 &quot;평가 지표 설계&quot;라고 강조하는 대목 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=DHAsXcdNd3Y&amp;t=2537s">[42:17]</a>은 AI 연구의 본질에 대한 깊은 통찰을 제공한다.</li>
+</ul>
+
+  </article>
+  <p class="post-end"><a href="https://www.youtube.com/watch?v=DHAsXcdNd3Y" target="_blank" rel="noopener">YouTube에서 원본 보기 ↗</a> · <a href="./">← 목록으로</a></p>
+</main>
+<footer class="site-foot">
+  <a href="/projects/yt-digest-overview">yt-digest</a> 파이프라인이 자막을 읽고 자동으로 작성한 브리핑입니다. 오류가 있을 수 있으니 중요한 내용은 원본 영상으로 확인하세요.
+</footer>
+</body>
+</html>

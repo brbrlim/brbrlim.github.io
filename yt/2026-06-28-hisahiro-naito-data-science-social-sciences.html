@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Data Science in Social Sciences — 유튜브 다이제스트</title>
+<meta name="description" content="본 영상은 사회과학 분야에서 데이터 과학을 연구하는 중요성과 그 활용 방안을 소개한다. 정보의 가치 증대와 데이터 폭증 현상을 배경으로, 위성 이미지 데이터 등을 활용해 GDP를 측정하고 자연재해의 경제적 영향을 분석하는 방법을 설명한다. 또한, 사회과학에서 인과관계를…">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="Data Science in Social Sciences — 유튜브 다이제스트">
+<meta property="og:description" content="본 영상은 사회과학 분야에서 데이터 과학을 연구하는 중요성과 그 활용 방안을 소개한다. 정보의 가치 증대와 데이터 폭증 현상을 배경으로, 위성 이미지 데이터 등을 활용해 GDP를 측정하고 자연재해의 경제적 영향을 분석하는 방법을 설명한다. 또한, 사회과학에서 인과관계를…">
+<meta property="og:image" content="https://i.ytimg.com/vi/k-O8s2tx398/hqdefault.jpg">
+<meta property="og:type" content="article">
+<link rel="icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+<script>
+// Follow the blog's saved light/dark choice (same origin, same key).
+(function () {
+  var saved = null
+  try { saved = localStorage.getItem("theme") } catch (e) {}
+  var dark = saved ? saved === "dark" : matchMedia("(prefers-color-scheme: dark)").matches
+  document.documentElement.dataset.theme = dark ? "dark" : "light"
+})()
+</script>
+</head>
+<body class="post-page">
+<header class="site-bar">
+  <a class="site-name" href="/">Johnny's</a>
+  <a class="back" href="./">← 유튜브 다이제스트</a>
+</header>
+<main class="post">
+  <a class="hero" href="https://www.youtube.com/watch?v=k-O8s2tx398" target="_blank" rel="noopener" aria-label="YouTube에서 보기">
+    <img src="https://i.ytimg.com/vi/k-O8s2tx398/hqdefault.jpg" alt="">
+    <span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+  </a>
+  <h1>Data Science in Social Sciences</h1>
+  <div class="post-meta"><span>OCW Tsukuba</span><span>43:44</span><span>게시 2020-10-12</span></div>
+  <div class="tags"><a href="./?q=%23data-science">#data-science</a><a href="./?q=%23social-sciences">#social-sciences</a><a href="./?q=%23economics">#economics</a><a href="./?q=%23causality">#causality</a><a href="./?q=%23natural-experiments">#natural-experiments</a></div>
+  <article>
+<h2>TL;DR</h2>
+<p>본 영상은 사회과학 분야에서 데이터 과학을 연구하는 중요성과 그 활용 방안을 소개한다. 정보의 가치 증대와 데이터 폭증 현상을 배경으로, 위성 이미지 데이터 등을 활용해 GDP를 측정하고 자연재해의 경제적 영향을 분석하는 방법을 설명한다. 또한, 사회과학에서 인과관계를 식별하는 중요성을 강조하며, 자연 실험(natural experiment) 방법론을 이용한 최저임금 및 여성 교육이 출산율에 미치는 인과 효과 분석 사례를 제시한다.</p>
+<h2>풀시청 판단</h2>
+<p>이 영상은 사회과학 연구에 데이터 과학 방법론을 도입하려는 학생이나 연구자에게 유용하다. 데이터 과학의 필요성을 시장 가치, 데이터 폭증 등의 관점에서 명확히 제시하며, 실제 사회 문제를 해결하는 데 활용되는 여러 데이터셋과 분석 기법 사례를 상세히 보여준다. 특히 인과관계 식별의 중요성과 자연 실험 방법론(difference-in-differences, regression discontinuity design)을 구체적인 사례로 설명하는 부분은 이 분야에 익숙하지 않은 사람들에게 좋은 입문서 역할을 한다.</p>
+<p>다만, 2019년 기준의 시장 가치 데이터나 일부 사례 분석은 시점이 조금 지났을 수 있다. 또한, 각 방법론에 대한 이론적 깊이보다는 개념 소개와 적용 사례 위주로 진행되므로, 해당 방법론을 심층적으로 이해하려는 숙련된 연구자에게는 다소 표면적일 수 있다. 하지만 사회과학과 데이터 과학의 접점에 관심 있는 학부생, 대학원생, 또는 다른 분야의 실무자가 사회과학 연구의 최신 동향을 파악하는 데는 충분히 볼 가치가 있다.</p>
+<h2>핵심 내용</h2>
+<h3>데이터 과학의 필요성: 정보의 가치 증대와 데이터 폭증 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=k-O8s2tx398&amp;t=31s">[0:31]</a></h3>
+<p>데이터 과학을 사회과학에서 연구해야 하는 이유는 크게 두 가지다. 첫째, 시장 경제에서 정보의 가치가 매우 중요해졌다. 2019년 기준 세계 시가총액 상위 10개 기업 중 7개가 정보 처리 및 판매와 관련된 회사다. 예를 들어 Microsoft의 시가총액은 1.3조 달러로, 일본 GDP의 25%에 해당할 정도로 그 가치가 막대하다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=k-O8s2tx398&amp;t=63s">[1:03]</a> 둘째, 다양한 차원에서 데이터가 폭발적으로 증가하고 있다. SpaceX의 Starlink 프로젝트처럼 1만 개 이상의 소형 위성으로 지구 전체의 경제 활동을 24시간 감시하고 30cm 해상도로 농작물 성장이나 전염병 확산 같은 다양한 현상을 관측하는 시대가 되었다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=k-O8s2tx398&amp;t=136s">[2:16]</a></p>
+<h3>방대한 데이터셋으로 사회 현상을 파악하다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=k-O8s2tx398&amp;t=223s">[3:43]</a></h3>
+<p>사회 현상을 연구하는 데 활용할 수 있는 방대한 데이터셋이 여럿 있다. <code>IPUMS(Individual Level Census Data)</code> 프로젝트는 전 세계 91개국에서 10억 건 이상의 개인 단위 인구조사 데이터를 수집해 고용, 교육, 거주지, 연령, 성별 등 광범위한 정보를 제공한다. 이를 통해 대규모 정책 분석이 가능하다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=k-O8s2tx398&amp;t=282s">[4:42]</a> <code>Demographic Health Survey (DHS)</code>는 1970년대부터 약 90개국에서 진행되어 아동과 여성에 초점을 맞춘 데이터를 수집하며, GPS 정보까지 포함해 특정 지역의 질병 유병률이나 아동 사망률 등을 파악할 수 있게 한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=k-O8s2tx398&amp;t=333s">[5:33]</a> <code>Gapminder</code>는 지난 200년간 120개국의 건강과 부의 관계를 시각화한 프로젝트로, 1인당 GDP와 기대 수명 간의 강한 양의 상관관계를 보여주며 국가 간 소득 불균형이 200년 전 1:4에서 현재 1:100으로 심화되었음을 밝힌다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=k-O8s2tx398&amp;t=372s">[6:12]</a></p>
+<h3>위성 야간 불빛(Nitrites) 데이터로 지역별 GDP를 측정하다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=k-O8s2tx398&amp;t=627s">[10:27]</a></h3>
+<p>NASA의 야간 불빛 데이터(nitrites data)는 경제 활동이 활발한 지역을 밝게, 그렇지 않은 지역을 어둡게 보여주어 경제 활동을 간접적으로 측정하는 데 활용된다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=k-O8s2tx398&amp;t=647s">[10:47]</a> 2012년 Henderson과 Weil의 연구는 야간 불빛과 GDP 사이에 명확한 양의 상관관계가 있음을 발견했다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=k-O8s2tx398&amp;t=805s">[13:25]</a> 이 데이터의 강점은 국가 단위가 아닌 마을이나 도시와 같은 매우 작은 단위의 GDP를 측정할 수 있다는 점이다. 예를 들어, 파키스탄의 2010년 대홍수 피해를 분석할 때, 전통적인 인프라가 부족한 지역의 경제적 손실과 회복 속도를 야간 불빛 데이터를 활용해 추정했다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=k-O8s2tx398&amp;t=1021s">[17:01]</a> 연구 결과, 홍수 피해가 가장 심한 지역은 GDP가 6% 감소했으며, 2년 후 점진적으로 회복되지만 여전히 소득이 낮았다. 또한, 마이크로파이낸스의 존재 여부가 재해 회복 속도에 큰 영향을 미 미치지 못한다는 반직관적인 결론도 도출했다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=k-O8s2tx398&amp;t=1265s">[21:05]</a></p>
+<h3>상관관계와 인과관계: 정책 결정에 중요한 차이 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=k-O8s2tx398&amp;t=1363s">[22:43]</a></h3>
+<p>사회과학에서 인과관계(causality)를 식별하고 상관관계(correlation)와 구별하는 것은 정책 목적상 매우 중요하다. 인과관계는 한 현상이 다른 현상의 원인이 됨을 의미하고, 상관관계는 두 현상이 함께 움직이거나 반대로 움직임을 의미한다. 인과관계가 있으면 상관관계가 존재하지만, 역은 성립하지 않는다. 이를 오해하면 잘못된 정책을 펼칠 수 있다. 예를 들어, 한 황제가 의사가 많은 지역에서 사망률이 높다는 상관관계를 보고 의사를 모두 죽이라는 명령을 내린 일화가 있다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=k-O8s2tx398&amp;t=1410s">[23:30]</a> 실제 인과관계는 &quot;아픈 사람이 많아 사망률이 높은 지역에 의사가 많이 필요하다&quot;는 것이었으므로, 의사를 죽이는 것은 문제 해결에 전혀 도움이 되지 않았다.</p>
+<h3>사회과학 연구의 '신뢰성 혁명'과 자연 실험 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=k-O8s2tx398&amp;t=1512s">[25:12]</a></h3>
+<p>과거에는 사회과학에서 실험을 수행하는 것이 불가능하다고 여겨졌다. 그러나 1979년 Alan Krueger와 David Card는 예측 불가능한 정책 변화, 날씨 변화, 자연재해 등을 '자연 실험(natural experiment)'으로 간주하고, 이를 통해 인과 효과를 분석할 수 있다고 주장했다. 이 접근 방식은 사회과학 연구의 '신뢰성 혁명(credibility revolution)'을 가져왔다. 자연 실험을 활용하는 주요 방법론으로는 차분 분석(difference-in-differences), 회귀 불연속 설계(regression discontinuity design), 도구 변수 분석(instrumental variable analysis) 등이 있다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=k-O8s2tx398&amp;t=1572s">[26:12]</a></p>
+<h3>자연 실험 적용 사례 1: 최저임금 인상이 고용에 미치는 영향 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=k-O8s2tx398&amp;t=1767s">[29:27]</a></h3>
+<p>Krueger와 Card는 차분 분석(difference-in-differences)을 사용해 최저임금 인상이 고용에 미치는 영향을 연구했다. 뉴저지주가 갑자기 최저임금을 인상한 사례를 자연 실험으로 활용하고, 인근 펜실베이니아주의 패스트푸드점을 대조군으로 삼았다. 최저임금 인상 후 뉴저지주의 고용은 20.44에서 21.03으로 약간 증가한 반면, 펜실베이니아주에서는 전국적인 경기 침체로 인해 23.33에서 21.77로 고용이 감소했다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=k-O8s2tx398&amp;t=1934s">[32:14]</a> 이 두 변화의 차이를 계산한 결과, 최저임금 인상으로 인해 고용이 2.76% 증가했다는 결론을 내렸다. 이는 최저임금 인상이 고용을 감소시킬 것이라는 통념과 상반되는 결과로, 큰 정책적 함의를 가졌다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=k-O8s2tx398&amp;t=2062s">[34:22]</a></p>
+<h3>자연 실험 적용 사례 2: 여성 교육이 출산율에 미치는 인과 효과 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=k-O8s2tx398&amp;t=2107s">[35:07]</a></h3>
+<p>여성의 교육 수준이 높을수록 출산율이 낮아지는 경향이 있지만, 이는 소득이나 다른 요인의 영향일 수 있어 인과관계가 불분명했다. 이를 분석하기 위해 회귀 불연속 설계(regression discontinuity design)를 활용한 자연 실험이 진행되었다. 1971년 탄자니아 대통령이 등록금을 내지 못한 학생을 공립학교에서 퇴학시키는 것을 금지하는 정책을 발표하면서, 특정 연령대(2012년 기준 48세 이하)에서 교육 수준과 문해율이 급증하는 불연속적인 변화가 발생했다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=k-O8s2tx398&amp;t=2222s">[37:02]</a> 이 정책의 영향을 받은 세대의 여성들은 8명 이상 출산할 확률이 급격히 감소했고, 4명 이상의 자녀를 잃을 확률도 현저히 낮아졌다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=k-O8s2tx398&amp;t=2358s">[39:18]</a> 이를 통해 여성 교육이 출산율 감소, 특히 다출산 감소 및 아동 사망률 감소에 중요한 인과적 영향을 미친다는 결론을 도출했다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=k-O8s2tx398&amp;t=2476s">[41:16]</a></p>
+<h2>주요 통찰·논점</h2>
+<h3>방대한 데이터는 '측정 불가능했던 것'을 측정하게 한다</h3>
+<p>데이터 폭증 시대에 새롭게 등장한 위성 이미지 데이터 등은 과거에는 상상하기 어려웠던 세부적인 단위의 사회경제적 지표를 측정할 수 있게 한다. 예를 들어, 야간 불빛 데이터는 국가 단위가 아닌 마을이나 도시 수준의 GDP를 추정하고, 자연재해의 미시적 경제적 영향을 파악하는 데 결정적인 역할을 했다. 이는 정책 입안자들이 더 정교하고 효과적인 지역 맞춤형 정책을 수립할 수 있는 기반을 제공한다.</p>
+<h3>사회과학 연구의 핵심은 '인과관계' 식별이다</h3>
+<p>단순한 상관관계는 오해를 불러일으키고 잘못된 정책 결정을 초래할 수 있으므로, 사회 현상 간의 인과관계를 정확히 식별하는 것이 가장 중요하다. '신뢰성 혁명'과 같은 새로운 방법론의 등장은 과거에는 실험이 불가능하다고 여겨졌던 사회과학 분야에서도 예측 불가능한 정책 변화나 사건을 활용하여 인과 효과를 엄밀하게 추정할 수 있게 함으로써, 과학적 근거에 기반한 정책 수립의 가능성을 열었다.</p>
+<h3>자연 실험은 복잡한 사회 현상의 인과 효과를 탐구하는 강력한 도구다</h3>
+<p>자연 실험은 윤리적, 현실적 제약으로 직접 통제된 실험이 어려운 사회과학 분야에서 정책 변경이나 자연 현상 등의 외부적 요인으로 발생하는 자연스러운 '실험' 환경을 활용하여 인과 효과를 추정하는 혁신적인 접근 방식이다. 최저임금 인상이 고용에 미치는 영향이나 여성 교육이 출산율에 미치는 인과적 효과를 밝혀낸 사례는 이 방법론이 복잡한 사회 문제에 대한 깊이 있는 통찰을 제공하고, 기존 통념을 반박하며 새로운 정책적 논의를 촉발할 수 있음을 보여준다.</p>
+<h2>인상적인 지점</h2>
+<p>황제가 의사가 많은 지역에서 사망률이 높다는 상관관계를 보고 의사를 죽이라는 명령을 내린 일화 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=k-O8s2tx398&amp;t=1410s">[23:30]</a>는 상관관계와 인과관계를 혼동할 때 얼마나 치명적인 오류를 범할 수 있는지 매우 직관적으로 보여주는 강력한 비유다. 이는 사회과학 연구자가 왜 인과관계 식별에 그토록 집중해야 하는지 명확히 설명한다.</p>
+
+  </article>
+  <p class="post-end"><a href="https://www.youtube.com/watch?v=k-O8s2tx398" target="_blank" rel="noopener">YouTube에서 원본 보기 ↗</a> · <a href="./">← 목록으로</a></p>
+</main>
+<footer class="site-foot">
+  <a href="/projects/yt-digest-overview">yt-digest</a> 파이프라인이 자막을 읽고 자동으로 작성한 브리핑입니다. 오류가 있을 수 있으니 중요한 내용은 원본 영상으로 확인하세요.
+</footer>
+</body>
+</html>

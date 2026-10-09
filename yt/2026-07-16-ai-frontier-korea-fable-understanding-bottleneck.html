@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EP 103. 이해가 병목이 될 때 — 유튜브 다이제스트</title>
+<meta name="description" content="새로운 최고 성능 모델 Fable의 출시로 AI 성능이 급격히 향상되면서, 인간의 이해와 인지 능력이 새로운 병목 현상으로 부상하고 있다. 과거에는 AI가 문제를 해결하는 데 병목이 있었다면, 이제는 AI가 너무나 빠르고 광범위하게 일을 처리하여 인간이 그 결과를 따라…">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="EP 103. 이해가 병목이 될 때 — 유튜브 다이제스트">
+<meta property="og:description" content="새로운 최고 성능 모델 Fable의 출시로 AI 성능이 급격히 향상되면서, 인간의 이해와 인지 능력이 새로운 병목 현상으로 부상하고 있다. 과거에는 AI가 문제를 해결하는 데 병목이 있었다면, 이제는 AI가 너무나 빠르고 광범위하게 일을 처리하여 인간이 그 결과를 따라…">
+<meta property="og:image" content="https://i.ytimg.com/vi/PYpRfmwo92E/hqdefault.jpg">
+<meta property="og:type" content="article">
+<link rel="icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+<script>
+// Follow the blog's saved light/dark choice (same origin, same key).
+(function () {
+  var saved = null
+  try { saved = localStorage.getItem("theme") } catch (e) {}
+  var dark = saved ? saved === "dark" : matchMedia("(prefers-color-scheme: dark)").matches
+  document.documentElement.dataset.theme = dark ? "dark" : "light"
+})()
+</script>
+</head>
+<body class="post-page">
+<header class="site-bar">
+  <a class="site-name" href="/">Johnny's</a>
+  <a class="back" href="./">← 유튜브 다이제스트</a>
+</header>
+<main class="post">
+  <a class="hero" href="https://www.youtube.com/watch?v=PYpRfmwo92E" target="_blank" rel="noopener" aria-label="YouTube에서 보기">
+    <img src="https://i.ytimg.com/vi/PYpRfmwo92E/hqdefault.jpg" alt="">
+    <span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+  </a>
+  <h1>EP 103. 이해가 병목이 될 때</h1>
+  <div class="post-meta"><span>AI Frontier Korea (노정석)</span><span>46:41</span><span>게시 2026-07-12</span></div>
+  <div class="tags"><a href="./?q=%23ai">#ai</a><a href="./?q=%23llm">#llm</a><a href="./?q=%23fable">#fable</a><a href="./?q=%23anthropic">#anthropic</a><a href="./?q=%23openai">#openai</a><a href="./?q=%23evaluation">#evaluation</a><a href="./?q=%23cognitive-load">#cognitive-load</a><a href="./?q=%23human-in-the-loop">#human-in-the-loop</a><a href="./?q=%23learning-strategies">#learning-strategies</a></div>
+  <article>
+<h2>TL;DR</h2>
+<p>새로운 최고 성능 모델 Fable의 출시로 AI 성능이 급격히 향상되면서, 인간의 이해와 인지 능력이 새로운 병목 현상으로 부상하고 있다. 과거에는 AI가 문제를 해결하는 데 병목이 있었다면, 이제는 AI가 너무나 빠르고 광범위하게 일을 처리하여 인간이 그 결과를 따라가고 이해하는 것이 가장 큰 과제가 된 상황이다.</p>
+<h2>풀시청 판단</h2>
+<p>이 영상은 최근 출시된 Anthropic의 최신 LLM Fable과 GPT-5.6에 대한 초기 사용자 경험을 공유하고, AI 발전이 가져온 새로운 인지적, 방법론적 도전에 깊이 있게 접근한다. AI 기술의 최전선에서 어떤 고민이 오가고 있는지 궁금한 AI 개발자, 기획자, 연구자라면 이 영상의 <a href="#%ED%95%B5%EC%8B%AC-%EB%82%B4%EC%9A%A9">핵심 내용</a> 전체를 시청할 가치가 충분하다. 특히 AI 모델 평가의 한계와 새로운 접근 방식에 관심 있다면 <a href="#%EB%AA%A8%EB%8D%B8-%ED%8F%89%EA%B0%80%EC%9D%98-%EB%82%9C%EC%A0%9C-%EB%B2%A4%EC%B9%98%EB%A7%88%ED%81%AC%EC%99%80-%EC%9D%B8%EA%B0%84-%EC%84%A0%ED%98%B8%EB%8F%84">모델 평가의 난제: 벤치마크와 인간 선호도</a> 챕터를, AI가 업무 방식과 학습 방식을 어떻게 변화시키는지 알고 싶다면 <a href="#ai%EB%8A%94-%EC%96%B4%EB%96%BB%EA%B2%8C-%EB%82%98%EC%9D%98-%EB%AF%B8%EC%A7%80%EC%9D%98-%EA%B2%83%EC%9D%84-%EB%93%9C%EB%9F%AC%EB%82%B4%EA%B3%A0-%ED%95%99%EC%8A%B5%EC%9D%84-%EB%8F%95%EB%8A%94%EA%B0%80">AI는 어떻게 나의 '미지의 것'을 드러내고 학습을 돕는가</a> 챕터를 집중해서 보는 것을 추천한다.</p>
+<p>다만, 영상의 내용은 빠르게 변화하는 AI 생태계의 최신 담론을 다루므로, 일부 언급된 모델이나 서비스의 상황은 시점에 따라 달라질 수 있다는 점을 염두에 두어야 한다. 또한, 전반적으로 추상적인 논의가 많아 AI 기술에 대한 기본적인 이해가 부족한 시청자에게는 다소 어려울 수 있다.</p>
+<h2>핵심 내용</h2>
+<h3>Fable 출시와 AI 사용의 변곡점: 성능, 비용, 그리고 모델 선택</h3>
+<p>Anthropic의 Fable 출시와 GPT-5.6 등 최신 LLM의 등장으로 AI 성능은 다시 한번 급격히 향상됐다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=PYpRfmwo92E&amp;t=5s">[0:05]</a>. 사용자들은 Fable이 Opus나 GPT-5.5로는 해결하지 못했던 복잡한 코딩 버그를 찾아내고 해결하는 등 높은 성능에 놀라움을 표한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=PYpRfmwo92E&amp;t=218s">[3:38]</a>. 하지만 동시에 Fable의 높은 비용 효율성에 대한 고민도 커진다. 단 몇 분 만에 5시간 할당량을 소진하거나 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=PYpRfmwo92E&amp;t=46s">[0:46]</a>, 전체 사용량의 20%를 단 한두 문제 해결에 써버리는 경험을 하기도 한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=PYpRfmwo92E&amp;t=248s">[4:08]</a>.</p>
+<p>이러한 비용 문제에 대한 해답으로 Anthropic 내부에서는 Fable이 코딩 작업에 적합한 저성능 모델(Sonnet, Haiku)을 스스로 선택하여 실행하고, Fable은 판단, 리뷰, 종합과 같은 핵심 작업만 수행하도록 지시하는 방식이 제안된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=PYpRfmwo92E&amp;t=277s">[4:37]</a>. 이는 &quot;Fable에게 세세하게 지시하기보다는 Fable이 스스로 판단하게 하라&quot;는 권고로 이어지는데, AI가 인간보다 일을 더 잘 디자인하고 계획할 수 있다는 시사점을 던진다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=PYpRfmwo92E&amp;t=311s">[5:11]</a>. 이러한 모델 계층화 전략은 Opus가 비쌌던 시절 판단은 Opus가, 코딩은 Sonnet이 맡던 방식과 동일하게 반복되는 패턴으로 인식된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=PYpRfmwo92E&amp;t=362s">[6:02]</a>.</p>
+<h3>AI 작업 방식에 대한 Anthropic과 OpenAI의 철학 차이</h3>
+<p>Anthropic과 OpenAI는 모델 활용 철학에서 미묘한 차이를 보인다. Anthropic은 모델 자체가 원샷 원킬로 짧은 토큰 안에 성과를 만들어내는 것에 비중을 두는 듯 보인다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=PYpRfmwo92E&amp;t=434s">[7:14]</a>. 반면 OpenAI의 ChatGPT는 test-time compute(생각 토큰)에 큰 기대를 걸고 있으며, 작은 모델도 충분한 test-time compute를 투입하면 성능이 크게 좋아진다고 본다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=PYpRfmwo92E&amp;t=442s">[7:22]</a>.</p>
+<p>결국 이러한 접근 방식의 차이는 상업적 선택의 갈림길로 이어진다. 천재 한 명이 일필휘지로 끝내는 작업과 여러 명이 협력하여 좋은 결과를 내는 작업의 비유처럼, 작업의 특징에 따라 어떤 모델 전략이 더 효과적인지 경영자의 판단이 필요한 영역이 된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=PYpRfmwo92E&amp;t=497s">[8:17]</a>. 사용자 입장에서는 다양한 모델 선택지가 생기는 것이 긍정적이나, 어떤 모델을 어떤 문제에 적용할지 신중하게 결정해야 하는 시점이 되었다.</p>
+<h3>인간의 이해가 새로운 병목이 된 시대</h3>
+<p>AI 성능이 비약적으로 발전하면서, 이제 병목 현상은 AI 자체의 성능이 아닌 인간의 인지 능력으로 이동하고 있다. 박종현은 Fable이 생성한 코드를 리뷰할 때 인간의 인지 부채(cognitive debt)를 느낀다고 언급했고 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=PYpRfmwo92E&amp;t=87s">[1:27]</a>, 최승준은 &quot;모델 성능이 올라가고 일들은 벌어지고 잘 생산되고 해결되고 있는데, 그걸 내가 알면서 하고 있는 거냐&quot;는 질문을 던진다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=PYpRfmwo92E&amp;t=548s">[9:08]</a>. Thariq Shihipar는 이 현상을 &quot;이해가 새로운 병목이다&quot;라는 문장으로 요약하며, Fable의 작업 품질이 인간이 자신의 '미지의 것'(unknowns)을 얼마나 잘 명확히 하는지에 의해 좌우된다고 설명한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=PYpRfmwo92E&amp;t=610s">[10:10]</a>.</p>
+<p>이는 Alfred Korzybski의 &quot;지도는 영토가 아니다(map is not the territory)&quot;라는 말을 인용하며, 추상적인 지도(AI의 결과물)와 실제 영토(인간의 이해) 사이의 간극을 줄여나가는 작업의 중요성을 강조한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=PYpRfmwo92E&amp;t=574s">[9:34]</a>. Thariq Shihipar는 이를 '나의 미지의 것들을 찾아내기'(finding your unknowns)라는 4사분면 개념과 연결 짓는다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=PYpRfmwo92E&amp;t=632s">[10:32]</a>.</p>
+<h3>AI는 어떻게 나의 '미지의 것'을 드러내고 학습을 돕는가</h3>
+<p>인간의 이해가 병목이 되는 상황에서, AI를 활용해 자신의 '미지의 것'을 찾아내고 학습을 돕는 다양한 방법론이 제시된다. Thariq Shihipar는 구현 전, 중, 후의 3단계 접근법을 소개한다:</p>
+<ul>
+<li><strong>구현 전</strong>: AI(Claude)에게 미지의 것이나 모호한 부분에 대해 사용자를 인터뷰해 달라고 요청하여 질문받는 용도로 활용한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=PYpRfmwo92E&amp;t=792s">[13:12]</a>. 이는 인지 작업 분석(Cognitive Task Analysis)과 유사한 방식이다.</li>
+<li><strong>구현 중</strong>: LLM 위키나 HTML 같은 확장된 두뇌 형태로 AI에게 기록 작업을 맡겨, 인간의 노트를 보완하고 맥락을 압축하며 이해를 돕는다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=PYpRfmwo92E&amp;t=831s">[13:51]</a>.</li>
+<li><strong>구현 후</strong>: AI에게 변경 사항에 대한 HTML 보고서를 생성하고, 이해도를 점검할 수 있는 퀴즈를 만들게 한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=PYpRfmwo92E&amp;t=881s">[14:41]</a>. Thariq Shihipar는 Fable 출시 영상을 만들 때 FFmpeg이나 컬러 그레이딩 등 모르는 기술에 대해 Claude에게 가르침을 받아 미지의 것을 해결했다고 말한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=PYpRfmwo92E&amp;t=945s">[15:45]</a>.</li>
+</ul>
+<p>YouTube의 영상 요약 및 퀴즈 기능 도입 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=PYpRfmwo92E&amp;t=1008s">[16:48]</a>, Notion의 Explain Diff 같은 도구들 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=PYpRfmwo92E&amp;t=1129s">[18:49]</a> 또한 이러한 맥락에서 인간의 인지 부채를 해소하고 학습을 돕기 위한 노력으로 볼 수 있다. 퀴즈는 AI 루프의 속도 조절 장치(governor)로서, 산출물이 제대로 가고 있는지 인간이 판정하도록 돕는다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=PYpRfmwo92E&amp;t=1185s">[19:45]</a>.</p>
+<h3>AI 시대, 인간의 역할과 새로운 세대의 학습 방식</h3>
+<p>노정석은 AI와 인간이 일하는 방식에 대한 논의가 과거 경영학에서 기업의 인재 교육이나 조직 효율화를 다루던 방식과 동형이라고 지적한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=PYpRfmwo92E&amp;t=1359s">[22:39]</a>. 그는 우리가 배우고 이해해야 한다고 학습받은 세대인 반면, 새로운 세대는 AI를 낮은 레이어로 밀어 넣고 &quot;해 줘, 해 줘&quot; 모드로 사용하며 다음 레이어에서 새로운 생산성과 지식 체계를 형성할 가능성이 높다고 본다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=PYpRfmwo92E&amp;t=1443s">[24:03]</a>.</p>
+<p>실제로 일부 젊은 개발자들은 GitHub의 README 파일에 &quot;사람은 읽지 마세요. 어차피 AI가 읽을 겁니다&quot;와 같은 문구를 적어, AI가 정보를 소비하는 주체라는 가정 하에 문서를 작성하기도 한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=PYpRfmwo92E&amp;t=1494s">[24:54]</a>. 이는 인간의 인지 능력이 AI의 발전 속도를 따라가지 못하며 &quot;뇌가 부족하다&quot;는 느낌을 받게 하는데, 마치 『Cyberpunk 2077』의 사이버사이코(cyberpsycho)처럼 인간의 뇌가 과부하될 수 있다는 비유로 표현되기도 한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=PYpRfmwo92E&amp;t=1536s">[25:36]</a>.</p>
+<p>이러한 상황에서 노정석은 특정 지점에서는 &quot;이건 알아봐야 내 결과에 도움이 안 돼&quot;라고 판단하여 더 깊이 이해하려는 노력을 덮어버리고, AI에게 &quot;해 줘&quot;라고 맡기는 '토끼굴 게이트'가 생겼다고 고백한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=PYpRfmwo92E&amp;t=1621s">[27:01]</a>. 그는 AI가 내놓은 결과가 정말 맞는지 확신하기 위해 동일 모델에 세 번 연속 질문하여 검증하는 'auto research' 방식까지 시도한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=PYpRfmwo92E&amp;t=1720s">[28:40]</a>. 이는 엔지니어링의 본질이 코딩에서 논리 결정과 의사결정, 문제 분산 배치, 좋은 문제와 나쁜 문제 가리기로 한 단계 올라갔음을 시사한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=PYpRfmwo92E&amp;t=1662s">[27:42]</a>.</p>
+<h3>모델 평가의 난제: 벤치마크와 인간 선호도</h3>
+<p>LLM의 성능을 평가하는 방식은 여전히 논쟁적이다. Artificial Analysis 같은 벤치마크는 다양한 정형화된 시험을 통해 모델 점수를 매기지만 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=PYpRfmwo92E&amp;t=1939s">[32:19]</a>, 문제와 정답이 공개되어 '해킹'될 여지가 있다는 한계가 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=PYpRfmwo92E&amp;t=1982s">[33:02]</a>.</p>
+<p>반면 LMArena는 A/B 테스트를 통해 사용자 선호도(좋아요/싫어요)를 기반으로 모델 성능을 평가한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=PYpRfmwo92E&amp;t=1990s">[33:10]</a>. 이는 디자인이나 발표 자료의 품질처럼 정답이 정해지지 않은 주관적인 작업에 특히 유용하다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=PYpRfmwo92E&amp;t=2158s">[35:58]</a>. 그러나 Llama 4 출시 당시, 특정 모델을 튜닝하여 LMArena에서 1등을 차지하도록 '해킹'한 사례가 드러나면서, 인간 선호도조차도 벤치마크처럼 조작될 수 있음이 밝혀졌다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=PYpRfmwo92E&amp;t=2226s">[37:06]</a>.</p>
+<p>이러한 문제들로 인해 LLM은 특정 벤치마크(예: SWE-bench)를 정복하는 데 특화된 '들쭉날쭉한 지능'(jagged intelligence)을 보이는 경향이 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=PYpRfmwo92E&amp;t=2323s">[38:43]</a>. 어려운 수학 문제는 잘 풀지만, 소설 쓰기나 유머 생성 등 평가가 어려운 영역에서는 여전히 부족하다. 따라서 사람의 선호도가 필요한 작업에 대한 방대한 데이터 수집과 평가가 LLM의 다음 발전 과제이자 LMArena와 같은 평가 회사의 핵심 사업 기회가 된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=PYpRfmwo92E&amp;t=2363s">[39:23]</a>. 이는 LLM을 넘어 오디오, 로보틱스(VLA) 등 다른 양상(modality)에서도 평가와 데이터 확보가 큰 사업 기회임을 시사한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=PYpRfmwo92E&amp;t=2625s">[43:45]</a>.</p>
+<h2>주요 통찰·논점</h2>
+<h3>이해와 인지가 AI 시대의 새로운 병목이다</h3>
+<p>AI 모델의 성능이 급격히 향상되면서, 이제는 AI 자체가 아니라 AI가 생성한 결과물을 인간이 얼마나 빠르게 이해하고 통합하며 활용할 수 있는지가 핵심적인 병목이 된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=PYpRfmwo92E&amp;t=556s">[9:16]</a>. 이는 인간의 인지 부하를 줄이고 학습을 돕는 새로운 도구와 방법론의 필요성을 증폭시킨다.</p>
+<h3>AI가 인간의 '미지의 것'을 탐색하고 학습을 증강시키는 도구로 진화한다</h3>
+<p>AI는 단순히 작업을 자동화하는 것을 넘어, 인간이 스스로 인지하지 못하는 정보(unknown unknowns)를 찾아내고, 부족한 지식을 채워주는 능동적인 학습 파트너 역할을 할 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=PYpRfmwo92E&amp;t=979s">[16:19]</a>. AI와 대화하며 미지의 것을 드러내고, 퀴즈를 통해 이해도를 점검하며, AI를 확장된 두뇌로 활용하는 방식이 새로운 지식 습득의 틀이 될 수 있다.</p>
+<h3>AI 모델 평가는 단순한 성능 지표를 넘어 인간 선호도와 현실 가치를 반영해야 한다</h3>
+<p>정형화된 벤치마크는 모델의 특정 능력은 측정할 수 있지만, 실제 사용자의 만족도나 창의성 등 인간적 가치를 포착하는 데 한계가 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=PYpRfmwo92E&amp;t=1960s">[32:40]</a>. 인간의 선호도를 기반으로 한 평가 방식이 중요해지고 있으며, 이는 모델의 '들쭉날쭉한 지능'을 개선하고 실제 비즈니스 가치를 창출하는 데 필수적인 요소로 자리매김하고 있다.</p>
+<h3>AI 시대의 '엔지니어링'은 경계 짓기와 균형 감각에 달려 있다</h3>
+<p>모델 자체를 서비스로 보더라도, 이를 어떻게 도구, 메모리, 다른 모델들과 통합하고 오케스트레이션할 것인가는 여전히 핵심적인 엔지니어링 문제다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=PYpRfmwo92E&amp;t=2599s">[43:19]</a>. 큰 모델과 작은 모델을 효율적으로 조합하고, 어디까지 AI에게 맡기고 어디까지 인간이 개입할지 '경계 짓기'와 '균형 감각'을 발휘하는 것이 AI 시대의 핵심 역량이 된다.</p>
+<h2>인상적인 지점</h2>
+<ul>
+<li><strong>&quot;지도는 영토가 아니다&quot;</strong>: AI가 생성한 결과물(지도)과 인간이 궁극적으로 이해해야 할 실제 맥락(영토) 사이의 간극을 좁히는 노력의 중요성을 강조하는 비유 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=PYpRfmwo92E&amp;t=990s">[16:30]</a>.</li>
+<li><strong>AI를 루프 바깥이 아닌 안으로 더 깊이</strong>: AI를 그저 최종 결과물을 내는 도구로 여기고 인간이 루프 바깥으로 빠져나오는 것이 아니라, 루프 안으로 더 깊이 들어가 AI와 상호작용하며 자신의 역량을 증강시키는 적극적인 태도를 강조한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=PYpRfmwo92E&amp;t=1253s">[20:53]</a>.</li>
+<li><strong>&quot;사람은 읽지 마세요.&quot; README</strong>: 젊은 세대가 AI를 자연스러운 정보 소비 주체로 여기며, 인간이 아닌 AI를 위해 문서를 작성하는 사례는 AI가 사고방식과 작업 방식에 미치는 근본적인 변화를 보여준다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=PYpRfmwo92E&amp;t=1494s">[24:54]</a>.</li>
+<li><strong>&quot;사이버사이코&quot; 비유</strong>: AI의 빠른 발전 속도를 인간의 뇌가 따라가지 못해 인지 과부하가 걸리는 상황을 『Cyberpunk 2077』 게임 속 &quot;뇌가 타들어가는 사이버사이코&quot; 설정에 비유한 것은 현 상황에 대한 강렬한 통찰을 제공한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=PYpRfmwo92E&amp;t=1547s">[25:47]</a>.</li>
+</ul>
+
+  </article>
+  <p class="post-end"><a href="https://www.youtube.com/watch?v=PYpRfmwo92E" target="_blank" rel="noopener">YouTube에서 원본 보기 ↗</a> · <a href="./">← 목록으로</a></p>
+</main>
+<footer class="site-foot">
+  <a href="/projects/yt-digest-overview">yt-digest</a> 파이프라인이 자막을 읽고 자동으로 작성한 브리핑입니다. 오류가 있을 수 있으니 중요한 내용은 원본 영상으로 확인하세요.
+</footer>
+</body>
+</html>

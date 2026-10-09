@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Markov Decision Processes 2 - Reinforcement Learning | Stanford CS221: AI (Autumn 2019) — 유튜브 다이제스트</title>
+<meta name="description" content="이 강의는 마르코프 결정 과정(MDP)에서 확장된 강화 학습(RL)의 기본 원리를 다룬다. 에이전트가 보상과 전이 확률을 알지 못하는 환경에서 상호작용하며 최적 정책을 학습하는 방식을 설명한다. 모델 기반 및 모델 프리 몬테카를로, SARSA, Q-러닝 등 네 가지 핵…">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="Markov Decision Processes 2 - Reinforcement Learning | Stanford CS221: AI (Autumn 2019) — 유튜브 다이제스트">
+<meta property="og:description" content="이 강의는 마르코프 결정 과정(MDP)에서 확장된 강화 학습(RL)의 기본 원리를 다룬다. 에이전트가 보상과 전이 확률을 알지 못하는 환경에서 상호작용하며 최적 정책을 학습하는 방식을 설명한다. 모델 기반 및 모델 프리 몬테카를로, SARSA, Q-러닝 등 네 가지 핵…">
+<meta property="og:image" content="https://i.ytimg.com/vi/HpaHTfY52RQ/hqdefault.jpg">
+<meta property="og:type" content="article">
+<link rel="icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+<script>
+// Follow the blog's saved light/dark choice (same origin, same key).
+(function () {
+  var saved = null
+  try { saved = localStorage.getItem("theme") } catch (e) {}
+  var dark = saved ? saved === "dark" : matchMedia("(prefers-color-scheme: dark)").matches
+  document.documentElement.dataset.theme = dark ? "dark" : "light"
+})()
+</script>
+</head>
+<body class="post-page">
+<header class="site-bar">
+  <a class="site-name" href="/">Johnny's</a>
+  <a class="back" href="./">← 유튜브 다이제스트</a>
+</header>
+<main class="post">
+  <a class="hero" href="https://www.youtube.com/watch?v=HpaHTfY52RQ" target="_blank" rel="noopener" aria-label="YouTube에서 보기">
+    <img src="https://i.ytimg.com/vi/HpaHTfY52RQ/hqdefault.jpg" alt="">
+    <span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+  </a>
+  <h1>Markov Decision Processes 2 - Reinforcement Learning | Stanford CS221: AI (Autumn 2019)</h1>
+  <div class="post-meta"><span>Stanford Online</span><span>1:14:38</span><span>게시 2020-04-28</span></div>
+  <div class="tags"><a href="./?q=%23reinforcement-learning">#reinforcement-learning</a><a href="./?q=%23mdp">#mdp</a><a href="./?q=%23monte-carlo">#monte-carlo</a><a href="./?q=%23sarsa">#sarsa</a><a href="./?q=%23q-learning">#q-learning</a><a href="./?q=%23exploration-exploitation">#exploration-exploitation</a><a href="./?q=%23function-approximation">#function-approximation</a></div>
+  <article>
+<h2>TL;DR</h2>
+<p>이 강의는 마르코프 결정 과정(MDP)에서 확장된 강화 학습(RL)의 기본 원리를 다룬다. 에이전트가 보상과 전이 확률을 알지 못하는 환경에서 상호작용하며 최적 정책을 학습하는 방식을 설명한다. 모델 기반 및 모델 프리 몬테카를로, SARSA, Q-러닝 등 네 가지 핵심 알고리즘을 소개하고, 탐험과 활용의 균형 문제, 그리고 함수 근사를 통한 일반화의 중요성을 강조한다.</p>
+<h2>풀시청 판단</h2>
+<ul>
+<li><strong>풀시청할 가치</strong>: 강화 학습의 기본 개념과 주요 알고리즘을 체계적으로 이해하려는 사람에게 매우 유용하다. 특히 MDPs와의 관계, 모델 기반/모델 프리 접근 방식, 몬테카를로와 부트스트래핑의 차이, 온-정책/오프-정책 학습, 탐험/활용 상충관계, 함수 근사를 통한 일반화 등 핵심 주제를 명확하고 직관적인 비유와 함께 설명한다. 2019년 강의지만, 강화 학습의 기초 이론은 여전히 유효하다.</li>
+<li><strong>누구에게 추천</strong>:
+<ul>
+<li>강화 학습을 처음 배우는 초보자.</li>
+<li>MDPs는 알지만 강화 학습으로의 전환을 이해하고 싶은 사람.</li>
+<li>강화 학습 알고리즘(Monte Carlo, SARSA, Q-learning)의 작동 원리와 차이점을 명확히 알고 싶은 사람.</li>
+<li>탐험-활용 상충관계, 함수 근사 등 강화 학습의 주요 과제를 이해하고 싶은 사람.</li>
+</ul>
+</li>
+<li><strong>무엇을 얻나</strong>:
+<ul>
+<li>강화 학습의 기본 틀과 MDPs와의 근본적인 차이점.</li>
+<li>주요 강화 학습 알고리즘인 모델 기반/모델 프리 몬테카를로, SARSA, Q-러닝의 원리와 구현 방식.</li>
+<li>이들 알고리즘이 Q-가치를 추정하는 방식(실제 효용 평균 vs. 부트스트래핑).</li>
+<li>온-정책(on-policy) 및 오프-정책(off-policy) 학습의 의미와 각 알고리즘에 적용되는 방식.</li>
+<li>강화 학습의 핵심 과제인 '탐험(exploration)'과 '활용(exploitation)'의 균형 잡기.</li>
+<li>광대한 상태 공간 문제를 해결하기 위한 '함수 근사(function approximation)' 개념.</li>
+</ul>
+</li>
+<li><strong>약점 및 한계</strong>:
+<ul>
+<li>강의 시점이 2019년으로, 딥 강화 학습(Deep Reinforcement Learning)의 최신 발전상이나 상세한 기술적인 깊이까지 다루지는 않는다. 다만, 딥 강화 학습의 기본적인 아이디어(신경망으로 Q-가치 근사)는 언급한다.</li>
+<li>알고리즘 구현의 세부적인 코딩 예시는 제공하지 않는다.</li>
+<li>복잡한 수학적 증명보다는 직관적인 이해에 초점을 맞춘다.</li>
+</ul>
+</li>
+<li><strong>일부만 봐도 된다면</strong>:
+<ul>
+<li><code>### 강화 학습의 기본 문제: 모르는 세계에서 행동하며 배우기</code></li>
+<li><code>### 모델 프리 몬테카를로: MDP 모델 없이 Q-가치 직접 추정하기</code></li>
+<li><code>### SARSA: 부트스트래핑으로 정책의 Q-가치를 추정하는 온-정책 학습</code></li>
+<li><code>### Q-러닝: 최적 정책의 Q-가치를 추정하는 오프-정책 학습</code></li>
+<li><code>### 탐험과 활용의 상충관계: 엡실론-그리디 정책</code></li>
+</ul>
+</li>
+</ul>
+<h2>핵심 내용</h2>
+<h3>MDP 복습: 알려진 세상에서 최적의 정책 찾기</h3>
+<p>마르코프 결정 과정(MDP)은 상태(states), 행동(actions), 전이(transitions), 보상(rewards), 할인율(discount factor)로 구성된 모델 체계이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=HpaHTfY52RQ&amp;t=41s">[0:41]</a>. 에이전트는 상태에서 행동을 선택하고, 행동은 확률적 전이를 통해 새로운 상태와 보상으로 이어진다. 정책(policy, $\pi$)은 각 상태에서 취할 행동을 결정하며 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=HpaHTfY52RQ&amp;t=211s">[3:31]</a>, 목표는 기대 효용(expected utility)을 최대화하는 최적 정책을 찾는 것이다. 지난 강의에서는 MDP가 완전히 주어졌을 때 가치 반복(value iteration)이나 정책 평가(policy evaluation)를 통해 최적 정책을 계산하는 추론 알고리즘을 다뤘다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=HpaHTfY52RQ&amp;t=60s">[1:00]</a>.</p>
+<p>정책의 가치(value)는 V-함수(V-function)와 Q-함수(Q-function)로 표현된다. V-함수 Vπ(s)는 특정 상태 s에서 정책 π를 따랐을 때 얻을 수 있는 기대 효용이고 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=HpaHTfY52RQ&amp;t=347s">[5:47]</a>, Q-함수 Qπ(s, a)는 상태 s에서 행동 a를 먼저 취한 후 정책 π를 따랐을 때 얻을 수 있는 기대 효용이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=HpaHTfY52RQ&amp;t=373s">[6:13]</a>. 이러한 가치 함수들은 재귀적 관계로 정의되며 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=HpaHTfY52RQ&amp;t=398s">[6:38]</a>, 이를 통해 최적 정책을 계산할 수 있었다.</p>
+<h3>강화 학습의 기본 문제: 모르는 세계에서 행동하며 배우기</h3>
+<p>강화 학습(RL)은 MDP와 달리 전이 확률(T)과 보상 함수(R)를 알지 못하는 상황에서 최적 정책을 찾아야 하는 문제이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=HpaHTfY52RQ&amp;t=461s">[7:41]</a>. 에이전트는 시행착오를 통해 환경과 상호작용하며 데이터를 수집하고, 이 데이터를 바탕으로 환경 모델을 추정하거나 직접 최적 정책을 학습한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=HpaHTfY52RQ&amp;t=681s">[11:21]</a>. 강사는 A/B 선택 게임을 통해 초기에는 아무 정보 없이 행동해야 하는 RL의 상황을 비유적으로 설명한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=HpaHTfY52RQ&amp;t=487s">[8:07]</a>.</p>
+<p>강화 학습 에이전트(agent)는 환경(environment)에 행동을 보내고 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=HpaHTfY52RQ&amp;t=712s">[11:52]</a>, 환경은 새로운 상태와 보상을 에이전트에게 돌려준다. 에이전트는 이러한 경험을 통해 (1) 어떤 행동을 취해야 할지 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=HpaHTfY52RQ&amp;t=728s">[12:08]</a>, (2) 세계에 대한 자신의 모델을 어떻게 업데이트할지 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=HpaHTfY52RQ&amp;t=739s">[12:19]</a> 두 가지 주요 질문에 답해야 한다. 즉, 강화 학습은 단순히 데이터를 수동적으로 받는 것이 아니라, 데이터를 어떻게 얻을지 스스로 결정해야 하는 '탐험'의 문제를 포함한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=HpaHTfY52RQ&amp;t=1211s">[20:11]</a>.</p>
+<h3>모델 기반 몬테카를로: MDP 모델을 추정하여 최적 정책 찾기</h3>
+<p>모델 기반 몬테카를로(Model-Based Monte Carlo)는 에피소드(episode), 즉 일련의 상태-행동-보상 시퀀스 데이터를 통해 환경의 전이(T)와 보상(R) 모델을 직접 추정하는 방식이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=HpaHTfY52RQ&amp;t=852s">[14:12]</a>. 예를 들어, 특정 상태 S에서 행동 A를 취했을 때 특정 상태 S'로 전이된 횟수를 세어 전이 확률을 추정하고, 관찰된 보상을 기록하여 보상 함수를 추정한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=HpaHTfY52RQ&amp;t=930s">[15:30]</a>.</p>
+<p>MDP 모델이 추정되면, 기존의 가치 반복 알고리즘을 사용하여 최적 정책을 계산할 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=HpaHTfY52RQ&amp;t=1113s">[18:33]</a>. 그러나 이 방법의 치명적인 문제점은 '탐험(exploration)'이 부족하면 특정 상태-행동 경로를 전혀 경험하지 못해 해당 부분의 모델을 추정할 수 없다는 점이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=HpaHTfY52RQ&amp;t=1171s">[19:31]</a>. 예를 들어, 다이스 게임에서 '그만두기' 행동을 한 번도 하지 않았다면, 이 행동의 보상이나 전이를 알 수 없다.</p>
+<h3>모델 프리 몬테카를로: MDP 모델 없이 Q-가치 직접 추정하기</h3>
+<p>모델 프리 몬테카를로(Model-Free Monte Carlo)는 전이와 보상 모델을 명시적으로 추정하는 대신, 각 상태-행동 쌍의 Q-가치(Qπ(s, a))를 직접 추정한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=HpaHTfY52RQ&amp;t=1305s">[21:45]</a>. Qπ(s, a)는 상태 s에서 행동 a를 취한 후 특정 정책 π를 따랐을 때 얻는 기대 효용을 의미한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=HpaHTfY52RQ&amp;t=1411s">[23:31]</a>.</p>
+<p>이 알고리즘은 여러 에피소드를 통해 특정 상태-행동 쌍 (s, a)이 나타날 때마다 그 이후에 얻는 총 할인된 효용(utility)을 기록하고 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=HpaHTfY52RQ&amp;t=1502s">[25:02]</a>, 이 효용 값들의 평균을 내어 Qπ(s, a)를 추정한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=HpaHTfY52RQ&amp;t=1465s">[24:25]</a>. 예를 들어, 주사위 게임에서 '계속하기'를 했을 때 4, 8, 16의 효용을 얻었다면, 이들의 평균으로 Q-가치를 업데이트한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=HpaHTfY52RQ&amp;t=1584s">[26:24]</a>. 이러한 업데이트는 <code>Q(s,a) ← (1-η) Q(s,a) + ηU</code>와 같은 볼록 조합(convex combination) 형태로 표현될 수 있으며 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=HpaHTfY52RQ&amp;t=1925s">[32:05]</a>, 이는 확률적 경사 하강법(Stochastic Gradient Descent, SGD)의 형태로도 해석할 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=HpaHTfY52RQ&amp;t=2127s">[35:27]</a>. 이 방식은 특정 정책(π)의 가치(Qπ)를 추정하므로 '온-정책(on-policy)' 학습에 해당한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=HpaHTfY52RQ&amp;t=1690s">[28:10]</a>.</p>
+<h3>SARSA: 부트스트래핑으로 정책의 Q-가치를 추정하는 온-정책 학습</h3>
+<p>몬테카를로 방식은 에피소드가 끝날 때까지 기다려야 전체 효용(U)을 계산할 수 있어 분산이 크다는 단점이 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=HpaHTfY52RQ&amp;t=2442s">[40:42]</a>. SARSA는 이러한 문제를 해결하기 위해 '부트스트래핑(bootstrapping)' 기법을 도입한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=HpaHTfY52RQ&amp;t=2735s">[45:35]</a>. 부트스트래핑은 현재 추정하고 있는 Q-가치 자체를 업데이트 목표에 활용하는 것으로, 즉 &quot;자신의 신발 끈을 잡아당겨 자신을 끌어올린다&quot;는 비유처럼 스스로를 사용하여 추정치를 개선한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=HpaHTfY52RQ&amp;t=2750s">[45:50]</a>.</p>
+<p>SARSA는 상태(S), 행동(A), 보상(R), 다음 상태(S'), 다음 행동(A')의 5개 튜플(SARSA)을 관찰한 후 Q-가치를 업데이트한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=HpaHTfY52RQ&amp;t=2604s">[43:24]</a>. 업데이트 공식은 <code>Q(s,a) ← Q(s,a) + η [R + γQ(s',a') - Q(s,a)]</code> 형태이며 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=HpaHTfY52RQ&amp;t=2618s">[43:38]</a>, 여기서 <code>R + γQ(s',a')</code>는 현재 관찰된 즉시 보상과 다음 상태-행동 쌍 (s', a')의 추정된 Q-가치를 할인하여 더한 값이다. 이는 전체 효용을 기다리지 않고 한 단계 앞선 추정치를 사용하여 분산을 줄이는 효과가 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=HpaHTfY52RQ&amp;t=2778s">[46:18]</a>. SARSA는 특정 정책 π를 따르고 그 정책 π의 Q-가치를 추정하므로 모델 프리 몬테카를로와 마찬가지로 '온-정책' 학습 알고리즘이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=HpaHTfY52RQ&amp;t=3000s">[50:00]</a>.</p>
+<h3>Q-러닝: 최적 정책의 Q-가치를 추정하는 오프-정책 학습</h3>
+<p>SARSA와 모델 프리 몬테카를로는 현재 따르는 정책의 Q-가치(Qπ)만 추정하므로, 궁극적인 목표인 최적 정책(Q_opt)을 직접 얻을 수 없다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=HpaHTfY52RQ&amp;t=2901s">[48:21]</a>. Q-러닝(Q-learning)은 최적 정책의 Q-가치(Q_opt)를 직접 추정하는 '오프-정책(off-policy)' 학습 알고리즘이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=HpaHTfY52RQ&amp;t=2955s">[49:15]</a>. 오프-정책 학습은 현재 따르는 탐험 정책과 관계없이 최적 정책의 가치를 학습할 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=HpaHTfY52RQ&amp;t=3305s">[55:05]</a>.</p>
+<p>Q-러닝의 업데이트 공식은 SARSA와 유사하지만, 다음 상태(s')에서 취할 행동(a')을 탐험 정책에 따라 선택하는 대신, <code>Q_opt(s', a)</code> 중 Q-가치를 최대화하는 행동 <code>max_a' Q_opt(s', a')</code>을 가정하여 업데이트한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=HpaHTfY52RQ&amp;t=3006s">[50:06]</a>. 공식은 <code>Q(s,a) ← Q(s,a) + η [R + γ max_a' Q(s',a') - Q(s,a)]</code> 형태이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=HpaHTfY52RQ&amp;t=3133s">[52:13]</a>. 이 <code>max</code> 연산이 Q-러닝을 최적 정책 학습으로 이끌며, 가치 반복(value iteration)과 유사한 역할을 한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=HpaHTfY52RQ&amp;t=3191s">[53:11]</a>. Q-러닝은 현재 무작위 탐험 정책을 따르더라도 최적 Q-가치를 학습할 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=HpaHTfY52RQ&amp;t=3290s">[54:50]</a>. 예를 들어, 화산 게임에서 무작위로 움직여 자꾸 화산에 빠지면서도, Q-러닝은 최적 경로(20의 보상을 주는 경로)를 찾아낼 수 있음을 보여준다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=HpaHTfY52RQ&amp;t=3271s">[54:31]</a>.</p>
+<h3>탐험과 활용의 상충관계: 엡실론-그리디 정책</h3>
+<p>강화 학습의 핵심 과제 중 하나는 '탐험(exploration)'과 '활용(exploitation)' 사이의 균형을 맞추는 것이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=HpaHTfY52RQ&amp;t=3492s">[58:12]</a>. 탐험은 새로운 행동과 상태를 발견하여 더 나은 정책을 찾을 기회를 제공하지만, 당장의 보상을 희생할 수 있다. 활용은 현재까지 학습된 최적의 행동을 따라 가장 많은 보상을 얻으려 하지만, 아직 발견되지 않은 더 나은 경로를 놓칠 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=HpaHTfY52RQ&amp;t=3426s">[57:06]</a>. 강사는 이를 식당 선택, 통학 경로, 연구 문제 선택 등에 비유하며 인생의 비유로 설명한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=HpaHTfY52RQ&amp;t=3524s">[58:44]</a>.</p>
+<p>'엡실론-그리디(Epsilon-greedy) 정책'은 이 상충관계를 해결하는 간단하고 효과적인 방법이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=HpaHTfY52RQ&amp;t=3567s">[59:27]</a>. 이 정책은 1-ε(엡실론)의 확률로 현재까지 학습된 Q-가치가 가장 높은 행동을 선택하여 활용하고(탐욕적 행동), ε의 확률로 무작위 행동을 선택하여 탐험한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=HpaHTfY52RQ&amp;t=3577s">[59:37]</a>. ε 값은 학습 초기에는 높게 설정하여 탐험을 장려하고, 학습이 진행될수록 줄여서 활용에 집중하도록 조정할 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=HpaHTfY52RQ&amp;t=3610s">[1:00:10]</a>.</p>
+<h3>광대한 상태 공간 문제와 함수 근사를 통한 일반화</h3>
+<p>현실 세계의 강화 학습 문제는 상태 공간(state space)이 너무 거대하여 모든 상태-행동 쌍의 Q-가치를 개별적으로 저장하고 업데이트하는 것이 불가능하다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=HpaHTfY52RQ&amp;t=3718s">[1:01:58]</a>. '암기식 학습(rote learning)' 방식은 새로운 상태에 대해 전혀 일반화할 수 없다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=HpaHTfY52RQ&amp;t=3796s">[1:03:16]</a>.</p>
+<p>이 문제를 해결하기 위해 '함수 근사(function approximation)'가 사용된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=HpaHTfY52RQ&amp;t=3823s">[1:03:43]</a>. Q-가치 <code>Q(s,a)</code>를 <code>w · Φ(s,a)</code>와 같이 특징 벡터(feature vector) Φ(s,a)와 가중치 벡터(weight vector) w의 내적으로 근사하는 것이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=HpaHTfY52RQ&amp;t=3841s">[1:04:01]</a>. 즉, Q-가치 테이블 대신 <code>w</code>라는 적은 수의 파라미터를 학습하여 모든 상태-행동 쌍에 대한 Q-가치를 표현한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=HpaHTfY52RQ&amp;t=3890s">[1:04:50]</a>. 이렇게 하면 Q-러닝 업데이트를 파라미터 <code>w</code>에 대한 확률적 경사 하강법 형태로 변경할 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=HpaHTfY52RQ&amp;t=3904s">[1:05:04]</a>. <code>w ← w + η [R + γ max_a' Q(s',a', w) - Q(s,a, w)] Φ(s,a)</code>와 같이, 잔차(residual)와 특징 벡터의 곱을 가중치에 더하는 방식으로 업데이트가 이루어진다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=HpaHTfY52RQ&amp;t=3910s">[1:05:10]</a>. 이는 선형 회귀(linear regression)에서 가중치를 업데이트하는 방식과 유사하며 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=HpaHTfY52RQ&amp;t=3927s">[1:05:27]</a>, 이를 통해 본 적 없는 새로운 상태에 대해서도 Q-가치를 일반화하여 추론할 수 있다.</p>
+<h2>주요 통찰·논점</h2>
+<h3>강화 학습의 기본 프레임워크: 모델-추론-학습의 연결 고리</h3>
+<p>강화 학습은 MDPs, 베이즈 네트(Bayesian networks), 회귀 분석(regression) 등 다른 인공지능 분야와 마찬가지로 '모델', '추론', '학습'이라는 세 가지 구성 요소를 가진다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=HpaHTfY52RQ&amp;t=21s">[0:21]</a>. MDPs가 환경을 모델링하고, 가치 반복이 최적 정책을 '추론'하는 역할을 한다면, 강화 학습은 이러한 MDP 모델 자체를 '학습'하는 과정이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=HpaHTfY52RQ&amp;t=82s">[1:22]</a>. 즉, 강화 학습은 모르는 환경에서 모델을 배우고, 그 모델을 바탕으로 최적 행동을 찾아가는 순환적인 과정으로 이해할 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=HpaHTfY52RQ&amp;t=681s">[11:21]</a>.</p>
+<h3>모델 기반 vs. 모델 프리: 환경 모델 명시적 추정 여부</h3>
+<p>강화 학습 알고리즘은 크게 '모델 기반(Model-Based)'과 '모델 프리(Model-Free)'로 나뉜다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=HpaHTfY52RQ&amp;t=1267s">[21:07]</a>. 모델 기반 방식(예: 모델 기반 몬테카를로)은 환경의 전이 확률과 보상 함수를 명시적으로 추정하여 MDP 모델을 구성한 후, 이 모델 위에서 최적 정책을 계산한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=HpaHTfY52RQ&amp;t=914s">[15:14]</a>. 반면, 모델 프리 방식(예: 모델 프리 몬테카를로, SARSA, Q-러닝)은 환경 모델을 직접 만들지 않고, 대신 정책의 Q-가치나 최적 Q-가치를 데이터로부터 직접 학습한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=HpaHTfY52RQ&amp;t=1305s">[21:45]</a>. 모델 기반은 더 적은 데이터로 학습할 수 있지만(샘플 효율적), 정확한 모델을 구축하기 어렵고, 모델 프리 방식은 모델 구축의 어려움 없이 유연하게 학습할 수 있어 최근 딥 강화 학습 분야에서 많이 활용된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=HpaHTfY52RQ&amp;t=1839s">[30:39]</a>.</p>
+<h3>몬테카를로 vs. 부트스트래핑: 추정 목표의 시간적 범위</h3>
+<p>Q-가치를 추정하는 방식에 따라 '몬테카를로(Monte Carlo)'와 '부트스트래핑(Bootstrapping)'으로 구분된다. 몬테카를로 방법(예: 모델 프리 몬테카를로)은 한 에피소드 전체의 최종 보상 합계(효용)를 사용하여 Q-가치를 업데이트한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=HpaHTfY52RQ&amp;t=1458s">[24:18]</a>. 이는 편향되지 않은(unbiased) 추정치를 제공하지만, 에피소드가 끝나야 업데이트할 수 있고 분산이 크다는 단점이 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=HpaHTfY52RQ&amp;t=2442s">[40:42]</a>. 반면, 부트스트래핑 방법(예: SARSA, Q-러닝)은 현재 관찰된 보상과 다음 상태의 '추정된' Q-가치를 결합하여 Q-가치를 업데이트한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=HpaHTfY52RQ&amp;t=2735s">[45:35]</a>. 이는 에피소드 도중에도 즉시 업데이트할 수 있고 분산이 작지만, 자신의 추정치를 사용하기 때문에 편향된(biased) 추정치가 될 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=HpaHTfY52RQ&amp;t=2773s">[46:13]</a>.</p>
+<h3>온-정책 vs. 오프-정책: 행동 정책과 학습 정책의 일치 여부</h3>
+<p>정책 학습 방식에 따라 '온-정책(On-policy)'과 '오프-정책(Off-policy)' 학습으로 구분된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=HpaHTfY52RQ&amp;t=1637s">[27:17]</a>. 온-정책 학습(예: SARSA, 모델 프리 몬테카를로)은 에이전트가 환경과 상호작용하며 데이터를 수집하는 '행동 정책(behavior policy)'과 학습하려는 '목표 정책(target policy)'이 동일한 경우를 말한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=HpaHTfY52RQ&amp;t=1668s">[27:48]</a>. 즉, 자신이 따르는 정책의 가치를 배우는 것이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=HpaHTfY52RQ&amp;t=1690s">[28:10]</a>. 오프-정책 학습(예: Q-러닝, 모델 기반 몬테카를로)은 행동 정책과 목표 정책이 다를 수 있는 경우이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=HpaHTfY52RQ&amp;t=1676s">[27:56]</a>. 주로 탐험을 위해 무작위적인 행동 정책을 따르면서도, 궁극적으로는 최적 정책의 가치를 학습하는 데 사용된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=HpaHTfY52RQ&amp;t=3290s">[54:50]</a>. 이는 에이전트가 최적으로 행동하지 않으면서도 최적 행동을 학습할 수 있게 한다.</p>
+<h3>강화 학습의 핵심 도전 과제: 탐험-활용 상충관계와 일반화</h3>
+<p>강화 학습의 성공을 위한 두 가지 중요한 과제는 (1) '탐험(exploration)'과 '활용(exploitation)'의 균형 잡기, 그리고 (2) '일반화(generalization)'이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=HpaHTfY52RQ&amp;t=3492s">[58:12]</a>. 충분한 탐험 없이는 최적의 경로를 찾지 못할 수 있고, 충분한 활용 없이는 최고의 보상을 얻지 못한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=HpaHTfY52RQ&amp;t=3426s">[57:06]</a>. 엡실론-그리디와 같은 전략은 이 균형을 조절한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=HpaHTfY52RQ&amp;t=3567s">[59:27]</a>. 또한, 현실 세계의 방대한 상태 공간에서는 모든 상태를 직접 경험할 수 없으므로, 경험하지 못한 상태에 대해서도 적절히 행동할 수 있도록 '함수 근사(function approximation)'를 통해 학습된 지식을 일반화해야 한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=HpaHTfY52RQ&amp;t=3823s">[1:03:43]</a>.</p>
+<h3>강화 학습의 차원: 상태와 피드백의 복잡성</h3>
+<p>강의는 지도 학습(supervised learning)부터 강화 학습까지 인공지능 패러다임을 '상태(state)'와 '피드백(feedback)'의 두 가지 차원으로 분류한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=HpaHTfY52RQ&amp;t=4145s">[1:09:05]</a>. 지도 학습은 '상태 없음(stateless)'과 '완전 피드백(full feedback)'의 가장 단순한 형태이다. 반면 강화 학습은 '상태 있음(stateful)'과 '부분 피드백(partial feedback)'을 모두 가진 가장 복잡한 형태이다. '다중 팔 밴딧 문제(multi-armed bandits)'는 상태는 없지만 부분 피드백만 있는 경우이며 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=HpaHTfY52RQ&amp;t=4233s">[1:10:33]</a>, 기계 번역처럼 '상태는 있지만 완전 피드백을 받는' 경우도 존재한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=HpaHTfY52RQ&amp;t=4246s">[1:10:46]</a>. 이러한 분류는 강화 학습이 왜 어려운 문제인지 이해하는 데 도움을 준다.</p>
+<h2>인상적인 지점</h2>
+<ul>
+<li><strong>강화 학습을 인생에 비유</strong>: 강사는 강화 학습의 '탐험-활용 상충관계'를 인생에서 새로운 경험을 시도할지(탐험), 아니면 이미 성공한 방법을 고수할지(활용)를 결정하는 과정에 비유한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=HpaHTfY52RQ&amp;t=3496s">[58:16]</a>. 이는 강화 학습의 본질을 직관적으로 이해시키는 탁월한 비유이다.</li>
+<li><strong>SARSA 알고리즘 이름의 유래</strong>: SARSA라는 이름이 단순히 상태(State)-행동(Action)-보상(Reward)-다음 상태(State')-다음 행동(Action')의 첫 글자를 따서 지어졌다는 설명은 학술 용어가 예상외로 직관적일 수 있음을 보여준다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=HpaHTfY52RQ&amp;t=2590s">[43:10]</a>.</li>
+<li><strong>Q-러닝의 반직관적인 학습 능력</strong>: 에이전트가 무작위 탐험 정책을 따르며 화산에 계속 빠지는 비최적 행동을 하더라도 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=HpaHTfY52RQ&amp;t=3246s">[54:06]</a>, Q-러닝은 오프-정책 학습 덕분에 최적 정책의 Q-가치를 정확하게 학습할 수 있다는 점은 매우 흥미롭다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=HpaHTfY52RQ&amp;t=3290s">[54:50]</a>. 이는 에이전트의 현재 행동이 반드시 최적이어야만 최적 정책을 배울 수 있는 것은 아니라는 강력한 메시지를 전달한다.</li>
+</ul>
+
+  </article>
+  <p class="post-end"><a href="https://www.youtube.com/watch?v=HpaHTfY52RQ" target="_blank" rel="noopener">YouTube에서 원본 보기 ↗</a> · <a href="./">← 목록으로</a></p>
+</main>
+<footer class="site-foot">
+  <a href="/projects/yt-digest-overview">yt-digest</a> 파이프라인이 자막을 읽고 자동으로 작성한 브리핑입니다. 오류가 있을 수 있으니 중요한 내용은 원본 영상으로 확인하세요.
+</footer>
+</body>
+</html>

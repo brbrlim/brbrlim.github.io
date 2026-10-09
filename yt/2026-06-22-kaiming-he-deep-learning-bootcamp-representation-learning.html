@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Deep Learning Bootcamp: Kaiming He — 유튜브 다이제스트</title>
+<meta name="description" content="이 강의에서 카이밍 허(Kaiming He)는 딥러닝의 핵심인 표현 학습(representation learning)의 중요성을 강조하며, 이미지 인식을 중심으로 신경망 아키텍처의 발전 과정을 설명한다. LeNet부터 AlexNet, VGGNet을 거쳐 ResNet과…">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="Deep Learning Bootcamp: Kaiming He — 유튜브 다이제스트">
+<meta property="og:description" content="이 강의에서 카이밍 허(Kaiming He)는 딥러닝의 핵심인 표현 학습(representation learning)의 중요성을 강조하며, 이미지 인식을 중심으로 신경망 아키텍처의 발전 과정을 설명한다. LeNet부터 AlexNet, VGGNet을 거쳐 ResNet과…">
+<meta property="og:image" content="https://i.ytimg.com/vi/D_jt-xO_RmI/hqdefault.jpg">
+<meta property="og:type" content="article">
+<link rel="icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+<script>
+// Follow the blog's saved light/dark choice (same origin, same key).
+(function () {
+  var saved = null
+  try { saved = localStorage.getItem("theme") } catch (e) {}
+  var dark = saved ? saved === "dark" : matchMedia("(prefers-color-scheme: dark)").matches
+  document.documentElement.dataset.theme = dark ? "dark" : "light"
+})()
+</script>
+</head>
+<body class="post-page">
+<header class="site-bar">
+  <a class="site-name" href="/">Johnny's</a>
+  <a class="back" href="./">← 유튜브 다이제스트</a>
+</header>
+<main class="post">
+  <a class="hero" href="https://www.youtube.com/watch?v=D_jt-xO_RmI" target="_blank" rel="noopener" aria-label="YouTube에서 보기">
+    <img src="https://i.ytimg.com/vi/D_jt-xO_RmI/hqdefault.jpg" alt="">
+    <span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+  </a>
+  <h1>Deep Learning Bootcamp: Kaiming He</h1>
+  <div class="post-meta"><span>MIT Schwarzman College of Computing</span><span>1:15:45</span><span>게시 2024-03-07</span></div>
+  <div class="tags"><a href="./?q=%23deep-learning">#deep-learning</a><a href="./?q=%23computer-vision">#computer-vision</a><a href="./?q=%23neural-networks">#neural-networks</a><a href="./?q=%23representation-learning">#representation-learning</a><a href="./?q=%23transformers">#transformers</a><a href="./?q=%23resnet">#resnet</a><a href="./?q=%23alexnet">#alexnet</a></div>
+  <article>
+<h2>TL;DR</h2>
+<p>이 강의에서 카이밍 허(Kaiming He)는 딥러닝의 핵심인 표현 학습(representation learning)의 중요성을 강조하며, 이미지 인식을 중심으로 신경망 아키텍처의 발전 과정을 설명한다. LeNet부터 AlexNet, VGGNet을 거쳐 ResNet과 트랜스포머(Transformer)에 이르는 주요 기술적 이정표와 함께, 깊은 신경망 훈련을 가능하게 한 활성화 함수, 초기화, 정규화, 그리고 잔여 연결(residual connection) 같은 핵심 구성 요소를 소개한다. 또한 1D 시퀀스 모델링(순환 신경망, CNN, 어텐션)과 전이 학습(transfer learning)의 보편적인 활용 사례를 통해 딥러닝 방법론의 광범위한 적용 가능성을 보여준다.</p>
+<h2>풀시청 판단</h2>
+<p>이 영상은 딥러닝, 특히 컴퓨터 비전 및 시퀀스 모델링 분야의 역사적 흐름과 핵심 기술을 깊이 있게 이해하고자 하는 사람들에게 매우 유용하다. 인공지능 분야에 대한 기본적인 지식이 있는 개발자, 연구자, 혹은 고급 학습자에게 적합하다. 딥러닝이 무엇인지, 왜 중요한지, 그리고 어떻게 발전해왔는지를 논리적이고 체계적으로 설명하므로, 이 분야의 기초를 다지거나 지식의 깊이를 더하고 싶은 이들에게 풀시청을 권한다.</p>
+<p><strong>이점:</strong></p>
+<ul>
+<li><strong>개념적 명확성:</strong> 딥러닝의 근본 철학인 '표현 학습'의 중요성을 바둑(Go)과 이미지 인식 예시를 통해 직관적으로 설명한다.</li>
+<li><strong>역사적 맥락:</strong> 초기 LeNet부터 AlexNet, VGGNet, ResNet, 그리고 트랜스포머에 이르기까지 핵심 신경망 아키텍처의 발전 과정을 상세히 짚어주어 딥러닝 혁명의 흐름을 이해할 수 있다.</li>
+<li><strong>핵심 기술 요소:</strong> 깊은 신경망 훈련을 가능하게 한 ReLU 활성화 함수, Xavier/He 초기화, 정규화(Batch Normalization, Layer Normalization), 잔여 연결 등의 기술적 필요성과 원리를 명확히 설명한다.</li>
+<li><strong>전이 학습의 중요성:</strong> 딥러닝 혁명의 가장 중요한 발견 중 하나인 전이 학습의 개념과 GPT, AlphaFold, Vision Transformer(ViT) 등 다양한 분야에서의 파급력을 강조한다.</li>
+<li><strong>범용성 강조:</strong> 컴퓨터 비전뿐만 아니라 1D 시퀀스 모델링(RNN, CNN, 트랜스포머)까지 아우르며, 딥러닝 방법론의 광범위한 적용 가능성과 일반성을 체계적으로 제시한다.</li>
+</ul>
+<p><strong>약점 및 한계:</strong></p>
+<ul>
+<li><strong>깊이의 편차:</strong> 모든 주제를 매우 깊이 있게 다루기보다는 핵심 아이디어와 그 중요성에 집중한다. 예를 들어 트랜스포머의 기술적 세부 사항은 시간 제약상 자세히 설명하지 않는다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=4098s">[1:08:18]</a>.</li>
+<li><strong>시간 경과:</strong> 2020년대 중반 이후의 최신 딥러닝 연구 동향(예: 확산 모델)은 다루지 않으므로, 최신 트렌드를 파악하기 위한 추가적인 학습이 필요할 수 있다.</li>
+<li><strong>이론적 배경:</strong> 일부 내용은 확률 및 선형 대수에 대한 기본적인 이해를 전제로 설명한다 (예: 초기화 방법의 수식적 유도 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=2232s">[37:12]</a>). 해당 지식이 부족한 초보자는 이해에 어려움을 겪을 수 있다.</li>
+</ul>
+<h2>핵심 내용</h2>
+<h3>표현 학습: 방대한 원시 데이터를 고수준 추상으로 변환한다</h3>
+<p>딥러닝은 본질적으로 표현 학습(representation learning)이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=79s">[1:19]</a>. 표현 학습의 목표는 원시 데이터를 압축, 추상화, 개념화가 용이한 고수준 표현 공간으로 변환하는 것이다. 이렇게 변환된 표현을 사용하면 컴퓨터 알고리즘이 복잡한 문제를 훨씬 쉽게 해결할 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=131s">[2:11]</a>. 예를 들어, 바둑(Go)은 3의 361제곱에 달하는 엄청난 수의 상태를 가지며, 원시적인 상태 공간에서 알고리즘을 적용하는 것은 불가능에 가깝다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=247s">[4:07]</a>. 이미지 인식 또한 픽셀 값으로 이루어진 원시 공간에서는 바둑보다 훨씬 더 큰 상태 공간을 갖기 때문에 직접 처리하기 어렵다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=320s">[5:20]</a>. 딥러닝은 이러한 원시 데이터를 합성곱 신경망(CNN) 같은 모델을 통해 고수준의 압축된 표현으로 변환함으로써, 바둑이나 이미지 인식과 같은 난제를 해결할 수 있게 한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=342s">[5:42]</a>. AlphaGo가 깊은 신경망을 사용하여 바둑판 상태를 추상화하고 더 나은 성능을 달성한 것이 대표적인 예다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=437s">[7:17]</a>.</p>
+<h3>딥러닝의 등장과 근본 철학: 인간의 특징 설계 의존도를 낮추다</h3>
+<p>딥러닝이 대중화되기 전, 컴퓨터 비전에서는 이미지의 엣지, 텍스처, 색상과 같은 저수준 특징을 사람이 직접 설계하고 추출하는 방식이 일반적이었다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=630s">[10:30]</a>. 하지만 물고기, 고양이, 사람 같은 고수준 추상 개념을 사람이 직접 특징으로 정의하는 것은 매우 어려운 일이었으며 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=690s">[11:30]</a>, 이는 컴퓨터 비전 분야의 주요 병목 현상이었다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=712s">[11:52]</a>. 딥러닝은 이 문제를 해결하는 새로운 방법론을 제시한다. 딥러닝의 핵심 아이디어는 간단하고 일반적인 모듈들을 조합하여 고도로 복잡한 함수를 구성함으로써 복잡한 문제를 해결하는 것이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=726s">[12:06]</a>. 모듈의 구체적인 구현(파라미터나 가중치)은 역전파(backpropagation)를 통해 대규모 데이터로부터 학습되므로, 특징 설계에 필요한 인간 지식 의존도가 크게 줄어든다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=767s">[12:47]</a>. 대신 데이터 수집이 더 중요해진다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=784s">[13:04]</a>.</p>
+<h3>합성곱 신경망(CNN)의 발전: 깊고 넓은 모델로 성능을 혁신하다</h3>
+<p>초기 합성곱 신경망의 성공적인 예시인 LeNet은 합성곱 계층(local connection + 가중치 공유), 풀링 계층, 완전 연결 계층이라는 기본 구성 요소를 도입하고 전체 아키텍처를 역전파로 종단 간(end-to-end) 훈련하는 아이디어를 제시했다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=880s">[14:40]</a>. 합성곱 계층은 지역 연결과 가중치 공유를 통해 파라미터 수를 줄이고 변환 불변성(translation-invariance)을 확보하며 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=920s">[15:20]</a>, 풀링 계층은 특징 지도의 크기를 줄여 계산량을 감소시키고 지역 불변성(local invariance)을 달성한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=1028s">[17:08]</a>. 그러나 LeNet은 훈련에 필요한 데이터와 컴퓨팅 자원이 부족하여 20년 이상 간과되었다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=1194s">[19:54]</a>.</p>
+<p>2012년, AlexNet이 ImageNet 데이터셋(100만 개 이미지, 1,000개 클래스)과 6천만 개 이상의 파라미터를 가진 대규모 모델을 GPU로 훈련하며 딥러닝 혁명을 촉발했다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=1232s">[20:32]</a>. AlexNet은 데이터 증강(data augmentation)과 드롭아웃(dropout)으로 과적합(overfitting)을 줄이고 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=1317s">[21:57]</a>, ReLU 활성화 함수를 도입하여 깊은 신경망의 기울기 소실(vanishing gradient) 문제를 완화하고 훈련을 용이하게 했다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=1459s">[24:19]</a>. 또한 더 깊고 넓은(채널 수가 많은) 아키텍처가 더 강력한 표현 능력을 가진다는 것을 보여주었다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=1417s">[23:37]</a>.</p>
+<h3>시각화와 전이 학습: 딥러닝의 범용적 가치를 발견하다</h3>
+<p>AlexNet 성공 이후, 연구자들은 신경망이 무엇을 학습하는지 시각화하기 시작했다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=1552s">[25:52]</a>. 특징 지도(feature map)를 픽셀 공간으로 역전파하여 시각화한 결과, 첫 번째 계층은 엣지 및 색상 탐지기 역할을 하고 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=1638s">[27:18]</a>, 후속 계층들은 텍스처, 지역적 모양(원, 모서리) <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=1667s">[27:47]</a>, 대칭 패턴 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=1696s">[28:16]</a>, 더 나아가 개 얼굴이나 새 몸통 같은 고수준 개념을 학습하는 것이 밝혀졌다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=1725s">[28:45]</a>. 이러한 고수준 추상화는 사람이 수동으로 설계하기 매우 어려운 것으로, 이 시각화는 딥러닝이 올바른 방향임을 컴퓨터 비전 커뮤니티에 확신시켰다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=1784s">[29:44]</a>.</p>
+<p>이 시각화 과정에서 딥러닝 혁명의 가장 중요한 발견인 '전이 학습(transfer learning)'이 이루어졌다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=1811s">[30:11]</a>. 대규모 데이터셋(예: ImageNet)으로 훈련된 신경망이 학습한 고수준 표현은 해당 데이터셋뿐만 아니라, 관련성이 있는 다른 소규모 데이터셋의 다양한 작업에도 전이하여 사용될 수 있다는 것이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=1851s">[30:51]</a>. 이를 통해 대규모 데이터셋 없이도 딥러닝 모델의 혜택을 누릴 수 있게 되었고, 컴퓨터 비전 커뮤니티에 혁명을 가져왔다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=1896s">[31:36]</a>. GPT나 ChatGPT 모델 또한 이와 동일한 원리로 개발되었다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=1952s">[32:32]</a>. ImageNet은 이제 단순히 세분화된 분류 문제가 아니라, 모든 컴퓨터 비전 작업을 위한 일반적인 표현 학습 엔진이 되었다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=1932s">[32:12]</a>.</p>
+<h3>VGGNet: 단순함으로 깊이의 중요성을 입증하다</h3>
+<p>VGGNet 아키텍처는 매우 단순한 설계 원칙을 따른다. 복잡한 기교 없이 3x3 합성곱 계층, 풀링 계층, 완전 연결 계층만을 반복적으로 쌓아 매우 깊은 신경망을 구축했다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=2000s">[33:20]</a>. VGGNet은 90계층까지 깊이를 늘려 기존 모델보다 두 배 이상 깊은 모델을 제시했으며 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=2018s">[33:38]</a>, 모델이 깊어질수록 성능이 향상된다는 명확한 증거를 처음으로 보여주었다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=2026s">[33:46]</a>. 이는 '깊이가 더 중요하다'는 직관을 확립하는 데 결정적인 역할을 했다. VGGNet은 분류, 객체 탐지, 분할 등 다양한 컴퓨터 비전 문제의 '기본 백본(default backbone)' 아키텍처로 자리매김했다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=2104s">[35:04]</a>. 그러나 이 모델들은 종단 간 훈련되지 않고, 얕은 모델을 먼저 훈련한 후 계층을 추가하고 미세 조정하는 단계별 훈련(stagewise training) 방식을 사용해야 했다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=2131s">[35:31]</a>. 이는 딥러닝의 종단 간 훈련 철학에 위배되는 방식으로, 더 나은 초기화 방법의 필요성을 제기했다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=2163s">[36:03]</a>.</p>
+<h3>깊은 모델 훈련의 난제와 해결책: 초기화, 정규화, 잔여 연결</h3>
+<p>아무리 깊은 신경망이라도 각 계층에서 작은 오류가 누적되면 신호 폭주(exploding signal)나 신호 소실(vanishing signal) 문제가 발생하여 훈련이 불가능해진다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=2213s">[36:53]</a>. 이를 해결하기 위해 적절한 네트워크 초기화 방법이 필수적이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=2221s">[37:01]</a>.</p>
+<ul>
+<li><strong>초기화(Initialization):</strong> Xavier 초기화나 He 초기화는 각 계층의 신호 분산(variance)이 훈련 과정 전반에 걸쳐 일정하게 유지되도록 가중치를 초기화하여, 훈련이 시작될 수 있게 돕는다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=2429s">[40:29]</a>. ReLU 활성화 함수를 사용할 때는 분산 스케일링에 1/2을 추가하는 등 활성화 함수의 특성을 반영해야 한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=2484s">[41:24]</a>.</li>
+<li><strong>정규화(Normalization):</strong> 초기화만으로는 훈련 중 분산이 깨지는 문제를 해결할 수 없으므로, 정규화 모듈이 도입되었다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=2747s">[45:47]</a>. 배치 정규화(Batch Normalization)나 계층 정규화(Layer Normalization)와 같은 모듈은 훈련 과정 내내 신호의 평균과 분산을 일정하게 유지하여, 훈련을 안정화하고 수렴 속도를 높이며 최종 정확도를 개선한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=2930s">[48:50]</a>. 이는 종단 간 훈련을 가능하게 하는 일반적인 딥러닝 모듈이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=2777s">[46:17]</a>.</li>
+<li><strong>잔여 연결(Residual Connection, ResNet):</strong> 깊은 모델은 훈련 정확도마저 낮아지는 퇴보 문제(degradation problem)를 겪는다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=3064s">[51:04]</a>. 이는 깊은 모델이 얕은 모델보다 더 나은 해법 공간을 가짐에도 불구하고, 최적화가 좋은 해를 찾지 못하기 때문에 발생한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=3147s">[52:27]</a>. 잔여 연결은 신경망 계층이 원하는 함수 <code>hx</code> 대신, 입력에 대한 '잔여(residual)' 변화 <code>fx</code>를 학습하도록 한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=3212s">[53:32]</a>. 입력 <code>x</code>에 <code>fx</code>를 더하는 항등 사상(identity mapping)을 추가하면, 최악의 경우에도 신경망이 잔여 함수 <code>fx</code>를 0으로 설정하여 항등 사상과 같은 성능을 낼 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=3286s">[54:46]</a>. 이 간단한 아이디어 덕분에 수백 계층에 달하는 심층 신경망을 처음부터 훈련할 수 있게 되었고, 깊이를 더할수록 성능이 지속적으로 향상되는 결과를 가져왔다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=3434s">[57:14]</a>. 잔여 연결은 이후 모든 심층 신경망 설계의 기본 요소가 되었다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=3391s">[56:31]</a>.</li>
+</ul>
+<h3>1D 시퀀스 모델링: RNN, CNN, 그리고 트랜스포머의 비교</h3>
+<p>딥러닝은 2D 이미지뿐만 아니라 1D 시퀀스 데이터에도 적용될 수 있다.</p>
+<ul>
+<li><strong>순환 신경망(RNN):</strong> 시퀀스 모델링의 전통적인 방식으로, 연결에 루프가 있어 현재 시점의 입력과 이전 시점의 은닉 상태를 받아 다음 상태를 생성한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=3530s">[58:50]</a>. 순환 신경망도 가중치 공유와 지역 연결이라는 CNN의 핵심 특성을 공유한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=3601s">[1:00:01]</a>. 깊은 RNN(예: LSTM 스택) 역시 잔여 연결의 도움 없이는 퇴보 문제를 겪고 4계층 이후 성능 저하를 보이지만, 잔여 연결을 사용하면 16계층까지 깊이를 늘려도 성능 향상을 이룬다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=3692s">[1:01:32]</a>.</li>
+<li><strong>시퀀스용 합성곱 신경망(CNN for Sequence):</strong> 1D 시퀀스에도 슬라이딩 윈도우 방식으로 합성곱을 적용할 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=3777s">[1:02:57]</a>. 인과적 합성곱(causal convolution)은 현재 또는 이전 시점의 정보만 참조하며, 확장 합성곱(dilated convolution)은 멀리 떨어진 시점의 정보를 참조하여 컨텍스트 길이를 확장한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=3787s">[1:03:07]</a>. 그러나 긴 컨텍스트를 포착하려면 여전히 깊은 신경망이 필요하며, 이때도 잔여 연결이 필수적이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=3907s">[1:05:07]</a>.</li>
+<li><strong>RNN과 CNN의 절충점, 어텐션(Attention) 메커니즘:</strong>
+<ul>
+<li><strong>RNN의 장단점:</strong> 모든 계층에서 전체 컨텍스트를 볼 수 있어 장거리 추론에 유리하나, 순차적인 계산 방식 때문에 GPU 병렬화에 비효율적이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=3931s">[1:05:31]</a>.</li>
+<li><strong>CNN의 장단점:</strong> 완전한 피드포워드 방식이라 GPU 병렬화에 매우 효율적이지만, 컨텍스트 길이가 합성곱 커널 크기에 의해 제한된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=3994s">[1:06:34]</a>.</li>
+<li><strong>어텐션의 등장:</strong> 어텐션 메커니즘은 모든 시점의 정보를 볼 수 있으면서 동시에 모든 계산이 피드포워드 방식으로 이루어져 병렬 처리가 가능한, 두 모델의 장점을 모두 취한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=4030s">[1:07:10]</a>.</li>
+</ul>
+</li>
+</ul>
+<h3>트랜스포머: 딥러닝의 보편적인 아키텍처로 진화하다</h3>
+<p>어텐션 메커니즘은 오늘날 매우 인기 있는 아키텍처인 트랜스포머(Transformer)의 핵심 아이디어다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=4093s">[1:08:13]</a>. 트랜스포머는 각 노드가 다른 모든 노드를 참조할 수 있다는 특징을 가지며 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=4113s">[1:08:33]</a>, 놀랍게도 어텐션 계산 자체는 파라미터가 없다(parameter-free) <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=4124s">[1:08:44]</a>. 모든 학습 가능한 파라미터는 피드포워드 계층(MLP 블록)에 존재하며, 이들은 1x1 합성곱 계층과 유사하게 지역 연결과 가중치 공유 특성을 갖는다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=4175s">[1:09:35]</a>. 트랜스포머 또한 매우 깊은 모델이므로 정규화와 잔여 연결이 필수적으로 사용된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=4228s">[1:10:28]</a>.</p>
+<p>트랜스포머는 여러 분야에서 성공적으로 응용되었다:</p>
+<ul>
+<li><strong>GPT(Generative Pre-trained Transformers):</strong> 다음 단어 예측(next-word prediction) 작업을 위해 인터넷의 대규모 텍스트 데이터셋으로 훈련되어 자연어에 대한 훌륭한 표현과 지식을 학습한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=4262s">[1:11:02]</a>. ChatGPT를 포함한 많은 언어 응용의 기반이며, 전이 학습 패러다임을 따른다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=4307s">[1:11:47]</a>.</li>
+<li><strong>AlphaFold:</strong> 아미노산 서열을 입력받아 단백질 구조를 예측하는 표현 학습 방법이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=4340s">[1:12:20]</a>. 48개의 트랜스포머 블록을 포함하며, 언어 처리나 이미지 인식용으로 개발된 컴포넌트들이 단백질 접힘 문제에 성공적으로 적용될 수 있음을 보여준다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=4358s">[1:12:38]</a>.</li>
+<li><strong>Vision Transformer (ViT):</strong> 2D 이미지 처리에도 트랜스포머를 적용한 사례다. 이미지를 겹치지 않는 패치(patch)들의 시퀀스로 준비한 다음, 이를 1D 시퀀스처럼 트랜스포머 아키텍처로 처리한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=4425s">[1:13:45]</a>. 이 간단한 아이디어는 매우 성공적이었고, 컴퓨터 비전의 기본 선택지 중 하나가 되었다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=4450s">[1:14:10]</a>. ViT는 트랜스포머가 자연어 처리, 컴퓨터 비전, 오디오 인식 등 다양한 문제에 대한 통합된 아키텍처가 될 수 있음을 증명했다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=4466s">[1:14:26]</a>.</li>
+</ul>
+<h2>주요 통찰·논점</h2>
+<h3>딥러닝은 표현 학습의 문제다</h3>
+<p>딥러닝은 원시 데이터를 기계가 이해하고 활용할 수 있는 고수준의 추상화된 형태로 변환하는 '표현 학습'에 초점을 맞춘다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=79s">[1:19]</a>. 사람이 특징(feature)을 수동으로 설계하는 한계를 넘어, 데이터로부터 자동으로 효율적인 표현을 학습함으로써 바둑(Go) 게임이나 이미지 인식과 같은 복잡한 문제를 해결할 수 있게 되었다.</p>
+<h3>간단한 모듈의 조합으로 복잡한 문제 해결</h3>
+<p>딥러닝의 근본 철학은 간단하고 일반적인 모듈(합성곱 계층, 풀링 계층 등)들을 조합하여 고도로 복잡한 함수를 만드는 것이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=726s">[12:06]</a>. 이는 모듈화된 설계를 통해 복잡한 시스템을 효율적으로 구축하고 학습하게 한다. 트랜스포머 아키텍처 또한 이 원칙을 따르며, 다양한 분야에 일반적인 구성 요소로 활용될 수 있음을 증명했다.</p>
+<h3>깊이의 중요성과 깊은 모델 훈련을 위한 핵심 요소</h3>
+<p>모델의 깊이는 더 높은 수준의 추상화와 강력한 표현 능력을 가능하게 하며 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=1417s">[23:37]</a>, VGGNet은 깊이가 성능 향상에 결정적임을 명확히 보여주었다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=2026s">[33:46]</a>. 그러나 깊은 모델은 신호 폭주/소실, 퇴보 문제와 같은 훈련의 어려움을 겪는다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=2186s">[36:26]</a>. 이를 해결하기 위해 ReLU 활성화 함수, 적절한 초기화, 정규화(Batch Norm, Layer Norm), 그리고 특히 잔여 연결(Residual Connection)이 필수적인 구성 요소로 자리 잡았다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=3477s">[57:57]</a>. 잔여 연결은 수백 계층의 심층 모델을 훈련 가능하게 한 핵심 기술이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=3017s">[50:17]</a>.</p>
+<h3>전이 학습은 딥러닝 혁명의 가장 중요한 발견이다</h3>
+<p>대규모 데이터셋으로 사전 훈련된 모델의 고수준 표현이 다른 소규모 작업에도 효과적으로 전이되어 사용될 수 있다는 '전이 학습'의 발견은 딥러닝 모델의 활용 가능성을 폭발적으로 확장시켰다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=1817s">[30:17]</a>. 이는 특정 작업에 대한 대규모 데이터셋이 없어도 딥러닝의 이점을 누릴 수 있게 함으로써 컴퓨터 비전 커뮤니티에 혁명을 가져왔고, GPT나 AlphaFold 같은 모델의 성공 기반이 되었다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=1896s">[31:36]</a>.</p>
+<h3>지역 연결, 가중치 공유, 잔여 연결은 딥러닝 모델의 보편적 특성이다</h3>
+<p>합성곱 신경망(CNN)의 지역 연결과 가중치 공유 원리는 순환 신경망(RNN)과 트랜스포머(Transformer) 아키텍처에서도 발견되는 핵심적인 설계 특성이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=1009s">[16:49]</a>, <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=3601s">[1:00:01]</a>, <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=4217s">[1:10:17]</a>. 또한 잔여 연결은 CNN뿐만 아니라 RNN, 그리고 트랜스포머 등 다양한 딥러닝 모델의 깊이 훈련을 가능하게 하는 일반적인 솔루션이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=3724s">[1:02:04]</a>, <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=4233s">[1:10:33]</a>.</p>
+<h2>인상적인 지점</h2>
+<ul>
+<li>AlphaGo가 인간 지식 없이 깊은 신경망을 통해 Elo 평점을 크게 향상시키고 세계 최고 인간 선수들을 뛰어넘는 성능을 달성했다는 점은 딥러닝의 잠재력을 극적으로 보여준다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=459s">[7:39]</a>. 특히 AlphaGo와 GPT 모델이 모두 '표현 학습'이라는 동일한 근본 원리를 따른다는 설명은 딥러닝 방법론의 광범위한 범용성을 강조한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=1952s">[32:32]</a>.</li>
+<li>깊은 신경망에서 훈련 정확도마저 저하되는 '퇴보 문제'는 직관에 반하는 현상으로, 더 큰 해법 공간을 가진 깊은 모델이 얕은 모델보다 학습하기 어렵다는 사실을 보여준다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=3064s">[51:04]</a>. 이를 해결하기 위해 '작고 보수적인 증분 변화'를 학습하도록 유도하는 잔여 연결이라는 우아한 해법이 등장했다는 점이 인상적이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=3305s">[55:05]</a>.</li>
+<li>트랜스포머의 어텐션(attention) 계산은 파라미터가 없다는 점 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_jt-xO_RmI&amp;t=4124s">[1:08:44]</a>이 흥미롭다. 학습 가능한 모든 파라미터는 피드포워드 계층에 집중되어 있다는 설계 방식은 딥러닝 모델 설계의 유연성과 효율성을 잘 보여준다.</li>
+</ul>
+
+  </article>
+  <p class="post-end"><a href="https://www.youtube.com/watch?v=D_jt-xO_RmI" target="_blank" rel="noopener">YouTube에서 원본 보기 ↗</a> · <a href="./">← 목록으로</a></p>
+</main>
+<footer class="site-foot">
+  <a href="/projects/yt-digest-overview">yt-digest</a> 파이프라인이 자막을 읽고 자동으로 작성한 브리핑입니다. 오류가 있을 수 있으니 중요한 내용은 원본 영상으로 확인하세요.
+</footer>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Key Equation Behind Probability — 유튜브 다이제스트</title>
+<meta name="description" content="이 영상은 확률 이론의 핵심 개념인 엔트로피, 교차 엔트로피, KL 발산을 직관적으로 설명한다. 확률을 '믿음의 정도'로 이해하는 베이즈 관점에서 시작해, 정보의 놀라움, 평균 놀라움(엔트로피), 그리고 현실과 모델 간의 놀라움 차이(교차 엔트로피, KL 발산)를 다룬…">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="The Key Equation Behind Probability — 유튜브 다이제스트">
+<meta property="og:description" content="이 영상은 확률 이론의 핵심 개념인 엔트로피, 교차 엔트로피, KL 발산을 직관적으로 설명한다. 확률을 '믿음의 정도'로 이해하는 베이즈 관점에서 시작해, 정보의 놀라움, 평균 놀라움(엔트로피), 그리고 현실과 모델 간의 놀라움 차이(교차 엔트로피, KL 발산)를 다룬…">
+<meta property="og:image" content="https://i.ytimg.com/vi/KHVR587oW8I/hqdefault.jpg">
+<meta property="og:type" content="article">
+<link rel="icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+<script>
+// Follow the blog's saved light/dark choice (same origin, same key).
+(function () {
+  var saved = null
+  try { saved = localStorage.getItem("theme") } catch (e) {}
+  var dark = saved ? saved === "dark" : matchMedia("(prefers-color-scheme: dark)").matches
+  document.documentElement.dataset.theme = dark ? "dark" : "light"
+})()
+</script>
+</head>
+<body class="post-page">
+<header class="site-bar">
+  <a class="site-name" href="/">Johnny's</a>
+  <a class="back" href="./">← 유튜브 다이제스트</a>
+</header>
+<main class="post">
+  <a class="hero" href="https://www.youtube.com/watch?v=KHVR587oW8I" target="_blank" rel="noopener" aria-label="YouTube에서 보기">
+    <img src="https://i.ytimg.com/vi/KHVR587oW8I/hqdefault.jpg" alt="">
+    <span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+  </a>
+  <h1>The Key Equation Behind Probability</h1>
+  <div class="post-meta"><span>Artem Kirsanov</span><span>26:23</span><span>게시 2024-08-23</span></div>
+  <div class="tags"><a href="./?q=%23probability">#probability</a><a href="./?q=%23machine-learning">#machine-learning</a><a href="./?q=%23information-theory">#information-theory</a><a href="./?q=%23entropy">#entropy</a><a href="./?q=%23kl-divergence">#kl-divergence</a></div>
+  <article>
+<h2>TL;DR</h2>
+<p>이 영상은 확률 이론의 핵심 개념인 엔트로피, 교차 엔트로피, KL 발산을 직관적으로 설명한다. 확률을 '믿음의 정도'로 이해하는 베이즈 관점에서 시작해, 정보의 놀라움, 평균 놀라움(엔트로피), 그리고 현실과 모델 간의 놀라움 차이(교차 엔트로피, KL 발산)를 다룬다. 특히 KL 발산과 교차 엔트로피가 기계 학습 모델, 특히 생성형 모델의 최적화 목표 함수로 어떻게 사용되는지 명확히 보여준다.</p>
+<h2>풀시청 판단</h2>
+<p>이 영상은 확률과 정보 이론의 기본 개념을 매우 쉽고 직관적으로 이해하고 싶은 사람에게 특히 가치 있다. 인공지능, 기계 학습 분야에 관심 있는 학생이나 실무자라면, 생성형 모델의 작동 원리 깊이 이해를 위한 필수적인 기초를 닦을 수 있다. 복잡한 수학 공식 없이 핵심 원리를 실제 사례와 비유를 통해 설명하므로, 사전 지식이 많지 않아도 따라가기 쉽다.</p>
+<p>특히 다음 대상에게 풀시청을 권한다:</p>
+<ul>
+<li><strong>확률 이론 초심자:</strong> 빈도주의와 베이즈주의 관점 차이, 엔트로피 개념을 직관적으로 익히고 싶은 사람.</li>
+<li><strong>기계 학습 입문자:</strong> 생성형 AI 모델의 학습 원리, 특히 손실 함수로 교차 엔트로피를 사용하는 이유를 궁금해하는 사람.</li>
+<li><strong>수학적 배경이 부족하지만 핵심 원리를 알고 싶은 사람:</strong> 복잡한 증명 대신, 개념의 직관적 의미와 현실 적용에 집중한다.</li>
+</ul>
+<p>다만, 이미 해당 개념에 대한 깊은 수학적 이해를 가진 사람에게는 새로운 통찰보다는 기존 지식의 복습에 가까울 수 있다. 영상은 개념 설명에 집중하므로, 구체적인 모델 구현 방식이나 복잡한 응용 사례는 다루지 않는다.</p>
+<h2>핵심 내용</h2>
+<h3>불확실성을 수량화하는 언어 — 확률 분포의 두 가지 관점</h3>
+<p>우리는 주변의 불확실한 정보를 확률적으로 해석하며, 이러한 확률적 관점은 현대 기계 학습 발전의 근간을 이룬다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=KHVR587oW8I&amp;t=30s">[0:30]</a>. 확률 분포는 추상적인 상태들의 집합에 각 상태가 발생할 가능성을 0과 1 사이의 숫자로 할당하는 개념이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=KHVR587oW8I&amp;t=252s">[4:12]</a>.</p>
+<p>전통적인 <strong>빈도주의(frequentist) 관점</strong>은 주사위 굴리기처럼 반복적인 실험을 통해 어떤 결과의 발생 빈도를 확률로 정의한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=KHVR587oW8I&amp;t=310s">[5:10]</a>. 하지만 &quot;내일 비 올 확률 70%&quot;와 같은 일회성 사건에는 적용하기 어렵다는 한계가 있다. 이에 영상은 확률을 <strong>베이즈(Bayesian) 관점</strong>으로, 즉 '어떤 상태가 발생할 것이라는 믿음의 정도'로 이해하자고 제안한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=KHVR587oW8I&amp;t=351s">[5:51]</a>. 이 관점에서도 모든 가능한 상태에 할당된 믿음의 정도(확률)를 합하면 반드시 1이 되어야 한다는 규칙은 유효하다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=KHVR587oW8I&amp;t=375s">[6:15]</a>. 확률 분포는 이처럼 각 상태에 확률값을 맵핑하는 함수이며, 시스템 전체의 불확실성이 어떻게 분배되는지를 완벽하게 설명한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=KHVR587oW8I&amp;t=401s">[6:41]</a>.</p>
+<p>확률 분포는 주사위처럼 각 면이 나올 확률이 같은 균일 분포일 수도 있고 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=KHVR587oW8I&amp;t=428s">[7:08]</a>, 사람의 키처럼 평균 주위에 몰려 있는 종 모양의 가우스 분포일 수도 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=KHVR587oW8I&amp;t=435s">[7:15]</a>. 키와 몸무게를 동시에 고려하는 것처럼 여러 요소를 포함하는 고차원 분포도 있으며, 100x100 픽셀 이미지는 10,000차원 공간에서 이미지들이 분포하는 모습을 생각할 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=KHVR587oW8I&amp;t=525s">[8:45]</a>. 이러한 복잡한 분포에서 새로운 결과를 생성하는 과정이 바로 **샘플링(sampling)**이며, 이는 많은 생성형 AI 모델의 핵심 개념이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=KHVR587oW8I&amp;t=551s">[9:11]</a>.</p>
+<h3>모든 정보에는 '놀라움'이 담겨 있고, 분포 전체에는 '평균 놀라움'이 담겨 있다 — 엔트로피</h3>
+<p>정보 이론에서 '놀라움(surprise)'은 어떤 사건이 일어났을 때 우리가 느끼는 감정으로, 사건의 발생 확률과 반비례한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=KHVR587oW8I&amp;t=616s">[10:16]</a>. 예를 들어, 공정한 동전 던지기 결과가 맞았을 때는 놀라움이 덜하지만, 주사위 눈금 1개를 정확히 예측하면 더 놀랄 것이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=KHVR587oW8I&amp;t=641s">[10:41]</a>. 확률이 1에 가까워 확실한 사건은 놀라움이 0에 가깝고, 확률이 낮을수록 놀라움은 커진다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=KHVR587oW8I&amp;t=666s">[11:06]</a>.</p>
+<p>또한 놀라움은 **가산적(additive)**이다. 세 개의 주사위를 동시에 굴리는 결과를 정확히 예측하면, 하나의 주사위보다 세 배 더 놀랄 것이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=KHVR587oW8I&amp;t=686s">[11:26]</a>. 반면 독립적인 사건들의 확률은 곱셈으로 표현된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=KHVR587oW8I&amp;t=697s">[11:37]</a>. 이처럼 확률은 곱해지고 놀라움은 더해지는 관계를 만족하는 함수가 바로 <strong>로그 함수</strong>이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=KHVR587oW8I&amp;t=712s">[11:52]</a>. 수학적으로 놀라움은 <code>log(1/P)</code>로 정의된다.</p>
+<p>이제 각 상태에 대한 놀라움을 알게 되었으므로, 분포 전체에 담긴 평균 놀라움을 계산할 수 있다. 이것을 **엔트로피(Entropy)**라고 부른다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=KHVR587oW8I&amp;t=731s">[12:11]</a>. 엔트로피는 각 상태의 확률에 놀라움 값을 곱하여 모두 더한 값이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=KHVR587oW8I&amp;t=744s">[12:24]</a>. 예를 들어, 앞면/뒷면 확률이 각각 49%이고 옆면으로 설 확률이 2%인 두꺼운 동전의 경우, 공정한 동전보다 엔트로피가 더 크다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=KHVR587oW8I&amp;t=816s">[13:36]</a>. 이는 두꺼운 동전이 더 많은 내재된 불확실성, 즉 평균적으로 더 큰 놀라움을 담고 있기 때문이다.</p>
+<h3>우리의 모델이 현실과 다를 때 발생하는 '추가 놀라움' — 교차 엔트로피</h3>
+<p>실제 세계의 확률 분포는 너무 복잡해서 우리가 직접 접근하거나 완벽하게 알기 어렵다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=KHVR587oW8I&amp;t=862s">[14:22]</a>. 그래서 우리는 보통 실제 분포를 근사하는 내부 모델을 사용한다. 예를 들어, 실제로는 미세한 불완전성 때문에 균일하지 않은 주사위의 분포를 우리는 단순한 균일 분포로 근사한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=KHVR587oW8I&amp;t=872s">[14:32]</a>.</p>
+<p>문제는 우리의 모델이 실제와 크게 다를 때 발생한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=KHVR587oW8I&amp;t=913s">[15:13]</a>. 가령, 당신이 공정한 동전이라고 믿지만 실제로는 99% 확률로 앞면이 나오는 조작된 동전을 가지고 있다고 가정하자 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=KHVR587oW8I&amp;t=922s">[15:22]</a>. 10번 던져 10번 모두 앞면이 나온다면, 당신의 모델(공정한 동전)로는 극히 낮은 확률이므로 매우 놀랄 것이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=KHVR587oW8I&amp;t=953s">[15:53]</a>. 이 놀라움은 사건 자체가 놀라운 것이 아니라, 당신의 믿음(모델)이 틀렸기 때문에 발생한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=KHVR587oW8I&amp;t=970s">[16:10]</a>.</p>
+<p>이러한 상황을 정량화하는 것이 바로 **교차 엔트로피(Cross Entropy)**이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=KHVR587oW8I&amp;t=981s">[16:21]</a>. 교차 엔트로피는 실제 분포 P에서 발생하는 사건을 모델 Q가 따를 것이라고 믿을 때 기대할 수 있는 평균 놀라움을 측정한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=KHVR587oW8I&amp;t=991s">[16:31]</a>. 교차 엔트로피는 항상 실제 분포 P의 엔트로피보다 크거나 같다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=KHVR587oW8I&amp;t=1047s">[17:27]</a>. 즉, 잘못된 모델을 믿으면 실제보다 더 큰 놀라움을 겪게 되며, 놀라움이 줄어드는 일은 없다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=KHVR587oW8I&amp;t=1065s">[17:45]</a>. 또한, 교차 엔트로피는 P와 Q의 역할을 바꾸면 값이 달라지는 <strong>비대칭적 특성</strong>을 지닌다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=KHVR587oW8I&amp;t=1076s">[17:56]</a>. 조작된 동전 예시에서, 공정한 동전을 조작된 동전으로 믿는 경우가 그 반대보다 훨씬 큰 평균 놀라움(교차 엔트로피)을 보인다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=KHVR587oW8I&amp;t=1120s">[18:40]</a>. 이는 모델이 발생 확률을 매우 낮게 예측한 사건(꼬리)이 실제로 발생할 때의 극단적인 놀라움이 평균을 지배하기 때문이다.</p>
+<h3>모델의 부정확성으로 인한 '순수한 놀라움'을 측정하는 지표 — KL 발산</h3>
+<p>교차 엔트로피가 전체 놀라움을 측정한다면, 모델의 부정확성에서만 오는 '순수한 놀라움'을 어떻게 분리해낼 수 있을까 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=KHVR587oW8I&amp;t=1164s">[19:24]</a>? 바로 여기서 <strong>쿨백-라이블러 발산(Kullback-Leibler divergence), 줄여서 KL 발산</strong>이 등장한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=KHVR587oW8I&amp;t=1180s">[19:40]</a>. KL 발산은 교차 엔트로피에서 실제 분포 P의 엔트로피를 뺀 값으로 정의된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=KHVR587oW8I&amp;t=1209s">[20:09]</a>. 즉, <code>D_KL(P||Q) = H(P,Q) - H(P)</code>이다.</p>
+<p>이는 모델 Q를 실제 분포 P 대신 사용함으로써 얻는 **'추가적인 놀라움'**을 의미한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=KHVR587oW8I&amp;t=1219s">[20:19]</a>. 조작된 동전 비유로 설명하자면, KL 발산은 동전 던지기 자체에서 오는 놀라움(엔트로피)을 제외하고, '틀린 모델을 믿음으로써 발생하는 놀라움'만을 분리하여 측정하는 것이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=KHVR587oW8I&amp;t=1230s">[20:30]</a>. KL 발산은 두 확률 분포 P와 Q 사이의 <strong>정보 이론적 거리</strong>를 나타낸다.</p>
+<h3>KL 발산과 교차 엔트로피: 기계 학습 모델 최적화의 핵심</h3>
+<p>많은 기계 학습 시스템의 궁극적인 목표는 어떤 데이터의 실제 확률 분포(P)를 잘 근사하는 모델(Q)을 구축하는 것이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=KHVR587oW8I&amp;t=1246s">[20:46]</a>. 예를 들어, 실물과 같은 고양이 사진을 생성하는 AI 시스템을 만든다면, 이는 모든 가능한 실제 고양이 이미지 분포에서 직접 샘플링하는 것과 같다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=KHVR587oW8I&amp;t=1262s">[21:02]</a>. 실제 분포는 매우 복잡하기 때문에, 우리는 신경망(neural networks)과 같은 강력한 수학적 함수로 이를 근사하는 모델을 만든다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=KHVR587oW8I&amp;t=1323s">[22:03]</a>. 그리고 경사 하강법(gradient descent) 같은 최적화 기법을 사용하여 모델의 매개변수를 조정한다.</p>
+<p>이때, 모델 Q가 실제 분포 P를 얼마나 잘 근사하는지 평가할 수 있는 오차 함수, 즉 **손실 함수(loss function)**가 필요하다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=KHVR587oW8I&amp;t=1326s">[22:06]</a>. KL 발산은 우리의 모델 Q와 실제 분포 P 사이의 차이를 나타내므로, 이 값을 가능한 한 낮게 만드는 것이 모델 학습의 목표가 된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=KHVR587oW8I&amp;t=1339s">[22:19]</a>.</p>
+<p>하지만 실제 기계 학습 코드에서는 손실 함수로 KL 발산 대신 <strong>교차 엔트로피</strong>를 최소화하는 경우가 많다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=KHVR587oW8I&amp;t=1357s">[22:37]</a>. 그 이유는 KL 발산의 정의 <code>D_KL(P||Q) = H(P,Q) - H(P)</code>를 살펴보면 알 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=KHVR587oW8I&amp;t=1376s">[22:56]</a>. 이 식에서 <code>H(P)</code>는 실제 분포 P의 엔트로피로, 모델 Q와는 전혀 상관없는 상수항이다. 즉, 우리가 신경망의 매개변수를 어떻게 조정하든 <code>H(P)</code>의 값은 변하지 않는다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=KHVR587oW8I&amp;t=1301s">[21:41]</a>. 따라서 KL 발산을 최소화하는 것은 결국 교차 엔트로피를 최소화하는 것과 수학적으로 <strong>동일한 목표</strong>가 된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=KHVR587oW8I&amp;t=1410s">[23:30]</a>. <code>H(P)</code>를 계산할 필요가 없어 연산 비용을 절약할 수 있으므로, 실제로는 교차 엔트로피를 최소화하는 방법을 택하는 것이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=KHVR587oW8I&amp;t=1448s">[24:08]</a>. 이 원리는 생성형 모델을 비롯한 많은 기계 학습 알고리즘의 핵심 기반이 된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=KHVR587oW8I&amp;t=1459s">[24:19]</a>.</p>
+<h2>주요 통찰·논점</h2>
+<h3>확률은 단순히 빈도가 아닌 '믿음의 정도'를 나타낸다</h3>
+<p>우리가 흔히 접하는 '확률'이라는 개념은 단순히 반복 실험의 빈도를 넘어선다. 내일 비가 올 확률 70%와 같은 일회성 사건은 빈도주의적 관점으로 설명하기 어렵다. 대신, 베이즈 관점처럼 '어떤 사건이 일어날 것이라는 우리의 믿음의 정도'로 확률을 이해하는 것이 실제 세계의 불확실성을 더 잘 모델링하는 방법이다. 이러한 관점의 전환은 기계 학습에서 복잡하고 예측 불가능한 현상을 다루는 데 중요한 기반이 된다.</p>
+<h3>정보량과 놀라움은 동전의 양면이며, 로그 함수로 정량화된다</h3>
+<p>어떤 사건이 일어났을 때 느끼는 '놀라움'은 그 사건의 발생 확률이 낮을수록 커진다. 또한 독립적인 여러 사건의 놀라움은 더해지는 특성을 가진다. 이러한 직관적인 '놀라움'은 <code>log(1/P)</code>라는 간단한 로그 함수로 수학적으로 정량화할 수 있다. 그리고 이 놀라움의 평균값이 바로 '엔트로피'이며, 이는 분포에 내재된 불확실성 또는 무질서도를 나타내는 핵심 지표가 된다. 이 관계는 정보 이론의 가장 기본적인 통찰 중 하나로, 모든 정보는 그 발생 확률에 따른 '놀라움'을 포함한다는 것을 의미한다.</p>
+<h3>기계 학습의 목표는 '현실과 모델 간 놀라움의 차이'를 줄이는 것이다</h3>
+<p>기계 학습, 특히 생성형 모델의 핵심 목표는 실제 데이터의 복잡한 확률 분포를 가능한 한 정확하게 근사하는 모델을 구축하는 것이다. 이 과정에서 모델이 실제 분포를 제대로 반영하지 못할 때 발생하는 '추가적인 놀라움'을 측정하는 것이 중요하다. 교차 엔트로피는 우리의 모델이 현실과 다를 때 발생하는 전체적인 평균 놀라움을, KL 발산은 이 놀라움 중에서 '모델의 부정확성' 때문에 발생하는 순수한 놀라움을 측정한다. 결국 기계 학습 모델을 최적화한다는 것은 이 KL 발산(또는 사실상 교차 엔트로피) 값을 최소화하여, 모델이 실제 데이터 분포를 완벽하게 모방할 때 얻는 놀라움과 동일한 수준으로 줄이는 것을 의미한다.</p>
+<h2>인상적인 지점</h2>
+<ul>
+<li><strong>안개 속 비유:</strong> 영상 초반, 안개 속에서 다가오는 모호한 형체를 보며 뇌가 여러 가능성을 확률적으로 고려하는 비유 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=KHVR587oW8I&amp;t=0s">[0:00]</a>는 확률적 사고의 직관적인 본질을 잘 보여준다. 이는 기계 학습이 직면하는 불확실성 문제와도 연결된다.</li>
+<li><strong>조작된 동전 비유로 설명하는 교차 엔트로피의 비대칭성:</strong> 공정한 동전이라고 믿었지만 실제로는 조작된 동전을 다룰 때와, 조작된 동전이라고 믿었지만 실제로는 공정한 동전을 다룰 때의 교차 엔트로피 값이 크게 차이나는 예시는 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=KHVR587oW8I&amp;t=1091s">[18:11]</a> 이 개념의 핵심을 명확하게 보여준다. 특히 모델이 실제로는 발생 가능한 사건을 극히 희박하다고 예측할 때 훨씬 큰 놀라움이 발생하는 지점이 인상적이다.</li>
+</ul>
+
+  </article>
+  <p class="post-end"><a href="https://www.youtube.com/watch?v=KHVR587oW8I" target="_blank" rel="noopener">YouTube에서 원본 보기 ↗</a> · <a href="./">← 목록으로</a></p>
+</main>
+<footer class="site-foot">
+  <a href="/projects/yt-digest-overview">yt-digest</a> 파이프라인이 자막을 읽고 자동으로 작성한 브리핑입니다. 오류가 있을 수 있으니 중요한 내용은 원본 영상으로 확인하세요.
+</footer>
+</body>
+</html>

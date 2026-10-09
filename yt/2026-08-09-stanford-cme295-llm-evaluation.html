@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stanford CME295 Transformers &amp; LLMs | Autumn 2025 | Lecture 8 - LLM Evaluation — 유튜브 다이제스트</title>
+<meta name="description" content="이 강의는 LLM(대규모 언어 모델)의 성능을 어떻게 측정하고 개선할지 다룬다. 특히 LLM 출력의 품질 평가에 초점을 맞추며, 비용과 주관성 문제로 인간 평가에 한계가 있음을 지적한다. 이를 해결하기 위해 참조 답변과 LLM 출력을 비교하는 규칙 기반 지표(METEO…">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="Stanford CME295 Transformers &amp; LLMs | Autumn 2025 | Lecture 8 - LLM Evaluation — 유튜브 다이제스트">
+<meta property="og:description" content="이 강의는 LLM(대규모 언어 모델)의 성능을 어떻게 측정하고 개선할지 다룬다. 특히 LLM 출력의 품질 평가에 초점을 맞추며, 비용과 주관성 문제로 인간 평가에 한계가 있음을 지적한다. 이를 해결하기 위해 참조 답변과 LLM 출력을 비교하는 규칙 기반 지표(METEO…">
+<meta property="og:image" content="https://i.ytimg.com/vi/8fNP4N46RRo/hqdefault.jpg">
+<meta property="og:type" content="article">
+<link rel="icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+<script>
+// Follow the blog's saved light/dark choice (same origin, same key).
+(function () {
+  var saved = null
+  try { saved = localStorage.getItem("theme") } catch (e) {}
+  var dark = saved ? saved === "dark" : matchMedia("(prefers-color-scheme: dark)").matches
+  document.documentElement.dataset.theme = dark ? "dark" : "light"
+})()
+</script>
+</head>
+<body class="post-page">
+<header class="site-bar">
+  <a class="site-name" href="/">Johnny's</a>
+  <a class="back" href="./">← 유튜브 다이제스트</a>
+</header>
+<main class="post">
+  <a class="hero" href="https://www.youtube.com/watch?v=8fNP4N46RRo" target="_blank" rel="noopener" aria-label="YouTube에서 보기">
+    <img src="https://i.ytimg.com/vi/8fNP4N46RRo/hqdefault.jpg" alt="">
+    <span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+  </a>
+  <h1>Stanford CME295 Transformers &amp; LLMs | Autumn 2025 | Lecture 8 - LLM Evaluation</h1>
+  <div class="post-meta"><span>Stanford Online</span><span>1:49:25</span><span>게시 2025-12-02</span></div>
+  <div class="tags"><a href="./?q=%23llm-evaluation">#llm-evaluation</a><a href="./?q=%23llm-as-a-judge">#llm-as-a-judge</a><a href="./?q=%23agent-evaluation">#agent-evaluation</a><a href="./?q=%23ml-benchmarks">#ml-benchmarks</a></div>
+  <article>
+<h2>TL;DR</h2>
+<p>이 강의는 LLM(대규모 언어 모델)의 성능을 어떻게 측정하고 개선할지 다룬다. 특히 LLM 출력의 품질 평가에 초점을 맞추며, 비용과 주관성 문제로 인간 평가에 한계가 있음을 지적한다. 이를 해결하기 위해 참조 답변과 LLM 출력을 비교하는 규칙 기반 지표(METEOR, BLEU, ROUGE)를 소개하지만, 문체 변화에 취약하다는 단점을 짚는다. 최종적으로는 LLM을 평가자로 활용하는 <code>LLM-as-a-Judge</code> 기법을 심층적으로 다루며, 이 기법의 장점, 편향, 모범 사례를 상세히 설명한다. 나아가 에이전트 워크플로의 평가 방식과 지식, 추론, 코딩, 안전성 등 다양한 LLM 벤치마크 유형도 제시한다.</p>
+<h2>풀시청 판단</h2>
+<p>이 강의는 LLM의 평가 방법에 대한 깊이 있는 이해를 얻고자 하는 AI 개발자, 연구자, 그리고 LLM 시스템을 구축하거나 운영하는 실무자에게 매우 유용하다. LLM 평가가 왜 어려운지, 인간 평가와 규칙 기반 지표의 한계는 무엇인지, 그리고 <code>LLM-as-a-Judge</code>가 어떻게 이러한 한계를 극복하는지에 대한 논리적인 흐름을 제공한다. 특히 <code>LLM-as-a-Judge</code>의 다양한 편향과 이를 완화하는 구체적인 모범 사례, 그리고 에이전트 워크플로의 복잡한 오류 분석은 실질적인 통찰을 준다.</p>
+<p>다만, LLM 평가의 이론적 배경과 최신 기법 전반을 다루므로, LLM에 대한 기본적인 이해가 부족한 입문자에게는 다소 어려울 수 있다. <code>RAG</code>, <code>tool calling</code>, <code>SFT</code>, <code>prompt tuning</code> 등 이전 강의에서 다룬 개념을 숙지하고 있어야 강의 내용을 온전히 이해할 수 있다.</p>
+<ul>
+<li><strong>LLM 평가의 역사와 방법론을 포괄적으로 알고 싶은 사람:</strong> <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=282s">[4:42]</a>부터 <code>LLM-as-a-Judge</code> 설명 전까지 인간 평가와 규칙 기반 지표의 장단점을 파악할 수 있다.</li>
+<li><strong><code>LLM-as-a-Judge</code>의 작동 방식, 편향 및 해결책에 관심 있는 사람:</strong> <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=1688s">[28:08]</a>부터 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=3172s">[52:52]</a>까지 해당 내용이 상세히 다뤄진다. 이 부분이 강의의 핵심이다.</li>
+<li><strong>LLM의 <code>사실성</code> 평가에 대한 구체적인 접근법을 배우고 싶은 사람:</strong> <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=3234s">[53:54]</a>부터 텍스트를 사실 목록으로 분해하고 각 사실을 검증하는 다단계 평가 체계를 설명한다.</li>
+<li><strong><code>에이전트</code>의 성능을 평가하고 디버깅하는 방법에 대해 궁금한 사람:</strong> <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=3609s">[1:00:09]</a>부터 에이전트 워크플로의 단계별 오류 모드와 해결책을 자세히 다룬다.</li>
+<li><strong>다양한 LLM 벤치마크(<code>MMLU</code>, <code>AIME</code>, <code>PIQA</code>, <code>SWE-bench</code>, <code>HarmBench</code>, <code>tau-bench</code>)의 목적과 특성을 이해하고 싶은 사람:</strong> <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=5010s">[1:23:30]</a>부터 각 벤치마크에 대한 설명과 예시를 볼 수 있다.</li>
+</ul>
+<h2>핵심 내용</h2>
+<h3>LLM 평가는 어려운 문제: 자유 형식 출력과 주관성 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=282s">[4:42]</a></h3>
+<p>LLM 성능 평가는 중요한 주제이며, 모델 개선의 필수 조건이다. LLM 평가는 출력 품질, 지연 시간, 가격, 시스템 안정성 등 다양한 측면을 포함하지만, 이 강의는 주로 출력 품질 평가에 집중한다. LLM은 자연어, 코드, 수학 추론 등 자유로운 형식의 출력을 생성하기 때문에 보편적인 평가 지표를 만들기가 매우 어렵다.</p>
+<h3>인간 평가는 이상적이지만 비실용적이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=372s">[6:12]</a></h3>
+<p>가장 이상적인 평가 방법은 인간이 LLM의 모든 출력을 직접 평가하는 것이다. 그러나 이는 막대한 비용이 들고 시간이 오래 걸린다. 또한, &quot;생일 선물로 무엇을 사야 할까?&quot;와 같은 주관적인 질문에 대한 LLM의 답변(&quot;테디베어는 늘 좋은 선물입니다. 마음에 드는 걸 고르세요.&quot;)은 평가자마다 유용성 판단이 달라질 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=449s">[7:29]</a>. 특정 평가 기준에 대해 평가자 간 동의(inter-rater agreement)가 일관되지 않을 수 있는 것이다.</p>
+<h3>평가자 간 동의율 지표: 순수 우연에 의한 동의를 넘어 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=552s">[9:12]</a></h3>
+<p>평가자 간 동의율을 측정하는 가장 간단한 방법은 두 평가자가 동일한 응답을 주는 비율을 확인하는 것이다. 하지만 이는 순수 우연에 의한 동의를 반영하지 못한다. 예를 들어, 두 평가자가 무작위로 '좋음' 또는 '나쁨'을 선택할 경우에도 50%의 동의율이 나올 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=781s">[13:01]</a>. 이러한 한계를 극복하기 위해 코헨 카파(Cohen's kappa) <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=896s">[14:56]</a>, 플라이스 카파(Fleiss's kappa), 크리펜도르프 알파(Krippendorff's alpha) 같은 지표들이 개발되었다. 이 지표들은 순수 우연에 의한 동의율을 기준으로 실제 관찰된 동의율이 얼마나 더 나은지를 정량화하여 평가자 간 일관성을 측정한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=961s">[16:01]</a>. 낮은 동의율이 나타나면 평가자들이 평가 지침을 논의하고 조정하여 일관성을 높일 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=1050s">[17:30]</a>.</p>
+<h3>규칙 기반 지표: 문체 변화에 취약하고 인간 평가와 상관관계가 낮다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=1141s">[19:01]</a></h3>
+<p>인간 평가의 비효율성을 개선하기 위해, 사전에 인간이 작성한 참조 답변(reference)과 LLM 출력을 비교하는 규칙 기반 지표들이 활용되었다. 이는 LLM이 반복적으로 업데이트될 때마다 인간 평가를 다시 할 필요 없이 고정된 참조 답변을 사용할 수 있다는 장점이 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=1186s">[19:46]</a>.</p>
+<ul>
+<li><strong>METEOR (Metric for Evaluation of Translation with Explicit Ordering)</strong>: 번역 평가에 사용되며, 정밀도(precision)와 재현율(recall)의 조화 평균인 F-점수에 단어 순서 불일치에 대한 페널티를 적용한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=1261s">[21:01]</a>. 그러나 하이퍼파라미터가 많아 임의성이 있고, 유니그램(unigram) 단위로 비교하므로 문체 변화에는 취약하다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=1457s">[24:17]</a>.</li>
+<li><strong>BLEU (Bilingual Evaluation Understudy)</strong>: 주로 번역에 사용되며, n-그램(n-gram) 매칭을 통해 정밀도에 초점을 맞추고, 너무 짧은 번역에 대한 페널티(brevity penalty)를 부여한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=1511s">[25:11]</a>.</li>
+<li><strong>ROUGE</strong>: 요약 작업에 주로 사용되며, BLEU와 유사한 아이디어를 공유한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=1577s">[26:17]</a>.</li>
+</ul>
+<p>이러한 규칙 기반 지표들은 &quot;푹신한 테디베어는 아이를 잠자리에서 편안하게 해준다&quot;와 같은 문장을 &quot;부드러운 봉제 곰인형은 아이들이 잠들 때 안정감을 느끼도록 돕는다&quot;처럼 다르게 표현해도 낮은 점수를 부여한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=1611s">[26:51]</a>. 즉, 문체 변화를 제대로 반영하지 못하고, 인간 평가와 상관관계가 높지 않다는 한계가 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=1644s">[27:24]</a>. 또한, 시작하기 위해서는 여전히 인간의 참조 답변이 필요하다는 단점도 있다.</p>
+<h3>LLM-as-a-Judge: LLM이 LLM을 평가한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=1688s">[28:08]</a></h3>
+<p>지난 7개의 강의에서 LLM이 방대한 데이터로 사전 학습되고 인간 선호도에 맞춰 미세 조정(fine-tuning)되어 인간의 지식과 선호도를 내재하고 있음을 다루었다. <code>LLM-as-a-Judge</code>는 이러한 LLM을 평가자로 활용하는 개념이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=1742s">[29:02]</a>. 평가 대상 LLM의 응답을 또 다른 LLM(판사 LLM)의 입력으로 넣어 평가하는 방식이다.</p>
+<ul>
+<li><strong>입력</strong>: 프롬프트, 모델 응답, 평가 기준 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=1749s">[29:09]</a>.</li>
+<li><strong>출력</strong>: 점수와 함께 <code>설명(rationale)</code>을 제공한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=1772s">[29:32]</a>. 이 설명은 모델이 왜 특정 점수를 부여했는지 이유를 알려주므로, 단순히 숫자로만 나오는 규칙 기반 지표와 차별화된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=1798s">[29:58]</a>.</li>
+<li><strong>&quot;설명 먼저&quot; 전략</strong>: 경험적으로 성능을 향상시키는 방법으로, 모델에게 점수를 내기 전에 먼저 설명을 출력하도록 요청한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=1880s">[31:20]</a>. 이는 모델이 <code>사고의 연쇄(chain of thought)</code>를 거치며 생각 과정을 외부화하도록 돕는 것과 유사하다.</li>
+<li><strong>구조화된 출력 보장</strong>: LLM의 확률적 특성 때문에 출력이 항상 예측 가능한 형식으로 나오지는 않는다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=1985s">[33:05]</a>. 이를 해결하기 위해 <code>제약 기반 디코딩(constraints-guided decoding)</code> 또는 <code>구조화된 출력(structured output)</code> 기능을 사용하여 JSON과 같은 특정 형식으로 출력을 강제할 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=2022s">[33:42]</a>.</li>
+</ul>
+<p><code>LLM-as-a-Judge</code>의 주요 이점은 인간 참조 답변이 필요 없고, 설명과 함께 점수를 해석할 수 있다는 점이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=2154s">[35:54]</a>. 단일 응답을 평가하는 방식과 두 응답 중 어느 것이 더 나은지 비교하여 선호도 데이터를 생성하는 방식(RLHF에 활용 가능)이 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=2221s">[37:01]</a>.</p>
+<h3>LLM-as-a-Judge의 편향과 해결책 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=2315s">[38:35]</a></h3>
+<p><code>LLM-as-a-Judge</code>는 여러 가지 편향에 취약할 수 있으며, 이를 인지하고 해결하는 것이 중요하다.</p>
+<ul>
+<li><strong>위치 편향(Position Bias)</strong>: 모델이 입력으로 제공된 응답의 순서에 따라 특정 위치(예: 첫 번째 응답)에 있는 응답을 선호하는 경향이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=2328s">[38:48]</a>.
+<ul>
+<li><strong>해결책</strong>: A/B, B/A 순서로 평가를 두 번 수행하고 다수결 투표를 통해 결과를 결정한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=2377s">[39:37]</a>.</li>
+</ul>
+</li>
+<li><strong>장황함 편향(Verbosity Bias)</strong>: 모델이 더 길고 자세한 응답을 선호하는 경향이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=2431s">[40:31]</a>.
+<ul>
+<li><strong>해결책</strong>: 평가 지침에 길이보다 정확성과 관련성에 집중하도록 명시하거나, 문맥 내 학습(in-context learning) 예시를 통해 짧지만 좋은 응답을 보여준다. 또는 출력 길이에 페널티를 부여하는 방식으로 점수를 조정할 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=2470s">[41:10]</a>.</li>
+</ul>
+</li>
+<li><strong>자기 강화 편향(Self-Enhancement Bias)</strong>: 모델이 자신이 생성한 응답을 다른 모델의 응답보다 선호하는 경향이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=2549s">[42:29]</a>.
+<ul>
+<li><strong>해결책</strong>: 평가 대상 LLM과 다른 LLM을 판사로 사용한다. 일반적으로 판사 LLM은 평가 대상 LLM보다 더 큰 모델을 사용하는 것이 좋다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=2621s">[43:41]</a>.</li>
+</ul>
+</li>
+<li><strong>기타 편향</strong>: LLM이 인간의 선호도와 정확히 일치하지 않거나, 특정 레이블을 편향적으로 선호하는 등의 편향도 발생할 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=2703s">[45:03]</a>.</li>
+</ul>
+<h3>LLM-as-a-Judge 모범 사례 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=2841s">[47:21]</a></h3>
+<p><code>LLM-as-a-Judge</code>의 성능을 극대화하기 위한 모범 사례는 다음과 같다.</p>
+<ul>
+<li><strong>명확한 지침</strong>: 평가 기준이 모호하면 평가의 일관성이 저해되므로, 구체적이고 명확한 지침을 제공해야 한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=2867s">[47:47]</a>.</li>
+<li><strong>이진 척도 사용</strong>: 점수를 이진 척도(예: 합격/불합격)로 단순화하는 것이 모델의 작업 부하를 줄이고, 인간 평가자와의 일관성을 높이는 데 도움이 된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=2892s">[48:12]</a>.</li>
+<li><strong>설명 먼저 출력</strong>: 점수보다 설명을 먼저 출력하도록 하여 모델이 추론 과정을 거치도록 유도한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=2943s">[49:03]</a>.</li>
+<li><strong>편향 완화</strong>: 위에 언급된 편향들을 인지하고 적절한 완화 전략을 적용한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=2967s">[49:27]</a>.</li>
+<li><strong>인간 평가와 보정</strong>: <code>LLM-as-a-Judge</code>는 인간 평가의 근사치이므로, 초기에는 인간 평가와 비교하여 <code>LLM-as-a-Judge</code>의 프롬프트나 평가 기준을 보정하는 것이 좋다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=2994s">[49:54]</a>. 대리 지표에 과도하게 최적화되지 않도록 한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=3136s">[52:16]</a>.</li>
+<li><strong>낮은 temperature 사용</strong>: 평가 실험의 재현성을 위해 <code>temperature</code>와 같은 샘플링 파라미터를 낮게 설정하여 모델의 출력을 결정론적으로 만든다 (일반적으로 0.1 또는 0.2) <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=3041s">[50:41]</a>.</li>
+</ul>
+<h3>LLM 출력의 평가 차원: 작업 성능과 정렬 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=3183s">[53:03]</a></h3>
+<p>LLM 출력은 크게 두 가지 평가 차원에서 측정할 수 있다.</p>
+<ul>
+<li><strong>작업 성능</strong>: 응답의 유용성, 사실성, 관련성 등 LLM이 주어진 작업을 얼마나 잘 수행했는지에 대한 평가이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=3196s">[53:16]</a>.</li>
+<li><strong>정렬(Alignment)</strong>: 응답의 어조, 문체, 유해 요소 포함 여부 등 인간의 의도나 선호도에 얼마나 부합하는지에 대한 평가이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=3213s">[53:33]</a>.</li>
+</ul>
+<p>특히 <code>사실성(factuality)</code> 평가는 미묘한 문제이며 다단계 접근 방식이 필요하다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=3234s">[53:54]</a>. 텍스트가 여러 문장으로 구성될 수 있고, 부분적인 오류가 전체 텍스트를 오답으로 만들지 않기 위해 복잡한 평가가 요구된다. 표준적인 접근법은 다음과 같다.</p>
+<ol>
+<li><strong>텍스트를 사실 목록으로 변환</strong>: LLM을 사용하여 원본 텍스트를 확인해야 할 개별 사실 목록으로 분해한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=3370s">[56:10]</a>. (예: &quot;테디베어는 1920년대에 처음 만들어졌다&quot; → &quot;테디베어는 1920년대에 만들어졌다&quot;는 사실).</li>
+<li><strong>각 사실의 검증</strong>: 각 사실이 올바른지 이진 방식으로 확인한다 (참/거짓). 이 과정에는 <code>RAG</code>나 웹 검색과 같은 외부 지식 기반 조회가 포함될 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=3429s">[57:09]</a>.</li>
+<li><strong>가중치 기반 사실성 점수 집계</strong>: 각 사실의 중요도(가중치)를 고려하여 전체 텍스트의 사실성 점수를 집계한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=3529s">[58:49]</a>. (예: 총 4개의 사실 중 2개가 정확하다면 0.5 또는 가중치에 따라 0.6).</li>
+</ol>
+<h3>에이전트 워크플로 평가의 복잡성과 오류 모드 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=3609s">[1:00:09]</a></h3>
+<p>에이전트(Agent)는 <code>ReAct</code> 프레임워크(Observe, Plan, Act)처럼 여러 단계가 반복되는 복잡한 워크플로를 포함한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=3627s">[1:00:27]</a>. 에이전트의 내부 작동은 도구 예측, 도구 실행, 결과 추론의 세 단계로 나눌 수 있으며, 각 단계에서 다양한 오류가 발생할 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=3691s">[1:01:31]</a>.</p>
+<p><strong>1. 도구 예측 오류 (Tool Prediction Errors)</strong> <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=3764s">[1:02:44]</a></p>
+<ul>
+<li><strong>도구를 사용하지 않음</strong>: 사용자의 질의가 명확히 도구를 필요로 하지만 에이전트가 도구를 사용하지 않고 &quot;죄송합니다, 찾을 수 없습니다&quot;와 같이 대답하는 경우이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=3764s">[1:02:44]</a>.
+<ul>
+<li><strong>원인 및 해결책</strong>: <code>도구 라우터(tool router)</code>가 필요한 도구를 선택하지 못했거나(<code>재현율(recall)</code> 오류) <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=3822s">[1:03:42]</a>, LLM이 도구 사용 방법을 학습하지 못했을 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=3921s">[1:05:21]</a>. 도구 라우터를 조정하거나 LLM을 SFT(지도 미세 조정) 또는 프롬프트 튜닝으로 재학습시켜야 한다.</li>
+</ul>
+</li>
+<li><strong>도구 환각(Tool Hallucination)</strong>: LLM이 존재하지 않는 함수를 호출하는 경우이다 (예: <code>find_teddy_bear</code>가 아닌 <code>find_bear</code> 호출) <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=3984s">[1:06:24]</a>.
+<ul>
+<li><strong>원인 및 해결책</strong>: 모델 자체가 너무 약할 수 있으며, 이 경우 더 강력한 모델로 업그레이드해야 한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=4028s">[1:07:08]</a>. 또는 API 정의(함수 이름, 인수, 독스트링)가 명확하지 않거나 <code>수평적 지침(horizontal instructions)</code>(모델이 사용 가능한 함수를 사용해야 한다는 최상위 지침)이 불분명할 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=4068s">[1:07:48]</a>. API 정의를 명확히 하고 상위 지침을 개선하는 것이 중요하다.</li>
+</ul>
+</li>
+<li><strong>잘못된 도구 사용</strong>: 사용자 질의에 대해 잘못된 도구를 사용하는 경우이다 (예: &quot;곰을 찾아달라&quot;고 했는데 &quot;메시지 보내기&quot; 도구를 사용하는 경우) <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=4222s">[1:10:22]</a>.
+<ul>
+<li><strong>원인 및 해결책</strong>: 도구 라우터의 재현율 문제이거나, 두 도구의 <code>API</code> 범위(scope)가 겹쳐 모델이 혼란스러워하는 경우이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=4271s">[1:11:11]</a>. 각 API의 용도를 매우 정확하게 정의해야 한다.</li>
+</ul>
+</li>
+<li><strong>올바른 도구, 잘못된 인수</strong>: 올바른 도구를 선택했지만, 잘못된 인수를 전달하는 경우이다 (예: &quot;내 근처 곰 찾기&quot;에 (0,0) 좌표를 사용하는 경우) <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=4381s">[1:13:01]</a>.
+<ul>
+<li><strong>원인 및 해결책</strong>: 문맥에 위치 정보가 포함되어 있지 않거나, 모델이 어떤 값을 입력해야 할지 모르는 경우이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=4370s">[1:12:50]</a>. 위치 탐색 도구를 미리 실행하거나, 모델이 도구를 사용하는 방식을 재학습/API를 재작성해야 한다.</li>
+</ul>
+</li>
+</ul>
+<p><strong>2. 도구 실행 오류 (Tool Call Execution Errors)</strong> <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=4466s">[1:14:26]</a></p>
+<ul>
+<li><strong>도구가 잘못된 응답을 출력</strong>: 도구 자체의 코드 로직에 버그가 있어 오류를 반환하는 경우이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=4472s">[1:14:32]</a>.
+<ul>
+<li><strong>해결책</strong>: 도구 구현 자체를 수정하고, 오류 대신 <code>구조화된 출력(structured output)</code>으로 의미 있는 메시지를 반환하도록 한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=4552s">[1:15:52]</a>.</li>
+</ul>
+</li>
+<li><strong>도구가 응답을 반환하지 않음</strong>: 특히 작업을 수행하는 도구의 경우, 응답이 없으면 모델이 작업 성공 여부를 알 수 없다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=4588s">[1:16:28]</a>.
+<ul>
+<li><strong>해결책</strong>: 항상 의미 있는 출력을 반환해야 한다. 심지어 &quot;곰을 찾지 못했습니다&quot;와 같은 빈 JSON 형식의 응답도 아무것도 반환하지 않는 것보다 모델이 다음 행동을 결정하는 데 도움이 된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=4631s">[1:17:11]</a>.</li>
+</ul>
+</li>
+</ul>
+<p><strong>3. 출력 합성 오류 (Output Synthesis Errors)</strong> <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=4713s">[1:18:33]</a></p>
+<ul>
+<li><strong>모델이 도구 출력을 합성하지 못함</strong>: 도구는 정확한 정보를 반환했지만, 모델이 이를 제대로 해석하여 사용자에게 전달하지 못하는 경우이다 (예: &quot;테디라는 곰을 찾았지만, 모델이 '아무것도 찾지 못했습니다'라고 말함&quot;) <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=4719s">[1:18:39]</a>.
+<ul>
+<li><strong>원인 및 해결책</strong>: 모델이 이전 문맥의 내용을 참조하는 능력이 부족하거나(이 경우는 드물지만 모델 업그레이드로 해결) <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=4752s">[1:19:12]</a>, 도구 출력이 너무 방대하여 모델이 중요한 정보를 구분하지 못하는 경우(도구 출력을 간결하게 정리) <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=4792s">[1:19:52]</a> 또는 출력이 의미 있는 방식으로 제시되지 않은 경우(Python 클래스처럼 구조화된 객체로 반환) <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=4843s">[1:20:43]</a>이다.</li>
+</ul>
+</li>
+</ul>
+<h3>LLM 벤치마크 유형 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=5010s">[1:23:30]</a></h3>
+<p>LLM의 성능을 비교하고 특성을 파악하기 위해 다양한 벤치마크가 사용된다.</p>
+<ul>
+<li><strong>지식 기반 벤치마크(Knowledge-based Benchmark)</strong>: 모델이 학습된 사실적 지식을 얼마나 잘 기억하고 재구성하는지 평가한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=5051s">[1:24:11]</a>.
+<ul>
+<li><strong>MMLU (Massive Multitask Language Understanding)</strong>: 60개에 가까운 매우 다양한 분야(법률, 의학, 일상생활 등)의 객관식 문제로 구성된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=5112s">[1:25:12]</a>. 주로 사전 학습의 효과를 측정하며, 정형화된 응답 형식으로 LLM 성능을 표준화하여 평가하기 용이하다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=5173s">[1:26:13]</a>.</li>
+</ul>
+</li>
+<li><strong>추론 기반 벤치마크(Reasoning-based Benchmark)</strong>: 모델의 추론 능력, 즉 사고 과정을 거쳐 응답을 도출하는 능력을 평가한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=5313s">[1:28:33]</a>.
+<ul>
+<li><strong>AIME (American Invitational Mathematics Examination)</strong>: 고등학생 대상 수학 경시 문제로, 3자리 숫자로 답을 제출하는 형식이다. 복잡한 수학적 추론 능력을 측정하기에 적합하다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=5375s">[1:29:35]</a>.</li>
+<li><strong>PIQA (Physical Interaction, Question Answering)</strong>: 물리적 현실 세계에 기반한 상식 추론 문제를 다룬다. &quot;카페트에서 잃어버린 물건을 어떻게 찾을까?&quot;와 같은 일상생활 속 문제를 두 가지 선택지 중 고르는 방식이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=5462s">[1:31:02]</a>.</li>
+</ul>
+</li>
+<li><strong>코딩 벤치마크(Coding Benchmark)</strong>: 모델의 복잡한 코딩 문제 해결 능력을 평가한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=5561s">[1:32:41]</a>. 이는 AI 보조 코딩(AI assistant coding)이나 에이전트의 도구 사용 능력(코드 읽기/쓰기)을 확인하는 데 중요하다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=5576s">[1:32:56]</a>.
+<ul>
+<li><strong>SWE-bench (Software Engineering Benchmark)</strong>: 인기 있는 Python 저장소의 풀 리퀘스트(pull request) 중 버그를 수정하고 테스트 코드를 포함한 사례를 사용한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=5646s">[1:34:06]</a>. LLM에게 GitHub 이슈를 해결하도록 하고, 생성된 패치가 기존의 실패하는 테스트를 통과하는지 여부로 성능을 평가한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=5730s">[1:35:30]</a>.</li>
+</ul>
+</li>
+<li><strong>안전성 벤치마크(Safety Benchmark)</strong>: 모델이 유해하거나 부적절한 콘텐츠를 생성하는지 평가한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=5779s">[1:36:19]</a>. 안전성 평가는 LLM 제공자마다 정책이 다소 주관적일 수 있으므로, 벤치마크의 내용을 이해하는 것이 중요하다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=5803s">[1:36:43]</a>.
+<ul>
+<li><strong>HarmBench (Harmful Behavior Benchmark)</strong>: 표준 유해 행위, 저작권 침해, 문맥적 유해 행위, 다중 모달 유해 행위의 네 가지 범주로 나뉜다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=5887s">[1:38:07]</a>. 모델이 유해한 행동을 시도하기만 해도 공격이 성공했다고 간주하며, 이를 위해 분류기(classifier)를 사용한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=5983s">[1:39:43]</a>.</li>
+</ul>
+</li>
+<li><strong>에이전트 벤치마크(Agent Benchmark)</strong>: 도구를 사용하는 에이전트의 end-to-end 성능을 평가한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=6063s">[1:41:03]</a>.
+<ul>
+<li><strong>tau-bench (Tool Agent Users)</strong>: 항공 및 소매 산업 분야에서 도구 세트와 정책을 제공하며, 언어 모델이 시뮬레이션한 사용자(language model-simulated user)와의 상호작용을 통해 에이전트의 작업을 평가한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=6068s">[1:41:08]</a>. 데이터베이스 변경이나 특정 액션 완료 여부를 기반으로 보상(reward)을 계산하여 성공 여부를 판단한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=6175s">[1:42:55]</a>. <code>pass hat k</code>는 <code>k</code>번의 시도가 모두 성공할 확률을 측정하며, 이는 에이전트의 신뢰성과 일관성을 평가하는 데 중요한 지표이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=6222s">[1:43:42]</a>.</li>
+</ul>
+</li>
+</ul>
+<h3>벤치마크 활용 시 고려 사항 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=6317s">[1:45:17]</a></h3>
+<ul>
+<li><strong>LLM의 특성 파악</strong>: 벤치마크는 LLM의 강점과 약점을 파악하는 데 도움을 준다. 모델별로 코딩에 강하거나 비용 효율적일 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=6382s">[1:46:22]</a>.</li>
+<li><strong>파레토 프론티어(Pareto Frontier)</strong>: 가격, 안전성, 문맥 길이 등 여러 차원을 고려했을 때 최적의 성능을 보이는 모델들의 경계를 파레토 프론티어라고 한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=6435s">[1:47:15]</a>.</li>
+<li><strong>데이터 오염(Data Contamination)</strong>: 벤치마크 데이터가 모델 학습에 사용되지 않았는지 확인하는 것이 중요하다. 해시값 검증, 웹사이트 차단 목록, 새로운 테스트 세트 사용 등의 방법이 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=6469s">[1:47:49]</a>.</li>
+<li><strong>굿하트의 법칙(Goodhart's Law)</strong>: &quot;측정이 목표가 되면 좋은 측정 기준으로서의 가치를 잃는다.&quot; 벤치마크 점수에 과도하게 집착하기보다 실제 사용 사례에서의 모델 성능을 중요하게 생각해야 한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=6506s">[1:48:26]</a>. ChatBotArena와 같은 실제 사용자 피드백이나 개인적인 경험이 궁극적으로 어떤 모델이 가장 적합한지 판단하는 데 도움이 된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=6533s">[1:48:53]</a>.</li>
+</ul>
+<h2>주요 통찰·논점</h2>
+<h3>LLM 평가의 패러다임 전환: LLM-as-a-Judge</h3>
+<p>LLM 평가는 인간 평가의 비효율성과 규칙 기반 지표의 한계를 넘어 <code>LLM-as-a-Judge</code>라는 새로운 패러다임을 제시한다. 이 방식은 인간의 지식과 선호도를 내재한 LLM을 평가자로 활용하여, 비용 효율적으로 평가를 수행할 수 있게 한다. 특히 단순히 점수뿐만 아니라 평가 <code>설명(rationale)</code>까지 제공하여, 모델이 왜 특정 점수를 받았는지 개발자가 이해하고 개선할 수 있는 구체적인 피드백을 준다는 점에서 이전 방법론들과 차별화된다. 이는 LLM 개발 및 디버깅 과정에서 핵심적인 도구로 자리 잡았다.</p>
+<h3>에이전트의 복잡성과 단계별 오류 분석의 중요성</h3>
+<p><code>ReAct</code>와 같은 에이전트 워크플로는 여러 단계의 도구 예측, 실행, 결과 추론이 복합적으로 얽혀 있어 평가 및 디버깅이 매우 복잡하다. 강의는 에이전트의 잠재적인 실패 모드를 각 단계별로 상세히 분류하고, 각 오류의 원인과 해결책을 구체적인 사례와 함께 제시한다. 이는 &quot;어떤 문제가 발생했는지&quot;뿐만 아니라 &quot;왜 발생했으며 어떻게 해결해야 하는지&quot;에 대한 체계적인 접근법을 제공하며, 에이전트 시스템을 구축하는 실무자에게 실질적인 가이드라인이 된다. 오류를 체계적으로 분류하고 그룹별로 다루는 방법론은 복잡한 시스템 개발에서 생산성을 높이는 핵심 요소이다.</p>
+<h3>벤치마크의 활용과 한계: 프로파일링 도구로서의 역할</h3>
+<p>다양한 벤치마크(지식, 추론, 코딩, 안전성, 에이전트)는 LLM의 다면적인 성능을 측정하고, 각 모델의 강점과 약점을 파악하는 데 유용한 도구이다. 하지만 벤치마크는 모든 것을 말해주지 않는다. 강의는 벤치마크가 LLM의 <code>특성(profile)</code>을 파악하는 데는 좋지만, 특정 사용 사례에 대한 절대적인 최적 모델을 알려주지는 않는다고 강조한다. 또한, <code>데이터 오염</code> 문제와 <code>굿하트의 법칙</code>을 언급하며, 벤치마크 점수에 과도하게 최적화하는 것의 위험성을 경고한다. 벤치마크는 실제 사용자 경험과 결합될 때 가장 큰 가치를 가지며, 모델 선택 시에는 비용, 안전성, 문맥 길이 등 여러 요소를 고려한 <code>파레토 프론티어</code>적 사고가 필요하다.</p>
+<h2>인상적인 지점</h2>
+<ul>
+<li>
+<p><strong><code>LLM-as-a-Judge</code>의 &quot;설명 먼저 출력&quot; (Rationale First) 트릭</strong>: 모델이 점수를 부여하기 전에 먼저 설명을 출력하도록 유도하는 이 간단한 트릭은 <code>사고의 연쇄(chain of thought)</code>와 유사하게 모델이 내부적으로 추론 과정을 거치도록 돕는다. 이는 인간의 의사결정 과정과 비슷하게, 먼저 근거를 마련한 후 결정을 내리는 방식의 중요성을 다시 한번 상기시킨다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=1880s">[31:20]</a>.</p>
+</li>
+<li>
+<p><strong>테디베어 유래 예시로 본 <code>사실성</code> 평가의 복잡성</strong>: 테디베어의 유래에 대한 텍스트에 연도(1920년대 → 1900년대)와 루즈벨트 대통령의 행동(자랑스럽게 쏘려 함 → 거절함)에 대한 두 가지 사실 오류가 있는 예시를 통해, 텍스트의 사실성을 이진 척도로 단순하게 평가하기 어렵다는 점을 명확히 보여준다. 여러 사실로 분해하고 개별 사실을 검증한 후 가중치를 부여하는 다단계 접근법은 복잡한 텍스트 평가에 대한 실용적인 해법을 제시한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=3263s">[54:23]</a>.</p>
+</li>
+<li>
+<p><strong><code>pass hat k</code> vs. <code>pass@k</code></strong>: 에이전트 평가에서 <code>pass@k</code> (k번 시도 중 하나라도 성공할 확률)가 아닌 <code>pass hat k</code> (k번 시도가 <em>모두</em> 성공할 확률)가 중요하다는 주장은 에이전트 시스템의 <code>신뢰성</code>과 <code>일관성</code>이 얼마나 중요한지 강조한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=6222s">[1:43:42]</a>. 실제 서비스 환경에서는 에이전트가 단 한 번이라도 실패하면 사용자 경험에 치명적일 수 있으므로, 모든 시도가 성공할 확률을 측정하는 것이 더 현실적이고 엄격한 평가 기준이 된다.</p>
+</li>
+<li>
+<p><strong>굿하트의 법칙과 벤치마크</strong>: &quot;측정이 목표가 되면 좋은 측정 기준으로서의 가치를 잃는다&quot;는 굿하트의 법칙(Goodhart's Law)은 벤치마크 점수에 맹목적으로 의존하는 것에 대한 강력한 경고이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8fNP4N46RRo&amp;t=6506s">[1:48:26]</a>. 이는 실제 세계의 복잡성을 간과하고 대리 지표에 과도하게 최적화될 경우, 본래의 목표를 놓칠 수 있다는 중요한 교훈을 준다.</p>
+</li>
+</ul>
+
+  </article>
+  <p class="post-end"><a href="https://www.youtube.com/watch?v=8fNP4N46RRo" target="_blank" rel="noopener">YouTube에서 원본 보기 ↗</a> · <a href="./">← 목록으로</a></p>
+</main>
+<footer class="site-foot">
+  <a href="/projects/yt-digest-overview">yt-digest</a> 파이프라인이 자막을 읽고 자동으로 작성한 브리핑입니다. 오류가 있을 수 있으니 중요한 내용은 원본 영상으로 확인하세요.
+</footer>
+</body>
+</html>

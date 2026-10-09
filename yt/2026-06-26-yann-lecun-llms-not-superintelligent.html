@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LLMs are not superintelligent | Yann LeCun and Lex Fridman — 유튜브 다이제스트</title>
+<meta name="description" content="얀 르쿤은 현재의 자기회귀 대규모 언어 모델(LLM)이 물리 세계 이해, 지속적 기억, 추론, 계획 능력 등 지능의 필수 요소를 갖추지 못해 초인적 지능으로 발전할 수 없다고 주장한다. 그는 언어 데이터가 감각 데이터에 비해 대역폭이 낮아 완전한 세계 모델을 구축하기…">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="LLMs are not superintelligent | Yann LeCun and Lex Fridman — 유튜브 다이제스트">
+<meta property="og:description" content="얀 르쿤은 현재의 자기회귀 대규모 언어 모델(LLM)이 물리 세계 이해, 지속적 기억, 추론, 계획 능력 등 지능의 필수 요소를 갖추지 못해 초인적 지능으로 발전할 수 없다고 주장한다. 그는 언어 데이터가 감각 데이터에 비해 대역폭이 낮아 완전한 세계 모델을 구축하기…">
+<meta property="og:image" content="https://i.ytimg.com/vi/NVxcsekcbhs/hqdefault.jpg">
+<meta property="og:type" content="article">
+<link rel="icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+<script>
+// Follow the blog's saved light/dark choice (same origin, same key).
+(function () {
+  var saved = null
+  try { saved = localStorage.getItem("theme") } catch (e) {}
+  var dark = saved ? saved === "dark" : matchMedia("(prefers-color-scheme: dark)").matches
+  document.documentElement.dataset.theme = dark ? "dark" : "light"
+})()
+</script>
+</head>
+<body class="post-page">
+<header class="site-bar">
+  <a class="site-name" href="/">Johnny's</a>
+  <a class="back" href="./">← 유튜브 다이제스트</a>
+</header>
+<main class="post">
+  <a class="hero" href="https://www.youtube.com/watch?v=NVxcsekcbhs" target="_blank" rel="noopener" aria-label="YouTube에서 보기">
+    <img src="https://i.ytimg.com/vi/NVxcsekcbhs/hqdefault.jpg" alt="">
+    <span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+  </a>
+  <h1>LLMs are not superintelligent | Yann LeCun and Lex Fridman</h1>
+  <div class="post-meta"><span>Lex Clips</span><span>26:20</span><span>게시 2024-03-10</span></div>
+  <div class="tags"><a href="./?q=%23yann-lecun">#yann-lecun</a><a href="./?q=%23lex-fridman">#lex-fridman</a><a href="./?q=%23llm-limitations">#llm-limitations</a><a href="./?q=%23ai-future">#ai-future</a><a href="./?q=%23jepa">#jepa</a><a href="./?q=%23world-model">#world-model</a></div>
+  <article>
+<h2>TL;DR</h2>
+<p>얀 르쿤은 현재의 자기회귀 대규모 언어 모델(LLM)이 물리 세계 이해, 지속적 기억, 추론, 계획 능력 등 지능의 필수 요소를 갖추지 못해 초인적 지능으로 발전할 수 없다고 주장한다. 그는 언어 데이터가 감각 데이터에 비해 대역폭이 낮아 완전한 세계 모델을 구축하기 어려우며, 미래 AI는 공동 임베딩 예측 아키텍처(JEPA)와 같이 현실과 상호작용하며 학습하는 방식이 되어야 한다고 강조한다.</p>
+<h2>풀시청 판단</h2>
+<p>이 영상은 AI 분야의 거장인 얀 르쿤(Yann LeCun)이 현재 LLM의 근본적인 한계와 미래 AI가 나아가야 할 방향에 대해 명확한 논리를 제시한다. LLM의 작동 방식, 인간의 학습 과정, 그리고 새로운 AI 아키텍처에 대한 그의 통찰을 얻을 수 있다.</p>
+<p>AI 개발자, 연구자, 혹은 LLM의 현재 능력과 미래 가능성에 대해 깊이 있는 관점을 얻고자 하는 모든 사람에게 유용하다. 특히 AI의 본질적인 지능을 언어만이 아닌 물리 세계와의 상호작용에서 찾는 르쿤의 시각은 시사하는 바가 크다. LLM이 왜 범용인공지능(AGI)으로 가는 최종 경로가 아닌지 이해하고, 그 대안으로 제시되는 접근 방식(JEPA)에 대해 개괄적으로 파악할 수 있다.</p>
+<p>다만, LLM의 한계에 대한 주장은 이미 여러 차례 논의된 내용과 겹치는 부분이 있어 일부 시청자에게는 반복적으로 느껴질 수 있다. 또한, JEPA에 대한 설명은 개념 소개 수준에 머물러 있어, 기술적인 세부 사항에 대한 더 깊은 이해를 원한다면 별도의 자료를 찾아야 한다. 영상은 최신 LLM 기술 발전(예: 멀티모달 LLM의 발전)에 대한 구체적인 분석보다는, 현 LLM의 근본적인 한계에 초점을 맞추고 있다.</p>
+<h2>핵심 내용</h2>
+<h3>현재 LLM은 초인적 지능으로 갈 수 없는 네 가지 이유</h3>
+<p>얀 르쿤은 자기회귀 LLM(예: GPT-4, Llama 2/3)이 초인적 지능으로 나아갈 경로가 아니라고 단언한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=NVxcsekcbhs&amp;t=15s">[0:15]</a>. 그 이유는 지능적인 행동의 필수 특성인 물리 세계 이해, 지속적인 기억, 추론, 그리고 계획 능력이 LLM에는 없거나 매우 원시적인 수준으로만 존재하기 때문이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=NVxcsekcbhs&amp;t=33s">[0:33]</a>. 그는 LLM의 유용성은 인정하지만, 인간 수준의 지능으로 가는 길에는 핵심적인 구성 요소가 빠져 있다고 지적한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=NVxcsekcbhs&amp;t=90s">[1:30]</a>.</p>
+<h3>인간은 언어보다 감각을 통해 더 많은 정보를 학습한다</h3>
+<p>LLM은 인터넷의 모든 공개 텍스트 데이터(약 10^13 토큰, 2*10^13 바이트)로 훈련된다. 이 데이터를 인간이 하루 8시간씩 읽는다면 17만 년이 걸릴 정도로 방대해 보인다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=NVxcsekcbhs&amp;t=120s">[2:00]</a>. 그러나 르쿤은 이마저도 매우 적은 데이터라고 강조한다. 4세 아동의 시각 피질에 4년 동안 도달하는 정보량은 약 10^15 바이트로, LLM이 평생 학습하는 텍스트 데이터보다 훨씬 많다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=NVxcsekcbhs&amp;t=151s">[2:31]</a>. 이는 우리가 언어보다 감각 입력, 특히 시각을 통해 훨씬 더 많은 정보를 받아들이며, 대부분의 지식은 언어가 아닌 현실 세계와의 관찰 및 상호작용을 통해 습득됨을 시사한다.</p>
+<h3>언어만으로는 '현실 기반' 세계 모델 구축이 불가능하다</h3>
+<p>르쿤은 지능이 현실에 기반해야만 나타날 수 있다고 주장한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=NVxcsekcbhs&amp;t=289s">[4:49]</a>. 언어는 우리의 지각과 정신 모델을 매우 근사하게 표현할 뿐이며, 물리 세계는 언어로 표현할 수 있는 것보다 훨씬 풍부하고 복잡하다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=NVxcsekcbhs&amp;t=304s">[5:04]</a>. 그는 &quot;모라베츠의 역설&quot;(Maravec Paradox)을 인용하며, 컴퓨터는 체스 게임이나 적분 계산 같은 고수준 작업을 쉽게 처리하지만, 자동차 운전이나 식기세척기 비우기처럼 10대 아동도 쉽게 배우는 일상적인 물리 작업을 수행하기는 훨씬 어렵다고 설명한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=NVxcsekcbhs&amp;t=400s">[6:40]</a>. LLM이 변호사 시험에 합격할 수 있을지는 몰라도, 물리 세계에 대한 직관적인 이해가 부족하기 때문에 이러한 일상 작업을 학습하는 것은 불가능하다는 것이다.</p>
+<h3>LLM의 '자기회귀 예측' 학습 방식의 근본적 한계</h3>
+<p>LLM은 텍스트의 다음 단어(또는 토큰)를 예측하는 방식으로 훈련된다. 즉, 이전 단어들을 기반으로 다음에 올 확률이 높은 단어의 분포를 계산하고, 거기서 샘플링하여 단어를 하나씩 생성하는 '자기회귀 예측' 방식이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=NVxcsekcbhs&amp;t=596s">[9:56]</a>. 르쿤은 인간의 사고 방식이 이와 다르다고 지적한다. 우리(특히 이중언어 구사자)는 말하려는 내용을 먼저 언어와 무관한 추상적인 개념으로 계획하고 생각한 후에 이를 언어로 표현한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=NVxcsekcbhs&amp;t=694s">[11:34]</a>. LLM은 이러한 계획 과정 없이 즉각적으로 다음 토큰을 토해내는 '무의식적인 자동 반응'에 가깝다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=NVxcsekcbhs&amp;t=860s">[14:20]</a>. 언어는 세계에 대한 정보를 표현하기에 '저대역폭(low bandwidth)' 매체이므로, 언어 예측만으로는 깊이 있는 세계 모델을 구축할 수 없다.</p>
+<h3>비디오 생성 모델의 실패가 보여주는 세계 모델 구축의 어려움</h3>
+<p>세계 모델은 세계의 현재 상태와 잠재적 행동의 결과를 예측하는 능력을 포함한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=NVxcsekcbhs&amp;t=978s">[16:18]</a>. 르쿤은 지난 10년간 비디오 예측을 통해 세계 모델을 구축하려는 시도가 실패했다고 말한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=NVxcsekcbhs&amp;t=1021s">[17:01]</a>. 텍스트는 이산적이라 다음 토큰의 분포를 예측하기 쉽지만, 비디오는 고차원적이고 연속적이어서 모든 가능한 프레임의 분포를 예측하기가 매우 어렵다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=NVxcsekcbhs&amp;t=1081s">[18:01]</a>. 예를 들어, 방을 촬영할 때 벽의 그림이나 소파의 질감, 카펫의 무늬 같은 세부 정보를 모두 예측할 수는 없다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=NVxcsekcbhs&amp;t=1122s">[18:42]</a>. 잠재 변수(latent variable)를 활용해 지각되지 않은 정보를 보충하려는 시도도 실패로 돌아갔다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=NVxcsekcbhs&amp;t=1152s">[19:12]</a>.</p>
+<h3>자기 지도 학습에서의 '재구성 실패'와 '붕괴(collapse)' 문제</h3>
+<p>이미지나 비디오의 손상된 부분을 재구성하여 좋은 표현을 학습하려는 자기 지도 학습 방식(예: MAE, 노이즈 제거 오토인코더)은 효과적이지 못했다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=NVxcsekcbhs&amp;t=1275s">[21:15]</a>. 이 방식으로는 유용하고 일반화 가능한 특징(feature)을 얻기 어려웠다. 만약 오토인코더가 완벽하게 이미지를 재구성할 수 있다고 해도, 입력값을 무시하고 항상 동일한 표현을 출력하는 '붕괴(collapse)' 현상이 발생할 수 있기 때문이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=NVxcsekcbhs&amp;t=1476s">[24:36]</a>. 이를 막기 위해 도입된 '대조 학습(contrastive learning)'은 유사한 것들은 가깝게, 다른 것들은 멀게 배치하여 붕괴를 피하지만, '부정 샘플(negative samples)'이 필요하다는 한계가 있다.</p>
+<h2>주요 통찰·논점</h2>
+<h3>인간 지능의 핵심은 '현실 기반의 세계 모델' 구축 능력이다</h3>
+<p>얀 르쿤은 물리 세계와의 상호작용이 언어를 통한 학습보다 훨씬 중요하다고 강조한다. 그는 지능이 단순히 텍스트 데이터를 처리하는 것을 넘어, 현실 세계에서 감각 입력을 통해 세계를 이해하고, 자신의 행동이 세계에 미칠 영향을 예측하며 계획을 세우는 '현실 기반의 세계 모델'을 구축하는 능력에서 비롯된다고 본다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=NVxcsekcbhs&amp;t=354s">[5:54]</a>. 현재 LLM은 이 능력이 근본적으로 결여되어 있어 초인적 지능에 도달하기 어렵다고 설명한다.</p>
+<h3>LLM의 '즉각적 반응'과 인간의 '계획된 사고'의 차이</h3>
+<p>LLM은 다음 토큰을 예측하고 즉각적으로 생성하는 '자기회귀' 방식으로 작동한다. 이는 비유적으로 말해, 인간의 무의식적이고 자동적인 반응과 유사하다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=NVxcsekcbhs&amp;t=860s">[14:20]</a>. 반면, 인간은 어떤 말을 하기 전에 언어와 독립적인 '추상적 수준의 표현'을 통해 먼저 생각을 계획한다. 예를 들어, 수학적 개념을 생각하거나 목공예품을 만들 계획을 세울 때 언어가 아닌 정신 모델을 사용한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=NVxcsekcbhs&amp;t=795s">[13:15]</a>. 이처럼 깊이 있는 계획 능력이 LLM에는 없다는 것이 르쿤의 핵심 지적이다.</p>
+<h3>JEPA: 자기 지도 학습에서 붕괴를 피하는 새로운 길</h3>
+<p>르쿤은 재구성 기반 자기 지도 학습의 실패와 붕괴 문제를 해결하기 위한 대안으로 '공동 임베딩 예측 아키텍처(Joint Embedding Predictive Architecture, JEPA)'를 제시한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=NVxcsekcbhs&amp;t=1370s">[22:50]</a>. JEPA는 이미지의 손상된 버전과 완전한 버전을 각각 인코더에 통과시킨 후, 손상된 입력의 표현으로부터 완전한 입력의 표현을 예측하도록 훈련하는 방식이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=NVxcsekcbhs&amp;t=1410s">[23:30]</a>. 과거에는 대조 학습으로 붕괴를 피했지만, 최근 3~4년 동안에는 부정 샘플 없이 붕괴를 방지하는 '비대조(non-contrastive) 방식'들이 여럿 등장하여 이 분야 연구를 활성화하고 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=NVxcsekcbhs&amp;t=1537s">[25:37]</a>.</p>
+<h2>인상적인 지점</h2>
+<ul>
+<li>&quot;4세 아동의 시각 피질에 4년 동안 도달하는 정보량은 약 10^15 바이트이다. LLM이 17만 년 동안 읽어야 하는 텍스트 데이터(2*10^13 바이트)보다 훨씬 많다.&quot; <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=NVxcsekcbhs&amp;t=186s">[3:06]</a> — 인간의 감각 데이터 처리량이 LLM의 언어 데이터 처리량을 압도한다는 점을 수치로 명확히 보여준다.</li>
+<li>&quot;LLM은 변호사 시험에 합격할 수 있을지 몰라도, 17세가 20시간 만에 운전을 배우거나 10세가 한 번에 식기세척기 비우는 것을 배우는 것은 못 한다.&quot; <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=NVxcsekcbhs&amp;t=431s">[7:11]</a> — '모라베츠의 역설'을 구체적인 예시로 들어 LLM의 한계를 직관적으로 설명한다.</li>
+<li>&quot;우리(이중언어 구사자)는 말하려는 내용을 먼저 언어와 무관한 추상적인 개념으로 생각하고 계획한 후에 이를 언어로 표현한다.&quot; <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=NVxcsekcbhs&amp;t=694s">[11:34]</a> — 인간의 사고 과정이 LLM의 단순한 토큰 예측과 어떻게 다른지 명확하게 대비시킨다.</li>
+<li>&quot;LLM은 무의식적인 자동 반응과 같다. 주의가 산만할 때 질문을 받으면 답을 생각할 시간 없이 자동적으로 반응하는 것과 비슷하다.&quot; <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=NVxcsekcbhs&amp;t=860s">[14:20]</a> — LLM의 작동 방식을 인간 행동에 비유하여 이해하기 쉽게 설명한다.</li>
+</ul>
+
+  </article>
+  <p class="post-end"><a href="https://www.youtube.com/watch?v=NVxcsekcbhs" target="_blank" rel="noopener">YouTube에서 원본 보기 ↗</a> · <a href="./">← 목록으로</a></p>
+</main>
+<footer class="site-foot">
+  <a href="/projects/yt-digest-overview">yt-digest</a> 파이프라인이 자막을 읽고 자동으로 작성한 브리핑입니다. 오류가 있을 수 있으니 중요한 내용은 원본 영상으로 확인하세요.
+</footer>
+</body>
+</html>

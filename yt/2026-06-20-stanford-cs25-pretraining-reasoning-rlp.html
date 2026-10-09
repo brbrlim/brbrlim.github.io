@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stanford CS25: From Next-Token Prediction to Next-Generation Intelligence — 유튜브 다이제스트</title>
+<meta name="description" content="미스트랄(직전엔 엔비디아 네모트론 팀 리드) 소속 슈라마이 프라부모예가 사전학습의 미래를 다룬 강연이다. 핵심 주장은 추론 능력을 사후처리(SFT·RL)에서 덧붙이지 말고 사전학습 단계부터 심어야 더 튼튼한 기반이 된다는 것. 같은 데이터를 받은 네 모델(엔비디아 GP…">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="Stanford CS25: From Next-Token Prediction to Next-Generation Intelligence — 유튜브 다이제스트">
+<meta property="og:description" content="미스트랄(직전엔 엔비디아 네모트론 팀 리드) 소속 슈라마이 프라부모예가 사전학습의 미래를 다룬 강연이다. 핵심 주장은 추론 능력을 사후처리(SFT·RL)에서 덧붙이지 말고 사전학습 단계부터 심어야 더 튼튼한 기반이 된다는 것. 같은 데이터를 받은 네 모델(엔비디아 GP…">
+<meta property="og:image" content="https://i.ytimg.com/vi/e_H_tkpCAK4/hqdefault.jpg">
+<meta property="og:type" content="article">
+<link rel="icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+<script>
+// Follow the blog's saved light/dark choice (same origin, same key).
+(function () {
+  var saved = null
+  try { saved = localStorage.getItem("theme") } catch (e) {}
+  var dark = saved ? saved === "dark" : matchMedia("(prefers-color-scheme: dark)").matches
+  document.documentElement.dataset.theme = dark ? "dark" : "light"
+})()
+</script>
+</head>
+<body class="post-page">
+<header class="site-bar">
+  <a class="site-name" href="/">Johnny's</a>
+  <a class="back" href="./">← 유튜브 다이제스트</a>
+</header>
+<main class="post">
+  <a class="hero" href="https://www.youtube.com/watch?v=e_H_tkpCAK4" target="_blank" rel="noopener" aria-label="YouTube에서 보기">
+    <img src="https://i.ytimg.com/vi/e_H_tkpCAK4/hqdefault.jpg" alt="">
+    <span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+  </a>
+  <h1>Stanford CS25: From Next-Token Prediction to Next-Generation Intelligence</h1>
+  <div class="post-meta"><span>Stanford Online</span><span>57:56</span><span>게시 2026-05-11</span></div>
+  <div class="tags"><a href="./?q=%23ai">#ai</a><a href="./?q=%23pretraining">#pretraining</a><a href="./?q=%23reasoning">#reasoning</a><a href="./?q=%23rlp">#rlp</a><a href="./?q=%23mistral">#mistral</a><a href="./?q=%23nvidia">#nvidia</a><a href="./?q=%23shrimai-prabhumoye">#shrimai-prabhumoye</a></div>
+  <article>
+<h2>TL;DR</h2>
+<p>미스트랄(직전엔 엔비디아 네모트론 팀 리드) 소속 슈라마이 프라부모예가 사전학습의 미래를 다룬 강연이다. 핵심 주장은 추론 능력을 사후처리(SFT·RL)에서 덧붙이지 말고 사전학습 단계부터 심어야 더 튼튼한 기반이 된다는 것. 같은 데이터를 받은 네 모델(엔비디아 GPU 코드네임 Pascal·Volta·Ampere·Hopper)이 세 가지 학습 전략에 따라 얼마나 갈리는지를 축으로, 2단계 사전학습·추론 선투입(front-loading)·강화학습을 사전학습 목적함수로 쓰는 RLP 세 연구를 구체 수치와 함께 설명한다.</p>
+<h2>풀시청 판단</h2>
+<p>사전학습 레시피를 데이터·알고리즘 관점에서 진지하게 파는 사람에게는 풀시청 가치가 높다. 특히 &quot;추론은 사전학습부터&quot;라는 명제를 통제 실험과 벤치마크 수치로 입증하는 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=e_H_tkpCAK4&amp;t=752s">[12:32]</a> 이후 구간이 알맹이다. 모델을 직접 학습시키지 않는 사람이라도 네 아이 비유와 RLP의 information gain 리워드 아이디어(<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=e_H_tkpCAK4&amp;t=2075s">[34:35]</a>)는 한 번 들어둘 가치가 있다. 반대로 LLM 학습 파이프라인에 관심이 없다면 전반부 배경(<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=e_H_tkpCAK4&amp;t=415s">[6:55]</a> 데이터 고갈 추세)만 훑어도 충분하다. 마지막 Q&amp;A(<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=e_H_tkpCAK4&amp;t=2956s">[49:16]</a>~)는 실무 디테일(품질 정의, 반복수 추정)이 궁금할 때만.</p>
+<h2>핵심 내용</h2>
+<p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=e_H_tkpCAK4&amp;t=217s">[3:37]</a> 강연 전체를 관통하는 비유부터 깔고 시작한다. 네 모델의 이름이 엔비디아 GPU 세대(Pascal·Volta·Ampere·Hopper)이고, 셋은 정확히 세 전략에 매핑된다 — curriculum(데이터를 보는 순서), front-loading reasoning(추론 데이터를 일찍 쓰기), learning through thinking(관찰만 하지 말고 생각하며 배우기). Pascal은 셋 다 안 하고, Hopper는 셋 다 한다. 강연 내내 이 넷의 성능 차이로 각 기법의 효과를 입증한다.</p>
+<p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=e_H_tkpCAK4&amp;t=415s">[6:55]</a> 첫 번째 연구는 2단계 사전학습이다. Epoch AI 추정에 따르면 2030년경 LLM이 인간이 생성한 데이터의 95% 이상을 소진하는데, GPT-3(2021, 수천억 토큰)에서 Llama 3(2024, 수십조 토큰)로 데이터 소비가 폭증한 곡선을 짚는다. 데이터가 한정된 상황에서 같은 데이터로 더 좋은 모델을 뽑으려면 ① 소스별 품질 추정(분류기로 각 데이터 소스에 품질 점수 부여) ② 반복수 추정(고품질 소스를 몇 번 반복해야 수익이 체감되기 전인지) ③ 순서 — 즉 1단계는 웹 크롤을 포함한 다양성에, 2단계는 math·Wikipedia·code 같은 고품질 데이터에만 집중하는 커리큘럼이 필요하다. 결과적으로 2단계를 따른 Volta가 무작위로 읽은 Pascal 대비 평균 17% 앞섰고, 같은 최적 데이터 혼합을 순서 없이 줄 때보다도 3.4% 더 나았다.</p>
+<p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=e_H_tkpCAK4&amp;t=752s">[12:32]</a> 두 번째 연구가 강연의 핵심인 추론 선투입(front-loading reasoning)이다. 통념은 사전학습=지식 습득, SFT=추론 형식 흉내, RL=진짜 추론으로 단계가 나뉘는데, 이렇게 추론을 맨 뒤에 사후적으로 붙이면 약한 기반이 된다는 게 화자의 진단이다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=e_H_tkpCAK4&amp;t=248s">[4:08]</a> 미국 교육의 AP 수업에 빗댄다 — 고등학교 때 대학 수준 과목을 미리 들으면 고등학교도 대학도 둘 다 잘하게 된다. 실증 결과가 인상적이다. 추론 데이터를 사전학습에 넣은 Ampere가 넣지 않은 Volta 대비 사전학습 직후 16% 앞섰고, SFT를 거친 뒤에도 9.3% 앞섰으며(이득이 씻겨나가지 않음), 전 단계를 다 거친 최종 시점엔 19%, 특히 AIME 같은 고난도 수학에선 39%까지 격차가 오히려 벌어졌다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=e_H_tkpCAK4&amp;t=1130s">[18:50]</a> &quot;그럼 SFT를 2배로 돌리면 따라잡지 않냐&quot;는 반론도 막는다 — 추론 없이 사전학습한 모델은 SFT epoch를 2배 줘도 못 따라잡았고(여전히 12% 뒤짐), 데이터 예산을 고정해도 일부를 사전학습에 쓰는 쪽이 늘 나았다. 또 하나의 결과는 고품질이지만 양이 적은 추론 데이터를 섞으면 사전학습 직후엔 효과가 없어 보이다가도 SFT 후에 숨은 이득(4.25%)이 풀린다는 것.</p>
+<p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=e_H_tkpCAK4&amp;t=1686s">[28:06]</a> 세 번째가 RLP(Reinforcement Learning as a Pre-training objective)다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=e_H_tkpCAK4&amp;t=1694s">[28:14]</a> &quot;다리 만들기&quot; 비유로 연다 — 레오는 대충 쌓아도 장난감 차가 건너는 다리를 만들고, 볼트는 역대 모든 다리를 분석해 완벽한 현수교를 짓지만 너무 작아 차가 못 지나간다. 직접 해보며 배우는 것과 관찰만 하는 것의 차이다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=e_H_tkpCAK4&amp;t=1890s">[31:30]</a> 메커니즘이 핵심인데, 표준 사전학습은 &quot;광합성은 …&quot; 문맥에서 다음 토큰 'sunlight'를 곧바로 예측하지만, RLP는 토큰을 예측하기 전에 먼저 생각(thought)을 생성하고 그 생각을 조건으로 토큰을 예측한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=e_H_tkpCAK4&amp;t=2075s">[34:35]</a> 리워드는 information gain — 생각을 포함한 예측 확률의 로그에서 생각 없는 기준 모델의 예측 확률 로그를 뺀 값이다. 생각이 실제로 다음 토큰 예측을 개선할 때만 양수가 되므로, 정답·오답을 0/1로 주는 기존 방식과 달리 dense(연속값)하고, 외부 검증기가 필요 없으며, 문서의 어느 위치에나 적용할 수 있다. 기준 모델은 지수이동평균으로 지연 업데이트해 리워드 해킹을 완화한다.</p>
+<p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=e_H_tkpCAK4&amp;t=2256s">[37:36]</a> 결과를 보면 Qwen3 1.7B에서 RLP가 기본 모델 대비 19% 앞섰고, 같은 토큰으로 그냥 다음 토큰 예측을 더 돌린 것보다도 17% 나았다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=e_H_tkpCAK4&amp;t=2294s">[38:14]</a> 연산량을 맞춘 비교(다음 토큰 예측에 35배 더 많은 데이터를 줘도)에서조차 RLP가 14% 앞섰다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=e_H_tkpCAK4&amp;t=2442s">[40:42]</a> 더 큰 Nemotron Nano 12B(하이브리드 Mamba2 구조)에서는 2,500억 토큰만 RLP로 추가한 모델이 20조 토큰 기준 모델을 35% 앞섰다 — 2,000억 토큰을 덜 보고도. RPT 같은 선행 연구 대비로도 4% 나은데, 그쪽은 외부 검증기와 희소·이진 리워드를 써서 추론 과정 자체를 무시하기 때문이다.</p>
+<h2>주요 통찰·논점</h2>
+<p>세 전략을 다 쓴 Hopper가 Pascal 대비 최대 60% 상대 향상을 보였다는 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=e_H_tkpCAK4&amp;t=2798s">[46:38]</a>의 종합 수치가 강연의 결론이다. 핵심 메시지는 &quot;데이터가 고갈되는 시대에 같은 토큰을 더 효율적으로 쓰는 길은 추론을 학습 방식의 새로운 축으로 삼는 것&quot;이라는 점이다.</p>
+<p>Q&amp;A에서 나온 정정 하나가 실무적으로 중요하다 — RLP는 &quot;고품질 데이터에만&quot; 적용하는 게 아니라 웹 크롤을 포함한 사전학습 혼합 위에서, 토큰을 무작위로 골라 적용한다(<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=e_H_tkpCAK4&amp;t=3335s">[55:35]</a> 부근). 엔트로피 기반의 정교한 선별을 하지 않는다는 점이 오히려 강점이다.</p>
+<p>데이터 품질 정의에 대한 답도 실용적이다(<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=e_H_tkpCAK4&amp;t=3181s">[53:01]</a>). 수학은 명확하지만 일반 웹 크롤은 허깅페이스의 fine-web-edu 분류기(문서의 교육적 가치를 1~5로 점수화)를 쓰는 게 가장 보편적이고, 엔비디아도 이를 차용했다고 한다.</p>
+<h2>인상적인 지점</h2>
+<p>네 아이의 이름이 단순한 비유가 아니라 엔비디아 GPU 코드네임이면서 동시에 세 학습 전략의 조합을 정확히 매핑한 장치라는 점이 강연 내내 설명을 붙들어준다. &quot;비싼 강화학습을 맨 뒤가 아니라 사전학습으로 끌어온다&quot;는 RLP의 발상 전환, 그리고 그것을 정답 검증 없이 information gain만으로 dense하게 보상한다는 설계가 이 강연에서 가장 가져갈 만한 아이디어다.</p>
+
+  </article>
+  <p class="post-end"><a href="https://www.youtube.com/watch?v=e_H_tkpCAK4" target="_blank" rel="noopener">YouTube에서 원본 보기 ↗</a> · <a href="./">← 목록으로</a></p>
+</main>
+<footer class="site-foot">
+  <a href="/projects/yt-digest-overview">yt-digest</a> 파이프라인이 자막을 읽고 자동으로 작성한 브리핑입니다. 오류가 있을 수 있으니 중요한 내용은 원본 영상으로 확인하세요.
+</footer>
+</body>
+</html>

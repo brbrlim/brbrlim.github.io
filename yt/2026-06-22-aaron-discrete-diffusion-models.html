@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stanford CS236: Deep Generative Models I 2023 I Lecture 18 - Diffusion Models for Discrete Data — 유튜브 다이제스트</title>
+<meta name="description" content="이 강의는 텍스트와 같은 이산 데이터를 생성하는 확산 모델의 최신 연구를 다룬다. 기존 생성 모델이 연속 데이터에 특화된 한계를 지적하며, 이산 공간에서 log p(x)의 기울기 역할을 하는 '콘크리트 스코어' 개념을 도입한다. 스코어 엔트로피 손실 함수와 이산 확산…">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="Stanford CS236: Deep Generative Models I 2023 I Lecture 18 - Diffusion Models for Discrete Data — 유튜브 다이제스트">
+<meta property="og:description" content="이 강의는 텍스트와 같은 이산 데이터를 생성하는 확산 모델의 최신 연구를 다룬다. 기존 생성 모델이 연속 데이터에 특화된 한계를 지적하며, 이산 공간에서 log p(x)의 기울기 역할을 하는 '콘크리트 스코어' 개념을 도입한다. 스코어 엔트로피 손실 함수와 이산 확산…">
+<meta property="og:image" content="https://i.ytimg.com/vi/mCaRNnEnYwA/hqdefault.jpg">
+<meta property="og:type" content="article">
+<link rel="icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+<script>
+// Follow the blog's saved light/dark choice (same origin, same key).
+(function () {
+  var saved = null
+  try { saved = localStorage.getItem("theme") } catch (e) {}
+  var dark = saved ? saved === "dark" : matchMedia("(prefers-color-scheme: dark)").matches
+  document.documentElement.dataset.theme = dark ? "dark" : "light"
+})()
+</script>
+</head>
+<body class="post-page">
+<header class="site-bar">
+  <a class="site-name" href="/">Johnny's</a>
+  <a class="back" href="./">← 유튜브 다이제스트</a>
+</header>
+<main class="post">
+  <a class="hero" href="https://www.youtube.com/watch?v=mCaRNnEnYwA" target="_blank" rel="noopener" aria-label="YouTube에서 보기">
+    <img src="https://i.ytimg.com/vi/mCaRNnEnYwA/hqdefault.jpg" alt="">
+    <span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+  </a>
+  <h1>Stanford CS236: Deep Generative Models I 2023 I Lecture 18 - Diffusion Models for Discrete Data</h1>
+  <div class="post-meta"><span>Stanford Online</span><span>1:00:02</span><span>게시 2024-05-06</span></div>
+  <div class="tags"><a href="./?q=%23diffusion-models">#diffusion-models</a><a href="./?q=%23discrete-data">#discrete-data</a><a href="./?q=%23text-generation">#text-generation</a><a href="./?q=%23generative-ai">#generative-ai</a><a href="./?q=%23score-matching">#score-matching</a><a href="./?q=%23autoregressive-models">#autoregressive-models</a><a href="./?q=%23stanford">#stanford</a><a href="./?q=%23deep-learning">#deep-learning</a></div>
+  <article>
+<h2>TL;DR</h2>
+<p>이 강의는 텍스트와 같은 이산 데이터를 생성하는 확산 모델의 최신 연구를 다룬다. 기존 생성 모델이 연속 데이터에 특화된 한계를 지적하며, 이산 공간에서 <code>log p(x)</code>의 기울기 역할을 하는 '콘크리트 스코어' 개념을 도입한다. 스코어 엔트로피 손실 함수와 이산 확산 과정을 통해 모델을 학습 및 샘플링한 결과, 이 방법론이 생성 품질, 속도, 가능도(혼란도) 면에서 자기회귀 모델을 능가하며, 특정 위치에서 텍스트를 채워 넣는 등 새로운 제어 가능성을 제공한다.</p>
+<h2>풀시청 판단</h2>
+<ul>
+<li><strong>가치</strong>: 높음. 이산 데이터, 특히 텍스트 생성을 위한 최신 확산 모델 연구 동향과 핵심 개념을 심층적으로 이해하려는 사람에게 매우 유용하다. 기존 자기회귀 모델의 한계를 극복하는 새로운 패러다임에 대한 명확한 설명을 제공한다.</li>
+<li><strong>대상</strong>: 심층 생성 모델(GAN, VAE, 확산 모델)에 대한 기본적인 이해가 있는 컴퓨터 과학 또는 기계 학습 분야의 학생, 연구원, 엔지니어. 특히 자연어 처리 및 생물정보학 분야에 관심 있는 사람들에게는 필수적인 내용이 담겨 있다.</li>
+<li><strong>얻는 것</strong>: 연속 공간 모델을 이산 공간에 적용할 때의 근본적인 어려움, 자기회귀 모델의 한계, 스코어 매칭을 이산 공간으로 확장한 콘크리트 스코어 및 스코어 엔트로피의 개념, 이산 확산 모델의 작동 방식, 그리고 자기회귀 모델을 능가하는 성능과 새로운 제어 가능성을 얻는 방법을 배울 수 있다.</li>
+<li><strong>약점/한계</strong>:
+<ul>
+<li>내용이 매우 기술적이고 수학적이어서 확률 모델, 미분, 선형대수 등에 대한 사전 지식이 부족하면 따라가기 어려울 수 있다.</li>
+<li>시간 제약 상 일부 수학적 증명이나 세부 사항은 빠르게 넘어가거나 생략한다.</li>
+<li>2023년 강의이므로 이후에 나온 최신 연구는 다루지 않는다.</li>
+<li>실제 코드 구현이나 더 자세한 실습 내용은 포함되지 않는다.</li>
+</ul>
+</li>
+<li><strong>일부만 본다면</strong>:
+<ul>
+<li>이산 데이터 모델링의 중요성 및 어려움 (<code>### 이산 데이터 모델링은 대규모 언어 모델, 생명 과학, 이미지 분야에서 필수적이다</code>)</li>
+<li>자기회귀 모델의 강점과 약점 (<code>### 자기회귀 모델은 이산 데이터에 효과적이지만, 샘플링 드리프트와 비병렬성 등의 한계가 있다</code>)</li>
+<li>확산 모델의 이산 공간 확장을 위한 핵심 개념 (<code>### 이산 공간에서의 스코어 매칭: 콘크리트 스코어와 스코어 엔트로피</code>)</li>
+<li>이산 확산 모델의 학습 및 샘플링 방식 (<code>### 콘크리트 스코어를 이용한 샘플링: 이산 확산 과정</code>)</li>
+<li>성능 비교 결과 (<code>### 자기회귀 모델을 넘어서는 이산 확산 모델의 성능</code>)</li>
+</ul>
+</li>
+</ul>
+<h2>핵심 내용</h2>
+<h3>대부분의 생성 모델은 연속 데이터에 특화되어 이산 데이터에 적용하기 어렵다</h3>
+<p>대부분의 심층 생성 모델(예: GAN, VAE, 확산 모델)은 연속 데이터 공간을 모델링하도록 설계된다. 이미지의 픽셀 값처럼 연속적인 데이터는 점들 사이를 자연스럽게 보간할 수 있다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=mCaRNnEnYwA&amp;t=100s">[1:40]</a> 그러나 텍스트 토큰이나 DNA 서열처럼 명확한 분리된 값을 가지는 이산 데이터 공간에서는 데이터 포인트 간의 '중간' 값이 의미가 없다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=mCaRNnEnYwA&amp;t=179s">[2:59]</a> 이러한 근본적인 차이는 이산 데이터를 효과적으로 모델링하는 것을 훨씬 더 어려운 문제로 만든다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=mCaRNnEnYwA&amp;t=225s">[3:45]</a></p>
+<h3>이산 데이터 모델링은 대규모 언어 모델, 생명 과학, 이미지 분야에서 필수적이다</h3>
+<p>이산 데이터 모델링은 여러 중요한 분야에서 필수적이다. 첫째, ChatGPT 같은 대규모 언어 모델은 근본적으로 이산적인 토큰 시퀀스로 구성되며, 언어 모델 사전 학습은 인터넷 규모의 데이터에 이산 확률 모델을 맞추는 과정이다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=mCaRNnEnYwA&amp;t=244s">[4:04]</a> 둘째, DNA, 분자, 단백질과 같은 생명 과학 데이터도 이산적이다. 이러한 이산 데이터를 생성하는 모델은 새로운 DNA 서열이나 약물 분자를 설계하는 데 큰 영향을 미칠 수 있다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=mCaRNnEnYwA&amp;t=324s">[5:24]</a> 셋째, 심지어 이미지 생성 모델에서도 VQVAE나 VQGAN 같은 백본은 이산 잠재 공간 표현을 사용하며, 최근 연구는 연속적 개념을 제거하고 이산적 구성 요소만 사용할 때 성능이 개선됨을 보여준다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=mCaRNnEnYwA&amp;t=354s">[5:54]</a></p>
+<h3>기존 연속 모델을 이산 데이터에 적용하는 것은 미분 가능성과 희소성 문제에 부딪힌다</h3>
+<p>연속 공간을 위해 설계된 모델을 이산 데이터에 단순히 적용하기는 어렵다. 예를 들어, 흐름 기반 모델은 데이터 분포를 변환하기 위해 변수 변환 공식을 사용하지만, 이산 공간에서는 이 공식이 잘 맞지 않으며 기본 분포가 데이터 분포만큼 표현력이 좋아야 해 학습이 어렵다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=mCaRNnEnYwA&amp;t=449s">[7:29]</a> GAN의 경우, 생성자가 이산 값을 출력하도록 설정하면, 이산 값으로는 기울기 역전파(backpropagation)가 불가능하여 학습이 진행되지 않는다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=mCaRNnEnYwA&amp;t=516s">[8:36]</a> 또한, 토큰을 연속 공간에 임베딩한 후 생성하고 가장 가까운 값으로 이산화하는 방식은 이미지에는 어느 정도 작동하지만, 토큰의 고차원 임베딩 공간은 대부분 비어 있어 가장 가까운 이웃으로 반올림하는 것이 항상 의미 있는 결과를 낳지 못한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=mCaRNnEnYwA&amp;t=682s">[11:22]</a> 이러한 접근 방식은 자기회귀 모델보다 성능이 떨어지고 느리다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=mCaRNnEnYwA&amp;t=761s">[12:41]</a></p>
+<h3>자기회귀 모델은 이산 데이터에 효과적이지만, 샘플링 드리프트와 비병렬성 등의 한계가 있다</h3>
+<p>자기회귀 모델, 특히 트랜스포머는 이산 데이터 모델링에서 지배적인 패러다임이다. 각 다음 토큰의 확률을 계산하므로 계산이 확장 가능하며, 이론적으로 모든 시퀀스 확률을 표현할 수 있다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=mCaRNnEnYwA&amp;t=885s">[14:45]</a> 또한, 왼쪽에서 오른쪽으로 텍스트를 생성하는 방식은 자연어에 대한 좋은 귀납적 편향으로 작용한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=mCaRNnEnYwA&amp;t=927s">[15:27]</a> 그러나 자기회귀 모델은 여러 단점을 가진다. 샘플링 시 오류가 누적되어 생성된 시퀀스가 원래 의도에서 벗어나는 '샘플링 드리프트' 현상이 발생할 수 있다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=mCaRNnEnYwA&amp;t=954s">[15:54]</a> DNA 서열처럼 순서가 중요하지 않은 태스크에는 적합하지 않으며, 인과적 어텐션 마스크와 같은 아키텍처적 제약이 필요하다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=mCaRNnEnYwA&amp;t=982s">[16:22]</a> 결정적으로 토큰을 하나씩 순차적으로 생성해야 하므로 속도가 느리다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=mCaRNnEnYwA&amp;t=1021s">[17:01]</a> 또한, 모든 가능한 시퀀스에 대한 확률을 합산해야 하는 정규화 상수의 문제로 인해 <code>p(x)</code>를 직접 모델링하는 것은 불가능하다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=mCaRNnEnYwA&amp;t=1052s">[17:32]</a></p>
+<h3>이산 공간에서의 스코어 매칭: 콘크리트 스코어와 스코어 엔트로피</h3>
+<p>연속 공간의 스코어 매칭은 <code>log p(x)</code>의 기울기를 모델링하여 정규화 상수의 문제를 회피한다. 이를 이산 공간으로 확장하는 것이 목표다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=mCaRNnEnYwA&amp;t=1072s">[17:52]</a> 이산 공간에서 기울기의 일반화는 '유한 차분'이다. 이를 <code>log p(x)</code>에 적용하면, 이산 스코어 함수는 모든 이웃 <code>y</code>에 대한 <code>p(y)/p(x) - 1</code>의 모음이 된다. 여기서 핵심은 '콘크리트 스코어'라 불리는 <code>p(y)/p(x)</code> 비율이다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=mCaRNnEnYwA&amp;t=1174s">[19:34]</a> 모든 이웃에 대한 이 비율을 모델링하는 것은 계산적으로 너무 비싸므로, 대신 오직 한 위치에서만 다른 두 시퀀스 간의 확률 비율을 모델링하여 계산 복잡도를 <code>O(ND)</code>로 줄인다 (여기서 N은 어휘 크기, D는 시퀀스 길이). <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=mCaRNnEnYwA&amp;t=1266s">[21:06]</a> 이는 비자기회귀적 BERT 스타일 트랜스포머와 같은 시퀀스-투-시퀀스 신경망으로 구현할 수 있다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=mCaRNnEnYwA&amp;t=1331s">[22:11]</a> 콘크리트 스코어를 학습하기 위해 '스코어 엔트로피' 손실 함수를 사용하며, 이 함수를 최소화하면 신경망이 <code>p(y)/p(x)</code>의 참값을 회복한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=mCaRNnEnYwA&amp;t=1417s">[23:37]</a> 그러나 <code>p(y)/p(x)</code>의 참값은 알 수 없으므로, '노이즈 제거 스코어 엔트로피(DSE)' 손실 함수를 사용하여 이 문제를 해결한다. DSE는 데이터 분포 <code>p(x)</code>를 다루기 쉬운 기본 분포 <code>p0</code>와 전이 커널 <code>p(x|x0)</code>의 컨볼루션으로 가정하여, 계산 가능한 <code>p(y|x0)/p(x|x0)</code> 비율을 사용하도록 손실 함수를 변형한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=mCaRNnEnYwA&amp;t=1573s">[26:13]</a> 이를 통해 손실 함수의 계산이 효율적이고 확장 가능해진다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=mCaRNnEnYwA&amp;t=1686s">[28:06]</a></p>
+<h3>콘크리트 스코어를 이용한 샘플링: 이산 확산 과정</h3>
+<p>콘크리트 스코어를 사용하여 새로운 데이터를 샘플링하려면 이산 토큰에 대한 확산 과정을 정의해야 한다. 이는 확률 분포 <code>p0</code>에서 <code>pt</code>로 가는 연속 시간 마르코프 연쇄(CTMC)로 표현된다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=mCaRNnEnYwA&amp;t=1776s">[29:36]</a> 분포는 <code>dp_t / dt = Q_t * p_t</code> 형태의 상미분 방정식에 따라 진화하며, <code>Q_t</code>는 토큰 간의 점프 전이율을 나타내는 확산 행렬이다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=mCaRNnEnYwA&amp;t=1812s">[30:12]</a> 이 <code>Q_t</code>는 균일 전이(어떤 토큰이든 임의의 다른 토큰으로 변환) 또는 마스킹 전이(어떤 토큰이든 마스크 토큰으로 변환)와 같은 형태로 정의할 수 있다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=mCaRNnEnYwA&amp;t=2058s">[34:18]</a> 시퀀스의 경우, 한 번에 하나의 토큰만 뒤집는 토큰 단위 전이를 가정하여 계산을 효율화하고, 이는 노이즈 제거 스코어 엔트로피 손실 함수와 시너지를 낸다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=mCaRNnEnYwA&amp;t=2107s">[35:07]</a> 데이터 <code>p0</code>에서 노이즈 <code>pt</code>로 가는 전방 확산 과정을 역으로 뒤집는 '역방향 확산'을 통해 새로운 데이터를 생성할 수 있다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=mCaRNnEnYwA&amp;t=2211s">[36:51]</a> 이 역방향 확산 과정의 전이 행렬 <code>Q_bar_t</code>는 <code>p_t(j)/p_t(i)</code> 비율을 포함하는데, 이는 학습된 콘크리트 스코어 <code>s_theta</code>로 근사된다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=mCaRNnEnYwA&amp;t=2245s">[37:25]</a> 또한, 역방향 샘플링 속도를 높이기 위해 '타우 리핑(tau leaping)'과 같은 방법을 사용하여 한 번에 여러 토큰을 동시에 변경할 수 있도록 한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=mCaRNnEnYwA&amp;t=2421s">[40:21]</a></p>
+<h3>자기회귀 모델을 넘어서는 이산 확산 모델의 성능</h3>
+<p>Score Entropy Discrete Diffusion (SEDD) 모델은 GPT-2 수준의 데이터셋에서 자기회귀 모델의 성능을 여러 면에서 능가한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=mCaRNnEnYwA&amp;t=2534s">[42:14]</a></p>
+<ul>
+<li><strong>생성 품질</strong>: SEDD 모델은 자기회귀 모델(GPT-2)보다 일관성 있는 텍스트를 생성하며, 샘플링 단계 수(연산량)와 생성 품질 사이에 상충 관계를 조절할 수 있다. 적은 단계(예: 64단계)로는 GPT-2와 비슷한 품질을 더 빠르게 달성하고, 단계 수를 늘리면(예: 1024, 2048단계) 로그 선형적으로 더 낮은 혼란도(더 좋은 품질)를 가진 시퀀스를 생성한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=mCaRNnEnYwA&amp;t=2656s">[44:16]</a></li>
+<li><strong>제어 가능한 생성</strong>: SEDD는 기존 자기회귀 모델에서는 불가능한 새로운 형태의 제어 가능한 생성을 지원한다. 예를 들어, 텍스트의 임의의 위치(중간, 시작 등)에서 프롬프트 텍스트를 고정한 채 주변 텍스트를 채워 넣는 인필링(infilling) 작업을 수행할 수 있다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=mCaRNnEnYwA&amp;t=2774s">[46:14]</a></li>
+<li><strong>가능도 평가 (혼란도)</strong>: 자기회귀 모델의 표준 평가 지표인 혼란도는 이산 확산 모델에서도 '스코어 엔트로피 손실'과 관련된 가능도 상한(likelihood bound)을 통해 계산할 수 있다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=mCaRNnEnYwA&amp;t=2894s">[48:14]</a> 실험 결과, SEDD는 GPT-2 모델과 매우 근접한 혼란도 값을 보이며, 일부 데이터셋(PTB)에서는 GPT-2를 능가하는 결과를 보여주어 자기회귀 모델의 우위성에 도전한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=mCaRNnEnYwA&amp;t=2995s">[49:55]</a> 이 결과는 이산 확산 모델이 생성 품질뿐 아니라 확률적 모델링 관점에서도 자기회귀 모델과 경쟁할 수 있음을 증명한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=mCaRNnEnYwA&amp;t=3058s">[50:58]</a></li>
+</ul>
+<h2>주요 통찰·논점</h2>
+<h3>콘크리트 스코어는 이산 데이터 모델링의 핵심 난제를 해결한다</h3>
+<p>연속 공간 생성 모델이 이산 데이터에 실패하는 주요 원인은 미분 가능성의 부재와 희소성 문제 때문이다. 콘크리트 스코어는 <code>log p(x)</code>의 기울기(스코어) 개념을 <code>p(y)/p(x)</code> 비율로 재정의하여 이산 공간에 적용한다. 이는 미분 기반 연산을 회피하면서도 확률 분포 간의 관계를 효율적으로 모델링할 수 있는 방법을 제공함으로써 이산 데이터 생성 모델 개발의 길을 연다.</p>
+<h3>이산 확산 모델은 자기회귀 모델의 한계를 극복하는 새로운 대안이다</h3>
+<p>자기회귀 모델은 이산 데이터에 오랫동안 지배적인 패러다임이었지만, 샘플링 드리프트, 비병렬적인 느린 생성, 태스크별 귀납적 편향의 한계가 있다. 이산 확산 모델은 이러한 자기회귀 모델의 단점을 극복하는 대안이다. 특히, 병렬 생성을 통해 생성 속도와 품질을 개선하고, 임의의 위치 인필링 같은 새로운 형태의 제어 가능한 생성을 가능하게 한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=mCaRNnEnYwA&amp;t=2748s">[45:48]</a>, <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=mCaRNnEnYwA&amp;t=2774s">[46:14]</a></p>
+<h3>이산 확산 모델은 생성 품질과 가능도 측면에서 자기회귀 모델에 도전한다</h3>
+<p>기존에는 자기회귀 모델이 생성 품질과 가능도(혼란도)에서 압도적인 성능을 보였으나, Score Entropy Discrete Diffusion (SEDD) 모델은 이 두 가지 핵심 지표에서 GPT-2 수준의 자기회귀 모델과 경쟁하거나 심지어 능가하는 결과를 보여준다. 특히, 더 많은 샘플링 단계를 사용할수록 품질이 향상되는 경향은 이 모델의 잠재력을 시사하며, 이산 생성 모델 분야의 판도를 바꿀 수 있는 중요한 진전으로 평가한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=mCaRNnEnYwA&amp;t=2748s">[45:48]</a>, <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=mCaRNnEnYwA&amp;t=3058s">[50:58]</a></p>
+<h2>인상적인 지점</h2>
+<ul>
+<li><strong>&quot;마술사 동전&quot; 비유</strong>: 연속 공간에서는 데이터 포인트 사이에 유효한 '중간' 지점이 많지만, 이산 공간에서는 이웃한 토큰 사이의 '중간' 지점이 무의미하다는 설명은 이산 데이터 모델링의 근본적인 어려움을 직관적으로 보여준다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=mCaRNnEnYwA&amp;t=216s">[3:36]</a></li>
+<li><strong>GPT-2를 능가하는 혼란도</strong>: 이산 확산 모델이 언어 생성에서 지배적이던 GPT-2 수준의 자기회귀 모델의 혼란도 성능을 능가할 수 있다는 결과는 매우 인상적이며, 이 분야 연구의 새로운 방향을 제시한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=mCaRNnEnYwA&amp;t=3041s">[50:41]</a></li>
+<li><strong>임의 위치 인필링</strong>: 기존 자기회귀 모델의 순차적 생성 제약에서 벗어나, 텍스트의 임의 부분만 채워 넣는 인필링 기능을 구현할 수 있다는 점은 확산 모델이 제공하는 제어 가능성의 강력한 이점을 보여준다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=mCaRNnEnYwA&amp;t=2774s">[46:14]</a></li>
+</ul>
+
+  </article>
+  <p class="post-end"><a href="https://www.youtube.com/watch?v=mCaRNnEnYwA" target="_blank" rel="noopener">YouTube에서 원본 보기 ↗</a> · <a href="./">← 목록으로</a></p>
+</main>
+<footer class="site-foot">
+  <a href="/projects/yt-digest-overview">yt-digest</a> 파이프라인이 자막을 읽고 자동으로 작성한 브리핑입니다. 오류가 있을 수 있으니 중요한 내용은 원본 영상으로 확인하세요.
+</footer>
+</body>
+</html>

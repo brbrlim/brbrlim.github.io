@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chrome: Browsing, building, and web in the AI era — 유튜브 다이제스트</title>
+<meta name="description" content="구글 크롬 및 웹 생태계 총괄 부사장 파레사(Paresa)는 AI 시대의 웹이 개발자에게 어떤 의미를 가지는지, 그리고 크롬이 웹 AI를 어떻게 발전시키고 있는지 설명한다. 웹을 개방적이고 상호 운용 가능한 플랫폼으로 유지하면서 WebAssembly, WebGPU, G…">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="Chrome: Browsing, building, and web in the AI era — 유튜브 다이제스트">
+<meta property="og:description" content="구글 크롬 및 웹 생태계 총괄 부사장 파레사(Paresa)는 AI 시대의 웹이 개발자에게 어떤 의미를 가지는지, 그리고 크롬이 웹 AI를 어떻게 발전시키고 있는지 설명한다. 웹을 개방적이고 상호 운용 가능한 플랫폼으로 유지하면서 WebAssembly, WebGPU, G…">
+<meta property="og:image" content="https://i.ytimg.com/vi/pWRgKPN3Hjo/hqdefault.jpg">
+<meta property="og:type" content="article">
+<link rel="icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+<script>
+// Follow the blog's saved light/dark choice (same origin, same key).
+(function () {
+  var saved = null
+  try { saved = localStorage.getItem("theme") } catch (e) {}
+  var dark = saved ? saved === "dark" : matchMedia("(prefers-color-scheme: dark)").matches
+  document.documentElement.dataset.theme = dark ? "dark" : "light"
+})()
+</script>
+</head>
+<body class="post-page">
+<header class="site-bar">
+  <a class="site-name" href="/">Johnny's</a>
+  <a class="back" href="./">← 유튜브 다이제스트</a>
+</header>
+<main class="post">
+  <a class="hero" href="https://www.youtube.com/watch?v=pWRgKPN3Hjo" target="_blank" rel="noopener" aria-label="YouTube에서 보기">
+    <img src="https://i.ytimg.com/vi/pWRgKPN3Hjo/hqdefault.jpg" alt="">
+    <span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+  </a>
+  <h1>Chrome: Browsing, building, and web in the AI era</h1>
+  <div class="post-meta"><span>Chrome for Developers</span><span>12:20</span><span>게시 2025-11-17</span></div>
+  <div class="tags"><a href="./?q=%23chrome">#chrome</a><a href="./?q=%23web">#web</a><a href="./?q=%23ai">#ai</a><a href="./?q=%23google">#google</a><a href="./?q=%23browser">#browser</a><a href="./?q=%23development">#development</a><a href="./?q=%23apis">#apis</a></div>
+  <article>
+<h2>TL;DR</h2>
+<p>구글 크롬 및 웹 생태계 총괄 부사장 파레사(Paresa)는 AI 시대의 웹이 개발자에게 어떤 의미를 가지는지, 그리고 크롬이 웹 AI를 어떻게 발전시키고 있는지 설명한다. 웹을 개방적이고 상호 운용 가능한 플랫폼으로 유지하면서 WebAssembly, WebGPU, Gemini Nano 같은 기술 발전을 통해 AI 기능을 브라우저에 내장하는 구글의 노력을 강조한다. 미래 웹은 능동적이고(proactive) 개인화되며(personalized), 인간과 AI가 협업하는 새로운 형태를 보일 것이라고 전망한다.</p>
+<h2>풀시청 판단</h2>
+<p>이 영상은 구글 크롬 및 웹 생태계 담당 총괄 부사장의 기조연설로, AI 시대에 구글이 크롬과 웹 플랫폼을 어떻게 발전시키고 있는지에 대한 거시적인 비전과 전략을 제시한다. 구체적인 기술 구현보다는 방향성과 철학을 강조하므로, 모든 웹 개발자, 브라우저의 미래에 관심 있는 사용자, 그리고 구글의 AI 통합 전략을 이해하려는 사람에게 유용하다.</p>
+<p><strong>강점:</strong></p>
+<ul>
+<li><strong>폭넓은 비전 제시</strong>: AI가 웹 개발과 사용자 경험에 미칠 영향에 대한 구글의 상위 수준 전략과 기대를 알 수 있다.</li>
+<li><strong>핵심 기술 동향 파악</strong>: WebAssembly, WebGPU, 온디바이스 AI 같은 핵심 기술의 발전 방향과 중요성을 간략히 짚어준다.</li>
+<li><strong>미래 브라우저 예측</strong>: 능동적인 웹, 개인화된 경험, 인간-AI 협업 등 브라우저의 미래 역할에 대한 세 가지 주요 예측은 흥미로운 통찰을 제공한다.</li>
+</ul>
+<p><strong>약점:</strong></p>
+<ul>
+<li><strong>깊이 부족</strong>: 기조연설인 만큼 각 기술이나 비전에 대한 심층적인 설명은 부족하다. 기술적 상세 내용보다는 &quot;무엇을 할 것인가&quot;에 초점을 맞춘다.</li>
+<li><strong>다소 홍보성</strong>: 구글의 제품 및 개발자 행사를 홍보하는 성격이 강하다. 특히 개발자 챌린지 같은 특정 프로그램에 대한 언급은 정보성이 떨어진다.</li>
+<li><strong>시간 경과에 따른 정보의 신속성</strong>: AI 분야는 매우 빠르게 발전하므로, 영상이 제작된 시점에서 최신 정보가 아닐 수 있다.</li>
+</ul>
+<p><strong>일부만 시청한다면:</strong></p>
+<ul>
+<li>AI 시대 웹의 전반적인 방향성과 구글의 비전을 빠르게 파악하고 싶다면 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=pWRgKPN3Hjo&amp;t=400s">[6:40]</a>부터 시청하여 브라우저의 미래 예측과 AI 통합 전략에 집중하는 것을 권한다.</li>
+<li>구글이 웹 플랫폼의 핵심 기술을 어떻게 발전시키고 있는지에 대한 주요 성과를 보려면 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=pWRgKPN3Hjo&amp;t=228s">[3:48]</a>부터 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=pWRgKPN3Hjo&amp;t=386s">[6:26]</a>까지의 내용을 확인한다.</li>
+</ul>
+<h2>핵심 내용</h2>
+<h3>웹의 르네상스를 이끄는 AI — 개발의 변화와 기회</h3>
+<p>구글 크롬 및 웹 생태계 총괄 부사장 파레사는 AI의 빠른 발전 속도 속에서 웹이 새로운 르네상스를 맞고 있다고 말한다. 스스로 웹 코딩을 배우며 엔지니어링 경력을 시작했던 그는 웹이 창조와 연결, 협업의 공간이었음을 강조한다. 이제 AI 시대에는 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=pWRgKPN3Hjo&amp;t=110s">[1:50]</a> 개발 도구와 기법이 근본적으로 변화하고 있으며, 코딩 경험이 없는 사람도 자연어를 통해 쉽게 프로토타입을 만들고 생산할 수 있게 되었다고 설명한다. 이러한 변화는 소프트웨어 엔지니어링 전반을 혁신하고 있으며, 미래의 개발자들은 단순한 코더를 넘어 아키텍트로서 사용자 의도, 데이터, 윤리를 깊이 이해하는 역할을 할 것이라고 내다본다. 팀원들이 의도적으로 AI 기술을 배우고 활용하며 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=pWRgKPN3Hjo&amp;t=164s">[2:44]</a> 마법 같은 경험과 함께 좌절도 겪는다는 일화를 공유한다.</p>
+<h3>개방적이고 상호 운용 가능한 웹 플랫폼에 대한 구글의 약속</h3>
+<p>구글은 AI 시대에도 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=pWRgKPN3Hjo&amp;t=210s">[3:30]</a> 개방적이고 상호 운용 가능한 웹에 대한 투자를 지속하고 있다. 지난 한 해 동안 크롬 팀은 웹의 핵심 플랫폼을 발전시키기 위해 매우 노력했다. 그 주요 성과로 WebAssembly와 WebGPU의 발전을 꼽는다. 이러한 노력은 AI 시대에도 웹이 강력하고 유연한 플랫폼으로서의 역할을 다할 수 있도록 하는 기반이 된다.</p>
+<h3>WebAssembly: 브라우저에 데스크톱급 성능을 제공하다</h3>
+<p>WebAssembly는 브라우저에 데스크톱급 성능을 제공하는 데 중점을 둔다. 크롬 팀은 두 가지 근본적인 장애물을 제거했다. 첫째, <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=pWRgKPN3Hjo&amp;t=239s">[3:59]</a> 오랜 기간 해결되지 않던 웹의 비동기성(multitasking)과 고성능 애플리케이션의 동기성 요구 사이의 통신 문제를 JavaScript 프라미스 통합을 통해 해결했다. 이는 두 세계 사이의 고속 번역기 역할을 하며 구글 Meet 등에서 중요한 성능 향상을 가져왔다. 둘째, <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=pWRgKPN3Hjo&amp;t=266s">[4:26]</a> WebAssembly 애플리케이션의 4GB 메모리 제한을 Memory64 지원을 통해 해제하여, 대규모 데이터 처리 소프트웨어를 브라우저에서 실행할 수 있게 했다. 이 두 가지 발전은 '어떤 장치에서든 어디서든 애플리케이션을 실행한다'는 웹의 약속을 실현하는 데 기여한다.</p>
+<h3>WebGPU: GPU 기반 AI 모델 추론을 가속화하다</h3>
+<p>WebGPU는 GPU에서 모델 추론 성능을 크게 향상하는 기능을 제공하는 데 주력한다. 구글은 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=pWRgKPN3Hjo&amp;t=305s">[5:05]</a> 배포된 AI 모델에 맞춰 더 좁은 숫자 형식을 지원하며, GPU의 저수준(low-level) 기본 연산을 활용하는 SIMD 수준 연산 지원을 추가했다. 또한 최신 SIMD 수준 블록 행렬 연산(block matrix operations)을 프로토타이핑하여 텐서 코어(tensor cores)의 성능을 최대한 끌어내고 있다. 이러한 노력은 최고 수준의 기본 성능과 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=pWRgKPN3Hjo&amp;t=331s">[5:31]</a> 95%에 달하는 일치율을 보이는 실험 결과로 이어지고 있으며, 성능이 AI 시대에 매우 중요함을 보여준다.</p>
+<h3>Gemini Nano와 내장 AI API: AI의 대중화를 이끌다</h3>
+<p>크롬 팀은 내장 AI API를 제공하기 위해 노력하고 있으며, <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=pWRgKPN3Hjo&amp;t=346s">[5:46]</a> 크롬에 Gemini Nano를 출시하고 개발자에게 일곱 가지 내장 AI API를 공개했다. 개발자들의 긍정적인 피드백을 받고 있으며, 9,000명에 가까운 개발자가 참여한 '내장 AI 챌린지(Built-in AI challenge)'를 통해 많은 것을 배우고 있다. 구글은 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=pWRgKPN3Hjo&amp;t=386s">[6:26]</a> AI 역량을 더 접근하기 쉽고 효율적으로 만들어 어떤 장치에서든 어떤 브라우저에서든 AI를 사용할 수 있도록 함으로써 AI의 대중화를 목표로 한다.</p>
+<h3>브라우저: 단순한 창을 넘어 OS 위의 OS로 진화하다</h3>
+<p>브라우저는 이제 단순한 스크립트 렌더링 앱이 아니라 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=pWRgKPN3Hjo&amp;t=416s">[6:56]</a> 고성능, 고기능, 보안성이 뛰어난 플랫폼으로 발전했다. 기업 고객들은 브라우저를 새로운 엔드포인트(endpoint)로 인식하며, 보안, 생산성, AI의 주요 지점으로 본다. 특히 데스크톱 환경에서 대부분의 업무 시간이 브라우저에서 소비되면서, 브라우저는 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=pWRgKPN3Hjo&amp;t=462s">[7:42]</a> 'OS 위에 있는 OS(OS on top of OS)'와 같은 역할을 하고 있다. 온디바이스 AI와 하이브리드 솔루션에 대한 관심이 높아지면서, 더 빠르고 비용 효율적이며 개인 정보 보호가 가능한 옵션과 경험이 중요해지고 있다. 파레사는 아침에 아이디어를 내면 오후에 프로토타입을 만들고 다음 주에 제품이 나오는 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=pWRgKPN3Hjo&amp;t=484s">[8:04]</a> &quot;불편할 정도로 흥미로운(uncomfortably exciting)&quot; 속도로 변화가 일어나고 있다고 말한다.</p>
+<h2>주요 통찰·논점</h2>
+<h3>더욱 능동적인(proactive) 웹: 사용자 의도를 이해하고 대신 작업한다</h3>
+<p>미래의 웹은 단순한 사용자 쿼리 반응을 넘어설 것이다. 브라우저는 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=pWRgKPN3Hjo&amp;t=509s">[8:29]</a> 사용자 의도를 이해하고, 필요를 예측하여 관련 콘텐츠를 선제적으로 제안하며, 심지어 사용자를 대신해 작업을 수행하는 능동적인 플랫폼이 될 것이다. 이는 에이전트 컴퓨팅(agentic computing) 개념과 맞닿아 있으며, 사용자들이 브라우저가 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=pWRgKPN3Hjo&amp;t=532s">[8:52]</a> &quot;디지털 세탁(digital laundry)&quot;과 같은 반복적이고 일상적인 작업을 대신 처리해주기를 원할 것이라고 예상한다. 이를 실현하기 위한 새로운 서비스, 프로토콜, API, 제품 개발이 필요하다고 강조한다.</p>
+<h3>더욱 개인화되고 동적인(personalized, dynamic) 웹 경험: 사용자 맞춤형 인터페이스</h3>
+<p>생성형 AI의 발전은 웹과 브라우저가 더욱 개인화되고 동적인 경험을 제공하도록 이끌 것이다. 현재 다양한 생성형 AI 실험을 진행 중이며, 이를 통해 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=pWRgKPN3Hjo&amp;t=571s">[9:31]</a> 개인에게 가장 적합하게 동적으로 생성되고 적응하는 사용자 인터페이스를 구축할 수 있을 것이라고 본다. 예를 들어, 전자상거래 웹사이트는 사용자의 검색 맥락과 선호도에 기반하여 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=pWRgKPN3Hjo&amp;t=597s">[9:57]</a> 맞춤형 페이지를 동적으로 생성하여 특정 관심사에 맞는 스타일이나 제품을 보여줄 수 있다. 파레사는 개인 정보 보호의 어려움을 인지하고 있지만, 사용자 만족과 신뢰 사이의 균형을 찾을 수 있을 것이라고 확신한다.</p>
+<h3>인간-AI 협업의 새로운 형태: 브라우저가 자동화 플랫폼으로 진화한다</h3>
+<p>인간과 AI의 협업은 이미 진행 중이며, 이러한 궤적은 계속될 것이다. 크롬은 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=pWRgKPN3Hjo&amp;t=634s">[10:34]</a> 이미 Gemini를 브라우징 어시스턴트로 통합했으며, 신뢰받는 테스터들에게 에이전트 기능을 제공하고 있다. 사용자들은 수동적이고 반복적인 작업을 AI 에이전트에게 위임할 것이며, 브라우저는 단순한 탐색 도구를 넘어 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=pWRgKPN3Hjo&amp;t=669s">[11:09]</a> 자동화 플랫폼으로 진화할 것이다. 이러한 비전을 실현하기 위해서는 성능, 품질, 보안, 개인 정보 보호 등 많은 어려운 문제를 해결해야 하지만, 파레사는 이러한 협업이 웹과 브라우저 내에서 크게 일어날 것이라고 기대한다.</p>
+<h3>클라이언트 측 웹 AI의 중추적 역할: 책임감 있는 확장을 위한 필수 요소</h3>
+<p>앞서 언급된 AI 시대 웹의 비전, 즉 능동적이고 개인화된 경험과 인간-AI 협업의 새로운 형태를 가능하게 하는 데 있어 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=pWRgKPN3Hjo&amp;t=691s">[11:31]</a> 클라이언트 측(client-side) 웹 AI가 매우 중요한 역할을 할 것이라고 강조한다. 이 기술은 AI를 대규모로 그리고 책임감 있는 방식으로 실현하는 데 필수적이다. 파레사는 웹과 클라이언트 측, 브라우저에서 일하는 것이 그 어느 때보다 흥미진진하다고 말하며, 이러한 기술적 진보가 웹의 미래를 이끌 것이라는 확신을 표명한다.</p>
+<h2>인상적인 지점</h2>
+<ul>
+<li>웹을 컴퓨팅 세계로 들어가는 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=pWRgKPN3Hjo&amp;t=43s">[0:43]</a> &quot;관문 마약(gateway drug) 또는 관문 플랫폼(gateway platform)&quot;에 비유하며 개인적인 애정을 드러낸 부분.</li>
+<li>AI 기술의 발전 속도가 아이디어를 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=pWRgKPN3Hjo&amp;t=484s">[8:04]</a> &quot;아침에 내고 오후에 프로토타입을 만들고 다음 주에 제품을 내는&quot; 수준이라 &quot;불편할 정도로 흥미진진하다(uncomfortably exciting)&quot;고 표현한 부분.</li>
+<li>사람들이 브라우저가 대신 처리해주기를 원하는 반복적이고 지루한 일들을 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=pWRgKPN3Hjo&amp;t=535s">[8:55]</a> &quot;디지털 세탁(digital laundry)&quot;이라고 비유한 점.</li>
+<li>브라우저가 데스크톱 환경에서 사용자 시간의 많은 부분을 차지하며 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=pWRgKPN3Hjo&amp;t=462s">[7:42]</a> &quot;OS 위에 있는 OS(OS on top of OS)&quot;가 되어간다는 통찰.</li>
+</ul>
+
+  </article>
+  <p class="post-end"><a href="https://www.youtube.com/watch?v=pWRgKPN3Hjo" target="_blank" rel="noopener">YouTube에서 원본 보기 ↗</a> · <a href="./">← 목록으로</a></p>
+</main>
+<footer class="site-foot">
+  <a href="/projects/yt-digest-overview">yt-digest</a> 파이프라인이 자막을 읽고 자동으로 작성한 브리핑입니다. 오류가 있을 수 있으니 중요한 내용은 원본 영상으로 확인하세요.
+</footer>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Daniel Bourke — Learn PyTorch for deep learning in a day. Literally. — 유튜브 다이제스트</title>
+<meta name="description" content="다니엘 버크는 이 25시간 길이의 강의에서 PyTorch를 사용한 딥러닝 입문 과정을 다룬다. 기계 학습과 딥러닝의 기초 개념부터 PyTorch 텐서 조작, 신경망 구축, 선형 회귀, 이진 및 다중 분류 문제 해결, 컨볼루션 신경망(CNN)을 활용한 컴퓨터 비전까지 실…">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="Daniel Bourke — Learn PyTorch for deep learning in a day. Literally. — 유튜브 다이제스트">
+<meta property="og:description" content="다니엘 버크는 이 25시간 길이의 강의에서 PyTorch를 사용한 딥러닝 입문 과정을 다룬다. 기계 학습과 딥러닝의 기초 개념부터 PyTorch 텐서 조작, 신경망 구축, 선형 회귀, 이진 및 다중 분류 문제 해결, 컨볼루션 신경망(CNN)을 활용한 컴퓨터 비전까지 실…">
+<meta property="og:image" content="https://i.ytimg.com/vi/Z_ikDlimN6A/hqdefault.jpg">
+<meta property="og:type" content="article">
+<link rel="icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+<script>
+// Follow the blog's saved light/dark choice (same origin, same key).
+(function () {
+  var saved = null
+  try { saved = localStorage.getItem("theme") } catch (e) {}
+  var dark = saved ? saved === "dark" : matchMedia("(prefers-color-scheme: dark)").matches
+  document.documentElement.dataset.theme = dark ? "dark" : "light"
+})()
+</script>
+</head>
+<body class="post-page">
+<header class="site-bar">
+  <a class="site-name" href="/">Johnny's</a>
+  <a class="back" href="./">← 유튜브 다이제스트</a>
+</header>
+<main class="post">
+  <a class="hero" href="https://www.youtube.com/watch?v=Z_ikDlimN6A" target="_blank" rel="noopener" aria-label="YouTube에서 보기">
+    <img src="https://i.ytimg.com/vi/Z_ikDlimN6A/hqdefault.jpg" alt="">
+    <span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+  </a>
+  <h1>Daniel Bourke — Learn PyTorch for deep learning in a day. Literally.</h1>
+  <div class="post-meta"><span>Daniel Bourke</span><span>25:36:57</span><span>게시 2022-07-24</span></div>
+  <div class="tags"><a href="./?q=%23pytorch">#pytorch</a><a href="./?q=%23deep-learning">#deep-learning</a><a href="./?q=%23machine-learning">#machine-learning</a><a href="./?q=%23computer-vision">#computer-vision</a><a href="./?q=%23neural-networks">#neural-networks</a><a href="./?q=%23custom-datasets">#custom-datasets</a><a href="./?q=%23data-augmentation">#data-augmentation</a></div>
+  <article>
+<h2>TL;DR</h2>
+<p>다니엘 버크는 이 25시간 길이의 강의에서 PyTorch를 사용한 딥러닝 입문 과정을 다룬다. 기계 학습과 딥러닝의 기초 개념부터 PyTorch 텐서 조작, 신경망 구축, 선형 회귀, 이진 및 다중 분류 문제 해결, 컨볼루션 신경망(CNN)을 활용한 컴퓨터 비전까지 실습 위주로 설명한다. 특히 모델 훈련, 평가, 저장 및 사용자 정의 데이터 예측의 전반적인 워크플로를 상세히 다루며, 실제 코드를 통해 이론을 익히는 방식을 강조한다.</p>
+<h2>풀시청 판단</h2>
+<p>이 영상은 PyTorch를 활용한 딥러닝 전반에 걸쳐 탄탄한 실무 지식을 쌓고자 하는 초급 개발자에게 매우 유용하다. 특히 파이썬 코딩 경험이 3~6개월 정도 있는 학습자에게 적합하다. 이론 설명보다는 코드 작성을 통한 실습에 중점을 두기 때문에, 직접 코드를 따라 치면서 학습하는 것을 선호하는 사람에게 최적화되어 있다.</p>
+<p><strong>이런 사람에게 추천한다:</strong></p>
+<ul>
+<li>PyTorch를 이용해 딥러닝 모델을 직접 구축하고 싶지만, 어디서부터 시작해야 할지 모르는 사람.</li>
+<li>기계 학습 및 딥러닝의 핵심 개념을 실용적인 코드 예시와 함께 배우고 싶은 사람.</li>
+<li>컴퓨터 비전(CNN) 및 사용자 정의 데이터셋 로딩과 같은 고급 주제까지 다루는 종합적인 강좌를 찾는 사람.</li>
+<li>구글 Colab 환경에서 PyTorch를 실습하고 싶은 사람.</li>
+</ul>
+<p><strong>약점 및 한계:</strong></p>
+<ul>
+<li>영상의 길이가 25시간이 넘어 매우 길고, 밀도 높은 코딩 세션으로 구성되어 있어 꾸준한 집중력을 요구한다.</li>
+<li>수학적 이론보다는 코드 구현에 중점을 두므로, 딥러닝의 심층적인 수학적 배경을 이해하고 싶은 사람에게는 추가 자료 학습이 필요하다.</li>
+<li>일부 내용은 PyTorch 버전 업데이트에 따라 코드 변경이 필요할 수 있다. (예: <code>torch.range</code>는 <code>torch.arange</code>로 대체).</li>
+<li>강의자가 실시간으로 코딩하면서 발생하는 오류(오타, 들여쓰기, 텐서 크기 불일치 등)를 함께 해결하는 과정이 포함되어 있어, 속도감 있는 진행을 선호하는 사람에게는 다소 느리게 느껴질 수 있다.</li>
+</ul>
+<p><strong>부분 시청 가이드:</strong></p>
+<ul>
+<li><strong><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Z_ikDlimN6A&amp;t=106s">[1:46]</a> 딥러닝의 기본 개념:</strong> 기계 학습과 딥러닝의 정의, 전통적인 프로그래밍과의 차이점, 기계 학습을 사용해야 하는 경우와 그렇지 않은 경우.</li>
+<li><strong><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Z_ikDlimN6A&amp;t=2570s">[42:50]</a> PyTorch의 개요와 장점:</strong> PyTorch가 무엇이며, 왜 인기가 많은지, GPU 활용의 중요성.</li>
+<li><strong><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Z_ikDlimN6A&amp;t=3150s">[52:30]</a> PyTorch 텐서의 기초:</strong> 텐서의 정의, 스칼라/벡터/행렬, 텐서 연산, 크기 조작, NumPy와의 상호 운용성.</li>
+<li><strong><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Z_ikDlimN6A&amp;t=15422s">[4:17:02]</a> PyTorch 워크플로 (선형 회귀):</strong> 딥러닝 모델 개발의 전체 과정(데이터 준비, 모델 구축, 훈련, 평가, 저장/로드)을 선형 회귀 예시로 처음부터 끝까지 다룬다.</li>
+<li><strong><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Z_ikDlimN6A&amp;t=30691s">[8:31:31]</a> 신경망 분류:</strong> 분류 문제의 유형, 신경망 구조, 손실 함수, 활성화 함수 등 분류 모델 구축에 필요한 개념과 실습.</li>
+<li><strong><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Z_ikDlimN6A&amp;t=50420s">[14:00:20]</a> 컴퓨터 비전과 CNN:</strong> 컴퓨터 비전 문제 유형, CNN 아키텍처, 이미지 데이터셋 준비 및 CNN 모델 훈련.</li>
+<li><strong>[1183:40] 사용자 정의 데이터셋:</strong> 사용자 정의 이미지 데이터셋을 PyTorch에 로드하는 방법, <code>Dataset</code> 및 <code>DataLoader</code> 구현, 데이터 증강.</li>
+<li><strong>[1486:23] 사용자 정의 이미지 예측:</strong> 훈련된 모델을 사용하여 새로운 이미지에 대해 예측을 수행하는 실습.</li>
+</ul>
+<h2>핵심 내용</h2>
+<h3>딥러닝의 기초 개념과 PyTorch <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Z_ikDlimN6A&amp;t=106s">[1:46]</a></h3>
+<p>영상은 기계 학습(Machine Learning)과 딥러닝(Deep Learning)의 기본 정의를 제시하며 시작한다. 기계 학습은 데이터를 숫자로 변환하고 그 안에서 패턴을 찾아내는 반면, 딥러닝은 신경망을 사용하여 이러한 작업을 수행하는 기계 학습의 하위 분야이다. 복잡한 문제(자율주행차), 지속적으로 변화하는 환경, 대규모 데이터셋에는 기계 학습이 유용하지만, 간단한 규칙 기반 시스템이나 높은 설명 가능성이 요구되는 경우에는 적합하지 않다. PyTorch는 딥러닝 연구 분야에서 가장 널리 사용되는 프레임워크 중 하나이며, GPU(그래픽 처리 장치)를 활용하여 빠른 수치 계산을 가능하게 한다.</p>
+<h3>텐서의 이해와 조작 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Z_ikDlimN6A&amp;t=3150s">[52:30]</a></h3>
+<p>텐서는 딥러닝의 기본적인 데이터 구조로, 숫자 데이터를 표현하는 데 사용된다. 스칼라(0차원), 벡터(1차원), 행렬(2차원) 모두 텐서의 일종이며, 텐서는 다양한 차원을 가질 수 있다. PyTorch는 <code>torch.tensor</code>를 통해 텐서를 생성하고, 덧셈, 뺄셈, 곱셈, 행렬 곱셈(<code>torch.matmul</code> 또는 <code>@</code>) 등 다양한 연산을 지원한다. 특히 행렬 곱셈은 신경망 내부에서 가장 흔히 발생하는 연산 중 하나이며, 이때는 행렬의 내측 차원(inner dimensions)이 일치해야 한다는 규칙이 중요하다. 텐서의 크기(shape) 불일치 및 데이터 유형(dtype) 불일치는 딥러닝에서 가장 흔한 오류 중 하나이므로, <code>reshape</code>, <code>squeeze</code>, <code>unsqueeze</code>, <code>permute</code>와 같은 함수를 통해 텐서의 크기를 적절히 조작하는 것이 필수적이다. 또한 <code>torch.manual_seed</code>를 사용하여 난수 생성을 고정함으로써 모델 훈련의 재현성을 확보할 수 있다.</p>
+<h3>PyTorch 모델 개발 워크플로 (선형 회귀 예시) <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Z_ikDlimN6A&amp;t=15422s">[4:17:02]</a></h3>
+<p>PyTorch 모델을 구축하는 일반적인 워크플로는 다음과 같다.</p>
+<ol>
+<li><strong>데이터 준비 및 로딩:</strong> 데이터를 PyTorch 텐서 형태로 변환하고, 훈련 세트(training set)와 테스트 세트(test set)로 분리한다. 이는 모델의 일반화(generalization) 성능을 평가하기 위해 중요하다.</li>
+<li><strong>모델 구축:</strong> <code>torch.nn.Module</code> 클래스를 상속받아 신경망 모델을 정의한다. 모델은 <code>nn.Parameter</code>를 통해 학습 가능한 파라미터(가중치와 편향)를 초기화하고, <code>forward</code> 메서드를 통해 데이터가 모델을 통과하는 방식을 정의한다.</li>
+<li><strong>손실 함수(Loss Function) 및 최적화기(Optimizer) 선택:</strong> 모델의 예측이 얼마나 잘못되었는지를 측정하는 손실 함수(예: 회귀 문제의 경우 <code>nn.L1Loss</code>)와, 손실을 줄이기 위해 모델 파라미터를 업데이트하는 최적화기(예: <code>torch.optim.SGD</code>, <code>Adam</code>)를 선택한다.</li>
+<li><strong>훈련 루프(Training Loop) 및 평가:</strong> <code>model.train()</code>으로 훈련 모드를 설정하고, 각 에포크(epoch)마다 데이터를 모델에 통과(정방향 계산, forward pass)시켜 손실을 계산한다. 이후 <code>optimizer.zero_grad()</code>, <code>loss.backward()</code>(역전파, backpropagation), <code>optimizer.step()</code>(경사 하강법, gradient descent) 과정을 통해 모델 파라미터를 업데이트한다. <code>model.eval()</code> 및 <code>torch.inference_mode()</code>를 사용하여 평가 모드에서 예측을 수행한다.</li>
+<li><strong>모델 저장 및 로딩:</strong> 훈련된 모델의 상태 사전(state dict)을 <code>torch.save</code>로 저장하고, <code>torch.load</code> 및 <code>model.load_state_dict</code>를 사용하여 모델을 다시 로드할 수 있다.</li>
+</ol>
+<h3>신경망 분류와 비선형성 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Z_ikDlimN6A&amp;t=30691s">[8:31:31]</a></h3>
+<p>분류 문제는 데이터가 특정 클래스에 속하는지 예측하는 것이다(예: 스팸/비-스팸, 개/고양이). 모델은 이미지나 텍스트 같은 입력을 숫자로 변환(텐서)하여 처리하고, 로짓(logit, 모델의 원시 출력)을 생성한다. 이 로짓은 <code>torch.sigmoid</code>(이진 분류) 또는 <code>torch.softmax</code>(다중 분류)와 같은 활성화 함수를 통해 예측 확률로 변환되고, 최종적으로 <code>torch.argmax</code>를 통해 예측 레이블로 결정된다. <code>nn.BCEWithLogitsLoss</code>는 이진 분류에, <code>nn.CrossEntropyLoss</code>는 다중 분류에 적합한 손실 함수이다.
+특히 **비선형성(nonlinearity)**은 신경망이 직선만으로는 분류할 수 없는 복잡한 패턴(예: 동심원 데이터)을 학습하는 데 필수적이다. <code>nn.ReLU</code>와 같은 비선형 활성화 함수는 신경망이 직선과 비직선 함수를 조합하여 다양한 형태의 결정 경계(decision boundary)를 만들 수 있게 한다. 이러한 비선형성은 모델의 표현력을 크게 향상시킨다.</p>
+<h3>컴퓨터 비전과 컨볼루션 신경망(CNN) <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Z_ikDlimN6A&amp;t=50420s">[14:00:20]</a></h3>
+<p>컴퓨터 비전은 이미지를 이해하고 분석하는 분야로, CNN은 이러한 문제에 특히 강력하다. <code>torchvision</code> 라이브러리는 이미지 데이터셋(<code>datasets</code>), 변환(<code>transforms</code>), 사전 훈련된 모델(<code>models</code>) 등 컴퓨터 비전 작업을 위한 다양한 도구를 제공한다. CNN은 <code>nn.Conv2d</code>(컨볼루션 계층)와 <code>nn.MaxPool2d</code>(풀링 계층)와 같은 특수한 계층을 사용하여 이미지에서 특징을 추출한다. 컨볼루션 계층은 필터(커널)를 사용하여 이미지의 작은 영역에서 패턴을 감지하고, 풀링 계층은 이미지 크기를 줄여(예: 최대값 풀링) 가장 중요한 특징을 유지하고 압축한다. <code>torchinfo.summary</code>는 모델의 각 계층별 입출력 크기, 파라미터 수 등을 시각적으로 요약하여 모델 아키텍처를 이해하는 데 큰 도움을 준다.</p>
+<h3>사용자 정의 데이터셋과 예측 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Z_ikDlimN6A&amp;t=71020s">[19:43:40]</a></h3>
+<p>자체 데이터를 PyTorch 모델에 사용하려면, 데이터를 <code>torch.utils.data.Dataset</code> 클래스를 상속받는 사용자 정의 클래스로 캡슐화해야 한다. 이 클래스는 <code>__len__</code>(데이터셋의 총 샘플 수 반환)과 <code>__getitem__</code>(주어진 인덱스에 해당하는 샘플 반환) 메서드를 반드시 구현해야 한다. <code>torchvision.datasets.ImageFolder</code>와 같은 사전 구축된 함수는 표준 이미지 분류 형식(예: <code>root/class_name/image.jpg</code>)의 데이터를 쉽게 로드할 수 있도록 돕는다. <code>torchvision.transforms</code>는 이미지 크기 조정, 색상 변환, 데이터 증강(data augmentation, 예: <code>TrivialAugmentWide</code>로 이미지 회전, 자르기 등 변화를 주어 훈련 데이터 다양화)과 같은 전처리 작업을 수행하여 데이터를 모델에 적합한 텐서 형태로 변환한다. 마지막으로 <code>torch.utils.data.DataLoader</code>를 사용하여 데이터셋을 미니 배치(mini-batch)로 나누어 효율적으로 훈련할 수 있도록 준비한다.
+훈련된 모델을 사용하여 새로운 사용자 정의 이미지에 대해 예측을 수행할 때는, 해당 이미지를 모델이 훈련된 데이터와 동일한 형식(데이터 유형, 크기, 차원, 장치)으로 전처리하는 것이 매우 중요하다.</p>
+<h2>주요 통찰·논점</h2>
+<h3>딥러닝은 실험의 연속이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Z_ikDlimN6A&amp;t=38582s">[10:43:02]</a></h3>
+<p>강의자는 &quot;실험하고, 실험하고, 또 실험하라&quot;는 모토를 강조하며 딥러닝 프로젝트는 과학과 예술의 결합과 같다고 설명한다. 모델의 성능을 향상시키기 위해 계층 수, 은닉 유닛 수, 학습률, 활성화 함수, 최적화기, 데이터 증강 기법 등 다양한 하이퍼파라미터를 변경하며 여러 실험을 수행해야 한다. 이때, 한 번에 하나의 하이퍼파라미터만 변경하여 그 효과를 명확히 파악하는 것이 중요하다. <code>torchinfo.summary</code>는 이러한 실험에서 모델의 구조와 파라미터를 빠르게 파악하는 데 유용하다.</p>
+<h3>텐서 크기, 데이터 유형, 장치 불일치 오류는 흔하다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Z_ikDlimN6A&amp;t=71270s">[19:47:50]</a></h3>
+<p>딥러닝 모델 개발 과정에서 가장 자주 접하게 되는 오류는 텐서의 크기(shape), 데이터 유형(dtype), 그리고 장치(device, CPU/GPU) 불일치이다. 모델의 각 계층이 예상하는 텐서의 크기, 데이터 유형, 그리고 모델과 데이터가 동일한 장치에 있는지 항상 확인해야 한다. 강사는 이러한 오류를 '세 가지 큰 오류'라고 부르며, 실제 코딩 중 발생하는 오류를 통해 이를 해결하는 과정을 보여준다. <code>unsqueeze</code>, <code>squeeze</code>, <code>permute</code> 같은 텐서 조작 함수와 <code>to(device)</code> 메서드는 이러한 문제를 해결하는 핵심 도구이다.</p>
+<h3>선형 계층과 비선형 활성화 함수의 결합 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Z_ikDlimN6A&amp;t=42661s">[11:51:01]</a></h3>
+<p>신경망은 본질적으로 선형(직선) 및 비선형(비직선) 함수들의 복합적인 조합으로 이루어져 있다. 선형 계층(<code>nn.Linear</code>)만으로는 선형적으로 분리할 수 없는 복잡한 데이터를 모델링하기 어렵다. 이때 <code>nn.ReLU</code>, <code>nn.Sigmoid</code>, <code>nn.Softmax</code>와 같은 비선형 활성화 함수를 선형 계층 사이에 추가하면, 모델이 훨씬 더 복잡하고 비선형적인 패턴을 학습할 수 있게 된다. 이는 신경망이 동심원처럼 복잡한 결정 경계를 생성하거나, 이미지와 같은 고차원 데이터를 효과적으로 처리할 수 있는 이유이다.</p>
+<h3>데이터 준비는 모델 성능의 핵심이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Z_ikDlimN6A&amp;t=127190s">[35:19:50]</a></h3>
+<p>&quot;만약 내게 기계 학습 모델을 구축할 8시간이 주어진다면, 처음 6시간은 데이터셋을 준비하는 데 쓸 것이다&quot;라는 가상의 아브라함 손실 함수(Abraham loss function) 인용구를 통해 데이터 준비의 중요성을 강조한다. 이미지를 텐서로 변환하고, 크기를 조정하며, 픽셀 값을 정규화(0-255를 0-1로)하고, 훈련 및 테스트 세트로 분리하는 과정은 모델이 데이터를 효과적으로 학습하는 데 필수적이다. <code>torchvision.transforms</code>는 이러한 데이터 전처리 과정을 간편하게 수행할 수 있도록 돕는다. 또한, <code>torch.utils.data.DataLoader</code>를 사용한 데이터 배치(batching)는 메모리 효율성을 높이고 모델의 파라미터 업데이트 빈도를 늘려 훈련 과정을 최적화한다.</p>
+<h2>인상적인 지점</h2>
+<ul>
+<li><strong>PyTorch는 딥러닝 코딩 요리 쇼</strong>: 강사는 딥러닝 코딩을 요리 쇼에 비유하며, 각 함수나 클래스를 요리의 '재료'로, 코드 작성을 '요리'로 표현한다. &quot;의심스러우면 코드를 실행하라(If in doubt, run the code)&quot;, &quot;데이터와 하나가 되라(Become one with the data)&quot;, &quot;시각화하고, 시각화하고, 또 시각화하라(Visualize, visualize, visualize)&quot; 같은 모토를 반복적으로 강조하며 실용적인 접근 방식을 제시한다.</li>
+<li><strong>오류는 학습의 기회</strong>: 강사가 실제 코딩 과정에서 수많은 오타, 들여쓰기, 텐서 크기 불일치 오류를 만나고 이를 실시간으로 해결하는 모습을 보여주는 것이 인상적이다. 이러한 과정은 실제 개발 환경을 반영하며, 초보 학습자들이 오류를 두려워하지 않고 해결 능력을 키울 수 있도록 돕는다.</li>
+<li><strong>CNN Explainer 웹사이트 활용</strong>: CNN의 복잡한 내부 작동 방식을 CNN Explainer 웹사이트(https://poloclub.github.io/cnn-explainer/)를 통해 시각적으로 설명하는 부분이 효과적이다. 커널(필터)의 작동 방식, 스트라이드, 패딩, 풀링 계층이 이미지 특징을 추출하고 압축하는 과정을 대화형으로 보여주며 직관적인 이해를 돕는다.</li>
+<li><strong>모델 아키텍처의 레고 비유</strong>: 신경망 모델을 <code>nn.Module</code>이라는 '레고 블록'을 쌓아 올리는 것에 비유하여 복잡한 모델도 간단한 구성 요소의 조합으로 만들어질 수 있음을 설명한다. 이는 모델 구축의 접근 방식을 단순화하고 학습자가 자신감을 가질 수 있도록 격려한다.</li>
+</ul>
+
+  </article>
+  <p class="post-end"><a href="https://www.youtube.com/watch?v=Z_ikDlimN6A" target="_blank" rel="noopener">YouTube에서 원본 보기 ↗</a> · <a href="./">← 목록으로</a></p>
+</main>
+<footer class="site-foot">
+  <a href="/projects/yt-digest-overview">yt-digest</a> 파이프라인이 자막을 읽고 자동으로 작성한 브리핑입니다. 오류가 있을 수 있으니 중요한 내용은 원본 영상으로 확인하세요.
+</footer>
+</body>
+</html>

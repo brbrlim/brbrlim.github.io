@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PyTorch 2.5 Live Q&amp;A — 유튜브 다이제스트</title>
+<meta name="description" content="이 영상에서 Meta의 연구 엔지니어 Albin은 PyTorch 2.5 릴리스의 주요 특징을 소개하고, 커뮤니티의 기술적 질문에 답한다. 그는 LLM 관련 기능, torch.compile 개선, 다중 플랫폼 지원 등을 언급하며, 특히 Python GIL 제거의 영향,…">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="PyTorch 2.5 Live Q&amp;A — 유튜브 다이제스트">
+<meta property="og:description" content="이 영상에서 Meta의 연구 엔지니어 Albin은 PyTorch 2.5 릴리스의 주요 특징을 소개하고, 커뮤니티의 기술적 질문에 답한다. 그는 LLM 관련 기능, torch.compile 개선, 다중 플랫폼 지원 등을 언급하며, 특히 Python GIL 제거의 영향,…">
+<meta property="og:image" content="https://i.ytimg.com/vi/B3IgXpl4xt4/hqdefault.jpg">
+<meta property="og:type" content="article">
+<link rel="icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+<script>
+// Follow the blog's saved light/dark choice (same origin, same key).
+(function () {
+  var saved = null
+  try { saved = localStorage.getItem("theme") } catch (e) {}
+  var dark = saved ? saved === "dark" : matchMedia("(prefers-color-scheme: dark)").matches
+  document.documentElement.dataset.theme = dark ? "dark" : "light"
+})()
+</script>
+</head>
+<body class="post-page">
+<header class="site-bar">
+  <a class="site-name" href="/">Johnny's</a>
+  <a class="back" href="./">← 유튜브 다이제스트</a>
+</header>
+<main class="post">
+  <a class="hero" href="https://www.youtube.com/watch?v=B3IgXpl4xt4" target="_blank" rel="noopener" aria-label="YouTube에서 보기">
+    <img src="https://i.ytimg.com/vi/B3IgXpl4xt4/hqdefault.jpg" alt="">
+    <span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+  </a>
+  <h1>PyTorch 2.5 Live Q&amp;A</h1>
+  <div class="post-meta"><span>PyTorch</span><span>1:00:55</span><span>게시 2024-10-22</span></div>
+  <div class="tags"><a href="./?q=%23pytorch">#pytorch</a><a href="./?q=%23deep-learning">#deep-learning</a><a href="./?q=%23machine-learning">#machine-learning</a><a href="./?q=%23q-a">#q-a</a><a href="./?q=%23software-release">#software-release</a><a href="./?q=%23compiler">#compiler</a><a href="./?q=%23python-gil">#python-gil</a></div>
+  <article>
+<h2>TL;DR</h2>
+<p>이 영상에서 Meta의 연구 엔지니어 Albin은 PyTorch 2.5 릴리스의 주요 특징을 소개하고, 커뮤니티의 기술적 질문에 답한다. 그는 LLM 관련 기능, <code>torch.compile</code> 개선, 다중 플랫폼 지원 등을 언급하며, 특히 Python GIL 제거의 영향, Triton의 역할, <code>torchtext</code> 단종 후 대안, 그리고 <code>eager</code> 모드와 컴파일러의 조화로운 미래에 대해 자세히 설명한다. PyTorch의 C++ 백엔드인 LibTorch의 현재와 미래 전략도 다룬다.</p>
+<h2>풀시청 판단</h2>
+<p>이 영상은 PyTorch를 사용하거나 개발하는 사람들에게 매우 유익하다. 특히 다음과 같은 경우 풀 시청을 권장한다.</p>
+<ul>
+<li><strong>PyTorch 개발자 및 고급 사용자</strong>: PyTorch 2.5의 구체적인 변경 사항과 향후 방향, 내부 작동 방식에 대한 깊이 있는 통찰을 얻을 수 있다. <code>torch.compile</code>, <code>SDPA</code> 백엔드, C++ 확장(<code>LibTorch</code>) 같은 핵심 구성 요소에 대한 상세한 설명이 포함된다.</li>
+<li><strong>새로운 하드웨어(가속기) 통합 개발자</strong>: Triton을 통해 새로운 하드웨어를 PyTorch에 통합하는 방법과 PyTorch의 확장 지점에 대한 정보를 얻을 수 있다.</li>
+<li><strong>성능 최적화에 관심 있는 사용자</strong>: <code>eager</code> 모드와 <code>torch.compile</code> 간의 균형점, 수치 정확성 문제, 그리고 성능을 점진적으로 개선하는 전략에 대한 화자의 철학을 이해할 수 있다.</li>
+</ul>
+<p>반면, PyTorch 초급 사용자나 일반적인 AI/ML 트렌드에 관심 있는 사람에게는 내용이 다소 기술적이고 심층적일 수 있다. 특정 질문에 대한 답을 찾는다면 해당 챕터만 골라 보는 것이 효율적이다.</p>
+<p><strong>영상 시청 시 유의할 점</strong>:</p>
+<ul>
+<li><strong>Q&amp;A 형식의 한계</strong>: 주로 질문에 답하는 형식이라 내용의 흐름이 다소 끊길 수 있다. 일부 질문에 대해서는 화자 본인이 &quot;잘 모른다&quot;고 인정하여 깊이 있는 정보를 얻기 어려울 수도 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=B3IgXpl4xt4&amp;t=2018s">[33:38]</a>.</li>
+<li><strong>높은 기술적 난이도</strong>: <code>cuDNN SDPA</code> 백엔드의 수치적 안정성이나 <code>torch.compile</code>의 내부 동작 방식 등은 PyTorch 내부 구조에 대한 이해가 있는 사람에게 더 적합한 내용이다.</li>
+<li><strong>로드맵 정보의 시한성</strong>: 언급된 로드맵이나 출시 일정은 시간이 지남에 따라 변동될 수 있다.</li>
+</ul>
+<h2>핵심 내용</h2>
+<h3>PyTorch 2.5의 주요 특징</h3>
+<p>PyTorch 2.5는 대규모 언어 모델(LLM) 환경의 성능 최적화, 컴파일러(<code>torch.compile</code>) 개선, 그리고 다양한 플랫폼 지원에 중점을 둔다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=B3IgXpl4xt4&amp;t=62s">[1:02]</a>.</p>
+<p>가장 중요한 특징으로는 Flex Attention, SDPA(Scaled Dot Product Attention)의 새로운 백엔드 등 LLM 관련 성능 개선이 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=B3IgXpl4xt4&amp;t=97s">[1:37]</a>. 이는 기존 모델의 효율적인 구동을 돕고, 새로운 실험을 위한 유연성을 제공한다. 또한 <code>torch.compile</code>의 <code>compile_autograd</code> 및 영역별 컴파일(regional compilation)과 같은 기능이 추가되어 컴파일 시간을 단축하고 성능을 향상하며 더 많은 사용 사례를 지원한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=B3IgXpl4xt4&amp;t=126s">[2:06]</a>. 마지막으로, 컴파일러 백엔드인 Inductor의 Windows 지원과 장치 확장의 자동 로딩을 통해 더 많은 플랫폼에서 PyTorch를 쉽게 사용할 수 있게 된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=B3IgXpl4xt4&amp;t=162s">[2:42]</a>.</p>
+<h3>Python GIL 제거의 영향과 PyTorch의 대응</h3>
+<p>Python 3.13에서는 GIL(Global Interpreter Lock) 제거 옵션이 도입되어, 스레딩 효율을 크게 높일 수 있게 됐다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=B3IgXpl4xt4&amp;t=228s">[3:48]</a>. GIL은 Python에서 스레드 안전성을 보장하지만, CPython에서 스레드 활용을 제한하는 시스템이다. Python 3.13은 일반 버전과 no-GIL 버전 두 가지로 출시됐다.</p>
+<p>현재 PyTorch는 소스 빌드 및 나이틀리 바이너리에서 이 no-GIL 버전을 지원하지만, 광범위한 테스트는 아직 완료되지 않은 상태다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=B3IgXpl4xt4&amp;t=286s">[4:46]</a>. PyTorch 팀은 스레드 안전성 강화를 위해 내부적으로 많은 수정 작업을 진행했으며, 2.5.1 또는 2.6 버전에서는 완전히 테스트를 마친 no-GIL 바이너리를 제공할 계획이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=B3IgXpl4xt4&amp;t=333s">[5:33]</a>. 사용자가 나이틀리 빌드를 통해 문제를 발견하면 GitHub에 보고해 줄 것을 요청한다.</p>
+<h3>Triton의 역할과 다양한 가속기 지원</h3>
+<p>Triton은 다양한 하드웨어(NVIDIA GPU, AMD GPU, Intel XPU, CPU)를 위한 효율적인 커널(kernel) 작성을 지원하는 중요한 프로젝트다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=B3IgXpl4xt4&amp;t=355s">[5:55]</a>. PyTorch는 Triton을 기본적으로 지원하며, 특히 컴파일러 스택인 Inductor가 Triton을 적극적으로 활용하여 여러 백엔드를 지원한다.</p>
+<p>CUDA 외의 가속기 지원과 관련하여, <code>eager</code> 모드에서는 필요한 모든 확장 지점(extension point)을 제공하여 사용자가 자체 장치 및 백엔드를 정의하고, 자동 로딩 기능을 통해 PyTorch 코어 백엔드와 유사한 경험을 얻을 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=B3IgXpl4xt4&amp;t=491s">[8:11]</a>. 컴파일러 스택 측면에서는 하드웨어 특성과 기존 컴파일러 스택의 상태에 따라 통합 방식이 달라진다. Triton은 GPU와 유사한 새로운 시스템에 적합하며, XLA나 Hali와 같은 백엔드는 컴파일러 스택의 다른 지점에 통합될 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=B3IgXpl4xt4&amp;t=563s">[9:23]</a>. PyTorch 팀은 개발자 포럼을 통해 새로운 장치 통합에 대한 논의와 지원을 환영한다.</p>
+<h3>혼합형 데이터 임베딩 및 멀티모달 모델</h3>
+<p>혼합형 데이터(예: 테이블형 데이터와 텍스트)를 위한 임베딩 생성은 점점 중요해지는 추세다. PyTorch는 <code>torch.multimodal</code>과 같은 새로운 라이브러리 및 에코시스템 도구를 통해 이러한 멀티모달 사용 사례를 지원한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=B3IgXpl4xt4&amp;t=733s">[12:13]</a>. PyTorch 코어는 필요한 저수준 빌딩 블록을 제공하며, 상위 레벨의 복합적인 작업은 전문화된 패키지들을 활용하도록 권장한다.</p>
+<p>화자는 가장 중요한 모범 사례로 데이터의 균일화(uniformizing data)를 꼽는다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=B3IgXpl4xt4&amp;t=787s">[13:07]</a>. 데이터를 가능한 한 균일하게 만들면 GPU가 더 효율적으로 연산할 수 있고, 결과적으로 더 나은 모델 성능을 얻을 수 있다. 아무리 좋은 아이디어를 바탕으로 한 희소한(sparse) 데이터라도, 효율적인 연산이 뒷받침되지 않으면 충분한 성능을 내기 어렵다고 강조한다.</p>
+<h3><code>torchtext</code> 단종 및 대체 솔루션</h3>
+<p><code>torchtext</code> 라이브러리는 현재 단종(discontinued)되었다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=B3IgXpl4xt4&amp;t=1144s">[19:04]</a>. 이는 LLM 시대의 변화하는 요구사항과 PyTorch 생태계 내에서의 역할 변화 때문이다. <code>torchtext</code>의 기능은 이제 다양한 다른 라이브러리에서 더 잘 제공된다.</p>
+<p>주요 대체 솔루션은 다음과 같다:</p>
+<ul>
+<li><strong>PyTorch 코어 유틸리티</strong>: <code>torchtext</code>의 기본 계층, 데이터 로딩 유틸리티 등은 이제 PyTorch 코어에 직접 포함되어 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=B3IgXpl4xt4&amp;t=1213s">[20:13]</a>.</li>
+<li><strong>Hugging Face Transformers</strong>: LLM 및 트랜스포머 관련 특화 유틸리티를 위한 가장 인기 있는 대안이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=B3IgXpl4xt4&amp;t=1259s">[20:59]</a>.</li>
+<li><strong><code>torch.tune</code> 및 기타 라이브러리</strong>: 파인튜닝, 추론 등의 엔드투엔드 워크플로우를 위해서는 <code>torch.tune</code>, Lightning, Hugging Face의 전문화된 라이브러리가 더 나은 사용자 경험을 제공한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=B3IgXpl4xt4&amp;t=1284s">[21:24]</a>.</li>
+<li><strong><code>torch.media</code> 등 멀티미디어 시스템</strong>: 텍스트를 넘어 멀티미디어 데이터를 다루기 위한 라이브러리가 등장하고 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=B3IgXpl4xt4&amp;t=1325s">[22:05]</a>.</li>
+</ul>
+<h2>주요 통찰·논점</h2>
+<h3><code>eager</code> 모드와 <code>torch.compile</code>의 조화로운 미래</h3>
+<p>PyTorch는 <code>eager</code> 모드의 동적 특성과 유연성을 유지하면서 <code>torch.compile</code>을 통해 성능을 극대화하는 균형점을 찾고 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=B3IgXpl4xt4&amp;t=1380s">[23:00]</a>. 화자는 <code>torch.compile</code>의 목표를 &quot;사용자가 아무런 생각 없이 코드를 작성해도 최적 성능의 80%를 얻을 수 있도록 하는 것&quot;으로 설명한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=B3IgXpl4xt4&amp;t=1501s">[25:01]</a>.</p>
+<p>과거 <code>eager</code> 모드에서는 개발자가 수동으로 연산 중첩(overlap compute)이나 인라인화(inline)와 같은 복잡한 트릭을 사용하여 성능을 최적화해야 했다. 이는 파이썬답지 않은 코드를 작성하게 만들었다. <code>torch.compile</code>은 이러한 간극을 메워 가장 자연스러운 코드로도 높은 성능을 얻게 한다. 남은 20%의 성능은 그래프 끊김(graph break) 제거, 컴파일러 힌트 제공 등 추가적인 노력을 통해 점진적으로 개선할 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=B3IgXpl4xt4&amp;t=1582s">[26:22]</a>. 결국 <code>eager</code> 모드와 <code>torch.compile</code>은 모두 중요한 역할을 하며, 유연성과 성능 사이의 부드러운 전환을 제공하는 것이 PyTorch의 목표다.</p>
+<h3><code>SDPA</code> 백엔드 변경과 수치 정확성/훈련 발산 문제</h3>
+<p><code>cuDNN</code> 백엔드를 <code>SDPA</code>에 도입하면서 일부 사용자가 훈련 발산(training divergence) 문제를 겪고 있다는 질문이 제기됐다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=B3IgXpl4xt4&amp;t=2080s">[34:40]</a>. PyTorch는 릴리스 간 또는 CUDA 버전 변경 시 부동 소수점(floating point) 연산의 비트 단위 동일성을 보장할 수 없다. 이는 사소한 초기 오차가 증폭되어 모델의 행동에 큰 영향을 미칠 수 있음을 의미한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=B3IgXpl4xt4&amp;t=971s">[16:11]</a>.</p>
+<p><code>cuDNN</code> 백엔드의 변경은 출력 레이아웃(output layout)과 스트라이드(stride)를 변화시키고 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=B3IgXpl4xt4&amp;t=2250s">[37:30]</a>, 이는 다운스트림 레이어(downstream layers)의 입력과 역전파 경로(backward path)의 <code>grad_output</code>에 영향을 미친다. 결과적으로 서로 다른 알고리즘 구현이 호출되어 미묘한 수치적 부정확성(numerical inaccuracies)이 발생할 수 있다. 특히, <strong>무작위적인(unstructured) 오차는 훈련에 큰 영향을 주지 않지만, 편향된(biased) 또는 구조화된(structured) 오차는 훈련 발산을 유발할 수 있다</strong> <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=B3IgXpl4xt4&amp;t=2206s">[36:46]</a>. 이러한 문제를 해결하기 위해서는 사용자가 문제를 재현할 수 있는 최소 예시를 제공하는 것이 가장 중요하다고 강조한다.</p>
+<h3>공식 릴리스 vs. 나이틀리 빌드 vs. 소스 빌드</h3>
+<p>PyTorch 사용자들은 안정성, 최신 기능 접근성, 특정 종속성 요구사항에 따라 세 가지 버전 중 하나를 선택할 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=B3IgXpl4xt4&amp;t=2561s">[42:41]</a>.</p>
+<ul>
+<li><strong>공식 릴리스(예: 2.5.0)</strong>: 안정성을 최우선으로 하며, <code>torch.nn</code>, <code>optim</code>, <code>autograd</code>, 기본 분산 시스템과 같이 오랫동안 사용되어온 안정적인 코어 구성 요소를 주로 사용할 때 적합하다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=B3IgXpl4xt4&amp;t=2655s">[44:15]</a>.</li>
+<li><strong>나이틀리 빌드(nightly builds)</strong>: 최신 기능(<code>torch.compile</code> 패스, 컴파일러 성능 개선, 최신 분산 기능, 텐서 서브클래스 등)을 사용하고 버그 수정이 중요한 경우에 추천된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=B3IgXpl4xt4&amp;t=2668s">[44:28]</a>. 나이틀리 빌드는 모든 CI(Continuous Integration) 테스트가 통과될 때만 제공되므로 상대적으로 안정성이 높다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=B3IgXpl4xt4&amp;t=3028s">[50:28]</a>.</li>
+<li><strong>소스 빌드(build from source)</strong>: 특정 종속성 버전(예: 오래된 CUDA 버전), C++ 라이브러리 통합, 특정 <code>cuDNN</code> 버전 등 맞춤형 환경이 필요할 때 사용한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=B3IgXpl4xt4&amp;t=2740s">[45:40]</a>. 소스 빌드는 공식 릴리스 스냅샷 또는 나이틀리 브랜치 중 하나를 기반으로 할 수 있다. 대부분의 사용자에게는 사전 패키지된 바이너리 사용이 더 간단하다.</li>
+</ul>
+<h3>LibTorch (C++ 백엔드)의 미래</h3>
+<p>LibTorch는 PyTorch의 C++ 백엔드로, 두 가지 주요 역할을 한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=B3IgXpl4xt4&amp;t=3073s">[51:13]</a>.</p>
+<p>첫째, 순수 C++ 딥러닝 프레임워크로서 <code>torch.nn</code>, 옵티마이저(optimizer), <code>autograd</code> 등 파이썬 PyTorch의 모든 기능을 C++로 제공한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=B3IgXpl4xt4&amp;t=3107s">[51:47]</a>. 이 부분은 사용자층이 제한적이고 유지보수가 어려워 현재로서는 큰 개발 계획이 없다.</p>
+<p>둘째, C++를 통해 PyTorch를 확장하려는 개발자를 위한 기능이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=B3IgXpl4xt4&amp;t=3139s">[52:19]</a>. 이 부분은 매우 활발하게 투자되고 있다.</p>
+<ul>
+<li><strong>Python + C++ 혼합 개발</strong>: PyTorch는 Python과 C++를 혼합하여 사용하는 방향으로 발전하고 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=B3IgXpl4xt4&amp;t=3218s">[53:38]</a>. 고급 컴파일러 스택(TorchScript에서 <code>export</code>/AOT로 변화), 새로운 커스텀 op API, C++ 패키징 등을 통해 파이썬으로 작성된 모델도 C++에 버금가는 성능을 낼 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=B3IgXpl4xt4&amp;t=3291s">[54:51]</a>.</li>
+<li><strong>C++ 추론 환경</strong>: 훈련 시에는 Python 오버헤드가 크지 않으므로 Python을 사용하길 권장하지만 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=B3IgXpl4xt4&amp;t=3356s">[55:56]</a>, 대규모 추론 환경에서는 마지막 몇 퍼센트의 성능 향상이나 Python GC(가비지 컬렉터)와 같은 요소로 인한 예측 불가능성을 제거하기 위해 C++ 추론 시스템을 제공한다. 이는 모바일, 엣지 장치와 같이 엄격한 런타임 제약이 있는 환경(예: <code>execute_torch</code>)에 특히 유용하다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=B3IgXpl4xt4&amp;t=3441s">[57:21]</a>.</li>
+<li><strong>유연성 vs. 성능</strong>: C++ 환경으로 내려갈수록 더 높은 성능과 예측 가능성을 얻지만, 파이썬의 유연성을 희생해야 한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=B3IgXpl4xt4&amp;t=3471s">[57:51]</a>. 개발자는 훈련 및 실험 단계에서는 파이썬을 사용하고, 모델이 최종적으로 확정되어 프로덕션에 투입될 때 C++ 환경으로 전환하는 유연한 접근 방식을 취할 수 있다.</li>
+</ul>
+<h2>인상적인 지점</h2>
+<ul>
+<li><code>eager</code> 모드와 <code>torch.compile</code>의 관계를 설명하며, &quot;파이썬으로 자연스럽게 코드를 작성해도 최적 성능의 80%를 얻고, 추가적인 노력으로 100%에 도달하는 부드러운 전환&quot;이라는 비유는 PyTorch의 개발 철학을 매우 명확하게 보여준다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=B3IgXpl4xt4&amp;t=1501s">[25:01]</a>. 이는 유연성과 성능이라는 두 마리 토끼를 잡으려는 PyTorch의 노력을 잘 드러낸다.</li>
+<li><code>cuDNN SDPA</code> 백엔드 변경으로 인한 훈련 발산 문제에 대해 단순히 &quot;버그가 있다&quot;는 것을 넘어, 부동 소수점 연산의 미묘한 특성, 출력 레이아웃 변경이 다운스트림 레이어와 역전파에 미치는 영향, 그리고 특히 &quot;구조화된 수치 오류가 훈련 발산을 유발할 수 있다&quot;는 설명은 복잡한 시스템의 디버깅에 대한 깊은 이해를 보여준다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=B3IgXpl4xt4&amp;t=2206s">[36:46]</a>. 이는 단순히 성능 최적화를 넘어 시스템의 신뢰성과 안정성을 고려하는 PyTorch 개발팀의 관점을 엿볼 수 있는 부분이다.</li>
+</ul>
+
+  </article>
+  <p class="post-end"><a href="https://www.youtube.com/watch?v=B3IgXpl4xt4" target="_blank" rel="noopener">YouTube에서 원본 보기 ↗</a> · <a href="./">← 목록으로</a></p>
+</main>
+<footer class="site-foot">
+  <a href="/projects/yt-digest-overview">yt-digest</a> 파이프라인이 자막을 읽고 자동으로 작성한 브리핑입니다. 오류가 있을 수 있으니 중요한 내용은 원본 영상으로 확인하세요.
+</footer>
+</body>
+</html>

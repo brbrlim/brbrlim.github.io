@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Francois Chollet — Why the biggest AI models can't solve simple puzzles — 유튜브 다이제스트</title>
+<meta name="description" content="Keras 창시자이자 Google AI 연구원인 프랑수아 숄레는 대규모 언어 모델(LLM)이 방대한 지식 암기를 통해 ‘기술’을 향상시킬 수는 있지만, 새로운 상황에 대한 적응력이나 ‘진정한 지능’은 아직 부족하다고 주장한다. 그는 암기에 저항하도록 설계된 ARC(Ab…">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="Francois Chollet — Why the biggest AI models can't solve simple puzzles — 유튜브 다이제스트">
+<meta property="og:description" content="Keras 창시자이자 Google AI 연구원인 프랑수아 숄레는 대규모 언어 모델(LLM)이 방대한 지식 암기를 통해 ‘기술’을 향상시킬 수는 있지만, 새로운 상황에 대한 적응력이나 ‘진정한 지능’은 아직 부족하다고 주장한다. 그는 암기에 저항하도록 설계된 ARC(Ab…">
+<meta property="og:image" content="https://i.ytimg.com/vi/UakqL6Pj9xo/hqdefault.jpg">
+<meta property="og:type" content="article">
+<link rel="icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+<script>
+// Follow the blog's saved light/dark choice (same origin, same key).
+(function () {
+  var saved = null
+  try { saved = localStorage.getItem("theme") } catch (e) {}
+  var dark = saved ? saved === "dark" : matchMedia("(prefers-color-scheme: dark)").matches
+  document.documentElement.dataset.theme = dark ? "dark" : "light"
+})()
+</script>
+</head>
+<body class="post-page">
+<header class="site-bar">
+  <a class="site-name" href="/">Johnny's</a>
+  <a class="back" href="./">← 유튜브 다이제스트</a>
+</header>
+<main class="post">
+  <a class="hero" href="https://www.youtube.com/watch?v=UakqL6Pj9xo" target="_blank" rel="noopener" aria-label="YouTube에서 보기">
+    <img src="https://i.ytimg.com/vi/UakqL6Pj9xo/hqdefault.jpg" alt="">
+    <span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+  </a>
+  <h1>Francois Chollet — Why the biggest AI models can't solve simple puzzles</h1>
+  <div class="post-meta"><span>Dwarkesh Patel</span><span>1:34:39</span><span>게시 2024-06-11</span></div>
+  <div class="tags"><a href="./?q=%23ai">#ai</a><a href="./?q=%23agi">#agi</a><a href="./?q=%23llm">#llm</a><a href="./?q=%23arc-benchmark">#arc-benchmark</a><a href="./?q=%23deep-learning">#deep-learning</a><a href="./?q=%23program-synthesis">#program-synthesis</a><a href="./?q=%23intelligence">#intelligence</a></div>
+  <article>
+<h2>TL;DR</h2>
+<p>Keras 창시자이자 Google AI 연구원인 프랑수아 숄레는 대규모 언어 모델(LLM)이 방대한 지식 암기를 통해 ‘기술’을 향상시킬 수는 있지만, 새로운 상황에 대한 적응력이나 ‘진정한 지능’은 아직 부족하다고 주장한다. 그는 암기에 저항하도록 설계된 ARC(Abstract Reasoning Corpus) 벤치마크를 통해 LLM의 근본적인 한계를 지적하며, 진정한 AGI(범용 인공지능)를 위해서는 딥러닝과 이산 프로그램 탐색을 결합한 하이브리드 시스템이 필요하다고 강조한다.</p>
+<h2>풀시청 판단</h2>
+<p>이 영상은 현재 LLM의 한계와 AGI로 나아가기 위한 미래 AI 연구 방향에 대해 깊이 있는 통찰을 얻고 싶은 사람들에게 매우 유익하다. 특히 다음과 같은 사람들에게 풀시청을 권한다.</p>
+<ul>
+<li><strong>LLM의 근본적인 한계에 대해 고민하는 연구자 및 개발자</strong>: 프랑수아 숄레는 LLM이 지닌 '암기'와 '기술'의 한계를 명확히 설명하고, '진정한 지능'의 정의와 이를 측정하는 ARC 벤치마크의 중요성을 강조한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=UakqL6Pj9xo&amp;t=72s">[1:12]</a></li>
+<li><strong>AGI의 실현 가능성과 경로에 관심 있는 사람</strong>: 딥러닝과 이산 프로그램 탐색의 강점과 약점을 비교하며, 이 둘을 결합한 하이브리드 시스템이 AGI를 향한 유일한 길이라고 주장하는 부분은 미래 AI 연구의 방향성을 제시한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=UakqL6Pj9xo&amp;t=3097s">[51:37]</a></li>
+<li><strong>현재 AI 연구 생태계의 문제점과 개선 방안을 알고 싶은 사람</strong>: 폐쇄적인 연구 문화와 LLM 위주의 투자 흐름이 AGI 발전을 저해하고 있다는 비판은 AI 연구의 윤리적, 사회적 측면을 생각하게 한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=UakqL6Pj9xo&amp;t=3967s">[1:06:07]</a></li>
+<li><strong>ARC 벤치마크와 100만 달러 상금에 도전하고 싶은 개발자</strong>: ARC의 특성, 기존 AI 시스템이 ARC에서 고전하는 이유, 그리고 상금 규칙에 대한 상세한 설명은 참가 의지를 자극한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=UakqL6Pj9xo&amp;t=4170s">[1:09:30]</a></li>
+</ul>
+<p>다만, LLM에 대해 무조건적으로 낙관적인 관점을 가진 이들에게는 다소 비판적으로 느껴질 수 있으며, 일부 대화는 기술 전문 용어를 포함하고 있어 AI에 대한 기본적인 이해가 필요하다.</p>
+<h2>핵심 내용</h2>
+<h3>ARC 벤치마크: LLM의 한계 측정 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=UakqL6Pj9xo&amp;t=72s">[1:12]</a></h3>
+<p>ARC(Abstract Reasoning Corpus)는 기계 지능을 위한 일종의 지능 검사로 설계되었다. 대부분의 LLM 벤치마크와 달리 암기에 저항하도록 만들어진 점이 특징이다. ARC의 각 퍼즐은 새로운 문제이며, 인터넷의 모든 정보를 암기했더라도 처음 접하는 유형이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=UakqL6Pj9xo&amp;t=122s">[2:02]</a>. 퍼즐 해결에 필요한 지식은 사물 개념, 세기, 기하학, 위상학, 대칭 등 4~5세 아이도 아는 핵심 지식뿐이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=UakqL6Pj9xo&amp;t=482s">[8:02]</a>. 이러한 특성 때문에 LLM은 ARC에서 좋은 성과를 내지 못하고 있으며, 현재 좋은 성능을 보이는 접근 방식은 이산 프로그램 탐색이나 프로그램 합성 쪽이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=UakqL6Pj9xo&amp;t=137s">[2:17]</a>. 진행자는 LLM이 궁극적으로 ARC를 해결할 것이라 주장하지만, 숄레는 LLM이 수백만 개의 ARC 유사 퍼즐로 훈련되더라도 이는 '암기'에 불과하며, 진정한 지능은 '처음 보는 작업에 즉시 적응하는 능력'이라고 반박한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=UakqL6Pj9xo&amp;t=222s">[3:42]</a>.</p>
+<h3>지능 vs. 기술: 핵심은 ‘새로운 것에 대한 적응’ <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=UakqL6Pj9xo&amp;t=307s">[5:07]</a></h3>
+<p>숄레는 진정한 지능과 순수한 암기를 구분하는 중요한 차이는 '세상이 끊임없이 변한다'는 점이라고 설명한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=UakqL6Pj9xo&amp;t=321s">[5:21]</a>. 가능한 작업 공간은 무한하며, 세상은 매일 바뀌기 때문에 모든 것을 미리 훈련할 수는 없다. 인간은 이러한 변화에 적응하기 위해 지능을 발달시켰고, 거의 지식 없이 태어나 효율적으로 학습하고 전례 없는 상황에 적응하는 능력을 지녔다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=UakqL6Pj9xo&amp;t=393s">[6:33]</a>. 반면, 많은 곤충처럼 환경이 정적이고 예측 가능하다면, 진화는 특정 자극에 대한 적절한 반응을 유전자나 신경망에 하드코딩된 행동 프로그램으로 만들었을 것이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=UakqL6Pj9xo&amp;t=351s">[5:51]</a>. 숄레는 이를 비유하며, LLM은 데이터베이스 크기를 키워 더 많은 지식과 패턴을 암기함으로써 '기술'과 '유용성'을 높이지만, '지능'을 높이는 것은 아니라고 강조한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=UakqL6Pj9xo&amp;t=1153s">[19:13]</a>.</p>
+<h3>LLM의 작동 방식: 정적 프로그램 '호출', 동적 프로그램 '합성' 불가 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=UakqL6Pj9xo&amp;t=1102s">[18:22]</a></h3>
+<p>LLM이 사용하는 벤치마크는 대부분 암기 기반이거나, 추론을 요구하는 것처럼 보여도 유한한 추론 패턴을 암기하여 재적용하는 방식이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=UakqL6Pj9xo&amp;t=1073s">[17:53]</a>. LLM은 &quot;정적 프로그램&quot;의 은행을 가지고 있으며, 새로운 퍼즐을 받으면 적절한 프로그램을 찾아 적용하는 '프로그램 호출'을 수행한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=UakqL6Pj9xo&amp;t=1102s">[18:22]</a>. 이는 마치 추론처럼 보이지만, 실제로는 그 자리에서 새로운 프로그램을 합성하는 것이 아니다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=UakqL6Pj9xo&amp;t=1119s">[18:39]</a>. 예를 들어, LLM은 인터넷에 흔한 시저 암호(Caesar cipher)는 해결할 수 있지만, 전치 길이가 9처럼 임의의 숫자일 경우 실패한다. 이는 일반화된 알고리즘을 합성하는 것이 아니라 특정 사례들을 암기했기 때문이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=UakqL6Pj9xo&amp;t=1600s">[26:40]</a>. 반면 인간은 암기뿐 아니라 새로운 상황에 즉각적으로 적응하는 능력이 있어 끊임없이 변화하는 삶을 헤쳐나갈 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=UakqL6Pj9xo&amp;t=1656s">[27:36]</a>.</p>
+<h3>LLM의 '일반화'는 스케일업된 '국소적 일반화' <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=UakqL6Pj9xo&amp;t=2952s">[49:12]</a></h3>
+<p>진행자는 LLM이 스케일이 커지면서 더 높은 수준의 일반화를 배우는 것이 아니냐고 묻는다. 이에 숄레는 LLM이 압축의 필요성 때문에 재사용 가능한 프로그램 조각들을 저장하고, 이를 조합하여 새로운 프로그램을 배우는 '국소적 일반화' 능력을 가지고 있다고 인정한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=UakqL6Pj9xo&amp;t=2902s">[48:22]</a>. 그러나 그는 LLM 모델의 기반이 되는 &quot;큰 매개변수 곡선&quot;이라는 한계 때문에 이는 본질적으로 '국소적 일반화'에 머무른다고 말한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=UakqL6Pj9xo&amp;t=2952s">[49:12]</a>. 더 넓고 극단적인 일반화를 위해서는 &quot;이산 프로그램 탐색&quot;과 같은 다른 유형의 모델로 전환해야 한다고 주장한다. 딥러닝 모델은 미분 가능한 매개변수 곡선으로 경사 하강법을 통해 빠르게 해답을 찾지만, 밀집된 데이터 샘플링이 필요하여 학습 데이터 분포 내에서만 일반화된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=UakqL6Pj9xo&amp;t=3013s">[50:13]</a>. 반면 이산 프로그램 탐색은 조합 탐색을 통해 단 한두 개의 예시만으로도 일반화 가능한 프로그램을 학습할 수 있어 매우 데이터 효율적이지만, 조합 폭발로 인해 연산 효율성이 떨어진다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=UakqL6Pj9xo&amp;t=3053s">[50:53]</a>.</p>
+<h2>주요 통찰·논점</h2>
+<h3>AGI를 향한 길: 딥러닝과 이산 프로그램 탐색의 융합 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=UakqL6Pj9xo&amp;t=3097s">[51:37]</a></h3>
+<p>숄레는 딥러닝과 이산 프로그램 탐색이 상호 보완적인 강점과 약점을 가지고 있음을 지적하며, 이 둘을 병합하는 것이 AGI를 향한 길이라고 역설한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=UakqL6Pj9xo&amp;t=3097s">[51:37]</a>. 딥러닝은 시스템 1 사고(패턴 인식, 직관, 암기)에 적합하고, 이산 프로그램 탐색은 시스템 2 사고(계획, 추론, 새로운 일반화 모델 발견)에 적합하다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=UakqL6Pj9xo&amp;t=3105s">[51:45]</a>. 인간은 이 두 가지 사고방식을 혼합하여 사용하므로, AGI는 이 두 가지를 결합한 하이브리드 시스템이 될 것이다. 이때 이산 프로그램 탐색이 외부 구조를 형성하고, 딥러닝이 조합 폭발 문제를 해결하기 위해 프로그램 공간에서 직관을 제공하고 탐색을 안내하는 역할을 해야 한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=UakqL6Pj9xo&amp;t=3157s">[52:37]</a>. 궁극적으로 새로운 상황에 적응할 수 있는 합성 엔진은 딥러닝 모델에서 가져온 직관을 바탕으로 패턴 모듈(미분 가능한 모듈 및 알고리즘 모듈)을 조합하여, 적은 데이터로도 일반화 가능한 모델을 합성할 수 있을 것이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=UakqL6Pj9xo&amp;t=3251s">[54:11]</a>.</p>
+<h3>현재 AI 연구의 역행: 개방성 상실과 LLM 편향 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=UakqL6Pj9xo&amp;t=3967s">[1:06:07]</a></h3>
+<p>ARC 상금을 공동 후원하는 마이크 크눕은 ARC 벤치마크가 지난 4년간 주목받지 못한 이유를 묻는다. 숄레는 ARC가 기존 AI 기술로는 해결하기 매우 어려워 돌파구가 없었기 때문이라고 답한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=UakqL6Pj9xo&amp;t=3865s">[1:04:25]</a>. 그는 ARC가 단순히 AGI의 척도가 아니라, 연구자들이 &quot;왜 이렇게 간단한 퍼즐이 기존 AI 시스템에는 어려운가?&quot;라는 질문을 던지도록 영감을 주는 역할을 하길 바란다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=UakqL6Pj9xo&amp;t=3896s">[1:04:56]</a>. 숄레는 현재 AI 연구 생태계의 두 가지 문제점을 비판한다. 첫째, OpenAI의 GPT-4 논문처럼 최첨단 연구가 기술적 세부 사항을 공유하지 않는 '폐쇄적인 연구 문화'가 확산되고 있다는 점이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=UakqL6Pj9xo&amp;t=3967s">[1:06:07]</a>. 둘째, LLM의 초기 성공 이후 모든 연구 자원이 LLM에만 집중되어 다른 혁신적인 방향 탐색이 위축되고 있다는 점이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=UakqL6Pj9xo&amp;t=4048s">[1:07:28]</a>. 그는 이러한 경향이 AGI로의 발전을 5~10년 지연시켰다고 주장하며, 2015~2016년처럼 더 적은 인원으로도 다양한 방향을 탐색하던 시기의 개방성과 진취성이 필요하다고 역설한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=UakqL6Pj9xo&amp;t=4080s">[1:08:00]</a>.</p>
+<h3>ARC 상금의 의미: 지능의 본질을 밝히려는 노력 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=UakqL6Pj9xo&amp;t=5101s">[1:25:01]</a></h3>
+<p>숄레와 크눕은 ARC 상금이 100만 달러 규모로 올해부터 매년 진행되며, 85%의 성능을 달성한 첫 팀에게 50만 달러가 수여된다고 밝힌다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=UakqL6Pj9xo&amp;t=4170s">[1:09:30]</a>. 숄레는 이 상금의 목적이 벤치마크를 해킹하려는 시도를 통해 결함을 발견하고, 궁극적으로 '새로운 지능 알고리즘'을 찾도록 유도하는 것이라고 설명한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=UakqL6Pj9xo&amp;t=5101s">[1:25:01]</a>. 즉, 상금을 통해 더 많은 사람이 ARC 문제에 도전하게 하고, 만약 쉽게 해결된다면 ARC 벤치마크의 한계를 드러내게 될 것이며, 해결이 어렵다면 새로운 아이디어가 절실하다는 주장을 강화할 것이라는 뜻이다. 그는 ARC 해결책이 곧바로 AGI는 아니더라도, 두세 가지 예시만으로 문제 해결 프로그램을 합성하는 능력을 보여줌으로써 소프트웨어 개발의 완전히 새로운 패러다임을 열 것이라고 예측한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=UakqL6Pj9xo&amp;t=5174s">[1:26:14]</a>. 이는 개발자가 코드를 직접 작성하는 대신, 컴퓨터에 원하는 결과를 보여주고 컴퓨터가 스스로 방법을 찾아내도록 하는 방식을 의미한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=UakqL6Pj9xo&amp;t=5195s">[1:26:35]</a>.</p>
+<h2>인상적인 지점</h2>
+<ul>
+<li><strong>&quot;지능은 무엇을 해야 할지 모를 때 사용하는 것이다.&quot;</strong> <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=UakqL6Pj9xo&amp;t=3513s">[58:33]</a>
+<ul>
+<li>숄레는 발달 심리학의 창시자 장 피아제(Jean Piaget)의 인용문을 통해 지능의 핵심을 설명한다. 인간은 대부분의 상황에서 익숙한 경험을 바탕으로 행동하지만, 예상치 못한 새로운 상황에 직면했을 때 비로소 지능을 사용하여 적응한다는 것이다. 우리의 삶은 매일 새로운 요소들로 가득하며, 이 모든 것을 암기로만 헤쳐나갈 수는 없다.</li>
+</ul>
+</li>
+<li><strong>체스 그랜드마스터와 AI: 최고 수준의 체스는 '암기'에 가깝다.</strong> <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=UakqL6Pj9xo&amp;t=1676s">[27:56]</a>
+<ul>
+<li>숄레는 체스 그랜드마스터도 수많은 기보를 암기하고 패턴 매칭을 통해 경기를 풀어간다고 설명하며, 이는 인간도 상당 부분 암기와 패턴 매칭에 의존한다는 점을 보여준다. 그러나 인간은 여기서 나아가 새로운 상황에 즉각적으로 적응하는 능력을 지니고 있다는 점에서 LLM과 차별화된다고 강조한다.</li>
+</ul>
+</li>
+</ul>
+
+  </article>
+  <p class="post-end"><a href="https://www.youtube.com/watch?v=UakqL6Pj9xo" target="_blank" rel="noopener">YouTube에서 원본 보기 ↗</a> · <a href="./">← 목록으로</a></p>
+</main>
+<footer class="site-foot">
+  <a href="/projects/yt-digest-overview">yt-digest</a> 파이프라인이 자막을 읽고 자동으로 작성한 브리핑입니다. 오류가 있을 수 있으니 중요한 내용은 원본 영상으로 확인하세요.
+</footer>
+</body>
+</html>

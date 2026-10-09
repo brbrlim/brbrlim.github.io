@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to be a Good Machine Learning PM by Google Product Manager, Rubén Lozano Aguilera — 유튜브 다이제스트</title>
+<meta name="description" content="구글 클라우드의 프로덕트 매니저 루벤 로자노 아길레라가 머신러닝(ML) 기반 제품을 개발할 때 프로덕트 매니저(PM)의 역할을 설명한다. 그는 ML 도입 여부를 판단하는 기준, ML 모델 개발 프로세스, 그리고 이 과정에서 PM이 주도해야 할 핵심 역할과 윤리적 고려…">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="How to be a Good Machine Learning PM by Google Product Manager, Rubén Lozano Aguilera — 유튜브 다이제스트">
+<meta property="og:description" content="구글 클라우드의 프로덕트 매니저 루벤 로자노 아길레라가 머신러닝(ML) 기반 제품을 개발할 때 프로덕트 매니저(PM)의 역할을 설명한다. 그는 ML 도입 여부를 판단하는 기준, ML 모델 개발 프로세스, 그리고 이 과정에서 PM이 주도해야 할 핵심 역할과 윤리적 고려…">
+<meta property="og:image" content="https://i.ytimg.com/vi/5z1Hz-rV4zY/hqdefault.jpg">
+<meta property="og:type" content="article">
+<link rel="icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+<script>
+// Follow the blog's saved light/dark choice (same origin, same key).
+(function () {
+  var saved = null
+  try { saved = localStorage.getItem("theme") } catch (e) {}
+  var dark = saved ? saved === "dark" : matchMedia("(prefers-color-scheme: dark)").matches
+  document.documentElement.dataset.theme = dark ? "dark" : "light"
+})()
+</script>
+</head>
+<body class="post-page">
+<header class="site-bar">
+  <a class="site-name" href="/">Johnny's</a>
+  <a class="back" href="./">← 유튜브 다이제스트</a>
+</header>
+<main class="post">
+  <a class="hero" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY" target="_blank" rel="noopener" aria-label="YouTube에서 보기">
+    <img src="https://i.ytimg.com/vi/5z1Hz-rV4zY/hqdefault.jpg" alt="">
+    <span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+  </a>
+  <h1>How to be a Good Machine Learning PM by Google Product Manager, Rubén Lozano Aguilera</h1>
+  <div class="post-meta"><span>Product School</span><span>1:34:50</span><span>게시 2019-01-02</span></div>
+  <div class="tags"><a href="./?q=%23machine-learning">#machine-learning</a><a href="./?q=%23product-management">#product-management</a><a href="./?q=%23ml-pm">#ml-pm</a><a href="./?q=%23data-strategy">#data-strategy</a><a href="./?q=%23ethical-ai">#ethical-ai</a><a href="./?q=%23google-cloud">#google-cloud</a></div>
+  <article>
+<h2>TL;DR</h2>
+<p>구글 클라우드의 프로덕트 매니저 루벤 로자노 아길레라가 머신러닝(ML) 기반 제품을 개발할 때 프로덕트 매니저(PM)의 역할을 설명한다. 그는 ML 도입 여부를 판단하는 기준, ML 모델 개발 프로세스, 그리고 이 과정에서 PM이 주도해야 할 핵심 역할과 윤리적 고려 사항을 강조한다. 데이터의 품질, 편향성, 그리고 문제 해결에 ML이 적합한지를 면밀히 평가하는 것이 중요하다고 말한다.</p>
+<h2>풀시청 판단</h2>
+<p>이 영상은 머신러닝 기반 제품 개발에 관심 있는 프로덕트 매니저(PM) 지망생이나 현직 PM에게 매우 유익하다. ML 프로젝트의 전반적인 생애 주기와 PM의 구체적인 개입 지점을 상세히 다루기 때문이다. 특히 ML을 적용할지 말지 판단하는 체계와 데이터의 윤리적 사용에 대한 경고는 현장 PM들에게 실질적인 통찰을 제공한다. 데이터 과학자, 엔지니어, 비즈니스 이해관계자와 효과적으로 협력하는 방법도 배울 수 있다.</p>
+<p>다만, ML 개념에 대한 설명 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=141s">[2:21]</a>은 초보자를 위한 개괄에 불과하며, 기술적인 깊이는 기대하기 어렵다. 또한, 데이터 편향성 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=4484s">[1:14:44]</a>이나 모델 평가 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=4695s">[1:18:15]</a> 등의 중요한 주제는 시간 제약으로 인해 피상적으로 다뤄진다. 딥러닝에 대한 언급 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=5095s">[1:24:55]</a>도 아주 간략하다.</p>
+<p>따라서 ML의 기본 개념을 이미 이해하고 있거나, ML 기술 자체보다 ML 기반 제품 개발 과정과 PM 역할에 집중하고 싶다면 풀시청을 권한다. 특히 다음 챕터를 집중해서 보면 좋다.</p>
+<ul>
+<li>
+<h3>머신러닝, 언제 써야 할까? — 5가지 기준</h3>
+</li>
+<li>
+<h3>ML 모델 개발 과정 — PM의 역할</h3>
+</li>
+<li>
+<h3>데이터가 전부다 — ML 프로젝트의 성패를 가르는 데이터 품질</h3>
+</li>
+<li>
+<h3>편향과 윤리 — ML PM의 가장 중요한 의무</h3>
+</li>
+</ul>
+<h2>핵심 내용</h2>
+<h3>머신러닝의 본질 — 규칙이 너무 많을 때 데이터를 활용해 학습한다</h3>
+<p>머신러닝(ML)은 인공지능의 하위 분야로, 통계와 알고리즘을 사용해 인간의 행동을 모방하는 기술이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=156s">[2:36]</a>. 기존 프로그래밍이 명확한 규칙(예: 프라임 회원에게 특정 기능 보여주기)으로 문제를 해결하는 반면 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=211s">[3:31]</a>, ML은 규칙이 너무 많아 일일이 코딩하기 어려울 때 빛을 발한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=267s">[4:27]</a>. 예를 들어, 아마존 검색 엔진은 수많은 검색어에 대한 규칙을 모두 만들 수 없으므로, ML을 통해 사용자의 행동에 맞춰 유연하게 결과를 제공한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=275s">[4:35]</a>. ML은 &quot;명시적으로 프로그래밍하지 않고도 컴퓨터가 학습할 수 있는 능력&quot;을 부여하는 것이 핵심이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=197s">[3:17]</a>.</p>
+<p>화자는 ML이 &quot;마법 지팡이&quot;가 아니라고 강조한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=320s">[5:20]</a>. ML은 답을 모르는 문제에 갑자기 해답을 제시하지 않는다. 명확한 답(레이블 또는 목표)이 있고, 이를 예측할 수 있는 충분한 데이터가 있을 때만 ML을 활용할 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=355s">[5:55]</a>. 데이터가 부족하거나 어떤 결과가 좋은 답인지 정의할 수 없다면 ML은 적합한 해결책이 아니다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=378s">[6:18]</a>.</p>
+<h3>머신러닝, 언제 써야 할까? — 5가지 기준</h3>
+<p>ML 솔루션 도입 여부를 판단할 때 다음 5가지 질문으로 구성된 체계(프레임워크)를 사용한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=697s">[11:37]</a>.</p>
+<ol>
+<li><strong>논리가 복잡한가?</strong> <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=775s">[12:55]</a> 단순히 <code>if</code> 문 20개로 해결할 수 있는 문제라면 ML은 과잉이다. 검색어 처리와 같이 규칙 기반으로 처리하기 너무 복잡한 문제에 ML을 고려한다.</li>
+<li><strong>빠르게 확장될 문제인가?</strong> <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=832s">[13:52]</a> 현재는 작은 문제라도 미래에 사용자나 데이터 규모가 급격히 늘어날 것으로 예상될 때 ML이 유용하다. 초기에는 적은 주문량 때문에 ML 도입이 비효율적일 수 있지만, 주문량이 수천 건으로 늘어나면 ML 자동화의 가치가 커진다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=881s">[14:41]</a>.</li>
+<li><strong>전문적인 개인화가 필요한가?</strong> <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=929s">[15:29]</a> 넷플릭스나 아마존처럼 각 사용자에게 특화된 경험을 제공하고 싶을 때 ML이 필요하다. 단순히 5~10개의 고객 세그먼트로 나누어 처리할 수 있다면 ML이 필수적이지 않다.</li>
+<li><strong>시간에 따라 변화하는 문제인가?</strong> <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=971s">[16:11]</a> 트렌드가 빠르게 바뀌는 검색어(예: 비욘세 새 앨범 발매)와 같이 실시간으로 적응해야 하는 문제에 ML이 적합하다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=1007s">[16:47]</a>. 고정된 규칙은 변화하는 환경에 대처하지 못한다. 아마존의 'Ring' 검색어 사례 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=1037s">[17:17]</a>처럼 규칙을 고정했다가 '반지'가 아닌 '링 도어벨'을 찾는 사용자의 의도를 놓치는 문제가 발생할 수 있다.</li>
+<li><strong>명확한 답(Answers)이 있는가?</strong> <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=1107s">[18:27]</a> ML은 이미 알고 있는 &quot;정답&quot;을 바탕으로 학습한다. 어떤 결과가 좋은지 명확하게 정의할 수 없는 문제(예: 가장 빨리 배우는 API가 무엇인지)에는 ML을 적용하기 어렵다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=1141s">[19:01]</a>.</li>
+</ol>
+<h3>ML이 해결하기 좋은 문제 유형 6가지와 PM의 역할 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=1186s">[19:46]</a></h3>
+<p>ML은 다양한 문제 해결에 사용될 수 있다. PM은 어떤 유형의 문제에 ML을 적용할지 파악해야 한다.</p>
+<ol>
+<li><strong>순위화(Ranking)</strong> <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=1186s">[19:46]</a>: 검색 결과나 뉴스 기사를 관련성 높은 순서로 정렬하는 문제. 복잡한 논리, 대규모, 시간 변화, 개인화가 필요한 전형적인 ML 활용 사례다.</li>
+<li><strong>추천(Recommendations)</strong> <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=1266s">[21:06]</a>: 사용자에게 관심 있을 만한 제품이나 콘텐츠를 제안하는 문제. 구글 캘린더가 과거 회의 기록을 바탕으로 적절한 회의실을 추천하는 것이 예시다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=1290s">[21:30]</a>. ML은 100% 정확도를 요구하지 않으며, 틀려도 큰 문제가 없는 상황에 적합하다.</li>
+<li><strong>분류(Classification)</strong> <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=1339s">[22:19]</a>: 특정 대상이 어떤 범주에 속하는지 구분하는 문제. 아마존 카탈로그에서 수십억 개의 상품이 올바른 카테고리에 분류되었는지 확인하는 데 ML을 활용한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=1355s">[22:35]</a>. 문제 자체는 복잡하지 않아도 규모가 매우 클 때 ML의 가치가 높다.</li>
+<li><strong>회귀(Regression)</strong> <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=1413s">[23:33]</a>: 특정 값이나 추이를 예측하는 문제. 제품 판매량 예측(예측(forecasting))이 대표적이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=1424s">[23:44]</a>. 시장 상황, 미디어 스캔들 등 시시각각 변하는 요인에 따라 예측 모델이 유연하게 적응해야 할 때 ML이 필요하다.</li>
+<li><strong>군집화(Clustering)</strong> <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=1474s">[24:34]</a>: 유사한 데이터 포인트를 그룹화하는 문제. 구글 뉴스가 관련 기사들을 묶어 보여주는 데 사용된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=1491s">[24:51]</a>. 레이블이 없는 데이터에서 유사성을 찾는 비지도 학습(unsupervised learning)에 해당한다.</li>
+<li><strong>이상 감지(Anomaly Detection)</strong> <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=1510s">[25:10]</a>: 정상 범주에서 벗어나는 특이점을 찾아내는 문제. 아마존 프레시에서 과일 신선도 관리 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=1522s">[25:22]</a>처럼, 수많은 제품 중 불량품을 자동으로 식별하는 데 ML이 활용될 수 있다.</li>
+</ol>
+<h3>데이터가 전부다 — ML 프로젝트의 성패를 가르는 데이터 품질 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=1685s">[28:05]</a></h3>
+<p>ML 프로젝트에서 데이터의 품질은 성공의 핵심이다. PM은 데이터가 다음 조건을 충족하는지 확인해야 한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=1685s">[28:05]</a>.</p>
+<ul>
+<li><strong>사용 가능성 및 접근성 (Availability &amp; Accessibility)</strong> <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=1688s">[28:08]</a>: 필요한 데이터가 존재하는지, 그리고 해당 데이터에 모델이 접근할 수 있는지 중요하다. 아무리 좋은 문제라도 데이터가 없으면 ML은 불가능하다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=1697s">[28:17]</a>.</li>
+<li><strong>윤리적 사용 여부 (Should you use this data?)</strong> <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=1728s">[28:48]</a>: 데이터를 사용할 수 있다고 해서 반드시 사용해야 하는 것은 아니다. 고객의 개인 정보와 같은 민감한 데이터는 '소름 끼치는 요소(creepiness factor)' <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=1741s">[29:01]</a>를 유발할 수 있으므로, 고객이 동의하지 않을 사용은 피해야 한다. 개인 정보 보호 및 보안 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=1768s">[29:28]</a>은 PM의 최우선 고려 사항이다.</li>
+<li><strong>높은 품질 (High Quality)</strong> <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=1785s">[29:45]</a>: 데이터는 다음 조건을 충족해야 한다.
+<ul>
+<li><strong>관련성 (Relevant)</strong> <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=1793s">[29:53]</a>: 해결하려는 문제와 직접적으로 관련된 데이터여야 한다. 3년 전의 비활성 데이터는 현재 고객 행동을 예측하는 데 부적절할 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=1816s">[30:16]</a>.</li>
+<li><strong>최신성 (Fresh)</strong> <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=1802s">[30:02]</a>: 데이터는 최신 상태여야 한다. 오래된 데이터는 현재 상황을 반영하지 못한다.</li>
+<li><strong>대표성 (Representative)</strong> <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=1836s">[30:36]</a>: 데이터가 전체 고객 집단이나 상황을 대표해야 한다. 미국 고객 데이터로 멕시코 시장의 행동을 예측하거나 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=1850s">[30:50]</a>, 로그인 사용자 데이터만으로 전체 사용자를 예측하려 하면 편향된 결과를 낳는다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=1896s">[31:36]</a>.</li>
+<li><strong>편향 없음 (Unbiased)</strong> <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=1877s">[31:17]</a>: 데이터에 편향이 없어야 한다. 채용 이력서 평가 ML 모델 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=2255s">[37:35]</a>은 과거의 편향된 채용 데이터를 학습하여, 기존의 실수를 반복하거나 특정 그룹에 불이익을 줄 수 있다.</li>
+</ul>
+</li>
+</ul>
+<h3>ML 모델 개발 과정 — PM의 역할 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=3007s">[50:07]</a></h3>
+<p>ML 모델 개발은 여러 단계로 나뉘며, PM은 각 단계에서 핵심적인 역할을 수행한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=3007s">[50:07]</a>.</p>
+<ol>
+<li><strong>문제 정의 (Formulate the Problem)</strong> <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=3010s">[50:10]</a>: PM이 가장 적극적으로 개입해야 하는 단계다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=3718s">[1:01:58]</a>. &quot;해결하려는 고객 문제&quot;를 명확히 정의하고, 측정 가능한 목표(measurable goal)를 설정해야 한다. 예를 들어, &quot;판매자 팀이 onboarding하는 신규 판매자가 많아 코칭 리소스가 부족하다&quot;는 문제라면, &quot;코칭받지 않은 판매자의 매출을 X% 증가시킨다&quot;는 목표를 세울 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=3768s">[1:02:48]</a>. 이때 &quot;무엇을 예측할 것인가?&quot;(예: 성공 잠재력이 높은 상위 5% 판매자)를 명확히 해야 한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=3976s">[1:06:16]</a>. ML 솔루션이 아니라 고객의 비즈니스 문제를 중심으로 사고해야 한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=4143s">[1:09:03]</a>.</li>
+<li><strong>데이터 선택 및 전처리 (Select &amp; Pre-process Data)</strong> <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=3069s">[51:09]</a>: PM은 이 단계에서도 깊이 관여해야 한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=4174s">[1:09:34]</a>. 어떤 데이터셋을 사용할지, 데이터의 출처와 용도가 적합한지 확인한다. 특히 부족하거나 누락된 데이터 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=3083s">[51:23]</a>, 노이즈(예: 5만 달러짜리 비정상적인 주문 데이터) <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=4302s">[1:11:42]</a>, 편향되거나 불일치하는 데이터 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=4326s">[1:12:06]</a>를 어떻게 처리할지(삭제, 대체, 평균값 등) 데이터 과학자와 협의하여 결정해야 한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=4367s">[1:12:47]</a>. 이 결정은 프로젝트의 결과에 매우 중요하다. 또한, 훈련 데이터와 테스트 데이터를 나눌 때 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=3387s">[56:27]</a> 대표성 있는 샘플링 방식을 선택하는 것 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=4443s">[1:14:03]</a>도 PM의 역할이다.</li>
+<li><strong>특징 공학 (Feature Engineering)</strong> <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=3235s">[53:55]</a>: 데이터 과학자와 엔지니어가 주로 담당하는 영역이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=4666s">[1:17:46]</a>. PM은 직접 기술적인 작업을 수행하기보다, 데이터 과학자가 어떤 변수(특징)를 사용하고 어떻게 변환하는지 이해하고, 비즈니스 관점에서 적절성을 평가해야 한다. 데이터의 스케일 조정(scaling), 분해(decomposition), 집계(aggregation) 등이 이 단계에서 이루어진다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=3252s">[54:12]</a>.</li>
+<li><strong>모델링 (Modeling)</strong> <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=3375s">[56:15]</a>: 데이터 과학자가 문제 유형에 따라 적절한 알고리즘(예: 회귀, 분류, 군집)을 선택하고 모델을 훈련한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=3459s">[57:39]</a>. PM은 이 단계의 기술적 세부 사항을 모두 알 필요는 없지만, 모델의 성공 기준(정확도, 정밀도, 재현율 등)을 명확히 이해하고 비즈니스 목표에 부합하는지 확인해야 한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=4695s">[1:18:15]</a>. 예를 들어, 추천 시스템은 정밀도(precision) <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=4707s">[1:18:27]</a>가 중요하고, 화재 경보 시스템은 재현율(recall) <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=4725s">[1:18:45]</a>이 중요하다.</li>
+<li><strong>배포 및 유지보수 (Productionization &amp; Maintenance)</strong> <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=3512s">[58:32]</a>: 모델을 실제 환경에 배포하고 지속적으로 관리하는 단계다. PM은 모델 훈련 주기(일일, 시간별)와 비용 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=3534s">[58:54]</a>, 데이터 저장 방식 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=3558s">[59:18]</a>, 그리고 모델이 제대로 작동하는지 모니터링하고 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=3595s">[59:55]</a> 성능 저하 시 대처할 수 있는 체계가 갖춰져 있는지 확인해야 한다. 모델이 잘못된 예측을 지속하거나 오작동할 경우 비즈니스에 큰 손실을 초래할 수 있으므로 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=3632s">[1:00:32]</a>, 모니터링은 매우 중요하다.</li>
+</ol>
+<h3>편향과 윤리 — ML PM의 가장 중요한 의무 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=4484s">[1:14:44]</a></h3>
+<p>ML PM은 데이터 편향성으로 인한 예상치 못한 결과(unintended consequences)에 특히 주의해야 한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=4484s">[1:14:44]</a>.</p>
+<ul>
+<li><strong>편향된 데이터의 위험</strong> <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=4547s">[1:15:47]</a>: 구글이 아프리카계 미국인 얼굴을 고릴라로 잘못 분류한 사례 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=4552s">[1:15:52]</a>는 편향된 훈련 데이터(대표성 없는 데이터)가 초래할 수 있는 심각한 문제점을 보여준다.</li>
+<li><strong>아마존 프라임 무료 당일 배송 서비스 사례</strong> <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=4577s">[1:16:17]</a>: 아마존이 기존 주문 데이터를 기반으로 무료 당일 배송 서비스 지역을 확장했을 때, 보스턴이나 뉴욕 같은 대도시에서 특정 인종 거주 지역이 서비스에서 배제되는 문제가 발생했다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=4600s">[1:16:40]</a>. 데이터 자체에는 인종 정보가 없었지만, 과거 구매 행동 데이터가 인종별 거주지 분포와 겹치면서 결과적으로 차별적인 서비스 제공으로 이어졌다.</li>
+<li><strong>PM의 역할</strong> <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=4637s">[1:17:17]</a>: PM은 ML 모델이 제시하는 결과를 맹목적으로 따르지 않고, &quot;어떻게 하면 잘못될 수 있을까?&quot;, &quot;이 데이터가 어떤 문제를 일으킬 수 있을까?&quot;와 같은 윤리적 질문을 던져야 한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=5285s">[1:28:05]</a>. 기술적으로 가능하더라도 윤리적으로 옳지 않은 일은 하지 않아야 한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=2461s">[41:01]</a>. 편향을 줄이기 위한 데이터 라벨링 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=4659s">[1:17:39]</a> 등 기술적인 방법이 있지만, PM은 비즈니스와 윤리적 관점에서 최종 결정을 내려야 한다.</li>
+</ul>
+<h2>주요 통찰·논점</h2>
+<h3>ML PM은 공감 능력과 겸손이 핵심이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=5391s">[1:29:51]</a></h3>
+<p>화자는 PM에게 가장 중요한 역량이 &quot;공감 능력(empathy)&quot;이라고 강조한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=5391s">[1:29:51]</a>. 여러 이해관계자(데이터 과학자, 엔지니어, 비즈니스 팀)의 문제를 이해하고, 그들이 ML 솔루션을 통해 달성하고자 하는 비즈니스 목표를 파악해야 한다. 이를 통해 왜 특정 솔루션을 강력히 추진하는지 파악하고, 최적의 해결책을 함께 찾아낼 수 있다. 또한, 자신도 과거에는 ML에 대해 잘 몰랐음을 인정하며, 기술을 모르는 사람들을 &quot;잘난 척하는(condescending)&quot; 태도로 대하지 말라고 당부한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=5437s">[1:30:37]</a>. PM은 기술적 세부 사항에 깊이 개입하기보다, 큰 그림을 보고 비즈니스 문제를 해결하는 데 집중해야 한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=4841s">[1:20:41]</a>.</p>
+<h3>ML은 만능이 아니다 — 때로는 '아니요'라고 말할 용기가 필요하다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=2347s">[39:07]</a></h3>
+<p>ML은 모든 문제에 대한 해결책이 아니다. 화자는 PM이 ML 도입이 적합하지 않을 때 &quot;아니요&quot;라고 말할 수 있어야 한다고 역설한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=2347s">[39:07]</a>. 예를 들어, 저작권 보호 항목 결정 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=2191s">[36:31]</a>처럼 100% 정확도가 필요한 문제나, 아마존 HQ2 위치 선정 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=2496s">[41:36]</a>처럼 반복되지 않는 일회성 결정에는 ML이 적합하지 않다. 데이터가 부족하거나, 윤리적 문제가 발생할 소지가 있거나, 구현 비용이 너무 비쌀 때도 ML은 좋은 선택이 아닐 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=4977s">[1:22:57]</a>. PM은 ML의 한계를 명확히 이해하고, 비즈니스 가치와 비용, 윤리적 영향을 종합적으로 고려하여 전략적인 결정을 내려야 한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=3661s">[1:01:01]</a>.</p>
+<h3>데이터 과학자와 ML 엔지니어의 역할 구분 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=2930s">[48:50]</a></h3>
+<p>ML 프로젝트를 진행할 때, &quot;과학&quot;과 &quot;공학&quot;의 역할을 구분하는 것이 중요하다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=2930s">[48:50]</a>. 데이터 과학자(Data Scientist)는 모델 선택, 알고리즘, 통계 분석 등 수학적, 과학적 측면에 집중한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=2941s">[49:01]</a>. 반면 ML 엔지니어(ML Engineer)는 데이터 수집, 정제, 처리, 파이프라인 구축, 모델 배포 및 모니터링 등 실제 시스템 구현과 운영에 초점을 맞춘다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=2962s">[49:22]</a>. PM은 이 두 역할의 차이를 이해하고, 각 팀이 자신의 전문 분야에 집중하도록 조율해야 한다. PM이 데이터 과학자에게 특정 알고리즘 사용을 지시하는 것은 &quot;선을 넘는 행위&quot;이며, 팀의 사기를 저하시킬 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=4848s">[1:20:48]</a>.</p>
+<h2>인상적인 지점</h2>
+<ul>
+<li><strong>&quot;ML은 마법 지팡이가 아니다&quot;</strong> <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=320s">[5:20]</a>: ML의 환상을 깨고 현실적인 기대를 갖게 하는 강력한 메시지다. 답을 모르는 문제를 ML이 해결해 줄 것이라는 비현실적인 기대를 경계해야 한다는 점을 명확히 한다.</li>
+<li><strong>'Ring' 검색어 사례</strong> <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=1037s">[17:17]</a>: 규칙 기반 시스템이 어떻게 빠르게 구식이 될 수 있는지, 그리고 이것이 고객 경험에 어떤 부정적인 영향을 미치는지 보여주는 명확하고 기억에 남는 예시였다.</li>
+<li><strong>'Creepiness factor'(소름 끼치는 요소)</strong> <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=1741s">[29:01]</a>: 데이터 윤리의 중요성을 매우 직관적으로 설명한다. &quot;이 정보가 뉴스에 나오면 괜찮을까?&quot;라는 질문을 통해 PM이 데이터 사용의 윤리적 경계를 설정해야 함을 강조한다.</li>
+<li><strong>ML 모델의 차별적 결과 사례 (Amazon Free Prime Same Day)</strong> <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5z1Hz-rV4zY&amp;t=4577s">[1:16:17]</a>: 의도치 않은 편향이 어떻게 심각한 사회적 문제와 차별을 야기할 수 있는지 보여준다. ML 시스템이 기술적 중립을 가장할 수 있지만, 실제로는 데이터에 내재된 편향이 사회적 불평등을 재생산할 수 있음을 경고한다. PM이 &quot;왜 이런 결과가 나왔는지&quot; 깊이 고민하고, &quot;기술적으로 가능해도 해야 하는가&quot;라는 윤리적 질문을 던져야 함을 강조한다.</li>
+</ul>
+
+  </article>
+  <p class="post-end"><a href="https://www.youtube.com/watch?v=5z1Hz-rV4zY" target="_blank" rel="noopener">YouTube에서 원본 보기 ↗</a> · <a href="./">← 목록으로</a></p>
+</main>
+<footer class="site-foot">
+  <a href="/projects/yt-digest-overview">yt-digest</a> 파이프라인이 자막을 읽고 자동으로 작성한 브리핑입니다. 오류가 있을 수 있으니 중요한 내용은 원본 영상으로 확인하세요.
+</footer>
+</body>
+</html>

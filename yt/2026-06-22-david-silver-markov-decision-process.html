@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RL Course by David Silver - Lecture 2: Markov Decision Process — 유튜브 다이제스트</title>
+<meta name="description" content="이 강의는 강화 학습(RL)의 핵심 개념인 마르코프 결정 과정(MDP)을 심층적으로 다룬다. 강사는 MDP를 마르코프 과정(MP)에서 마르코프 보상 과정(MRP)을 거쳐 점진적으로 복잡도를 더하며 설명하며, 에이전트가 환경과 상호작용하며 보상을 극대화하는 방법을 모델링…">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="RL Course by David Silver - Lecture 2: Markov Decision Process — 유튜브 다이제스트">
+<meta property="og:description" content="이 강의는 강화 학습(RL)의 핵심 개념인 마르코프 결정 과정(MDP)을 심층적으로 다룬다. 강사는 MDP를 마르코프 과정(MP)에서 마르코프 보상 과정(MRP)을 거쳐 점진적으로 복잡도를 더하며 설명하며, 에이전트가 환경과 상호작용하며 보상을 극대화하는 방법을 모델링…">
+<meta property="og:image" content="https://i.ytimg.com/vi/lfHX2hHRMVQ/hqdefault.jpg">
+<meta property="og:type" content="article">
+<link rel="icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+<script>
+// Follow the blog's saved light/dark choice (same origin, same key).
+(function () {
+  var saved = null
+  try { saved = localStorage.getItem("theme") } catch (e) {}
+  var dark = saved ? saved === "dark" : matchMedia("(prefers-color-scheme: dark)").matches
+  document.documentElement.dataset.theme = dark ? "dark" : "light"
+})()
+</script>
+</head>
+<body class="post-page">
+<header class="site-bar">
+  <a class="site-name" href="/">Johnny's</a>
+  <a class="back" href="./">← 유튜브 다이제스트</a>
+</header>
+<main class="post">
+  <a class="hero" href="https://www.youtube.com/watch?v=lfHX2hHRMVQ" target="_blank" rel="noopener" aria-label="YouTube에서 보기">
+    <img src="https://i.ytimg.com/vi/lfHX2hHRMVQ/hqdefault.jpg" alt="">
+    <span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+  </a>
+  <h1>RL Course by David Silver - Lecture 2: Markov Decision Process</h1>
+  <div class="post-meta"><span>Google DeepMind</span><span>1:42:04</span><span>게시 2015-05-13</span></div>
+  <div class="tags"><a href="./?q=%23reinforcement-learning">#reinforcement-learning</a><a href="./?q=%23markov-decision-process">#markov-decision-process</a><a href="./?q=%23bellman-equation">#bellman-equation</a><a href="./?q=%23optimal-policy">#optimal-policy</a><a href="./?q=%23value-function">#value-function</a></div>
+  <article>
+<h2>TL;DR</h2>
+<p>이 강의는 강화 학습(RL)의 핵심 개념인 마르코프 결정 과정(MDP)을 심층적으로 다룬다. 강사는 MDP를 마르코프 과정(MP)에서 마르코프 보상 과정(MRP)을 거쳐 점진적으로 복잡도를 더하며 설명하며, 에이전트가 환경과 상호작용하며 보상을 극대화하는 방법을 모델링하는 틀을 제시한다. 특히 벨만 방정식과 벨만 최적 방정식의 직관적 의미와 활용을 강조하며, 최적 정책을 찾는 것이 곧 MDP를 해결하는 것임을 보여준다.</p>
+<h2>풀시청 판단</h2>
+<p>이 영상은 강화 학습의 기초가 되는 마르코프 결정 과정(MDP)을 심도 있고 명확하게 이해하고자 하는 사람들에게 매우 유용하다. 데이비드 실버 교수의 강의는 명료한 설명과 잘 구성된 예시(학생 마르코프 연쇄)를 통해 복잡한 개념을 단계적으로 쌓아 올린다.</p>
+<p><strong>누구에게 가치 있는가:</strong></p>
+<ul>
+<li><strong>강화 학습 입문자:</strong> MP, MRP, MDP의 개념을 명확하게 이해하고 싶다면 필수적이다.</li>
+<li><strong>벨만 방정식 및 최적성 개념에 대한 깊이 있는 이해를 원하는 사람:</strong> 벨만 방정식의 재귀적 특성, 가치 함수와 행동 가치 함수의 관계, 최적 정책을 찾는 과정에 대한 상세한 설명을 얻을 수 있다.</li>
+<li><strong>학습 알고리즘의 수학적 기초를 이해하고 싶은 사람:</strong> MDP가 어떻게 실제 문제들을 형식화하고 해결하는지에 대한 통찰을 얻는다.</li>
+</ul>
+<p><strong>강의의 약점 및 한계:</strong></p>
+<ul>
+<li><strong>알고리즘 구현:</strong> 이론적 배경 설명에 집중하므로, 실제 MDP를 해결하는 구체적인 알고리즘(가치 반복, 정책 반복, Q-학습 등)에 대한 설명은 다음 강의로 미뤄진다.</li>
+<li><strong>복잡한 실제 문제:</strong> 강의 예시는 단순한 &quot;학생&quot; 모델에 초점을 맞추며, 방대한 상태 공간을 가진 실제 문제에 대한 구체적인 모델링 및 해결 전략은 다루지 않는다.</li>
+</ul>
+<p><strong>일부만 시청할 경우 추천 챕터:</strong></p>
+<ul>
+<li><code>### 마르코프 결정 과정(MDP): 에이전트의 행동 능력이 더해지다</code>: MDP의 핵심 구성요소를 빠르게 파악할 수 있다.</li>
+<li><code>### 최적 가치 함수와 최적 정책: MDP의 궁극적인 목표</code>: MDP를 해결하는 궁극적인 목표와 최적 정책의 중요성을 이해할 수 있다.</li>
+<li><code>### 벨만 최적 방정식: 최적 정책 탐색을 위한 비선형 재귀 관계</code>: 최적 정책을 찾기 위한 수학적 틀을 이해하는 데 도움이 된다.</li>
+</ul>
+<h2>핵심 내용</h2>
+<h3>마르코프 과정(MP): 미래는 현재 상태에만 의존한다</h3>
+<p>마르코프 과정은 강화 학습의 가장 기본적인 개념으로, 미래 상태의 확률적 전이가 현재 상태에만 의존하며 과거의 이력에는 영향을 받지 않는 확률 과정을 의미한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lfHX2hHRMVQ&amp;t=49s">[0:49]</a>. 이를 '마르코프 속성'이라고 한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lfHX2hHRMVQ&amp;t=214s">[3:34]</a>. 즉, 현재 상태가 환경에 대한 모든 관련 정보를 담고 있으며, 이 정보만으로 다음 상태로의 전이를 예측할 수 있다는 뜻이다.</p>
+<p>각 상태에서 다른 상태로 전이할 수 있는 확률은 '상태 전이 확률'로 정의된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lfHX2hHRMVQ&amp;t=281s">[4:41]</a>. 이 모든 확률은 '전이 확률 행렬'이라는 하나의 행렬로 압축하여 표현할 수 있다. 이 행렬은 시스템의 모든 동역학을 완벽하게 기술한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lfHX2hHRMVQ&amp;t=637s">[10:37]</a>.</p>
+<p>강사는 '학생 마르코프 연쇄'라는 예시를 들어 마르코프 과정을 설명한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lfHX2hHRMVQ&amp;t=451s">[7:31]</a>. 학생은 '수업1', '수업2', '수업3', '페이스북', '술집', '합격', '잠들기' 같은 여러 상태를 오간다. 예를 들어, '수업1' 상태에서 '수업2'로 갈 확률은 50%, '페이스북'으로 갈 확률도 50%이다. '페이스북' 상태에서는 계속 '페이스북'에 머무를 확률이 90%, '수업1'로 돌아올 확률은 10%이다. 이렇게 각 상태에서 다음 상태로 전이할 확률이 정해져 있으며, '잠들기' 상태는 한번 도달하면 계속 머무르는 '종료 상태'이다. 이러한 확률적 전이를 통해 학생의 다양한 '상태 이력(trajectory)'을 시뮬레이션할 수 있다.</p>
+<p>마르코프 과정은 단순해 보이지만, 상태 정의를 확장하면 시간에 따라 전이 확률이 변하는 '비정상(non-stationary)' 문제나, 상태가 연속적인 경우에도 적용할 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lfHX2hHRMVQ&amp;t=722s">[12:02]</a>. 예를 들어, '페이스북' 상태에 머무는 시간에 따라 확률이 달라진다면, '페이스북 1회', '페이스북 2회' 등으로 상태를 확장하여 모델링할 수 있다. 이는 마르코프 과정이 매우 복잡하고 큰 규모의 문제(예: 10의 170제곱 상태를 가진 문제)도 다룰 수 있는 근본적인 틀임을 시사한다.</p>
+<h3>마르코프 보상 과정(MRP): 가치 판단이 더해진 마르코프 과정</h3>
+<p>마르코프 보상 과정(MRP)은 마르코프 과정에 '보상(reward)' 개념과 '할인율(discount factor)'을 추가하여 각 상태와 전이에 '가치 판단'을 더한 모델이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lfHX2hHRMVQ&amp;t=782s">[13:02]</a>.</p>
+<p>'보상 함수'는 특정 상태에 진입했을 때 얻게 되는 즉각적인 보상을 정의한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lfHX2hHRMVQ&amp;t=828s">[13:48]</a>. '학생 마르코프 연쇄' 예시에서는 각 상태에 보상 값을 부여한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lfHX2hHRMVQ&amp;t=867s">[14:27]</a>. 예를 들어, '수업' 상태는 -2, '페이스북' 상태는 -1의 보상을 주어 바람직하지 않음을 나타내고, '합격' 상태는 +10의 큰 보상을, '술집'은 +1의 보상을 준다.</p>
+<p>'반환값(return)'은 에이전트가 특정 시점부터 미래에 걸쳐 받게 될 모든 보상(할인율 적용)의 총합을 의미한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lfHX2hHRMVQ&amp;t=929s">[15:29]</a>. 이때 중요한 것이 '할인율(gamma)'이다. 할인율은 0과 1 사이의 값으로, 미래 보상에 대한 현재 시점의 가치를 나타낸다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lfHX2hHRMVQ&amp;t=1002s">[16:42]</a>. 할인율이 0에 가까우면 에이전트가 '근시안적'이어서 즉각적인 보상만 중요시하고, 1에 가까우면 '원시안적'이어서 먼 미래의 보상까지 동일하게 중요시한다.</p>
+<p>강사는 할인율을 사용하는 여러 이유를 설명한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lfHX2hHRMVQ&amp;t=1098s">[18:18]</a>. 첫째, 수학적 편의성 때문이다. 무한히 긴 상태 이력이 있을 때 반환값이 무한대가 되는 것을 방지하여 계산을 유한하게 만든다. 둘째, 모델 불확실성을 반영한다. 미래가 멀어질수록 모델이 부정확해질 수 있으므로, 먼 미래의 보상을 덜 신뢰한다는 의미를 담는다. 셋째, 금융 시스템의 이자율처럼 '현재 가치'를 반영하는 자연스러운 방식이다. 넷째, 인간이나 동물이 즉각적인 보상을 선호하는 생물학적 특성을 모방하는 인지 모델로 볼 수도 있다.</p>
+<p>'가치 함수 V(s)'는 특정 상태 S에서 시작했을 때 얻을 수 있는 '기대 반환값'을 나타낸다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lfHX2hHRMVQ&amp;t=1402s">[23:22]</a>. 이는 에이전트가 어떤 상태에 있을 때 장기적으로 얼마나 좋은 상황인지 숫자로 요약해준다. 확률적 환경 때문에 여러 가능한 상태 이력이 존재하므로, 그 모든 이력에 대한 평균 반환값을 계산한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lfHX2hHRMVQ&amp;t=1440s">[24:00]</a>. '학생 마르코프 보상 과정' 예시에서 할인율을 0.5 또는 0.9로 설정했을 때 각 상태의 가치 함수가 어떻게 달라지는지 보여주며, 높은 할인율일수록 미래 보상을 더 반영하여 가치 함수가 커지는 것을 확인할 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lfHX2hHRMVQ&amp;t=1692s">[28:12]</a>.</p>
+<p>MRP의 '벨만 방정식'은 가치 함수를 재귀적으로 분해한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lfHX2hHRMVQ&amp;t=1753s">[29:13]</a>. 즉, 현재 상태의 가치는 즉각적인 보상과 다음 상태들의 할인된 가치 기댓값의 합으로 표현된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lfHX2hHRMVQ&amp;t=1811s">[30:11]</a>. 이 재귀적 관계는 '백업 다이어그램'으로 시각화할 수 있는데, 이는 현재 상태에서 한 단계 앞을 내다보고 모든 가능한 다음 상태의 가치를 평균하여 현재 상태의 가치를 계산하는 과정을 보여준다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lfHX2hHRMVQ&amp;t=2063s">[34:23]</a>. 벨만 방정식은 선형 방정식이므로, 상태 수가 크지 않을 경우 행렬 역연산(N^3 복잡도)을 통해 직접 해를 구할 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lfHX2hHRMVQ&amp;t=2349s">[39:09]</a>.</p>
+<h3>마르코프 결정 과정(MDP): 에이전트의 행동 능력이 더해지다</h3>
+<p>마르코프 결정 과정(MDP)은 마르코프 보상 과정(MRP)에 '행동(action)'이라는 요소를 추가하여 에이전트가 환경에서 의사결정을 내릴 수 있도록 하는 모델이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lfHX2hHRMVQ&amp;t=2581s">[43:01]</a>. MDP는 상태 공간(S), 행동 공간(A), 행동에 따른 전이 확률(P(s,a,s')), 행동에 따른 보상 함수(R(s,a)), 그리고 할인율(gamma)로 구성된다.</p>
+<p>'학생 MDP' 예시에서는 학생이 이제 수동적으로 상태를 오가는 것이 아니라, 특정 상태에서 '공부하기', '페이스북', '술집 가기' 등 명확한 행동을 선택할 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lfHX2hHRMVQ&amp;t=2697s">[44:57]</a>. 각 행동은 다음 상태로의 전이 확률과 즉각적인 보상에 영향을 미친다. 예를 들어, '수업3' 상태에서 '공부하기'를 선택하면 '합격' 상태로 전이하지만, '술집 가기'를 선택하면 '수업1', '수업2', '수업3'으로 다시 돌아갈 확률이 존재한다. 여기서 '술집 가기'는 행동이지만, 그 결과는 확률적이다. 다른 행동들은 결정론적일 수 있다. 에이전트의 목표는 전체 보상의 합을 최대화하는 최적의 행동 경로를 찾는 것이다.</p>
+<p>MDP에서 에이전트의 행동 방식을 정의하는 것이 '정책(policy, π)'이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lfHX2hHRMVQ&amp;t=2777s">[46:17]</a>. 정책은 특정 상태에서 각 행동을 선택할 확률 분포를 나타낸다 (π(a|s)). 마르코프 속성 덕분에 정책은 현재 상태에만 의존하며 과거 이력에는 의존하지 않는다. 또한 시간의 흐름과 무관하게 동일한 정책을 유지하는 '정상 정책(stationary policy)'으로 최적의 행동을 찾을 수 있다.</p>
+<p>MDP에서 정책 π가 고정되면, 에이전트의 행동은 더 이상 선택의 여지가 없는 정해진 확률적 전이가 되어, MDP는 다시 MRP로 변환된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lfHX2hHRMVQ&amp;t=2946s">[49:06]</a>. 이렇게 변환된 MRP에 대해 기존의 벨만 방정식을 사용하여 가치를 평가할 수 있다.</p>
+<p>정책 π가 도입됨에 따라 가치 함수도 정책에 종속된다:</p>
+<ul>
+<li><strong>상태 가치 함수 V_π(s)</strong> <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lfHX2hHRMVQ&amp;t=3054s">[50:54]</a>: 특정 정책 π를 따를 때, 상태 S에서 시작하여 얻을 수 있는 기대 반환값.</li>
+<li><strong>행동 가치 함수 Q_π(s,a)</strong> <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lfHX2hHRMVQ&amp;t=3120s">[52:00]</a>: 상태 S에서 행동 A를 취한 후, 이후 정책 π를 계속 따를 때 얻을 수 있는 기대 반환값. 이 행동 가치 함수는 에이전트가 다음 행동을 결정할 때 매우 중요하다.</li>
+</ul>
+<p>MDP를 위한 '벨만 방정식'은 V_π(s)와 Q_π(s,a)를 서로 재귀적으로 정의한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lfHX2hHRMVQ&amp;t=3219s">[53:39]</a>.</p>
+<ul>
+<li>V_π(s)는 정책 π에 따라 상태 S에서 선택할 수 있는 모든 행동 A의 Q_π(s,a)를 정책 확률(π(a|s))로 가중 평균한 값이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lfHX2hHRMVQ&amp;t=3311s">[55:11]</a>.</li>
+<li>Q_π(s,a)는 즉각적인 보상 R(s,a)와 행동 A를 취해 도달한 다음 상태 S'들의 V_π(s')를 환경의 전이 확률(P(s,a,s'))로 가중 평균한 값이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lfHX2hHRMVQ&amp;t=3376s">[56:16]</a>.</li>
+</ul>
+<p>이러한 관계는 '백업 다이어그램'으로 시각화할 수 있으며, 두 단계 예측 탐색을 통해 V_π(s)와 Q_π(s,a)가 상호 재귀적으로 계산되는 방식을 보여준다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lfHX2hHRMVQ&amp;t=3451s">[57:31]</a>.</p>
+<h2>주요 통찰·논점</h2>
+<h3>최적 가치 함수와 최적 정책: MDP의 궁극적인 목표</h3>
+<p>MDP를 '해결한다'는 것은 에이전트가 얻을 수 있는 보상을 극대화하는 '최적 정책(optimal policy)'을 찾는 것을 의미한다. 이를 위해 '최적 가치 함수'와 '최적 행동 가치 함수'를 정의한다.</p>
+<ul>
+<li><strong>최적 상태 가치 함수 V_*(s)</strong> <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lfHX2hHRMVQ&amp;t=4110s">[1:08:30]</a>: 특정 상태 S에서 시작할 때, 가능한 모든 정책 중에서 얻을 수 있는 최대 기대 반환값이다. 즉, 이 MDP에서 상태 S가 제공할 수 있는 최고의 장기적 가치를 나타낸다.</li>
+<li><strong>최적 행동 가치 함수 Q_*(s,a)</strong> <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lfHX2hHRMVQ&amp;t=4154s">[1:09:14]</a>: 상태 S에서 행동 A를 취한 후, 이후 최적 정책을 따를 때 얻을 수 있는 최대 기대 반환값이다.</li>
+</ul>
+<p>Q_<em>(s,a)를 알면 MDP는 사실상 해결된 것이나 다름없다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lfHX2hHRMVQ&amp;t=4178s">[1:09:38]</a>. 어떤 상태 S에서든 Q_</em>(s,a) 값이 가장 높은 행동 A를 선택하면, 그것이 곧 최적의 행동이기 때문이다. 강사는 학생 MDP 예시를 통해 V_<em>(s)와 Q_</em>(s,a)가 어떻게 계산되는지, 그리고 이 값들을 통해 최적 행동을 어떻게 결정하는지 보여준다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lfHX2hHRMVQ&amp;t=4302s">[1:11:42]</a>. 예를 들어, '수업3' 상태에서 '공부하기' 행동의 Q_* 값은 10이고, '술집 가기' 행동의 Q_* 값은 8.4라면, 학생은 '공부하기'를 선택해야 한다.</p>
+<p>'최적 정책 π_<em>'는 MDP 내의 모든 다른 정책보다 같거나 더 나은 성능을 보이는 정책이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lfHX2hHRMVQ&amp;t=4547s">[1:15:47]</a>. 강화 학습의 중요한 정리 중 하나는 모든 MDP에 대해 항상 적어도 하나의 최적 정책이 존재한다는 것이다. 또한, 이 최적 정책은 항상 '결정론적(deterministic)'일 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lfHX2hHRMVQ&amp;t=4822s">[1:20:22]</a>. 즉, 특정 상태에서 항상 하나의 최적 행동만을 선택하는 정책으로 최적의 결과를 얻을 수 있다는 의미다. 최적 정책은 각 상태 S에서 Q_</em>(s,a)를 최대화하는 행동 A를 선택함으로써 간단히 도출된다.</p>
+<h3>벨만 최적 방정식: 최적 정책 탐색을 위한 비선형 재귀 관계</h3>
+<p>MDP에서 최적 가치 함수(V_<em>와 Q_</em>)를 찾기 위한 핵심적인 수학적 관계가 바로 '벨만 최적 방정식(Bellman Optimality Equation)'이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lfHX2hHRMVQ&amp;t=4960s">[1:22:40]</a>. 이 방정식은 최적 가치 함수가 자기 자신을 통해 재귀적으로 표현되는 방식을 보여준다.</p>
+<p>벨만 최적 방정식은 '최적성 원칙(principle of optimality)'에 기반한다. 이는 최적의 행동은 한 단계는 최적으로 행동하고, 이후의 모든 단계도 최적으로 행동할 때 얻어진다는 원칙이다. 이 방정식은 에이전트가 통제하는 '행동'에 대해서는 '최대화(max)' 연산을 사용하고, 환경이 통제하는 '전이'에 대해서는 '기댓값(expectation)' 연산을 사용한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lfHX2hHRMVQ&amp;t=5162s">[1:26:02]</a>.</p>
+<ul>
+<li><strong>V_<em>(s)를 V_</em>(s)로 표현하는 벨만 최적 방정식:</strong> 상태 S의 최적 가치는, S에서 취할 수 있는 모든 행동 A에 대해 즉각적인 보상 R(s,a)와 다음 상태 S'의 최적 가치 V_<em>(s')의 할인된 기댓값을 더한 값 중에서 최댓값을 취한 것과 같다.
+V_</em>(s) = max_a [R(s,a) + gamma * Σ_{s'} P(s,a,s') V_*(s')]
+이 방정식은 에이전트가 다음 행동을 신중하게 선택(max)하고, 그 행동의 결과로 환경이 확률적으로 다음 상태로 전이(expectation)시키는 과정을 반영한다.</li>
+</ul>
+<p>벨만 최적 방정식은 <code>max</code> 연산을 포함하기 때문에 선형 방정식이 아니다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lfHX2hHRMVQ&amp;t=5382s">[1:29:42]</a>. 따라서 MRP의 벨만 방정식처럼 행렬 역연산을 통해 직접 해를 구할 수 없다. 대신, 초기 가치 함수를 추정한 후 반복적으로 이 방정식을 적용하여 수렴하는 해를 찾아가는 '반복 해법(iterative solution methods)'을 사용한다. 대표적인 방법으로는 '가치 반복(value iteration)', '정책 반복(policy iteration)'(둘 다 동적 계획법에 속함), 그리고 'Q-학습(Q-learning)' 등이 있다. 이러한 방법들은 다음 강의에서 자세히 다룰 예정이다.</p>
+<h2>인상적인 지점</h2>
+<ul>
+<li><strong>MDP의 보편성</strong> <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lfHX2hHRMVQ&amp;t=111s">[1:51]</a>: 강사는 최적 제어(Optimal Control), 부분 관측 문제(Partially Observable Problems), 심지어 단일 상태만 있는 Bandits 문제까지 거의 모든 강화 학습 문제가 MDP로 형식화될 수 있다고 강조한다. 이는 MDP가 강화 학습의 매우 강력하고 광범위한 틀임을 보여준다.</li>
+<li><strong>할인율의 다각적 해석</strong> <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lfHX2hHRMVQ&amp;t=1098s">[18:18]</a>: 단순히 수학적 편의를 넘어, 모델의 불확실성을 반영하거나(미래는 불확실하므로), 금융의 이자율 개념과 연결시키거나, 인간/동물의 즉각적인 보상 선호(인지 모델)를 설명하는 도구로 할인율을 설명한다. 이처럼 다양한 관점에서 개념을 이해할 수 있도록 돕는다.</li>
+<li><strong>벨만 최적 방정식의 직관적 설명</strong> <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lfHX2hHRMVQ&amp;t=5837s">[1:37:17]</a>: 아타리 게임 '팩맨'을 예시로 들어, 벨만 최적 방정식의 핵심인 '최적성 원칙'을 직관적으로 설명한다. &quot;최대 점수를 얻는 방법은 한 단계는 최적으로 행동하고, 나머지 궤적에 대해서도 최적으로 행동하는 것&quot;이라는 설명은 복잡한 수학적 개념을 이해하기 쉽게 만든다.</li>
+</ul>
+
+  </article>
+  <p class="post-end"><a href="https://www.youtube.com/watch?v=lfHX2hHRMVQ" target="_blank" rel="noopener">YouTube에서 원본 보기 ↗</a> · <a href="./">← 목록으로</a></p>
+</main>
+<footer class="site-foot">
+  <a href="/projects/yt-digest-overview">yt-digest</a> 파이프라인이 자막을 읽고 자동으로 작성한 브리핑입니다. 오류가 있을 수 있으니 중요한 내용은 원본 영상으로 확인하세요.
+</footer>
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LLM 신경망 학습부터 추론 원리 전체를 비개발자 15명에게 설명하는 강의 — 유튜브 다이제스트</title>
+<meta name="description" content="이 강의는 비개발자를 대상으로 LLM(대규모 언어 모델)의 학습부터 추론까지의 원리를 쉽게 설명한다. LLM의 기반 기술과 동작 방식을 이해함으로써 프롬프트(Prompt), RAG(검색 증강 생성), 파인튜닝(Fine-tuning) 중 어떤 방식을 선택해야 할지 합리적…">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="LLM 신경망 학습부터 추론 원리 전체를 비개발자 15명에게 설명하는 강의 — 유튜브 다이제스트">
+<meta property="og:description" content="이 강의는 비개발자를 대상으로 LLM(대규모 언어 모델)의 학습부터 추론까지의 원리를 쉽게 설명한다. LLM의 기반 기술과 동작 방식을 이해함으로써 프롬프트(Prompt), RAG(검색 증강 생성), 파인튜닝(Fine-tuning) 중 어떤 방식을 선택해야 할지 합리적…">
+<meta property="og:image" content="https://i.ytimg.com/vi/geY4UO23QA8/hqdefault.jpg">
+<meta property="og:type" content="article">
+<link rel="icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+<script>
+// Follow the blog's saved light/dark choice (same origin, same key).
+(function () {
+  var saved = null
+  try { saved = localStorage.getItem("theme") } catch (e) {}
+  var dark = saved ? saved === "dark" : matchMedia("(prefers-color-scheme: dark)").matches
+  document.documentElement.dataset.theme = dark ? "dark" : "light"
+})()
+</script>
+</head>
+<body class="post-page">
+<header class="site-bar">
+  <a class="site-name" href="/">Johnny's</a>
+  <a class="back" href="./">← 유튜브 다이제스트</a>
+</header>
+<main class="post">
+  <a class="hero" href="https://www.youtube.com/watch?v=geY4UO23QA8" target="_blank" rel="noopener" aria-label="YouTube에서 보기">
+    <img src="https://i.ytimg.com/vi/geY4UO23QA8/hqdefault.jpg" alt="">
+    <span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+  </a>
+  <h1>LLM 신경망 학습부터 추론 원리 전체를 비개발자 15명에게 설명하는 강의</h1>
+  <div class="post-meta"><span>양실장의 바이브코딩대학</span><span>1:35:16</span><span>게시 2026-08-28</span></div>
+  <div class="tags"><a href="./?q=%23llm">#llm</a><a href="./?q=%23ai-literacy">#ai-literacy</a><a href="./?q=%23machine-learning">#machine-learning</a><a href="./?q=%23deep-learning">#deep-learning</a><a href="./?q=%23prompt-engineering">#prompt-engineering</a><a href="./?q=%23rag">#rag</a><a href="./?q=%23fine-tuning">#fine-tuning</a></div>
+  <article>
+<h2>TL;DR</h2>
+<p>이 강의는 비개발자를 대상으로 LLM(대규모 언어 모델)의 학습부터 추론까지의 원리를 쉽게 설명한다. LLM의 기반 기술과 동작 방식을 이해함으로써 프롬프트(Prompt), RAG(검색 증강 생성), 파인튜닝(Fine-tuning) 중 어떤 방식을 선택해야 할지 합리적으로 판단할 수 있는 'AI 문해력'을 갖추는 것이 목표다.</p>
+<h2>풀시청 판단</h2>
+<p>이 영상은 LLM의 기본 원리, 즉 '어떻게' 학습하고 '어떻게' 추론하며 '왜' 그런 방식으로 작동하는지 이해하고자 하는 비개발자에게 특히 유용하다. AI 관련 프로젝트를 기획하거나 컨설팅하는 AX 컨설턴트, 프로덕트 매니저, 비즈니스 전략가 등 LLM을 활용한 의사결정이 필요한 사람들에게 깊이 있는 배경 지식을 제공한다.</p>
+<p>영상을 풀시청하면 토큰화, 파라미터, 어텐션 메커니즘, 사전 학습과 후속 학습의 차이, 추론 과정의 하이퍼파라미터(온도, Top-K, Top-P) 등 핵심 개념들을 직관적인 비유와 예시를 통해 이해할 수 있다. 궁극적으로는 프롬프트 엔지니어링, RAG, 파인튜닝이라는 세 가지 LLM 활용 전략을 언제, 왜 사용해야 하는지에 대한 명확한 판단 기준을 얻을 수 있다.</p>
+<p>일부 기술적인 설명은 간략화되거나 은유적으로 표현되었으며, 화자가 일부 질문에 대해 &quot;정확히 알지는 못한다&quot;거나 &quot;더 연구해야 한다&quot;고 언급하는 부분이 있어 모든 궁금증을 해소하기는 어려울 수 있다. 하지만 복잡한 내용을 쉽게 전달하려는 노력이 돋보인다.</p>
+<p>시간이 부족하다면 다음 섹션들을 중심으로 시청할 것을 권한다:</p>
+<ul>
+<li>
+<h3>대규모 언어 모델(LLM) 학습의 기반: 코퍼스와 토큰화</h3>
+</li>
+<li>
+<h3>모델 학습: 예측과 피드백을 통한 파라미터 조정</h3>
+</li>
+<li>
+<h3>LLM 추론 과정: 트랜스포머와 어텐션 메커니즘</h3>
+</li>
+<li>
+<h3>프롬프트, RAG, 파인튜닝: 상황에 따른 전략적 선택</h3>
+</li>
+</ul>
+<h2>핵심 내용</h2>
+<h3>언어 모델의 핵심 능력: 다음 토큰 예측</h3>
+<p>LLM의 궁극적인 목표는 주어진 텍스트 다음으로 올 '토큰'을 가장 적절하게 예측하는 것이다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=geY4UO23QA8&amp;t=490s">[8:10]</a> 이는 사람이 추론하는 방식을 인공적으로 모방하는 것으로, 학습과 추론의 두 가지 기본 단계로 이루어진다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=geY4UO23QA8&amp;t=226s">[3:46]</a> 화자는 이 강의를 통해 학습 및 추론 원리를 이해하고, 이 지식을 바탕으로 프롬프트, RAG, 파인튜닝 중 어떤 방식을 선택할지 결정하는 기준을 제시하고자 한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=geY4UO23QA8&amp;t=76s">[1:16]</a></p>
+<h3>대규모 언어 모델(LLM) 학습의 기반: 코퍼스와 토큰화</h3>
+<p>LLM 학습은 방대한 양의 텍스트 데이터인 '코퍼스(corpus)'를 수집하는 것에서 시작한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=geY4UO23QA8&amp;t=382s">[6:22]</a> 이 코퍼스에는 블로그, 웹사이트, 소셜 미디어 게시물, 심지어 코드까지 인터넷에 존재하는 다양한 형태의 텍스트가 포함된다. 이렇게 모인 텍스트는 GPT-2, 3, 4 모델의 경우 수십조 바이트에 달할 만큼 엄청난 규모이다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=geY4UO23QA8&amp;t=457s">[7:37]</a></p>
+<p>수집된 코퍼스는 기계가 학습할 수 있는 형태로 변환되어야 하는데, 이 과정에서 '토큰(token)'이 생성된다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=geY4UO23QA8&amp;t=579s">[9:39]</a> 컴퓨터는 모든 문자를 UTF-8 같은 인코딩을 통해 0과 1로 구성된 숫자의 연속으로 인식한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=geY4UO23QA8&amp;t=622s">[10:22]</a> 이 숫자 배열에서 자주 반복되는 조합들을 찾아 묶어 '어휘 목록(vocabulary)'을 만들고, 이 묶음 하나하나를 토큰이라고 부른다. 토큰화는 JPG 이미지 압축처럼 데이터 크기를 줄이는 역할을 하며, <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=geY4UO23QA8&amp;t=780s">[13:00]</a> 각 LLM 모델마다 고유한 토큰화 방식과 어휘 목록을 사용한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=geY4UO23QA8&amp;t=931s">[15:31]</a></p>
+<h3>모델 학습: 예측과 피드백을 통한 파라미터 조정</h3>
+<p>토큰 시퀀스가 준비되면 LLM은 다음 토큰을 예측하는 학습을 시작한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=geY4UO23QA8&amp;t=1052s">[17:32]</a> 모델은 주어진 시퀀스 다음에 올 토큰 후보들에 대한 확률 순위를 매기는데, 초기에는 이 예측이 무작위적이고 엉터리이다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=geY4UO23QA8&amp;t=1101s">[18:21]</a> 예를 들어, &quot;점심 메뉴는...&quot; 다음을 예측할 때 &quot;자동차&quot; 같은 엉뚱한 단어가 나올 수 있다.</p>
+<p>모델이 예측을 틀리면, 정답과의 오차인 '손실(loss)'이 발생한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=geY4UO23QA8&amp;t=2002s">[33:22]</a> AI 학습은 이 손실을 최소화하는 과정으로, 모델은 '역전파(backpropagation)'라는 메커니즘을 통해 예측이 틀린 원인을 거슬러 올라가 내부의 수많은 '파라미터(parameter)' 값들을 조정한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=geY4UO23QA8&amp;t=1201s">[20:01]</a> 파라미터는 DJ 믹서의 노브(knob)나 세탁기의 세탁 코스 설정에 비유될 수 있는 모델의 미세 조정 값들로, 수억에서 수십억 개에 달한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=geY4UO23QA8&amp;t=1342s">[22:22]</a> 이 가중치를 지속적으로 조정하는 과정 자체가 궁극적인 '학습'이다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=geY4UO23QA8&amp;t=1383s">[23:03]</a></p>
+<h3>사전 학습(Pre-training)과 후속 학습(Post-training)의 분리</h3>
+<p>LLM 학습은 크게 두 단계로 나뉜다. 첫째는 '사전 학습(pre-training)'으로, 방대한 코퍼스를 이용해 다음 토큰을 예측하는 핵심 능력을 훈련하는 과정이다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=geY4UO23QA8&amp;t=1538s">[25:38]</a> 이 과정은 막대한 GPU와 전력 소비 등 상상하기 어려운 연산 자원을 소모하며, 이 결과물이 바로 '기반 모델(base model)'이다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=geY4UO23QA8&amp;t=1543s">[25:43]</a> 하지만 기반 모델은 아직 '시간, 장소, 상황(TPO)'에 맞는 섬세한 응답 능력이 부족하다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=geY4UO23QA8&amp;t=1599s">[26:39]</a></p>
+<p>둘째는 '후속 학습(post-training)' 또는 '파인튜닝(fine-tuning)'으로, 기반 모델에 TPO를 고려한 맞춤형 응답 능력을 부여하는 추가 학습이다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=geY4UO23QA8&amp;t=1644s">[27:24]</a> 기존 파라미터를 미세 조정하거나, 마치 DJ 믹서에 확장 키트를 덧붙이듯 새로운 파라미터를 추가하여 모델의 동작을 특정 목적에 맞게 최적화한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=geY4UO23QA8&amp;t=1697s">[28:17]</a> 질문-답변 데이터셋을 활용한 학습이나 강화 학습(reinforcement learning) 등 다양한 기법이 파인튜닝에 사용될 수 있다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=geY4UO23QA8&amp;t=2155s">[35:55]</a></p>
+<h3>LLM 추론 과정: 트랜스포머와 어텐션 메커니즘</h3>
+<p>구축된 모델이 실제 질문에 답하는 과정을 '추론'이라고 한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=geY4UO23QA8&amp;t=2573s">[42:53]</a> 먼저 입력된 텍스트(프롬프트)는 토큰 시퀀스로 변환된 후, 고유 ID를 가진 숫자의 조합 형태인 '임베딩(embedding)'으로 바뀐다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=geY4UO23QA8&amp;t=2658s">[44:18]</a> 이 임베딩된 값들은 LLM의 핵심 아키텍처인 '트랜스포머(Transformer)'에 입력된다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=geY4UO23QA8&amp;t=2781s">[46:21]</a></p>
+<p>트랜스포머는 여러 개의 '레이어(layer)'로 구성되어 있으며, 각 레이어 내부에서는 '어텐션(attention)'이라는 핵심 메커니즘이 반복적으로 작동한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=geY4UO23QA8&amp;t=2735s">[45:35]</a> 어텐션은 현재 토큰이 이전의 모든 토큰들과 어떤 관계를 가지는지 측정하여, 중요한 정보에 더 집중하고 오래된 정보도 잊지 않도록 한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=geY4UO23QA8&amp;t=3133s">[52:13]</a> 이러한 어텐션 계산이 여러 번 반복되는 단위를 '어텐션 헤드(attention head)'라고 부른다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=geY4UO23QA8&amp;t=3203s">[53:23]</a></p>
+<p>어텐션을 통해 다음 토큰 후보들의 '점수(score)'가 도출되는데, 이를 '로짓(logit)'이라고 한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=geY4UO23QA8&amp;t=3246s">[54:06]</a> 이 로짓 값들은 '소프트맥스(Softmax)' 함수를 통해 정규화되어 각 토큰의 확률로 변환된다(총합이 1, 즉 100%가 되도록). <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=geY4UO23QA8&amp;t=3277s">[54:37]</a> 마지막으로 '샘플링(sampling)' 과정을 거쳐 실제로 출력될 다음 토큰이 선택된다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=geY4UO23QA8&amp;t=3307s">[55:07]</a> 이때 '온도(temperature)', 'Top-K', 'Top-P'와 같은 하이퍼파라미터를 조절하여 응답의 무작위성(창의성)을 제어할 수 있다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=geY4UO23QA8&amp;t=3353s">[55:53]</a> 예를 들어 온도를 높이면 더 다양한, 창의적인 답변이 나올 가능성이 커진다.</p>
+<p>추론 속도를 높이기 위해 LLM은 '캐싱(caching)' 기술을 활용한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=geY4UO23QA8&amp;t=3548s">[59:08]</a> 이미 계산된 토큰 시퀀스의 중간 정보(hidden state)를 기억(캐싱)하여 다음 토큰을 예측할 때 불필요한 재계산을 줄이는 방식이다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=geY4UO23QA8&amp;t=3560s">[59:20]</a> 모델은 '멈춤 토큰(stop token)'을 학습하여 적절한 시점에 응답 생성을 멈춘다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=geY4UO23QA8&amp;t=3571s">[59:31]</a></p>
+<h2>주요 통찰·논점</h2>
+<h3>파라미터 규모가 LLM 성능을 결정한다</h3>
+<p>LLM의 성능은 그 안에 담긴 파라미터의 수와 밀접한 관련이 있다. 파라미터는 모델의 행동을 결정하는 수십억 개의 가중치 값으로, <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=geY4UO23QA8&amp;t=1342s">[22:22]</a> 이 값을 어떻게 조정하느냐에 따라 모델의 추론 능력이 달라진다. 파라미터 수가 늘어날수록 모델은 더 깊고 복잡한 언어 패턴을 학습할 수 있게 되며, 이것이 인간과 유사한 대화 능력을 가진 '대규모' 언어 모델의 등장을 가능하게 한 핵심적인 발견이었다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=geY4UO23QA8&amp;t=1452s">[24:12]</a> 그러나 파라미터 수가 많아질수록 학습과 추론에 필요한 연산 자원(GPU)과 시간이 기하급수적으로 늘어난다는 한계도 존재한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=geY4UO23QA8&amp;t=1498s">[24:58]</a></p>
+<h3>컨텍스트 윈도우 크기와 어텐션의 한계</h3>
+<p>'컨텍스트 윈도우(context window)' 크기는 LLM이 한 번에 고려할 수 있는 토큰 시퀀스의 최대 길이이다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=geY4UO23QA8&amp;t=2369s">[39:29]</a> 이 길이가 길어지면 트랜스포머의 어텐션 계산량이 폭증하여 추론 시간이 길어지고, <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=geY4UO23QA8&amp;t=2478s">[41:18]</a> 너무 많은 정보에 '어텐션'을 분산하다 보니 오히려 핵심 내용을 놓치거나 집중도가 떨어지는 현상이 발생할 수 있다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=geY4UO23QA8&amp;t=4410s">[1:13:30]</a> 따라서 모델 설계자들은 하드웨어 제약과 실제 사용 시의 추론 속도 및 정확도 사이에서 최적의 균형점(trade-off)을 찾아 컨텍스트 윈도우 크기나 레이어 수 등을 결정하게 된다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=geY4UO23QA8&amp;t=4487s">[1:14:47]</a></p>
+<h3>프롬프트, RAG, 파인튜닝: 상황에 따른 전략적 선택</h3>
+<p>LLM을 실제 문제 해결에 활용할 때는 크게 프롬프트, RAG, 파인튜닝 세 가지 접근 방식 중 하나를 전략적으로 선택해야 한다.</p>
+<ul>
+<li>
+<p><strong>파인튜닝(Fine-tuning)</strong>:</p>
+<ul>
+<li><strong>언제</strong>: 응답이 특정 형식(예: JSON)을 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=geY4UO23QA8&amp;t=4838s">[1:20:38]</a> 준수해야 하거나, 모델이 반복적이고 특화된 작업을 수행해야 할 때, 또는 대규모 추론으로 인한 비용 최적화가 필요할 때 고려한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=geY4UO23QA8&amp;t=5068s">[1:24:28]</a> 제조업이나 제약 산업처럼 데이터 처리량이 막대하고 특정 도메인에 특화된 응답이 반복적으로 필요한 경우에 유용하다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=geY4UO23QA8&amp;t=4875s">[1:21:15]</a></li>
+<li><strong>이유</strong>: 모델 자체에 특정 TPO 인식이나 응답 스타일을 내재화하여, 매번 긴 컨텍스트와 시스템 프롬프트를 보낼 필요 없이 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=geY4UO23QA8&amp;t=4984s">[1:23:04]</a> 프롬프트 길이를 대폭 줄여 비용을 크게 절감할 수 있기 때문이다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=geY4UO23QA8&amp;t=4891s">[1:21:31]</a></li>
+<li><strong>특징</strong>: 최근 LLM의 성능이 크게 향상되면서, 파인튜닝의 필요성은 점점 더 전문화된 특정 상황으로 국한되고 있다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=geY4UO23QA8&amp;t=4761s">[1:19:21]</a></li>
+</ul>
+</li>
+<li>
+<p><strong>RAG (Retrieval-Augmented Generation)</strong>:</p>
+<ul>
+<li><strong>언제</strong>: 모델이 학습하지 않은 최신 정보, 내부 문서, 특정 근거 자료를 바탕으로 답변해야 할 때 사용한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=geY4UO23QA8&amp;t=5279s">[1:27:59]</a> 예를 들어 특정 회사의 사내 규정이나 최신 뉴스에 기반한 답변이 필요할 때 적합하다.</li>
+<li><strong>이유</strong>: 방대한 자료를 컨텍스트 윈도우에 통째로 넣을 수 없거나(컨텍스트 윈도우 한계) <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=geY4UO23QA8&amp;t=5222s">[1:27:02]</a> 비용 효율적이지 않을 때, 질문과 관련된 정보만 외부 지식 기반에서 검색(vectorizing &amp; embedding)하여 프롬프트에 추가(augmentation)함으로써 모델의 답변 근거를 제공한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=geY4UO23QA8&amp;t=5132s">[1:25:32]</a></li>
+<li><strong>특징</strong>: 정보의 '신선도'와 '근거' 확보가 핵심이며, 파인튜닝과 달리 모델 자체를 재학습시킬 필요가 없어 업데이트가 용이하다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=geY4UO23QA8&amp;t=5284s">[1:28:04]</a></li>
+</ul>
+</li>
+<li>
+<p><strong>프롬프트(Prompt) / 지시(Instructions)</strong>:</p>
+<ul>
+<li><strong>언제</strong>: 파인튜닝이나 RAG를 적용하기에 불필요하거나 과도하게 복잡한 대부분의 일반적인 작업에 사용한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=geY4UO23QA8&amp;t=5291s">[1:28:11]</a></li>
+<li><strong>이유</strong>: 최신 LLM들은 단순히 프롬프트만으로도 충분히 많은 작업을 수행할 수 있도록 고도로 발전했기 때문이다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=geY4UO23QA8&amp;t=4766s">[1:19:26]</a></li>
+<li><strong>특징</strong>: 가장 유연하고 접근하기 쉬운 방법으로, 프롬프트 엔지니어링 기술을 통해 모델의 답변을 원하는 방향으로 효과적으로 유도할 수 있다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=geY4UO23QA8&amp;t=4720s">[1:18:40]</a></li>
+</ul>
+</li>
+</ul>
+<h3>모델 선택 기준은 '비용 최적화'</h3>
+<p>초기 모델 선택 시 온프레미스/클라우드 환경, API/구독 모델 등 다양한 요소를 고려해야 하지만, 가장 중요한 것은 궁극적으로 '비용-성능' 최적화이다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=geY4UO23QA8&amp;t=5485s">[1:31:25]</a> 기반 모델 자체의 성능은 상향 평준화되고 있어, 대부분의 경우 모델 선택은 비용 최적화 관점에서 이루어진다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=geY4UO23QA8&amp;t=5493s">[1:31:33]</a> 제한된 자원 내에서 효율적인 학습 및 추론 방식을 설계하고, 고객사의 거버넌스와 규제 준수(compliance)를 고려하는 것이 중요하다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=geY4UO23QA8&amp;t=5521s">[1:32:01]</a></p>
+<h2>인상적인 지점</h2>
+<ul>
+<li><strong>파라미터를 DJ 믹서의 노브에 비유</strong>: 모델의 수많은 파라미터(가중치)를 DJ가 믹서의 노브를 돌려 소리를 미세하게 조절하는 것에 비유하며 직관적인 이해를 도왔다. 이 비유는 파라미터의 역할과 미세 조정의 중요성을 효과적으로 전달한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=geY4UO23QA8&amp;t=1209s">[20:09]</a></li>
+<li><strong>'Attention Is All You Need' 논문의 제목</strong>: 트랜스포머 아키텍처의 핵심인 어텐션(Attention) 메커니즘을 강조한 논문 제목을 언급하며, 이 한 문장이 LLM의 동작 방식을 함축적으로 설명한다고 설명한 점이 인상적이다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=geY4UO23QA8&amp;t=2795s">[46:35]</a></li>
+<li><strong>불필요한 전문 용어의 의도적 배제</strong>: 비개발자 청중의 이해를 돕기 위해 복잡한 전문 용어나 번역하면 더 혼란스러운 개념들을 의도적으로 배제하고, 쉬운 비유와 직관적인 설명에 집중하려는 화자의 교육 철학이 돋보였다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=geY4UO23QA8&amp;t=2934s">[48:54]</a></li>
+</ul>
+
+  </article>
+  <p class="post-end"><a href="https://www.youtube.com/watch?v=geY4UO23QA8" target="_blank" rel="noopener">YouTube에서 원본 보기 ↗</a> · <a href="./">← 목록으로</a></p>
+</main>
+<footer class="site-foot">
+  <a href="/projects/yt-digest-overview">yt-digest</a> 파이프라인이 자막을 읽고 자동으로 작성한 브리핑입니다. 오류가 있을 수 있으니 중요한 내용은 원본 영상으로 확인하세요.
+</footer>
+</body>
+</html>

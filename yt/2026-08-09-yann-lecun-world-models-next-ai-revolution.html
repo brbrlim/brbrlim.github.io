@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Yann LeCun: World Models: Enabling the next AI revolution — 유튜브 다이제스트</title>
+<meta name="description" content="얀 르쿤은 현재 AI, 특히 거대 언어 모델(LLM)이 현실 세계를 제대로 이해하지 못하며, 언어 데이터만으로는 인간 수준의 지능에 도달할 수 없다고 주장한다. 그는 다음 AI 혁명을 이끌 핵심 기술로 ‘월드 모델(world model)’을 제안한다. 월드 모델은 주변…">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="Yann LeCun: World Models: Enabling the next AI revolution — 유튜브 다이제스트">
+<meta property="og:description" content="얀 르쿤은 현재 AI, 특히 거대 언어 모델(LLM)이 현실 세계를 제대로 이해하지 못하며, 언어 데이터만으로는 인간 수준의 지능에 도달할 수 없다고 주장한다. 그는 다음 AI 혁명을 이끌 핵심 기술로 ‘월드 모델(world model)’을 제안한다. 월드 모델은 주변…">
+<meta property="og:image" content="https://i.ytimg.com/vi/72Xj8k5WQX4/hqdefault.jpg">
+<meta property="og:type" content="article">
+<link rel="icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+<script>
+// Follow the blog's saved light/dark choice (same origin, same key).
+(function () {
+  var saved = null
+  try { saved = localStorage.getItem("theme") } catch (e) {}
+  var dark = saved ? saved === "dark" : matchMedia("(prefers-color-scheme: dark)").matches
+  document.documentElement.dataset.theme = dark ? "dark" : "light"
+})()
+</script>
+</head>
+<body class="post-page">
+<header class="site-bar">
+  <a class="site-name" href="/">Johnny's</a>
+  <a class="back" href="./">← 유튜브 다이제스트</a>
+</header>
+<main class="post">
+  <a class="hero" href="https://www.youtube.com/watch?v=72Xj8k5WQX4" target="_blank" rel="noopener" aria-label="YouTube에서 보기">
+    <img src="https://i.ytimg.com/vi/72Xj8k5WQX4/hqdefault.jpg" alt="">
+    <span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+  </a>
+  <h1>Yann LeCun: World Models: Enabling the next AI revolution</h1>
+  <div class="post-meta"><span>Computer Vision and Geometry Group, ETH Zurich</span><span>58:54</span><span>게시 2026-06-09</span></div>
+  <div class="tags"><a href="./?q=%23yann-lecun">#yann-lecun</a><a href="./?q=%23world-models">#world-models</a><a href="./?q=%23ai-revolution">#ai-revolution</a><a href="./?q=%23self-supervised-learning">#self-supervised-learning</a><a href="./?q=%23jepa">#jepa</a><a href="./?q=%23energy-based-models">#energy-based-models</a><a href="./?q=%23machine-learning">#machine-learning</a></div>
+  <article>
+<h2>TL;DR</h2>
+<p>얀 르쿤은 현재 AI, 특히 거대 언어 모델(LLM)이 현실 세계를 제대로 이해하지 못하며, 언어 데이터만으로는 인간 수준의 지능에 도달할 수 없다고 주장한다. 그는 다음 AI 혁명을 이끌 핵심 기술로 ‘월드 모델(world model)’을 제안한다. 월드 모델은 주변 환경의 추상적 표현을 학습하여 미래를 예측하고 계획하는 시스템으로, Joint Embedding Predictive Architecture(JEPA)와 에너지 기반 모델 훈련 방식을 통해 현실 세계의 복잡한 데이터를 효율적으로 처리하고, ‘붕괴(collapse)’ 문제 없이 인간과 유사한 지능을 달성할 수 있다고 설명한다.</p>
+<h2>풀시청 판단</h2>
+<p>이 영상은 Meta AI의 최고 과학자이자 튜링상 수상자인 얀 르쿤이 현재 AI 기술의 한계를 날카롭게 비판하고, 그가 주창하는 차세대 AI 아키텍처인 '월드 모델'과 이를 훈련하는 기법을 심도 있게 설명한다. AI 연구자, 머신러닝 엔지니어, 로봇공학자, 그리고 AI의 미래 방향에 대해 깊이 있는 통찰을 얻고자 하는 모든 이들에게 매우 유용하다. 특히 자기 지도 학습(self-supervised learning), 에너지 기반 모델, 그리고 일반 지능(AGI)의 본질에 대한 철학적 논의에 관심 있는 사람이라면 반드시 시청할 가치가 있다.</p>
+<p><strong>이 영상을 통해 얻을 수 있는 것:</strong></p>
+<ul>
+<li><strong>LLM의 근본적인 한계에 대한 비판적 시각:</strong> 얀 르쿤은 LLM이 텍스트 데이터에만 기반하여 현실 세계를 제대로 이해할 수 없다는 점을 다양한 비유와 수치를 들어 설명한다.</li>
+<li><strong>차세대 AI 아키텍처(JEPA)에 대한 심층 이해:</strong> 인간의 학습 방식과 유사하게 추상적인 표현 공간에서 미래를 예측하는 JEPA의 개념과 작동 원리를 파악할 수 있다.</li>
+<li><strong>월드 모델 훈련의 도전 과제와 해결책:</strong> 모델 붕괴 문제의 본질과 이를 방지하기 위한 정보 최대화 기법(Sigreg, 증류 기반 방법)을 배울 수 있다.</li>
+<li><strong>인간 지능과 학습에 대한 철학적 고찰:</strong> 모라벡의 역설과 장 피아제의 지능 개념을 통해 인간이 어떻게 세상을 이해하고 학습하는지에 대한 AI적 관점을 제시한다.</li>
+</ul>
+<p><strong>약점 및 한계:</strong></p>
+<ul>
+<li>일부 내용은 AI 연구 배경 지식이 없는 사람에게는 전문 용어와 개념이 다소 어렵게 느껴질 수 있다.</li>
+<li>Sigreg 기법은 얀 르쿤이 매우 최근에 선호하는 방법론으로 제시되지만, 아직 대규모 검증 및 확장에 대한 추가 연구가 필요하다.</li>
+<li>LLM과 생성 모델에 대한 비판이 매우 강경하게 제시되어, 해당 분야 연구자들에게는 다소 편향적인 주장으로 들릴 수도 있다.</li>
+<li>강의 대부분은 이론과 개념 설명에 집중하며, 실제 구현 코드나 상세한 실험 결과는 간략하게 제시된다.</li>
+</ul>
+<p><strong>풀시청이 어렵다면 다음 챕터를 추천한다:</strong></p>
+<ul>
+<li>LLM의 한계와 인간 지능의 본질에 관심 있다면: <code>### 현재 AI의 한계: 언어 모델은 현실 세계를 이해하지 못한다</code></li>
+<li>얀 르쿤이 제안하는 새로운 AI 모델의 원리를 알고 싶다면: <code>### 차세대 AI의 핵심 — 월드 모델과 에너지 기반 추론</code></li>
+<li>월드 모델 훈련의 기술적 문제점과 해결책에 관심 있다면: <code>### 모든 JEPA 연구가 싸우는 적 — 붕괴(collapse)</code> 및 <code>### Sigreg: 어려운 고차원 검정을 쉬운 1차원 여럿으로 쪼갠다</code></li>
+<li>월드 모델의 실제 적용 사례와 잠재적 성과에 관심 있다면: <code>### JEPA 기반 월드 모델의 실제 적용과 '상식' 습득</code></li>
+</ul>
+<h2>핵심 내용</h2>
+<h3>현재 AI의 한계: 언어 모델은 현실 세계를 이해하지 못한다</h3>
+<p>현재의 강력한 AI 기술, 특히 거대 언어 모델(LLM)은 실제 세계를 다루는 데 큰 한계를 보인다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=72Xj8k5WQX4&amp;t=58s">[0:58]</a> 이들은 연속적이고 고차원적이며 노이즈가 많은 데이터를 처리하는 데 미숙하다. 얀 르쿤은 언어가 상대적으로 '쉽다'고 표현하며, 이 현상을 모라벡의 역설(Moravec paradox)과 연결한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=72Xj8k5WQX4&amp;t=71s">[1:11]</a> 인간에게 복잡한 체스나 수학 정리는 컴퓨터에 쉽지만, 인간에게 쉬운 물리적 상식(예: 10대 운전 학습 vs. 자율주행차)은 컴퓨터에 어렵다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=72Xj8k5WQX4&amp;t=120s">[2:00]</a></p>
+<p>장 피아제의 인용구(&quot;지능은 당신이 아는 것이 아니라, 당신이 모를 때 무엇을 하는가이다&quot; <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=72Xj8k5WQX4&amp;t=255s">[4:15]</a>)는 지능이 선언적 지식이나 기술의 축적이 아니며, 새로운 과제를 최소한의 훈련으로 해결하고 새로운 문제를 즉시 처리하는 적응 능력임을 강조한다. LLM은 방대한 선언적 지식 축적에 뛰어나지만, 이는 진정한 지능이 아니라는 주장이다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=72Xj8k5WQX4&amp;t=273s">[4:33]</a> 얀 르쿤은 LLM을 확장하는 방식으로는 AGI(Artificial General Intelligence)에 도달할 수 없다고 단언한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=72Xj8k5WQX4&amp;t=639s">[10:39]</a></p>
+<p>그는 LLM이 훈련되는 텍스트 데이터의 양(40만 년에 해당하는 읽기 분량)과 4세 아이가 시각으로 경험하는 데이터의 양(동등한 바이트)을 비교하며, 텍스트만으로는 인간과 같은 지능에 도달할 수 없음을 강조한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=72Xj8k5WQX4&amp;t=648s">[10:48]</a> 오히려 영상 데이터의 높은 '중복성(redundancy)'은 자기 지도 학습 시스템 훈련에 필수적인 요소로, 버그가 아닌 기능이라고 설명한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=72Xj8k5WQX4&amp;t=731s">[12:11]</a></p>
+<h3>차세대 AI의 핵심 — 월드 모델과 에너지 기반 추론</h3>
+<p>지능 시스템의 중요한 속성은 '추론 방식'이다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=72Xj8k5WQX4&amp;t=810s">[13:30]</a> 기존의 LLM처럼 고정된 수의 계층을 통해 출력을 계산하는 방식 대신, 월드 모델은 에너지 함수를 최소화하는 출력을 찾는 방식으로 추론한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=72Xj8k5WQX4&amp;t=830s">[13:50]</a> 이는 관찰된 상태에 대해 시스템이 가능한 행동을 상상하고, 월드 모델이 그 결과를 예측하며, 그 결과가 목표 달성에 얼마나 부합하는지 측정하는 객관 함수(objective function, 에너지 함수)를 통해 최적의 행동을 탐색하는 방식이다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=72Xj8k5WQX4&amp;t=911s">[15:11]</a></p>
+<p>이러한 에너지 기반 추론은 LLM의 고정된 전파 방식보다 본질적으로 더 강력하다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=72Xj8k5WQX4&amp;t=840s">[14:00]</a> 월드 모델을 활용하는 시스템은 가드레일(guardrail) 역할을 하는 추가적인 목표 함수를 통해 내재적으로 안전하게 설계할 수 있다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=72Xj8k5WQX4&amp;t=1054s">[17:34]</a> 이는 LLM이 미세 조정(fine-tuning)을 통해 안전성을 확보해야 하고 '탈옥(jailbreak)'의 위험이 상존하는 것과 대비된다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=72Xj8k5WQX4&amp;t=1084s">[18:04]</a></p>
+<p>궁극적으로 AI는 인간과 동물처럼 '계층적 계획(hierarchical planning)'을 수행해야 한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=72Xj8k5WQX4&amp;t=1141s">[19:01]</a> 뉴욕에서 파리로 가는 비유처럼, 인간은 근육 움직임 단위의 세부 계획이 아닌, 공항 가기→비행기 타기와 같은 상위 수준의 목표를 세우고 이를 하위 목표로 분해하여 실행한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=72Xj8k5WQX4&amp;t=1150s">[19:10]</a> 현재 AI는 이러한 계층적 계획 능력을 갖추지 못했으며, 이는 여전히 미해결 문제이다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=72Xj8k5WQX4&amp;t=1252s">[20:52]</a></p>
+<h3>생성 모델의 한계와 추상적 예측의 필요성</h3>
+<p>월드 모델 훈련에서 중요한 과제는 '생성 모델(generative model)'의 한계를 극복하는 것이다. 언어에서는 마스킹된 단어를 예측하는 자기 지도 학습이 성공적이지만, 비디오와 같은 연속적이고 고차원적인 데이터에서는 작동하지 않는다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=72Xj8k5WQX4&amp;t=1351s">[22:31]</a> 왜냐하면 비디오에서 다음에 일어날 수 있는 '합리적인(plausible)' 일의 수가 무한하기 때문이다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=72Xj8k5WQX4&amp;t=1372s">[22:52]</a> 시스템이 모든 가능한 시나리오의 평균을 예측하려 하면 흐릿한 결과를 내놓게 된다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=72Xj8k5WQX4&amp;t=1482s">[24:42]</a></p>
+<p>이 문제를 해결하기 위해 얀 르쿤은 Joint Embedding Predictive Architecture(JEPA)를 제안한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=72Xj8k5WQX4&amp;t=1513s">[25:13]</a> JEPA는 입력(X)과 결과(Y)를 직접 재구성하는 대신, 이들의 '표현(representation)'을 인코딩하고 그 표현 공간 내에서 예측을 수행한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=72Xj8k5WQX4&amp;t=1542s">[25:42]</a> 이 방식은 예측 불가능한 세부 정보를 제거하고, 더 추상적이고 정확한 예측을 가능하게 한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=72Xj8k5WQX4&amp;t=1552s">[25:52]</a></p>
+<p>JEPA의 아이디어는 과학과 공학에서 '추상화'를 통해 복잡한 시스템을 이해하고 예측하는 방식과 유사하다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=72Xj8k5WQX4&amp;t=2280s">[38:00]</a> 양자장론부터 생태계까지, 각 추상화 수준은 하위 수준의 세부 사항을 무시함으로써 더 장기적인 예측을 가능하게 한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=72Xj8k5WQX4&amp;t=2302s">[38:22]</a> 따라서 월드 모델은 물리 입자를 시뮬레이션하는 '디지털 트윈'이나 '비디오 생성' 시스템이 되어서는 안 된다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=72Xj8k5WQX4&amp;t=2428s">[40:28]</a> 복잡한 실제 세계의 시스템을 제어하려면 방정식으로 모델링할 수 없는 동역학을 학습하여 예측하고 계획해야 한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=72Xj8k5WQX4&amp;t=2538s">[42:18]</a></p>
+<h3>모든 JEPA 연구가 싸우는 적 — 붕괴(collapse)</h3>
+<p>JEPA와 같은 에너지 기반 모델을 훈련할 때 직면하는 가장 큰 문제 중 하나는 '붕괴(collapse)'이다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=72Xj8k5WQX4&amp;t=1745s">[29:05]</a> 이는 모델이 입력 데이터를 무시하고 모든 입력에 대해 동일하거나 예측 오류가 0인 표현을 생성함으로써 아무것도 유용한 것을 학습하지 못하는 현상이다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=72Xj8k5WQX4&amp;t=1720s">[28:40]</a> 마치 정보 콘텐츠가 제한되지 않은 오토인코더가 단순히 항등 함수를 학습하는 것과 같다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=72Xj8k5WQX4&amp;t=1699s">[28:19]</a></p>
+<p>붕괴를 방지하는 핵심은 '정보 최대화(information maximization)'이다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=72Xj8k5WQX4&amp;t=1760s">[29:20]</a> 즉, 인코더에서 나오는 표현의 정보 콘텐츠를 최대화하는 방향으로 학습하는 것이다. 이를 위한 다양한 기법들이 개발되었다 (예: MNCR, NCR squared, WMSE, Seegrid, VICReg, Barlow Twins). <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=72Xj8k5WQX4&amp;t=1788s">[29:48]</a> 그러나 정보 콘텐츠를 측정하는 객관적인 방법이 없으며, 우리가 가진 경험적 측정치는 모두 상한선이므로, '좋은 상한선'을 찾아 사용하는 것이 현재의 접근 방식이다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=72Xj8k5WQX4&amp;t=1860s">[31:00]</a></p>
+<p>에너지 기반 모델의 붕괴는 에너지 함수가 모든 곳에서 평평해지는 것으로 나타난다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=72Xj8k5WQX4&amp;t=2051s">[34:11]</a> 이를 막기 위한 두 가지 방법이 있다. 첫째는 '대조적 방법(contrastive methods)'으로, 데이터 영역 밖의 점들에 대해 에너지를 높여 데이터 영역의 에너지를 낮춘다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=72Xj8k5WQX4&amp;t=2079s">[34:39]</a> 둘째는 '정규화 방법(regularized methods)'으로, 낮은 에너지를 가질 수 있는 공간의 부피 자체를 최소화한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=72Xj8k5WQX4&amp;t=2101s">[35:01]</a> 얀 르쿤은 후자를 더 선호한다고 말한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=72Xj8k5WQX4&amp;t=2098s">[34:58]</a></p>
+<h2>주요 통찰·논점</h2>
+<h3>Sigreg: 어려운 고차원 검정을 쉬운 1차원 여럿으로 쪼갠다</h3>
+<p>얀 르쿤이 선호하는 정보 최대화 기법 중 하나는 'Sigreg(Sketch Isotropic Gaussian Regularization)'이다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=72Xj8k5WQX4&amp;t=2570s">[42:50]</a> 이 기법의 핵심은 인코더에서 생성된 고차원 표현 벡터들의 분포를 모든 차원에서 독립적인 '등방성 가우스 분포(isotropic Gaussian)'에 가깝게 만드는 것이다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=72Xj8k5WQX4&amp;t=2589s">[43:09]</a> 등방성 가우스 분포는 모든 변수가 독립적이며 개별적으로 최대의 정보를 담고 있기 때문이다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=72Xj8k5WQX4&amp;t=2600s">[43:20]</a></p>
+<p>Sigreg의 영리한 점은 고차원 분포를 직접 다루는 대신, 이를 여러 개의 1차원 문제로 쪼갠다는 것이다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=72Xj8k5WQX4&amp;t=2638s">[43:58]</a> 배치(batch) 내 샘플들의 표현 벡터들을 여러 '방향'으로 투영하여 1차원 주변 분포(marginal distribution)를 얻는다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=72Xj8k5WQX4&amp;t=2640s">[44:00]</a> 이 1차원 이산 분포가 이상적인 가우스 분포와 얼마나 다른지 측정하고, 그 차이를 줄이는 방향으로 경사 하강법을 적용한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=72Xj8k5WQX4&amp;t=2656s">[44:16]</a> 여러 방향에 대해 이 과정을 반복하면, 통계학적 정리(central limit theorem과 유사한)에 따라 전체 고차원 분포가 등방성 가우스에 가까워진다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=72Xj8k5WQX4&amp;t=2719s">[45:19]</a> 이는 특히 기저 설명 변수(underlying explanatory variables)가 가우스 분포일 경우, 시스템이 해당 변수들을 회복할 수 있다는 이론적 증명을 통해 뒷받침된다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=72Xj8k5WQX4&amp;t=2818s">[46:58]</a></p>
+<h3>확장성과 안정성을 높이는 증류 기반 JEPA 기법들</h3>
+<p>Sigreg은 유망하지만 아직 대규모 확장이 필요한 초기 단계의 연구이다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=72Xj8k5WQX4&amp;t=2885s">[48:05]</a> 반면, 이미지 및 비디오 표현 학습에서 이미 큰 성공을 거두며 확장된 '증류(distillation)' 기반 JEPA 기법들이 있다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=72Xj8k5WQX4&amp;t=2890s">[48:10]</a> BYOL(Bootstrap Your Own Latent), SimSiam, MoCo, I-JEPA, DINO 등이 여기에 속한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=72Xj8k5WQX4&amp;t=2959s">[49:19]</a></p>
+<p>이 기법들의 기본 아이디어는 두 개의 인코더(온라인 인코더와 타겟 인코더)를 사용하는 것이다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=72Xj8k5WQX4&amp;t=2902s">[48:22]</a> 온라인 인코더는 경사 하강법을 통해 지속적으로 가중치를 업데이트하는 반면, 타겟 인코더는 온라인 인코더의 가중치를 EMA(지수 이동 평균) 방식으로 천천히 업데이트하며 '증류' 역할을 수행한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=72Xj8k5WQX4&amp;t=2927s">[48:47]</a> 이 방식은 붕괴를 방지하면서 안정적인 학습을 가능하게 한다. 특히 I-JEPA는 마스킹 오토인코더(MAE) 같은 생성적 접근 방식보다 빠르고 우수한 결과를 보여주었다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=72Xj8k5WQX4&amp;t=2980s">[49:40]</a> DINO는 이미지에 대한 최상의 일반적 표현(generic representation)을 생성하는 것으로 알려져 있으며, Meta의 파리 연구팀에서 개발되었다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=72Xj8k5WQX4&amp;t=3007s">[50:07]</a></p>
+<h3>JEPA 기반 월드 모델의 실제 적용과 '상식' 습득</h3>
+<p>JEPA 기반 월드 모델은 이미 다양한 시나리오에서 성공적으로 적용되고 있다. DINO 인코더와 훈련된 월드 모델을 결합하여 복잡한 시뮬레이션 환경에서 계획을 세우는 데 활용한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=72Xj8k5WQX4&amp;t=3039s">[50:39]</a> 또한, V-JEPA(Video-JEPA)는 비디오의 큰 부분을 마스킹하고, 그 마스킹된 부분의 표현을 예측하도록 훈련하여 비디오에서 특징을 추출한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=72Xj8k5WQX4&amp;t=3087s">[51:27]</a> 이 시스템은 액션 인식, 액션 예측 등 전통적인 비전 작업에서 최첨단 성능을 달성했다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=72Xj8k5WQX4&amp;t=3111s">[51:51]</a></p>
+<p>V-JEPA의 가장 흥미로운 성과 중 하나는 어느 정도의 '상식(common sense)'을 습득했다는 점이다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=72Xj8k5WQX4&amp;t=3130s">[52:10]</a> 시스템에 불가능하거나 물리적으로 말이 안 되는 상황(예: 자동차가 공중에 떠 있는 영상, 던진 공이 사라지는 영상)을 보여주면, 내부 예측 오류가 급격히 증가한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=72Xj8k5WQX4&amp;t=3158s">[52:38]</a> 이는 마치 유아들이 중력을 학습한 후 물리 법칙을 위반하는 장면에 놀라는 것과 유사하다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=72Xj8k5WQX4&amp;t=3166s">[52:46]</a> 이는 자기 지도 학습 시스템이 '무엇이 가능하고 불가능한지'를 학습하여, 세계에 대한 기본적인 이해를 얻었음을 시사한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=72Xj8k5WQX4&amp;t=3185s">[53:05]</a> 나아가 V-JEPA가 학습한 표현은 단일 이미지에서 깊이(depth)를 예측하거나, 객체 분할 시스템의 입력으로 사용될 때도 좋은 성능을 보여주며, 시스템이 3차원 세계와 객체 개념을 이해했음을 나타낸다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=72Xj8k5WQX4&amp;t=3213s">[53:33]</a></p>
+<h3>얀 르쿤의 과감한 제언: LLM, 생성 모델, 대조적 학습, 강화 학습은 '버려라'</h3>
+<p>얀 르쿤은 강연을 마무리하며 현재 AI 연구의 주류 패러다임에 대한 과감한 비판과 대안을 제시한다. 그는 LLM에 기반한 생성 모델, 확률론적 모델, 그리고 대조적 학습 방법을 '포기'하라고 주장한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=72Xj8k5WQX4&amp;t=3276s">[54:36]</a> 특히 학계에서는 LLM 연구에 참여할 이점이 없다고 단언한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=72Xj8k5WQX4&amp;t=3286s">[54:46]</a> 또한 샘플 효율성이 극히 낮은 강화 학습(RL)은 '최후의 수단'으로 사용을 최소화해야 한다고 강조한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=72Xj8k5WQX4&amp;t=3329s">[55:29]</a> 대신, 관찰을 통한 월드 모델 학습과 좋은 표현 학습에 집중해야 한다고 말한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=72Xj8k5WQX4&amp;t=3351s">[55:51]</a></p>
+<p>그는 AI의 진정한 발전을 위해서는 LLM이나 생성 모델이 아닌, '물리적 AI(physical AI)' 또는 '현실 세계를 위한 AI(AI for the real world)'에 집중해야 한다고 주장한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=72Xj8k5WQX4&amp;t=3370s">[56:10]</a> 얀 르쿤은 이러한 비전을 추구하기 위해 Meta를 떠나 Ami Labs라는 새로운 회사를 설립했다고 밝히며, 이 회사는 로봇공학, 산업 공정 제어 등 고차원적이고 연속적이며 노이즈가 많은 실제 세계 문제에 집중할 것이라고 설명한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=72Xj8k5WQX4&amp;t=3391s">[56:31]</a> 이러한 문제 영역에서 LLM은 완전히 무력하다는 것이 그의 결론이다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=72Xj8k5WQX4&amp;t=3411s">[56:51]</a></p>
+<h2>인상적인 지점</h2>
+<ul>
+<li><strong>모라벡의 역설:</strong> 인간에게 쉬운 것(물리적 상식, 운전)이 컴퓨터에 어렵고, 인간에게 어려운 것(체스, 미적분)이 컴퓨터에 쉽다는 역설은 현재 AI의 근본적인 한계를 명확히 보여준다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=72Xj8k5WQX4&amp;t=81s">[1:21]</a></li>
+<li><strong>4세 아이의 데이터 학습량 비유:</strong> 40만 년에 해당하는 텍스트 데이터를 읽는 것과 4세 아이가 16시간 동안 깨어 시각적으로 경험하는 데이터의 바이트 양이 같다는 비유는, 텍스트 기반 LLM이 현실 세계를 이해하는 데 얼마나 비효율적인지, 그리고 물리적 경험의 중요성을 얼마나 명확하게 설명하는지 인상적이다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=72Xj8k5WQX4&amp;t=700s">[11:40]</a></li>
+<li><strong>과학적 추상화 계층:</strong> 양자장 이론부터 사회 생태계까지, 과학이 세상을 이해하기 위해 세부 정보를 무시하고 추상화 계층을 구축하는 방식은 AI 월드 모델이 나아가야 할 방향을 직관적으로 보여주는 훌륭한 비유이다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=72Xj8k5WQX4&amp;t=2280s">[38:00]</a></li>
+<li><strong>&quot;비디오 생성 =/= 월드 모델&quot; 선언:</strong> 비디오 생성이 월드 모델의 목표가 아님을 강하게 주장하며, '귀여운 비디오'를 만드는 것과 로봇을 제어하고 세상을 이해하는 것의 차이를 분명히 긋는 대목은 AI 연구자들에게 중요한 지침을 제공한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=72Xj8k5WQX4&amp;t=2447s">[40:47]</a></li>
+<li><strong>V-JEPA의 '상식' 습득:</strong> 시스템이 중력 법칙을 위반하는 비디오(예: 공중에 떠 있는 자동차, 사라지는 공)를 보여줄 때 예측 오류가 치솟는 현상은, 기계가 실제 세계의 인과 관계와 '상식'을 내부적으로 학습하고 있음을 시사하여 매우 놀랍다. 이는 AI가 단지 패턴을 인식하는 것을 넘어선 이해의 가능성을 보여준다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=72Xj8k5WQX4&amp;t=3158s">[52:38]</a></li>
+<li><strong>얀 르쿤의 과감한 연구 방향 제언:</strong> LLM, 생성 모델, 대조적 학습, 그리고 심지어 강화 학습까지 &quot;버리거나 최소화하라&quot;는 그의 주장은 현재 AI 연구의 주류에 대한 강렬한 도전이자, 그가 얼마나 다른 방향을 확신하고 있는지 보여주는 대목이다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=72Xj8k5WQX4&amp;t=3276s">[54:36]</a> 그는 Meta를 떠나 '물리적 AI'에 집중하는 새로운 회사를 세웠다는 발표로 그의 비전에 대한 확신을 다시 한번 강조한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=72Xj8k5WQX4&amp;t=3391s">[56:31]</a></li>
+</ul>
+
+  </article>
+  <p class="post-end"><a href="https://www.youtube.com/watch?v=72Xj8k5WQX4" target="_blank" rel="noopener">YouTube에서 원본 보기 ↗</a> · <a href="./">← 목록으로</a></p>
+</main>
+<footer class="site-foot">
+  <a href="/projects/yt-digest-overview">yt-digest</a> 파이프라인이 자막을 읽고 자동으로 작성한 브리핑입니다. 오류가 있을 수 있으니 중요한 내용은 원본 영상으로 확인하세요.
+</footer>
+</body>
+</html>

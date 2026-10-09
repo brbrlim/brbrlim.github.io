@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Let's build GPT: from scratch, in code, spelled out. — 유튜브 다이제스트</title>
+<meta name="description" content="이 영상은 GPT의 핵심인 트랜스포머(Transformer) 아키텍처를 파이토치(PyTorch)를 이용해 처음부터 직접 구축하는 과정을 자세히 설명한다. 셰익스피어 데이터셋으로 문자를 예측하는 간단한 언어 모델을 만들면서 토큰화, 임베딩, 자기 어텐션, 멀티 헤드 어텐…">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="Let's build GPT: from scratch, in code, spelled out. — 유튜브 다이제스트">
+<meta property="og:description" content="이 영상은 GPT의 핵심인 트랜스포머(Transformer) 아키텍처를 파이토치(PyTorch)를 이용해 처음부터 직접 구축하는 과정을 자세히 설명한다. 셰익스피어 데이터셋으로 문자를 예측하는 간단한 언어 모델을 만들면서 토큰화, 임베딩, 자기 어텐션, 멀티 헤드 어텐…">
+<meta property="og:image" content="https://i.ytimg.com/vi/kCc8FmEb1nY/hqdefault.jpg">
+<meta property="og:type" content="article">
+<link rel="icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+<script>
+// Follow the blog's saved light/dark choice (same origin, same key).
+(function () {
+  var saved = null
+  try { saved = localStorage.getItem("theme") } catch (e) {}
+  var dark = saved ? saved === "dark" : matchMedia("(prefers-color-scheme: dark)").matches
+  document.documentElement.dataset.theme = dark ? "dark" : "light"
+})()
+</script>
+</head>
+<body class="post-page">
+<header class="site-bar">
+  <a class="site-name" href="/">Johnny's</a>
+  <a class="back" href="./">← 유튜브 다이제스트</a>
+</header>
+<main class="post">
+  <a class="hero" href="https://www.youtube.com/watch?v=kCc8FmEb1nY" target="_blank" rel="noopener" aria-label="YouTube에서 보기">
+    <img src="https://i.ytimg.com/vi/kCc8FmEb1nY/hqdefault.jpg" alt="">
+    <span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+  </a>
+  <h1>Let's build GPT: from scratch, in code, spelled out.</h1>
+  <div class="post-meta"><span>Andrej Karpathy</span><span>1:56:20</span><span>게시 2023-01-17</span></div>
+  <div class="tags"><a href="./?q=%23gpt">#gpt</a><a href="./?q=%23transformer">#transformer</a><a href="./?q=%23deep-learning">#deep-learning</a><a href="./?q=%23pytorch">#pytorch</a><a href="./?q=%23language-model">#language-model</a><a href="./?q=%23self-attention">#self-attention</a><a href="./?q=%23machine-learning">#machine-learning</a></div>
+  <article>
+<h2>TL;DR</h2>
+<p>이 영상은 GPT의 핵심인 트랜스포머(Transformer) 아키텍처를 파이토치(PyTorch)를 이용해 처음부터 직접 구축하는 과정을 자세히 설명한다. 셰익스피어 데이터셋으로 문자를 예측하는 간단한 언어 모델을 만들면서 토큰화, 임베딩, 자기 어텐션, 멀티 헤드 어텐션, 잔차 연결, 층 정규화 등 트랜스포머의 주요 구성 요소를 이해할 수 있도록 돕는다. 실제 Chat GPT가 작동하는 방식의 기반이 되는 원리와 코드 구현을 배울 수 있는 실습형 강의다.</p>
+<h2>풀시청 판단</h2>
+<p>이 영상은 파이썬과 파이토치에 대한 기본적인 이해가 있는 사람들에게 트랜스포머 아키텍처의 내부 작동 방식을 코드 레벨에서 깊이 이해할 수 있는 매우 귀중한 자료다. 앤드레이 카파시가 단계별로 코드를 작성하며 개념을 설명하므로, 언어 모델의 원리와 구현을 동시에 파악하려는 머신러닝 엔지니어, 연구자, 고급 학생에게 특히 추천한다.</p>
+<p><strong>이 영상을 보면 얻을 수 있는 것:</strong></p>
+<ul>
+<li><strong>실제 구현 능력:</strong> 토큰화, 임베딩, 어텐션 메커니즘, 트랜스포머 블록, 손실 계산, 샘플링 등 언어 모델의 모든 핵심 구성 요소를 파이토치 코드로 직접 구현하는 방법을 배운다.</li>
+<li><strong>직관적 이해:</strong> '쿼리', '키', '값' 개념, 가중 합산을 위한 행렬 곱셈 트릭, 잔차 연결의 중요성, 층 정규화의 역할 등 추상적인 개념에 대한 깊이 있는 직관을 얻는다.</li>
+<li><strong>GPT 구조 통찰:</strong> GPT가 왜 <code>Decoder-only</code> 트랜스포머인지, 그리고 사전 훈련(pre-training)과 미세 조정(fine-tuning)이 Chat GPT에 어떻게 적용되는지 큰 그림을 그릴 수 있다.</li>
+</ul>
+<p><strong>이런 사람에게 추천한다:</strong></p>
+<ul>
+<li>파이썬과 파이토치에 익숙하며 트랜스포머를 직접 구현해보고 싶은 개발자.</li>
+<li>GPT와 같은 대규모 언어 모델의 '내부 작동 방식'에 대한 호기심이 강한 사람.</li>
+<li>딥러닝 모델의 복잡한 구조를 단순한 개념부터 점진적으로 쌓아 올리는 방식을 선호하는 학습자.</li>
+</ul>
+<p><strong>약점 및 한계:</strong></p>
+<ul>
+<li><strong>초보자에게는 어려움:</strong> 딥러닝이나 파이토치에 대한 사전 지식이 없다면 따라가기 힘들 수 있다. 일부 개념(확률적 언어 모델, 경사 하강법 등)은 'make more' 시리즈를 통해 미리 학습했음을 전제한다.</li>
+<li><strong>단순한 모델:</strong> 구축하는 GPT는 셰익스피어 문자를 예측하는 매우 작은 모델로, 실제 Chat GPT와는 규모나 기능 면에서 현저히 차이가 있다. 생성되는 텍스트는 여전히 비문이 많다.</li>
+<li><strong>미세 조정 미포함:</strong> Chat GPT를 '대화형 비서'로 만드는 데 핵심적인 미세 조정(강화 학습을 통한 인간 피드백 정렬, RLHF) 단계는 간략히 설명만 하고 구현하지 않는다.</li>
+</ul>
+<p><strong>일부만 봐도 충분한 경우:</strong></p>
+<ul>
+<li><strong>개념만 알고 싶다면:</strong> 코드 구현보다는 어텐션 메커니즘 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=kCc8FmEb1nY&amp;t=2520s">[42:00]</a>부터 트랜스포머의 주요 블록 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=kCc8FmEb1nY&amp;t=5280s">[1:28:00]</a>과 Chat GPT의 사전 훈련/미세 조정 설명 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=kCc8FmEb1nY&amp;t=6540s">[1:49:00]</a> 부분을 중심으로 시청한다.</li>
+<li><strong>특정 구성 요소에 관심 있다면:</strong> 해당 파트의 챕터를 찾아 시청한다.</li>
+</ul>
+<h2>핵심 내용</h2>
+<h3>GPT의 기반 기술: 트랜스포머 아키텍처 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=kCc8FmEb1nY&amp;t=100s">[1:40]</a></h3>
+<p>Chat GPT는 텍스트 기반 작업을 수행하는 AI 시스템이며, 이 시스템의 핵심은 2017년 논문 &quot;Attention Is All You Need&quot;에서 제안된 트랜스포머(Transformer) 아키텍처다. GPT는 &quot;Generatively Pre-trained Transformer&quot;의 약자로, 트랜스포머는 시퀀스 내 단어(혹은 토큰) 간의 관계를 모델링하는 신경망이다. 영상에서는 Chat GPT와 같은 대규모 모델을 직접 만들 수는 없지만, 셰익스피어 작품을 학습하여 셰익스피어 스타일의 텍스트를 생성하는 문자 단위 언어 모델을 처음부터 구축하며 트랜스포머의 원리를 설명한다.</p>
+<h3>텍스트 데이터 준비: 토큰화와 배치 처리 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=kCc8FmEb1nY&amp;t=569s">[9:29]</a></h3>
+<p>신경망에 텍스트를 입력하기 위해선 원본 텍스트를 정수 시퀀스로 변환하는 토큰화(tokenization) 과정이 필요하다. 영상에서는 가장 간단한 문자 단위 토큰화를 사용하며, 각 문자를 고유한 정수 ID에 매핑한다. 이 ID 매핑은 인코더(텍스트→정수)와 디코더(정수→텍스트) 함수로 구현된다. 실제 GPT는 '서브워드(subword)' 토크나이저(예: Byte Pair Encoding)를 사용하여 5만 개 이상의 어휘 크기를 가지며 더 짧고 응축된 시퀀스를 만든다. 토큰화된 정수 시퀀스는 훈련 데이터셋(90%)과 검증 데이터셋(10%)으로 분리된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=kCc8FmEb1nY&amp;t=850s">[14:10]</a>.</p>
+<p>훈련 시에는 전체 시퀀스를 한 번에 처리하는 대신, <code>블록 크기(block size)</code>로 정의된 고정된 길이의 작은 <code>청크(chunk)</code>를 무작위로 샘플링하여 사용한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=kCc8FmEb1nY&amp;t=876s">[14:36]</a>. 각 청크는 여러 개의 훈련 예시를 포함하며, 모델은 특정 컨텍스트(입력 문자열) 다음에 올 다음 문자(타겟 문자열)를 예측하도록 학습된다. GPU의 효율성을 높이기 위해 여러 청크를 묶어 <code>배치(batch)</code> 단위로 병렬 처리한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=kCc8FmEb1nY&amp;t=1093s">[18:13]</a>.</p>
+<h3>기본 언어 모델: 바이그램(Bigram) 모델 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=kCc8FmEb1nY&amp;t=1339s">[22:19]</a></h3>
+<p>가장 간단한 신경망 모델로 바이그램 언어 모델을 구현한다. 이 모델은 각 토큰의 고유한 ID(정수)만을 바탕으로 다음 토큰을 예측한다. <code>nn.Embedding</code> 테이블을 사용하여 각 토큰 ID에 해당하는 임베딩 벡터를 조회하고, 이를 바로 다음 토큰의 <code>로짓(logits)</code>(예측 점수)으로 해석한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=kCc8FmEb1nY&amp;t=1384s">[23:04]</a>. 손실 함수로는 크로스 엔트로피 손실을 사용하여 예측의 품질을 측정한다. 이 모델은 현재 토큰 하나만 보고 다음 토큰을 예측하므로, 문맥을 전혀 고려하지 않아 생성되는 텍스트는 무작위적이고 의미 없는 수준이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=kCc8FmEb1nY&amp;t=2040s">[34:00]</a>.</p>
+<h3>자기 어텐션(Self-Attention)의 핵심 아이디어: 가중 합산 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=kCc8FmEb1nY&amp;t=2520s">[42:00]</a></h3>
+<p>토큰들이 서로 소통하며 더 나은 예측을 하도록 돕기 위해 자기 어텐션을 도입한다. 핵심은 과거 토큰들의 정보를 <code>가중 합산(weighted aggregation)</code>하여 현재 토큰의 표현을 업데이트하는 것이다. 특정 시점의 토큰은 미래의 토큰과 소통할 수 없고, 오직 자신과 과거의 토큰들과만 소통할 수 있다.</p>
+<p>이 가중 합산은 행렬 곱셈을 통해 효율적으로 구현된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=kCc8FmEb1nY&amp;t=3070s">[51:10]</a>. <code>torch.tril</code> 함수를 사용해 하삼각 행렬을 만들고, 이를 가중치 행렬로 사용하여 현재 토큰이 과거 토큰에만 접근할 수 있도록 <code>마스킹(masking)</code>한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=kCc8FmEb1nY&amp;t=3360s">[56:00]</a>. 초기에는 모든 과거 토큰에 균등한 가중치를 주지만, 궁극적으로는 이 가중치가 데이터에 따라 동적으로 결정되도록 한다.</p>
+<h3>쿼리(Query), 키(Key), 값(Value) 벡터 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=kCc8FmEb1nY&amp;t=3836s">[1:03:56]</a></h3>
+<p>자기 어텐션의 핵심은 각 토큰이 세 가지 벡터를 생성하는 것이다:</p>
+<ol>
+<li><strong>쿼리(Query, Q) 벡터:</strong> &quot;나는 무엇을 찾고 있는가?&quot;를 나타낸다.</li>
+<li><strong>키(Key, K) 벡터:</strong> &quot;나는 무엇을 가지고 있는가?&quot;를 나타낸다.</li>
+<li><strong>값(Value, V) 벡터:</strong> &quot;만약 흥미를 느낀다면, 내가 전달할 정보는 무엇인가?&quot;를 나타낸다.</li>
+</ol>
+<p>토큰 간의 <code>어피니티(affinity)</code>(관심도)는 <code>쿼리</code>와 <code>키</code> 벡터의 내적(dot product)으로 계산된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=kCc8FmEb1nY&amp;t=3964s">[1:06:04]</a>. 내적 값이 높으면 해당 토큰이 서로에게 더 '흥미롭다'는 뜻이다. 이 어피니티 점수에 마스킹을 적용하여 미래 정보를 차단하고, <code>소프트맥스(softmax)</code> 함수를 통해 정규화하여 가중치 분포를 얻는다. 마지막으로 이 가중치를 <code>값</code> 벡터에 곱하고 합산하여 최종 결과를 얻는다. 이때 <code>sqrt(head_size)</code>로 스케일링하여 소프트맥스 출력의 분산을 조절한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=kCc8FmEb1nY&amp;t=4632s">[1:17:12]</a>.</p>
+<h3>멀티 헤드 어텐션(Multi-Head Attention) <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=kCc8FmEb1nY&amp;t=4921s">[1:22:01]</a></h3>
+<p>멀티 헤드 어텐션은 여러 개의 <code>어텐션 헤드(attention head)</code>를 병렬로 실행하여 각 헤드가 서로 다른 관점에서 정보를 학습하고 소통하도록 한다. 각 헤드는 독립적으로 <code>쿼리</code>, <code>키</code>, <code>값</code> 변환과 가중 합산을 수행하며, 그 결과들을 <code>연결(concatenate)</code>하여 최종 출력으로 사용한다. 이를 통해 모델은 다양한 유형의 관계(예: 주어-동사, 수식어-피수식어 등)를 동시에 포착할 수 있어 성능이 향상된다.</p>
+<h3>트랜스포머 블록: 통신과 계산의 반복 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=kCc8FmEb1nY&amp;t=5280s">[1:28:00]</a></h3>
+<p>자기 어텐션을 통해 토큰들이 서로 소통하고 정보를 교환하면, 이제 각 토큰은 그 정보를 바탕으로 <code>계산(computation)</code>을 수행해야 한다. 이를 위해 멀티 헤드 어텐션 후에 <code>피드포워드 신경망(Feed-Forward Network, FFN)</code>을 추가한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=kCc8FmEb1nY&amp;t=5156s">[1:25:56]</a>. FFN은 각 토큰에 대해 독립적으로 작동하며, 정보를 처리하고 비선형성을 추가한다. 트랜스포머는 이러한 <code>멀티 헤드 어텐션</code> (통신)과 <code>피드포워드 신경망</code> (계산)을 한 블록으로 묶어 여러 층으로 쌓아 올리는 구조를 가진다.</p>
+<h3>딥러닝 최적화를 위한 기법: 잔차 연결과 층 정규화 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=kCc8FmEb1nY&amp;t=5303s">[1:28:23]</a></h3>
+<p>깊은 신경망의 훈련을 안정화하기 위해 두 가지 중요한 기법이 사용된다.</p>
+<ol>
+<li><strong>잔차 연결(Residual Connection, Skip Connection):</strong> 각 블록의 입력(<code>X</code>)이 블록의 출력(<code>X + Sublayer(X)</code>)에 직접 더해지는 방식이다. 이는 그래디언트가 역전파될 때 <code>그래디언트 슈퍼 하이웨이(gradient Super Highway)</code> 역할을 하여, 그래디언트가 손실 없이 입력까지 도달하도록 돕는다. 덕분에 깊은 네트워크도 효과적으로 훈련할 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=kCc8FmEb1nY&amp;t=5390s">[1:29:50]</a>.</li>
+<li><strong>층 정규화(Layer Normalization):</strong> 배치 정규화와 유사하게, 각 훈련 예시의 특징(<code>채널</code> 차원)에 대해 평균을 0, 분산을 1로 정규화한다. 이는 각 층의 입력 분포를 안정화하여 훈련을 빠르게 하고 모델이 더 잘 일반화되도록 돕는다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=kCc8FmEb1nY&amp;t=5649s">[1:34:09]</a>. 트랜스포머에서는 변환(어텐션, FFN) <code>이전</code>에 층 정규화를 적용하는 <code>프리-놈(Pre-Norm)</code> 방식이 흔히 사용된다.</li>
+</ol>
+<h3>모델 확장과 최종 결과 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=kCc8FmEb1nY&amp;t=5868s">[1:37:48]</a></h3>
+<p>위에서 구현한 트랜스포머 아키텍처는 <code>블록 크기</code>, <code>임베딩 차원</code>, <code>헤드 수</code>, <code>층 수</code> 등의 하이퍼파라미터를 조절하여 확장할 수 있다. 과적합을 방지하기 위해 <code>드롭아웃(Dropout)</code>과 같은 정규화 기법도 추가한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=kCc8FmEb1nY&amp;t=5888s">[1:38:08]</a>. 모델을 확장하고 셰익스피어 데이터셋으로 더 오래 훈련한 결과, 검증 손실이 2.07에서 1.48로 크게 감소하며, 생성되는 텍스트가 셰익스피어 문체의 특징(예: 대화 형식)을 훨씬 더 잘 모방하기 시작한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=kCc8FmEb1nY&amp;t=6070s">[1:41:10]</a>. 물론 여전히 의미론적으로는 비문이다.</p>
+<h3>GPT의 정체: 디코더-온리(Decoder-Only) 트랜스포머 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=kCc8FmEb1nY&amp;t=6144s">[1:42:24]</a></h3>
+<p>원본 &quot;Attention Is All You Need&quot; 논문의 트랜스포머는 인코더-디코더(Encoder-Decoder) 구조를 가지며, 주로 기계 번역과 같이 입력을 인코딩하고 다른 언어로 디코딩하는 작업에 사용된다. 그러나 GPT는 인코더 없이 <code>디코더-온리(Decoder-Only)</code> 구조를 사용한다. 이는 GPT가 텍스트를 <code>자기회귀적(auto-regressive)</code>으로 생성하기 위해 어텐션 메커니즘에 <code>삼각 마스크(triangular mask)</code>를 적용하여 미래 정보에 접근하지 못하게 하기 때문이다. Chat GPT와 같은 모델은 이 디코더-온리 트랜스포머를 기반으로 한다.</p>
+<h3>사전 훈련과 미세 조정: Chat GPT의 두 단계 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=kCc8FmEb1nY&amp;t=6540s">[1:49:00]</a></h3>
+<p>Chat GPT는 두 가지 주요 단계로 훈련된다.</p>
+<ol>
+<li><strong>사전 훈련(Pre-training):</strong> 대규모 인터넷 텍스트 데이터(GPT-3의 경우 3천억 토큰)를 사용하여 디코더-온리 트랜스포머를 훈련한다. 이 단계의 목표는 주어진 시퀀스 다음에 올 토큰을 예측하여 텍스트를 &quot;완성&quot;하는 모델을 만드는 것이다. 이 모델은 질문에 답하는 것이 아니라, 문서를 완성하듯 텍스트를 이어갈 뿐이다. 영상에서 구현한 모델은 이 사전 훈련의 '아주 작은' 버전이다. GPT-3의 가장 큰 모델은 1,750억 개의 파라미터를 가지며, 영상의 1,000만 개 파라미터 모델과는 규모 면에서 수십만 배 차이가 난다.</li>
+<li><strong>미세 조정(Fine-tuning):</strong> 사전 훈련된 모델을 사람이 선호하는 대화형 비서처럼 작동하도록 정렬하는 단계다. 이 단계는 몇 가지 서브 단계로 구성된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=kCc8FmEb1nY&amp;t=6780s">[1:53:00]</a>.
+<ul>
+<li><strong>지도 미세 조정(Supervised Fine-tuning):</strong> 사람이 작성한 질문-답변 쌍 데이터로 모델을 훈련하여, 질문에 대한 답변을 생성하는 방식으로 행동을 유도한다.</li>
+<li><strong>보상 모델 훈련(Reward Model Training):</strong> 모델이 생성한 여러 답변에 대해 사람이 선호도 순위를 매기고, 이 데이터를 기반으로 '보상 모델'을 훈련한다. 이 모델은 특정 답변이 얼마나 바람직한지 평가한다.</li>
+<li><strong>강화 학습(Reinforcement Learning, RL):</strong> 훈련된 보상 모델을 사용하여 모델의 답변 생성 정책을 최적화한다 (예: PPO 알고리즘). 이를 통해 모델은 높은 보상을 받는 답변을 생성하도록 학습되어, 최종적으로 사용자의 질문에 더 유용하고 자연스럽게 응답하는 Chat GPT가 탄생한다.</li>
+</ul>
+</li>
+</ol>
+<h2>주요 통찰·논점</h2>
+<h3>어텐션(Attention)은 '데이터 의존적 통신 메커니즘'이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=kCc8FmEb1nY&amp;t=4300s">[1:11:40]</a></h3>
+<p>어텐션은 단순히 평균을 내는 것이 아니라, 각 토큰이 다른 토큰들과의 관계를 <code>데이터 의존적(data-dependent)</code> 방식으로 판단하여 정보를 가중 합산하는 통신 메커니즘이다. 쿼리-키 내적을 통해 특정 토큰이 과거의 어떤 토큰에 더 집중해야 하는지(더 많은 정보를 가져와야 하는지)를 스스로 결정한다. 이는 고정된 필터를 사용하는 컨볼루션과 달리, 입력 데이터에 따라 동적으로 중요한 정보를 찾아내는 유연성을 제공한다.</p>
+<h3>위치 임베딩(Positional Encoding)의 중요성 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=kCc8FmEb1nY&amp;t=4368s">[1:12:48]</a></h3>
+<p>어텐션 메커니즘 자체는 시퀀스 내 토큰의 순서 정보(위치)를 고려하지 않는다. 즉, 토큰들이 단순히 벡터 집합으로 존재한다고 가정한다. 따라서 시퀀스 내의 상대적 또는 절대적 위치 정보를 모델에 주입해야 한다. 이를 위해 각 토큰의 고유한 ID 임베딩에 해당 위치의 <code>위치 임베딩</code>을 더한다. 이로써 모델은 &quot;나는 이 위치에 있는 토큰으로서, 저 위치에 있는 토큰의 정보에 더 집중해야겠다&quot;와 같은 판단을 할 수 있게 된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=kCc8FmEb1nY&amp;t=3628s">[1:00:28]</a>.</p>
+<h3>인코더/디코더/크로스 어텐션의 역할 구분 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=kCc8FmEb1nY&amp;t=4440s">[1:14:00]</a></h3>
+<ul>
+<li><strong>인코더 블록:</strong> 모든 토큰이 서로 자유롭게 소통할 수 있도록 마스킹을 사용하지 않는다. 주로 입력 시퀀스의 특징을 인코딩하는 데 사용된다.</li>
+<li><strong>디코더 블록:</strong> <code>자기회귀적(auto-regressive)</code> 특성을 위해 미래 토큰으로부터의 정보 유출을 막는 <code>마스킹</code>을 사용한다. Chat GPT와 같은 생성 모델의 핵심이다.</li>
+<li><strong>자기 어텐션(Self-Attention):</strong> <code>쿼리</code>, <code>키</code>, <code>값</code> 벡터가 모두 동일한 입력 소스에서 파생될 때를 의미한다.</li>
+<li><strong>크로스 어텐션(Cross-Attention):</strong> <code>쿼리</code>는 현재 처리 중인 시퀀스(예: 디코더의 출력)에서 오고, <code>키</code>와 <code>값</code>은 다른 외부 소스(예: 인코더의 출력)에서 올 때를 의미한다. 이는 디코딩 과정이 외부 컨텍스트에 조건화되도록 한다 (예: 기계 번역).</li>
+</ul>
+<h3>'나노GPT'와 실제 GPT의 엄청난 규모 차이 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=kCc8FmEb1nY&amp;t=6540s">[1:49:00]</a></h3>
+<p>영상에서 구축한 <code>나노GPT</code>는 1,000만 개의 파라미터와 100만 개의 셰익스피어 문자(약 30만 개 토큰)로 훈련되었다. 반면, GPT-3의 가장 큰 모델은 1,750억 개의 파라미터로, 3,000억 개의 토큰으로 훈련되었다. 이는 파라미터 수 기준으로 수만 배, 데이터 토큰 기준으로 백만 배에 달하는 엄청난 규모 차이다. 이러한 규모의 차이가 단순한 문자 생성기를 사람과 상호작용하는 Chat GPT로 만드는 핵심 요인 중 하나이며, 방대한 컴퓨팅 자원과 인프라를 필요로 한다.</p>
+<h2>인상적인 지점</h2>
+<ul>
+<li><strong>행렬 곱셈으로 가중 평균 구현:</strong> <code>torch.tril</code>을 사용한 하삼각 행렬과 행렬 곱셈만으로 과거 정보의 가중 평균을 효율적으로 계산하는 트릭 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=kCc8FmEb1nY&amp;t=3070s">[51:10]</a>은 매우 직관적이면서도 우아한 해법이다.</li>
+<li><strong>잔차 연결의 '그래디언트 슈퍼 하이웨이' 비유:</strong> 깊은 신경망에서 역전파 시 그래디언트가 손실 없이 입력까지 흐르게 하는 잔차 연결의 중요성을 <code>gradient Super Highway</code>라는 비유로 설명하는 부분 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=kCc8FmEb1nY&amp;t=5390s">[1:29:50]</a>은 개념을 명확히 각인시킨다.</li>
+<li><strong>층 정규화를 배치 정규화와 비교 설명:</strong> 배치 정규화에서 차원 하나만 바꾸어 층 정규화를 구현하는 코드 예시 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=kCc8FmEb1nY&amp;t=5649s">[1:34:09]</a>는 두 개념의 유사성과 차이점을 쉽게 이해할 수 있도록 돕는다.</li>
+</ul>
+
+  </article>
+  <p class="post-end"><a href="https://www.youtube.com/watch?v=kCc8FmEb1nY" target="_blank" rel="noopener">YouTube에서 원본 보기 ↗</a> · <a href="./">← 목록으로</a></p>
+</main>
+<footer class="site-foot">
+  <a href="/projects/yt-digest-overview">yt-digest</a> 파이프라인이 자막을 읽고 자동으로 작성한 브리핑입니다. 오류가 있을 수 있으니 중요한 내용은 원본 영상으로 확인하세요.
+</footer>
+</body>
+</html>

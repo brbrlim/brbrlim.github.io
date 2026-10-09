@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Soon-Jo Chung — Contraction is All You Need in Robot Learning — 유튜브 다이제스트</title>
+<meta name="description" content="캘리포니아 공과대학교(Caltech) 순조 정 교수는 로봇 학습과 제어 시스템에서 수축 이론(Contraction Theory)의 중요성을 강조한다. 머신러닝의 표현력과 적응력은 강력하지만, 로봇 시스템의 안전성과 안정성을 보장하기 위해서는 블랙박스 시스템에 대한 수학…">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="Soon-Jo Chung — Contraction is All You Need in Robot Learning — 유튜브 다이제스트">
+<meta property="og:description" content="캘리포니아 공과대학교(Caltech) 순조 정 교수는 로봇 학습과 제어 시스템에서 수축 이론(Contraction Theory)의 중요성을 강조한다. 머신러닝의 표현력과 적응력은 강력하지만, 로봇 시스템의 안전성과 안정성을 보장하기 위해서는 블랙박스 시스템에 대한 수학…">
+<meta property="og:image" content="https://i.ytimg.com/vi/mAC9Hx2v9bk/hqdefault.jpg">
+<meta property="og:type" content="article">
+<link rel="icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+<script>
+// Follow the blog's saved light/dark choice (same origin, same key).
+(function () {
+  var saved = null
+  try { saved = localStorage.getItem("theme") } catch (e) {}
+  var dark = saved ? saved === "dark" : matchMedia("(prefers-color-scheme: dark)").matches
+  document.documentElement.dataset.theme = dark ? "dark" : "light"
+})()
+</script>
+</head>
+<body class="post-page">
+<header class="site-bar">
+  <a class="site-name" href="/">Johnny's</a>
+  <a class="back" href="./">← 유튜브 다이제스트</a>
+</header>
+<main class="post">
+  <a class="hero" href="https://www.youtube.com/watch?v=mAC9Hx2v9bk" target="_blank" rel="noopener" aria-label="YouTube에서 보기">
+    <img src="https://i.ytimg.com/vi/mAC9Hx2v9bk/hqdefault.jpg" alt="">
+    <span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+  </a>
+  <h1>Soon-Jo Chung — Contraction is All You Need in Robot Learning</h1>
+  <div class="post-meta"><span>MIT Robotics</span><span>1:06:42</span><span>게시 2024-04-21</span></div>
+  <div class="tags"><a href="./?q=%23robotics">#robotics</a><a href="./?q=%23machine-learning">#machine-learning</a><a href="./?q=%23control-theory">#control-theory</a><a href="./?q=%23contraction-theory">#contraction-theory</a><a href="./?q=%23adaptive-control">#adaptive-control</a><a href="./?q=%23drone">#drone</a><a href="./?q=%23jpl">#jpl</a></div>
+  <article>
+<h2>TL;DR</h2>
+<p>캘리포니아 공과대학교(Caltech) 순조 정 교수는 로봇 학습과 제어 시스템에서 수축 이론(Contraction Theory)의 중요성을 강조한다. 머신러닝의 표현력과 적응력은 강력하지만, 로봇 시스템의 안전성과 안정성을 보장하기 위해서는 블랙박스 시스템에 대한 수학적 보증이 필수적이다. 강연자는 수축 이론을 통해 실세계의 외란과 고장 상황에서도 안정적으로 동작하는 드론, 비행 휴머노이드 로봇, 군집 로봇, 지상 차량 등의 사례를 소개하며, 특히 딥러닝 모델의 실시간 적응을 위한 'Neural-Fly' 기법을 상세히 설명한다.</p>
+<h2>풀시청 판단</h2>
+<p>이 강연은 로봇 공학, 제어 이론, 머신러닝 분야의 연구자 및 학생들이 풀시청할 가치가 높다. 특히 다음과 같은 질문을 가진 독자에게 유용하다.</p>
+<ul>
+<li>머신러닝 기반 로봇 제어 시스템의 안정성과 안전성을 어떻게 수학적으로 보장할 수 있을까?</li>
+<li>기존 강화 학습의 한계를 넘어 실제 세계의 외란과 고장을 처리하는 로봇 시스템을 어떻게 설계할 수 있을까?</li>
+<li>복잡한 딥러닝 모델을 실시간으로 효율적으로 적응시키는 방법은 무엇일까?</li>
+<li>수축 이론이 제어 및 추정 문제에 어떻게 적용될 수 있을까?</li>
+</ul>
+<p>강연은 Caltech 및 JPL의 실제 로봇 시스템(드론, 비행 이족보행 로봇, 군집 위성, 지상 차량)에 적용된 구체적인 사례를 풍부하게 제시하며, 각 사례에서 수축 이론과 적응 제어 기법이 어떻게 활용되었는지 설명한다. 특히 Neural-Fly와 같은 최신 연구 결과는 딥러닝 기반 제어 시스템의 실용적인 한계를 극복하려는 시도에 대한 깊은 통찰을 제공한다.</p>
+<p>다만, 이 강연은 제어 이론과 머신러닝의 기본적인 배경 지식을 요구하므로 해당 분야에 익숙하지 않은 사람에게는 다소 어렵게 느껴질 수 있다. 수축 이론, Lyapunov 안정성, MDP, 경사 하강법 등의 개념에 대한 이해가 있다면 강연 내용을 더욱 효과적으로 소화할 수 있다.</p>
+<p>관심사에 따라 다음 챕터만 선택적으로 시청할 수도 있다.</p>
+<ul>
+<li><strong>머신러닝 기반 로봇 제어의 도전</strong>: <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=mAC9Hx2v9bk&amp;t=235s">[3:55]</a>부터 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=mAC9Hx2v9bk&amp;t=305s">[5:05]</a>까지.</li>
+<li><strong>수축 이론의 본질과 Lyaupnov 함수와의 비교</strong>: <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=mAC9Hx2v9bk&amp;t=1345s">[22:25]</a>부터 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=mAC9Hx2v9bk&amp;t=1558s">[25:58]</a>까지.</li>
+<li><strong>Neural-Fly를 통한 딥러닝 모델의 실시간 적응</strong>: <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=mAC9Hx2v9bk&amp;t=2460s">[41:00]</a>부터 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=mAC9Hx2v9bk&amp;t=2807s">[46:47]</a>까지.</li>
+</ul>
+<h2>핵심 내용</h2>
+<h3>머신러닝 기반 로봇 제어의 도전: 실제 세계의 외란과 고장</h3>
+<p>최근 머신러닝은 드론 경주, AlphaGo와 같이 인상적인 성과를 거두었지만, 이러한 성공 사례는 대개 유한하고 이산적인 상태/행동 공간, 알려진 환경, 그리고 외부 외란이 없는 시나리오에 적용되었다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=mAC9Hx2v9bk&amp;t=235s">[3:55]</a>. 그러나 현실 세계의 로봇 시스템은 예측 불가능한 바람 외란, 센서/하드웨어 고장 등 다양한 외부 요인에 직면하며, 고속 및 민첩한 동작이 요구된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=mAC9Hx2v9bk&amp;t=280s">[4:40]</a>. 따라서 머신러닝의 표현력과 적응력을 활용하면서도 시스템의 안정성과 안전성을 보장하는 수학적 기법이 필수적이다. 블랙박스 시스템은 훈련 영역을 벗어나면 예측 불가능한 문제를 일으킬 수 있기 때문에 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=mAC9Hx2v9bk&amp;t=1245s">[20:45]</a> 견고한 수학적 보증이 중요하다고 강연자는 강조한다.</p>
+<h3>수축 이론: 궤적 간의 안정성을 보장하는 새로운 틀</h3>
+<p>수축 이론(Contraction Theory)은 시스템의 안정성을 분석하는 강력한 방법으로, 기존 Lyapunov 안정성 이론이 평형점의 안정성에 초점을 맞추는 것과 달리, 여러 궤적 간의 점진적 안정성(incremental stability)을 다룬다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=mAC9Hx2v9bk&amp;t=1355s">[22:35]</a>. 즉, 초기 조건이 다르더라도 모든 시스템 궤적이 하나의 궤적으로 지수적으로 수렴함을 보장한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=mAC9Hx2v9bk&amp;t=1488s">[24:48]</a>. 이는 학습 오차나 외란이 존재하는 환경에서도 로봇의 제어 및 추정 성능을 보장하는 데 핵심적인 역할을 한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=mAC9Hx2v9bk&amp;t=1560s">[26:00]</a>. 수축 이론은 Lyapunov 함수와 달리 항상 2차 함수를 사용하여 분석이 용이하며, 양의 정부호 행렬인 'Riemannian metric(리만 계량)' M을 찾는 것이 주요 과제이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=mAC9Hx2v9bk&amp;t=1430s">[23:50]</a>. 이 계량을 통해 다양한 동역학 시스템에 대한 안정성을 증명할 수 있으며, 지수적 수렴은 초기 조건의 지수적 망각(exponential forgetting)을 의미한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=mAC9Hx2v9bk&amp;t=1598s">[26:38]</a>.</p>
+<h3>계층적 제어 아키텍처와 안전성 재정의</h3>
+<p>강연자는 로봇 시스템을 운동 계획(guidance/planning)과 추적 제어(tracking control)의 계층적 구조로 나누어 다루는 것이 중요하다고 설명한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=mAC9Hx2v9bk&amp;t=488s">[8:08]</a>. 운동 계획은 원하는 궤적을 계산하고, 추적 제어는 이 궤적을 실제 로봇이 따르도록 한다. 안전성 문제는 이 두 가지 측면에서 모두 고려되어야 한다. 운동 계획 단계에서는 충돌 회피와 같은 안전 제약을 최적화 문제에 포함시키고 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=mAC9Hx2v9bk&amp;t=540s">[9:00]</a>, 추적 제어 단계에서는 학습 오차와 외란의 존재 하에서도 원하는 궤적을 안전하게 추적할 수 있도록 보장해야 한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=mAC9Hx2v9bk&amp;t=556s">[9:16]</a>. 강연자는 안전성을 별개의 문제로 보기보다 안정성과 강건성(robustness) 문제의 부분 집합으로 간주하며, 수축 이론 기반의 추적 제어를 통해 궤적을 따라 점진적 안정성을 보장함으로써 안전성을 확보할 수 있다고 주장한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=mAC9Hx2v9bk&amp;t=1320s">[22:00]</a>.</p>
+<h3>실제 로봇에의 적용 사례: 강풍 드론과 비행 휴머노이드</h3>
+<p>수축 이론의 적용 가능성은 다양한 실제 로봇 사례를 통해 입증된다. Caltech 드론 연구소에서는 시속 45km의 강풍에도 불구하고 AI 기반 머신러닝 제어 알고리즘으로 드론이 안정적으로 비행하는 것을 보여주었다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=mAC9Hx2v9bk&amp;t=307s">[5:07]</a>. 이는 시스템의 강건성과 복원력을 강조한다. 또한, 세계 최초의 비행 이족 보행 로봇 'Leonardo'는 프로펠러와 다리의 움직임을 동기화하여 안정적인 비행과 착지를 수행한다. 이 로봇은 정교한 머신러닝 제어는 아니지만, 수축 이론 기반의 비선형 추적 제어기를 사용하여 안정성을 보장한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=mAC9Hx2v9bk&amp;t=363s">[6:03]</a>. 강연자는 Leonardo가 막대기로 찔러도 균형을 유지하는 시연을 통해 수축 이론 기반 제어 시스템의 견고함을 보여준다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=mAC9Hx2v9bk&amp;t=594s">[9:54]</a>.</p>
+<h2>주요 통찰·논점</h2>
+<h3>Neural-Fly: 딥러닝 모델의 실시간 적응을 위한 핵심 전략</h3>
+<p>Neural-Fly는 드론의 복잡한 비선형 동역학과 외부 바람 외란에 실시간으로 적응하여 높은 제어 성능을 달성하는 혁신적인 기법이다. 이 방식은 알려진 드론의 강체 동역학은 유지하고, 바람 외란이나 지면 효과와 같이 불확실한 부분만 신경망으로 학습하는 '잔차 학습(residual learning)' 개념을 활용한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=mAC9Hx2v9bk&amp;t=2450s">[40:50]</a>. Neural-Fly의 핵심은 다음과 같다.</p>
+<ol>
+<li><strong>스펙트럼 정규화(Spectral Normalization)</strong>: 신경망 훈련 시 Lipschitz 상수(기울기)를 제한하여 신경망의 예측 범위와 변화율을 제어한다. 이를 통해 비선형 제어 시스템의 안정성을 보장하는 데 필요한 정보를 얻을 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=mAC9Hx2v9bk&amp;t=2278s">[37:58]</a>.</li>
+<li><strong>복합 적응(Composite Adaptation)과 적대적 메타 학습(Adversarial Meta-Learning)</strong>: 복잡한 딥러닝 모델 전체를 실시간으로 재훈련하는 것은 계산적으로 불가능하다. Neural-Fly는 신경망의 마지막 레이어(last layer)만 실시간으로 적응하도록 설계되었다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=mAC9Hx2v9bk&amp;t=2698s">[44:58]</a>. 이는 학습 오차의 경사 정보(gradient information)를 활용하여 매개변수를 조정함으로써, 기존 적응 제어가 추적 오차 최소화에만 집중하는 것과 달리 실제 외란 매개변수를 더 정확하게 추정하려는 시도와 결합된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=mAC9Hx2v9bk&amp;t=2713s">[45:13]</a>. 이 접근 방식은 제한된 데이터를 사용한 효율적인 적응을 가능하게 한다.</li>
+</ol>
+<h3>MCTS와 강화 학습의 한계 극복: 연속 동역학 및 탐색 능력</h3>
+<p>기존 강화 학습(Reinforcement Learning)은 주로 이산화된 결정 문제에 최적화되어 있으며, 연속적인 동역학이나 실제 환경의 복잡한 제약 조건을 다루는 데 한계가 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=mAC9Hx2v9bk&amp;t=670s">[11:10]</a>. 강연자는 Monte Carlo Tree Search(MCTS)와 신경망 근사를 결합한 기법을 통해 이러한 한계를 극복하려 한다. 특히, 드론을 이용한 새 떼 몰이와 같은 적대적 상황(adversarial game)에서 MCTS는 제한된 복잡성 내에서 빠른 적응성을 제공한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=mAC9Hx2v9bk&amp;t=1020s">[17:00]</a>. 또한, DARPA LINC 프로젝트에서 이 접근법은 순차적 볼록 프로그래밍(Sequential Convex Programming, SCP)과 비교하여 '탐색(exploration)' 능력이 우수하여 지역 최적화에 갇히지 않고 복잡한 지형에서 새로운 경로를 찾는 데 탁월함을 보였다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=mAC9Hx2v9bk&amp;t=1155s">[19:15]</a>. 이는 모델 불확실성이 크고 예측 불가능한 환경에서 로봇이 유연하게 대처할 수 있는 길을 제시한다.</p>
+<h3>로봇 시스템의 고장 허용 제어 (Fault-Tolerant Control)</h3>
+<p>복잡한 로봇 시스템, 특히 비행체나 다중 스러스터 우주선은 고장 시에도 안정적인 작동이 필수적이다. Neural-Fly G는 이러한 고장 허용 제어(Fault-Tolerant Control)를 실현하는 시스템이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=mAC9Hx2v9bk&amp;t=2822s">[47:02]</a>. 이 시스템은 고장 감지용 센서를 추가하지 않고도 적응 제어 신호를 관찰하여 고장을 감지하고, 더 나아가 L1 희소성(sparsity) 조건을 활용한 최적화 루프를 통해 어떤 프로펠러가 고장 났는지 식별한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=mAC9Hx2v9bk&amp;t=2908s">[48:28]</a>. 이는 단순히 고장에 대응하는 것을 넘어, 고장의 원인을 진단하고 제어 시스템이 이에 적절히 재구성되도록 돕는다. 강연자는 Neural-Fly의 적응 능력과 고장 식별 기능을 결합할 때 가장 우수한 성능을 발휘함을 강조하며, 이는 미래의 도시 항공 모빌리티(UAM) 시스템과 같은 자율 시스템에 필수적인 요소가 될 것이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=mAC9Hx2v9bk&amp;t=3007s">[50:07]</a>.</p>
+<h2>인상적인 지점</h2>
+<ul>
+<li><strong>Leonardo 로봇의 계단 비행</strong>: 이족 보행 로봇 'Leonardo'가 계단에 직면했을 때 굳이 걷는 대신 날아서 건너가는 모습은 로봇 설계의 유연성과 '솔루션'에 대한 새로운 관점을 제시한다. 강연자는 &quot;걷는 로봇이나 다른 어떤 이동 수단이든 (날아가는 것이) 해결책이 될 수 있다고 생각한다&quot;고 언급하며, 로봇의 한계를 새로운 방식으로 극복할 수 있음을 유머러스하게 보여준다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=mAC9Hx2v9bk&amp;t=451s">[7:31]</a>.</li>
+<li><strong>PID 루프 불신</strong>: JPL Mars Yard 프로젝트를 설명하며 강연자가 &quot;내부 모터 제어 루프에 접근할 수 없다. 제어 엔지니어로서 내부 PID 루프를 어떻게 믿을 수 있겠는가? 다른 사람이 설계한 PID 루프를 절대 믿지 마라&quot;라고 농담조로 말한 부분은 로봇 제어 시스템 설계 시 외부 루프를 통해 내부의 블랙박스 동역학까지 적응하는 접근 방식의 중요성을 강조한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=mAC9Hx2v9bk&amp;t=3120s">[52:00]</a>. 이는 미지의 시스템에 대한 견고한 제어 전략의 필요성을 직관적으로 보여준다.</li>
+<li><strong>지상 차량 마찰 모델의 난이도</strong>: 공기 역학이 물리학에서 가장 어려운 문제라고 생각했지만, 지상 차량의 '마찰 모델' 역시 '오픈 월드' 문제로 불릴 만큼 예측하기 어렵다는 발언은 흥미롭다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=mAC9Hx2v9bk&amp;t=3203s">[53:23]</a>. 이는 신경망 기반 접근법이 단순히 복잡한 공기 역학을 넘어, 겉으로는 단순해 보이지만 실제로는 복잡한 물리적 상호작용을 모델링하는 데도 효과적임을 시사한다.</li>
+</ul>
+
+  </article>
+  <p class="post-end"><a href="https://www.youtube.com/watch?v=mAC9Hx2v9bk" target="_blank" rel="noopener">YouTube에서 원본 보기 ↗</a> · <a href="./">← 목록으로</a></p>
+</main>
+<footer class="site-foot">
+  <a href="/projects/yt-digest-overview">yt-digest</a> 파이프라인이 자막을 읽고 자동으로 작성한 브리핑입니다. 오류가 있을 수 있으니 중요한 내용은 원본 영상으로 확인하세요.
+</footer>
+</body>
+</html>

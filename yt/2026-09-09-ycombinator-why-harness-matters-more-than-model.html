@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Why The Harness Matters More Than The Model | YC Paper Club — 유튜브 다이제스트</title>
+<meta name="description" content="이 영상은 거대 언어 모델(LLM)의 성능 향상에 '하네스(harness)'의 중요성이 모델 자체보다 더 커지고 있음을 강조한다. 하네스는 LLM과 외부 환경을 연결하는 층으로, 에이전트가 지속적인 상태(persistent state), 도구, 연산 능력, 학습 메커니…">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="Why The Harness Matters More Than The Model | YC Paper Club — 유튜브 다이제스트">
+<meta property="og:description" content="이 영상은 거대 언어 모델(LLM)의 성능 향상에 '하네스(harness)'의 중요성이 모델 자체보다 더 커지고 있음을 강조한다. 하네스는 LLM과 외부 환경을 연결하는 층으로, 에이전트가 지속적인 상태(persistent state), 도구, 연산 능력, 학습 메커니…">
+<meta property="og:image" content="https://i.ytimg.com/vi/n9xKblqyQ28/hqdefault.jpg">
+<meta property="og:type" content="article">
+<link rel="icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+<script>
+// Follow the blog's saved light/dark choice (same origin, same key).
+(function () {
+  var saved = null
+  try { saved = localStorage.getItem("theme") } catch (e) {}
+  var dark = saved ? saved === "dark" : matchMedia("(prefers-color-scheme: dark)").matches
+  document.documentElement.dataset.theme = dark ? "dark" : "light"
+})()
+</script>
+</head>
+<body class="post-page">
+<header class="site-bar">
+  <a class="site-name" href="/">Johnny's</a>
+  <a class="back" href="./">← 유튜브 다이제스트</a>
+</header>
+<main class="post">
+  <a class="hero" href="https://www.youtube.com/watch?v=n9xKblqyQ28" target="_blank" rel="noopener" aria-label="YouTube에서 보기">
+    <img src="https://i.ytimg.com/vi/n9xKblqyQ28/hqdefault.jpg" alt="">
+    <span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+  </a>
+  <h1>Why The Harness Matters More Than The Model | YC Paper Club</h1>
+  <div class="post-meta"><span>Y Combinator</span><span>1:00:11</span><span>게시 2026-09-07</span></div>
+  <div class="tags"><a href="./?q=%23ai-agents">#ai-agents</a><a href="./?q=%23llm-harness">#llm-harness</a><a href="./?q=%23self-improving-agents">#self-improving-agents</a><a href="./?q=%23on-device-ai">#on-device-ai</a><a href="./?q=%23enterprise-ai">#enterprise-ai</a></div>
+  <article>
+<h2>TL;DR</h2>
+<p>이 영상은 거대 언어 모델(LLM)의 성능 향상에 '하네스(harness)'의 중요성이 모델 자체보다 더 커지고 있음을 강조한다. 하네스는 LLM과 외부 환경을 연결하는 층으로, 에이전트가 지속적인 상태(persistent state), 도구, 연산 능력, 학습 메커니즘을 갖춰 복잡한 작업을 수행하고 스스로 개선할 수 있도록 돕는다. Prime Agent, Open Jarvis, QM 등 실제 프로젝트 사례를 통해 하네스가 어떻게 모델의 잠재력을 최대한 발휘하고, 클라우드를 넘어 온디바이스 AI 및 기업 에이전트 시스템으로 확장되는지 설명한다.</p>
+<h2>풀시청 판단</h2>
+<p>이 영상은 LLM 기반 에이전트 시스템 개발자, AI 연구자, 스타트업 창업가 등에게 매우 유익하다. 하네스 개념의 역사적 발전부터 최신 자기 개선형 하네스, 온디바이스 AI, 기업용 에이전트 시스템에 이르는 광범위하고 심층적인 내용을 다룬다.</p>
+<p><strong>영상의 강점:</strong></p>
+<ul>
+<li><strong>심층적인 개념 설명</strong>: 하네스의 정의와 발전 과정을 상세히 다루며, 단순한 프롬프트 엔지니어링을 넘어선 에이전트 운영체제로서의 역할을 강조한다.</li>
+<li><strong>실제 프로젝트 사례</strong>: Prime Agent, Open Jarvis, QM 등 구체적인 프로젝트들을 통해 각기 다른 목적(자기 개선, 온디바이스 구현, 기업 업무 자동화)의 하네스 설계 철학과 구현 방식, 성과를 배울 수 있다.</li>
+<li><strong>미래 방향성 제시</strong>: 하네스가 모델의 가중치 업데이트 없이 성능을 비약적으로 개선하는 방식, 클라우드 AI의 한계를 극복하고 온디바이스로 전환하는 움직임, 그리고 에이전트 시스템의 장기적인 발전 궤적에 대한 통찰을 제공한다.</li>
+</ul>
+<p><strong>고려할 점:</strong></p>
+<ul>
+<li><strong>높은 전문성 요구</strong>: LLM, 에이전트, 강화 학습, 머신러닝 시스템에 대한 기본적인 이해를 전제로 하며, 관련 배경 지식이 부족하면 내용이 어렵게 느껴질 수 있다.</li>
+<li><strong>빠른 기술 변화</strong>: AI 분야의 빠른 발전 속도를 고려할 때, 일부 세부 기술 정보는 빠르게 업데이트될 수 있다. 그러나 하네스라는 근본적인 접근 방식과 설계 철학은 여전히 유효하다.</li>
+</ul>
+<p>전반적으로 이 영상은 에이전트 시스템 개발 및 연구에 관심 있는 이들에게 꼭 필요한 맥락과 실용적인 지식을 제공한다. 특히 특정 프로젝트(Open Jarvis: 온디바이스 AI, QM: 기업용 에이전트)에 관심이 있다면 해당 챕터만 집중해서 시청해도 큰 가치를 얻을 수 있다.</p>
+<h2>핵심 내용</h2>
+<h3>하네스: 모델의 잠재력을 여는 핵심 레이어</h3>
+<p>하네스는 LLM 자체보다 에이전트의 성능에 훨씬 더 큰 영향을 미치는 요인이다. 과거에는 단순한 래퍼나 프롬프트 엔지니어링으로 경시되기도 했지만, 실제로는 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=n9xKblqyQ28&amp;t=82s">[1:22]</a> Arc AGI와 같은 벤치마크에서 30%의 성능을 보이던 Claude Opus가 하네스를 통해 95%까지 향상되는 등, 모델의 능력을 극대화하는 핵심 요소로 자리매김했다. 하네스는 LLM에 지속적인 상태, 도구, 연산 능력을 부여하며, 모델이 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=n9xKblqyQ28&amp;t=100s">[1:40]</a> 더 오래 실행되고 새로운 문제에 빠르게 적응하도록 돕는다. 화자는 하네스를 통해 모델이 자가 개선을 이루지 못하던 '정적 하네스 시대'를 넘어, 최근 6개월간 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=n9xKblqyQ28&amp;t=116s">[1:56]</a> '자기 개선형 하네스' 시대로 진입했다고 설명한다.</p>
+<h3>정적 하네스의 진화: 문맥 확장부터 다중 에이전트 시스템까지</h3>
+<p>초기 GPT-2 시절의 하네스는 시퀀스 종료(end-of-sequence) 루프와 Top P 샘플링 등 매우 기본적인 수준에 머물렀다. 그러나 지난 6년간 하네스는 지속적으로 기능을 확장하며 발전했다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=n9xKblqyQ28&amp;t=525s">[8:45]</a> 인컨텍스트 학습(in-context learning)을 통해 여러 예시를 문맥에 포함시키고, <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=n9xKblqyQ28&amp;t=547s">[9:07]</a> 사고의 연쇄(chain of thought)를 도입하여 복잡한 추론 과정을 여러 토큰에 분산시켰다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=n9xKblqyQ28&amp;t=571s">[9:31]</a> Toolformer나 WebGPT는 LLM이 외부 도구를 호출할 수 있게 하여 연산 능력을 확장했고, <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=n9xKblqyQ28&amp;t=601s">[10:01]</a> MeGPT는 LLM이 자신의 문맥에 읽고 쓰기(CRUD)를 할 수 있도록 '메모리' 개념을 도입했다.</p>
+<p>이후 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=n9xKblqyQ28&amp;t=622s">[10:22]</a> Voyager는 도구를 연결하여 작업을 수행하고 그 과정을 스킬로 학습하여 시스템 프롬프트에 반영하는 방법을 제시했다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=n9xKblqyQ28&amp;t=674s">[11:14]</a> React, Self-Refine, Reflection과 같은 기법들은 다중 에이전트(multi-agent) 시스템을 통해 에이전트가 자신의 출력을 평가하고 개선하도록 지원했다. 더 나아가, <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=n9xKblqyQ28&amp;t=728s">[12:08]</a> 하위 에이전트(sub-agent)를 생성하고 재귀적인 방식으로 LM 쿼리(Recursive Language Model, RLM)를 호출하여 더 복잡한 문제를 해결하는 단계까지 발전했다. 이러한 발전은 모두 LLM 주변의 '하네스' 기능 혁신을 통해 이루어졌다.</p>
+<h3>자기 개선형 하네스: 시스템 프롬프트와 코드까지 학습한다</h3>
+<p>하네스 발전의 다음 단계는 하네스 자체가 학습하고 스스로 개선하는 것이다. 이는 크게 두 가지 방식으로 나뉜다. 첫째, <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=n9xKblqyQ28&amp;t=852s">[14:12]</a> DSPY는 유전 프로그래밍(genetic programming)과 같은 기법을 사용하여 최적의 시스템 프롬프트를 학습한다. 이는 소량의 학습 데이터셋으로 에이전트의 성능을 반복적으로 평가하며 가장 효과적인 프롬프트를 탐색하는 방식이다. 둘째, <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=n9xKblqyQ28&amp;t=910s">[15:10]</a> Darwin Machines는 시스템 프롬프트뿐만 아니라 하네스 코드 자체까지 변경하며 학습한다. 이는 '메타 하네스(meta harness)'가 더 나은 하네스를 생산하는 매우 메타적인 개념으로, 장기적으로 더 우수한 에이전트를 만들어낸다.</p>
+<p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=n9xKblqyQ28&amp;t=997s">[16:37]</a> Continual Harness는 여기서 한 걸음 더 나아가, Dagger 스타일의 온라인 학습을 통해 테스트 시점에 소량의 예시로 LLM의 가중치 파일 자체를 업데이트하는 가능성까지 제시하며, 모델 자체의 지속적인 개선을 하네스 시스템 내에서 이루어낼 수 있음을 보여준다.</p>
+<h3>Prime Agent: 에이전트 운영체제와 장기적 성능</h3>
+<p>Seth는 Prime Agent를 통해 하네스를 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=n9xKblqyQ28&amp;t=1470s">[24:30]</a> '에이전트 운영체제(agentic operating system)'로 비유하며, LLM이 튜링 머신이라면 하네스는 외부 메모리에 대한 읽기/쓰기 작업을 수행하는 폰 노이만 컴퓨터와 같다고 설명한다. Prime Agent는 높은 표현력을 가진 하네스를 지향하며, <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=n9xKblqyQ28&amp;t=1230s">[20:30]</a> RLM 원칙을 기반으로 IPython 셸에서 모든 도구, 메모리, 하위 에이전트를 노출한다.</p>
+<p>핵심 기능으로는 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=n9xKblqyQ28&amp;t=1271s">[21:11]</a> 하네스 구성요소(메모리, 스킬, 하위 에이전트, 시스템 프롬프트)에 대한 실시간 CRUD(생성, 읽기, 업데이트, 삭제) 작업이 가능한 지속적인 상태 관리와, <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=n9xKblqyQ28&amp;t=1343s">[22:23]</a> 긴 문맥 길이를 극복하기 위한 '압축(compaction)' 기능이 있다. 특히 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=n9xKblqyQ28&amp;t=1696s">[28:16]</a> 에이전트 간 메시징을 통해 부모-자식-형제 에이전트 간 문맥을 공유하고 협업할 수 있도록 설계되었다. Prime Agent는 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=n9xKblqyQ28&amp;t=1739s">[28:59]</a> 장기적인 성능(long-horizon performance)을 중시하여, 에이전트가 오랜 시간 동안 사람의 개입 없이 작업을 수행하고 실질적인 성능 정체 지점(practical plateau)을 찾는 것을 목표로 한다. 실제 Arc AGI 벤치마크에서 95.5%의 높은 성능을 달성했으며, <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=n9xKblqyQ28&amp;t=2165s">[36:05]</a> 7일간의 팩토리얼 실행에서 633개의 에이전트가 2천3백만 토큰을 사용하여 지속적인 기술 발전을 이루는 모습을 보였다.</p>
+<h3>Open Jarvis: 클라우드의 효율을 온디바이스로 가져오다</h3>
+<p>John은 개인용 AI가 확산되고 있지만, 대부분 클라우드 LLM에 의존하여 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=n9xKblqyQ28&amp;t=2287s">[38:07]</a> 높은 비용, 개인 정보 침해 위험, 낮은 소유권, 높은 에너지 소비와 같은 문제에 직면한다고 지적한다. 그러나 최근 온디바이스(on-device) LLM의 성능이 클라우드 모델을 6~12개월 간격으로 추격하고 있으며, <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=n9xKblqyQ28&amp;t=2345s">[39:05]</a> Apple Silicon이나 Nvidia 같은 하드웨어 가속기 발전이 이를 가속화하고 있다.</p>
+<p>Open Jarvis는 이러한 흐름 속에서 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=n9xKblqyQ28&amp;t=2361s">[39:21]</a> 개인용 AI 스택의 핵심 요소(모델 추론, 에이전트 실행, 메모리, 학습)를 전적으로 온디바이스에서 실행하면서도 클라우드 기반 스택과 경쟁력을 유지할 수 있는지 탐색한다. Open Jarvis는 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=n9xKblqyQ28&amp;t=2394s">[39:54]</a> 사용자 인터페이스, 에이전트 로직, LLM 및 추론 엔진, 도구 및 메모리, 학습 메커니즘 등 하네스 구성을 위한 단순한 기본 요소를 제공한다. 특히 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=n9xKblqyQ28&amp;t=2561s">[42:41]</a> 클라우드 LLM이 로컬 LLM 스택의 전체 최적화 루프를 진단하고 변경 사항을 제안하여 성능을 개선하는 흥미로운 방식을 사용한다. 이를 통해 Open Jarvis는 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=n9xKblqyQ28&amp;t=2634s">[43:54]</a> 클라우드 대비 800배 낮은 비용과 상당한 지연 시간 감소를 달성하면서도, 개인용 AI 작업 흐름에서 클라우드 LLM과 필적하는 성능을 보인다.</p>
+<h3>QM: YC의 오픈소스 기업용 에이전트 하네스</h3>
+<p>Josh와 Rean은 YC의 오픈소스 에이전트 하네스인 QM을 소개한다. QM은 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=n9xKblqyQ28&amp;t=2761s">[46:01]</a> YC 모든 직원에게 OpenClaw와 유사한 개인 비서를 제공하며, Slack 또는 웹 UI를 통해 맞춤형으로 이용 가능하다. QM은 이메일 분류, 법무/재무 작업 흐름 자동화, 문서 편집, 데이터 추출, 내부 웹 앱 구축, 이벤트 계획 등 광범위한 업무에 활용된다.</p>
+<p>QM은 YC 내부 에이전트 프로젝트의 진화의 결과물이다. 2025년 1월의 &quot;일반 에이전트&quot;는 단순한 시스템 프롬프트와 도구 루프였고, 2025년 6월에는 Slack에 연결된 코드 편집 봇이 CI 파이프라인과 개발 환경을 지원했다. 2026년 1월에는 OpenClaw를 통해 개인 컴퓨터를 가진 에이전트의 가치를 확인했고, 4월에는 Hermes 에이전트 플릿을 운영했으나 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=n9xKblqyQ28&amp;t=3032s">[50:32]</a> 관리의 어려움(두더지 잡기식 문제 해결)에 직면했다. QM은 이러한 단점을 극복하고 개인화를 유지하기 위해 구축되었다.</p>
+<p>QM의 설계 원칙은 에이전트의 능력을 최대한 발휘하는 데 있다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=n9xKblqyQ28&amp;t=3126s">[52:06]</a> 에이전트 대화를 Postgres 데이터베이스에 중앙 집중화하여, 에이전트가 샌드박스에 갇히지 않고 모든 문맥에 접근할 수 있게 했다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=n9xKblqyQ28&amp;t=3186s">[53:06]</a> 샌드박스를 에이전트가 필요할 때 사용하는 '자원'으로 간주하며, 작업 부하에 따라 자원 규모가 큰 샌드박스를 선택할 수 있도록 에이전트에게 권한을 위임했다. 또한 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=n9xKblqyQ28&amp;t=3372s">[56:12]</a> 에이전트가 실행 환경 제공자(runtime provider)를 직접 선택하여 특정 주제에 대한 거부를 피하고 다른 모델로 전환할 수 있도록 했다. QM은 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=n9xKblqyQ28&amp;t=3407s">[56:47]</a> 원격 샌드박스 실행, 객체 저장소 읽기/쓰기, 내부 앱 게시라는 세 가지 핵심 도구로 하네스를 최대한 얇게 유지하는 것을 목표로 한다.</p>
+<p>QM 개발 과정에서 발견한 문제점도 공유했다. 에이전트가 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=n9xKblqyQ28&amp;t=3451s">[57:31]</a> 너무 일찍 포기하는 경향이 있어, 시간이나 토큰 사용량에 예산을 설정하여 목표를 달성할 때까지 지속하게 하는 '그라인드 도구(grind tool)'를 도입했다. 또한 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=n9xKblqyQ28&amp;t=3504s">[58:24]</a> 다중 사용자 환경(Slack)에서 에이전트가 상황을 혼동하는 문제와, <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=n9xKblqyQ28&amp;t=3533s">[58:53]</a> 사회적 문맥(social context)을 이해하지 못해 민감한 정보가 부적절한 곳으로 유출될 수 있는 개인 정보 보호 및 권한 문제도 중요한 과제로 꼽았다.</p>
+<h2>주요 통찰·논점</h2>
+<h3>하네스는 LLM의 '에이전트 운영체제'가 된다</h3>
+<p>LLM은 본질적으로 토큰을 입력받아 토큰을 출력하는 순차적 처리기(sequential processor)에 가깝다. 하지만 하네스는 LLM에 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=n9xKblqyQ28&amp;t=1183s">[19:43]</a> 지속적인 상태, 외부 도구, 연산 능력 등을 추가하여 마치 에이전트를 위한 운영체제처럼 기능한다. Seth는 LLM이 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=n9xKblqyQ28&amp;t=1482s">[24:42]</a> 튜링 머신에 비유될 수 있다면, 하네스는 외부 메모리에 대한 읽기/쓰기 작업을 수행하는 '폰 노이만 컴퓨터'와 같다고 비유한다. 이는 하네스가 LLM의 제한된 문맥 창을 넘어 무한한 자원과 상호작용하며 훨씬 더 강력한 문제 해결 능력을 부여함을 시사한다.</p>
+<h3>높은 표현력(Expressibility)이 에이전트 성능을 결정한다</h3>
+<p>하네스의 핵심 가치는 LLM이 얼마나 다양한 작업을 유연하게 수행할 수 있는 '표현력'을 제공하느냐에 달려 있다. 이는 단순히 프롬프트에서 도구를 호출하는 것을 넘어, <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=n9xKblqyQ28&amp;t=1539s">[25:39]</a> 문맥을 압축하고, Python 환경에서 프로그램을 실행하며, 하위 에이전트를 생성하고, 상태에 접근하며, 자체적인 피드백 메커니즘을 통해 반성하고 개선할 수 있는 능력 등을 포함한다. 하네스가 이러한 기능을 제공하지 않으면, LLM은 해당 작업을 수행할 수 없으므로, 하네스의 표현력이 곧 에이전트의 역량을 좌우한다.</p>
+<h3>클라우드에서 온디바이스로: AI 추론 패러다임의 변화</h3>
+<p>LLM의 추론이 대부분 클라우드에서 이루어지는 현재 상황은 높은 비용, 개인 정보 보호 문제, 낮은 소유권, 높은 에너지 소비 등 여러 한계를 야기한다. 그러나 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=n9xKblqyQ28&amp;t=2313s">[38:33]</a> 온디바이스 LLM의 성능이 빠르게 발전하고, <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=n9xKblqyQ28&amp;t=2345s">[39:05]</a> 개인용 하드웨어 가속기가 개선되면서 온디바이스 AI의 가능성이 커지고 있다. Open Jarvis 프로젝트는 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=n9xKblqyQ28&amp;t=2555s">[42:35]</a> 클라우드 LLM이 로컬 LLM의 최적화를 돕는 하이브리드 접근 방식을 통해, 온디바이스 환경에서도 클라우드 못지않은 성능을 달성하면서 비용을 800배 절감하고 지연 시간을 줄일 수 있음을 입증한다. 이는 AI 추론이 점차 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=n9xKblqyQ28&amp;t=2704s">[45:04]</a> 데이터센터 중심에서 개인 기기 및 온프레미스(on-premise) 워크스테이션으로 이동할 것임을 시사한다.</p>
+<h3>에이전트 설계의 미해결 과제: 고집, 사회성, 권한 관리</h3>
+<p>아무리 정교한 하네스와 강력한 모델이 결합해도 에이전트 시스템은 아직 중요한 과제에 직면해 있다. 첫째, <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=n9xKblqyQ28&amp;t=3451s">[57:31]</a> 에이전트가 &quot;너무 일찍 포기&quot;하는 경향이 있어, 목표 예산(시간 또는 토큰)을 설정하여 강제로 작업을 지속하게 해야 한다. 둘째, <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=n9xKblqyQ28&amp;t=3504s">[58:24]</a> 다중 사용자 환경이나 사회적 문맥에서 상황을 혼동하거나, <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=n9xKblqyQ28&amp;t=3533s">[58:53]</a> 민감한 정보의 유출 위험을 인지하지 못하는 등 '사회성'과 '권한 관리'에 어려움을 겪는다. 이는 모델의 훈련 데이터 특성에서 비롯되는 문제로, 에이전트가 사람처럼 상황을 이해하고 적절하게 상호작용하기 위한 추가적인 설계와 보호 장치가 필요함을 보여준다.</p>
+<h2>인상적인 지점</h2>
+<ul>
+<li>Harsha가 Gemini를 사용하여 랍스터를 탄 자신의 이미지를 생성하는 데 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=n9xKblqyQ28&amp;t=11s">[0:11]</a> 10번의 시도를 거쳤다는 일화는, 초기 프롬프트 엔지니어링의 어려움과 LLM과의 씨름을 보여주는 유쾌한 예시다.</li>
+<li>하네스가 연구 분야에서 저평가받았지만, <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=n9xKblqyQ28&amp;t=82s">[1:22]</a> Arc AGI에서 30%에 불과했던 Claude Opus의 성능을 95%까지 끌어올리는 등 엄청난 성능 향상을 가져왔다는 점은, 모델보다 하네스에 대한 투자가 얼마나 중요한지 극적으로 보여준다.</li>
+<li>자신이 만든 에이전트가 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=n9xKblqyQ28&amp;t=388s">[6:28]</a> 스스로 연구 논문을 쓰고, 심지어 그 논문이 &quot;실제로 좋다(good)&quot;는 평가를 받았다는 점은 에이전트 시스템의 잠재력을 실감케 한다.</li>
+<li>Prime Agent가 LLM을 튜링 머신, 하네스를 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=n9xKblqyQ28&amp;t=1492s">[24:52]</a> 폰 노이만 컴퓨터에 비유하며 하네스의 본질적인 확장성을 설명한 것은 매우 직관적이고 강력한 비유다.</li>
+<li>Open Jarvis에서 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=n9xKblqyQ28&amp;t=2561s">[42:41]</a> 클라우드 LLM이 로컬 LLM 스택을 최적화하는 데 활용될 수 있다는 개념은 클라우드와 온디바이스 AI의 시너지를 보여주는 창의적인 접근 방식이다.</li>
+<li>QM 에이전트가 데이터베이스에 쓰기 작업을 하기 전 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=n9xKblqyQ28&amp;t=3286s">[54:46]</a> 사람의 검토를 거치도록 했지만, 에이전트에 대한 신뢰가 쌓이면서 사람들이 이를 &quot;고무도장(rubber stamping)&quot;처럼 승인하게 되었다는 관찰은, AI 시스템과 인간의 상호작용 및 신뢰 구축 과정에 대한 흥미로운 시사점을 제공한다.</li>
+</ul>
+
+  </article>
+  <p class="post-end"><a href="https://www.youtube.com/watch?v=n9xKblqyQ28" target="_blank" rel="noopener">YouTube에서 원본 보기 ↗</a> · <a href="./">← 목록으로</a></p>
+</main>
+<footer class="site-foot">
+  <a href="/projects/yt-digest-overview">yt-digest</a> 파이프라인이 자막을 읽고 자동으로 작성한 브리핑입니다. 오류가 있을 수 있으니 중요한 내용은 원본 영상으로 확인하세요.
+</footer>
+</body>
+</html>

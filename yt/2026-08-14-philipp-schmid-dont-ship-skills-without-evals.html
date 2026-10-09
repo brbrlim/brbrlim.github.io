@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Don't Ship Skills Without Evals — Philipp Schmid, Google DeepMind — 유튜브 다이제스트</title>
+<meta name="description" content="이 영상은 AI 에이전트 개발 시 스킬(skill)의 중요성과 더불어, 배포 전에 반드시 평가(eval)를 거쳐야 하는 이유와 방법을 설명한다. 스킬은 에이전트의 특정 작업을 돕는 도구로, 잘 작성된 스킬은 에이전트 성능을 15%까지 향상시키지만, 비결정론적 특성 때문…">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="Don't Ship Skills Without Evals — Philipp Schmid, Google DeepMind — 유튜브 다이제스트">
+<meta property="og:description" content="이 영상은 AI 에이전트 개발 시 스킬(skill)의 중요성과 더불어, 배포 전에 반드시 평가(eval)를 거쳐야 하는 이유와 방법을 설명한다. 스킬은 에이전트의 특정 작업을 돕는 도구로, 잘 작성된 스킬은 에이전트 성능을 15%까지 향상시키지만, 비결정론적 특성 때문…">
+<meta property="og:image" content="https://i.ytimg.com/vi/0vphxNt4wyk/hqdefault.jpg">
+<meta property="og:type" content="article">
+<link rel="icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+<script>
+// Follow the blog's saved light/dark choice (same origin, same key).
+(function () {
+  var saved = null
+  try { saved = localStorage.getItem("theme") } catch (e) {}
+  var dark = saved ? saved === "dark" : matchMedia("(prefers-color-scheme: dark)").matches
+  document.documentElement.dataset.theme = dark ? "dark" : "light"
+})()
+</script>
+</head>
+<body class="post-page">
+<header class="site-bar">
+  <a class="site-name" href="/">Johnny's</a>
+  <a class="back" href="./">← 유튜브 다이제스트</a>
+</header>
+<main class="post">
+  <a class="hero" href="https://www.youtube.com/watch?v=0vphxNt4wyk" target="_blank" rel="noopener" aria-label="YouTube에서 보기">
+    <img src="https://i.ytimg.com/vi/0vphxNt4wyk/hqdefault.jpg" alt="">
+    <span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+  </a>
+  <h1>Don't Ship Skills Without Evals — Philipp Schmid, Google DeepMind</h1>
+  <div class="post-meta"><span>AI Engineer</span><span>21:45</span><span>게시 2026-07-14</span></div>
+  <div class="tags"><a href="./?q=%23ai-agent">#ai-agent</a><a href="./?q=%23skill-evaluation">#skill-evaluation</a><a href="./?q=%23deepmind">#deepmind</a><a href="./?q=%23LLM">#LLM</a><a href="./?q=%23devops">#devops</a><a href="./?q=%23AI-engineering">#AI-engineering</a></div>
+  <article>
+<h2>TL;DR</h2>
+<p>이 영상은 AI 에이전트 개발 시 <code>스킬(skill)</code>의 중요성과 더불어, 배포 전에 반드시 <code>평가(eval)</code>를 거쳐야 하는 이유와 방법을 설명한다. 스킬은 에이전트의 특정 작업을 돕는 도구로, 잘 작성된 스킬은 에이전트 성능을 15%까지 향상시키지만, 비결정론적 특성 때문에 테스트 없이는 효과를 알 수 없다. 영상은 스킬을 잘 작성하고 효과적으로 평가하는 구체적인 8가지 팁과 Google DeepMind의 내부 평가 과정을 공유하며, 항상 스킬을 로드한 경우와 그렇지 않은 경우를 비교하는 '절제 테스트(ablation test)'를 통해 스킬의 유효성을 검증하고 필요 없어진 스킬은 폐기해야 한다고 강조한다.</p>
+<h2>풀시청 판단</h2>
+<p>이 영상은 AI 에이전트 개발 및 배포 과정에서 '스킬'의 성능 평가(<code>eval</code>)에 대한 실질적인 지침을 찾는 개발자나 AI 엔지니어에게 특히 유용하다. 스킬이 무엇인지부터 잘 작성하는 방법, 그리고 이를 어떻게 효과적으로 평가하고 관리해야 하는지까지 구체적인 방법론을 제시하므로, 에이전트의 안정성과 효율성을 높이고자 하는 이들에게 강력히 추천한다.</p>
+<p>특히 다음 내용을 얻고자 한다면 풀시청할 가치가 있다.</p>
+<ul>
+<li>에이전트 스킬의 유형(<code>역량 스킬</code>과 <code>선호 스킬</code>)과 그 관리 전략을 이해하고 싶은 사람.</li>
+<li>스킬의 성능을 벤치마크하고 인간이 작성한 스킬과 AI 생성 스킬의 차이를 알고 싶은 사람.</li>
+<li>좋은 스킬을 작성하기 위한 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=0vphxNt4wyk&amp;t=397s">[6:37]</a> 8가지 실용적인 팁과 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=0vphxNt4wyk&amp;t=1032s">[17:12]</a> 평가(eval) 모범 사례 10가지를 배우고 싶은 사람.</li>
+<li>Google DeepMind가 내부적으로 스킬 평가를 어떻게 수행하는지 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=0vphxNt4wyk&amp;t=941s">[15:41]</a> 실제 사례를 통해 알아보고 싶은 사람.</li>
+</ul>
+<p>영상의 약점은 없으나, 스킬 자체의 구현 방식이나 코드 예시는 거의 다루지 않고, 주로 평가(eval)의 필요성과 전략에 초점을 맞춘다. 따라서 스킬 구현의 기술적 깊이를 기대하는 시청자에게는 다소 표면적일 수 있다.</p>
+<h2>핵심 내용</h2>
+<h3>에이전트 스킬: 비결정론적 특성 때문에 평가(eval)가 필수다</h3>
+<p>AI 에이전트가 코드를 작성하거나 생산성 작업을 수행할 때 <code>스킬(skill)</code>을 활용하는 비중은 높지만, 스킬의 성능을 평가하는 체계(<code>evals</code>)를 갖춘 경우는 드물다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=0vphxNt4wyk&amp;t=39s">[0:39]</a>. SkillBench 벤치마크에 따르면 5만 개 이상의 스킬 중 평가 체계를 갖춘 스킬은 거의 없었다. 대다수 스킬은 AI가 작성했으며 제대로 테스트되지 않았다. 문제는 에이전트가 비결정론적으로 작동하므로, 특정 작업 실패가 스킬 자체의 문제인지, 아니면 모델이 너무 어려운 작업을 수행하려 했기 때문인지 알기 어렵다는 점이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=0vphxNt4wyk&amp;t=72s">[1:12]</a>. 따라서 스킬 배포 전 평가는 필수적이다.</p>
+<h3>직접 쓰는 에이전트와 사용자를 위한 에이전트의 스킬 활용법은 다르다</h3>
+<p>에이전트 스킬은 두 가지 맥락에서 다르게 사용된다. 첫째는 <code>개발자가 직접 사용하는 에이전트</code>로, 개발자는 스킬의 존재와 작동 방식에 대한 높은 이해도를 바탕으로 에이전트가 특정 스킬을 호출하지 못할 때 즉시 개입하여 프롬프트를 수정하거나 슬래시 명령어를 사용해 스킬을 직접 발동시킨다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=0vphxNt4wyk&amp;t=100s">[1:40]</a>. 둘째는 <code>고객/소비자를 위해 구축하는 에이전트</code>로, 최종 사용자는 스킬의 존재 자체를 모르며 특정 스킬을 명시적으로 호출하는 프롬프트를 작성하지 않는다. 따라서 이 경우 에이전트는 사용자의 프롬프트 맥락을 기반으로 스킬을 스스로 판단하고 호출해야 한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=0vphxNt4wyk&amp;t=121s">[2:01]</a>. 이처럼 사용자 맥락의 차이가 스킬 설계 및 평가 방식에 영향을 미친다.</p>
+<h3>스킬은 점진적 노출(progressive disclosure) 원칙에 따라 정보를 계층화한다</h3>
+<p>스킬은 기본적으로 <code>skills.md</code> 파일과 관련 자산으로 구성된 폴더다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=0vphxNt4wyk&amp;t=151s">[2:31]</a>. 스킬은 <code>점진적 노출(progressive disclosure)</code> 원칙에 따라 정보를 계층화하여 제공한다.</p>
+<ol>
+<li><strong>제목과 설명</strong>: 모델이 스킬을 언제 사용해야 할지 알 수 있도록 모델의 컨텍스트에 포함되는 두 문장 내외의 간결한 설명 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=0vphxNt4wyk&amp;t=162s">[2:42]</a>. 이 설명은 모든 모델 호출 시 토큰 비용을 발생시킨다.</li>
+<li><strong>스킬 본문(skills body)</strong>: 더 자세한 지침과 외부 파일 참조를 포함한다. 모델이 스킬을 사용하기로 결정하면 이 본문이 컨텍스트로 로드된다.</li>
+<li><strong>참조 파일</strong>: 가장 깊은 계층으로, 모델이 특정 작업을 해결하기 위해 필요한 모든 맥락 정보를 담고 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=0vphxNt4wyk&amp;t=182s">[3:02]</a>. 예를 들어, AWS와 Google Cloud에 배포하는 스킬이 있다면, 배포 절차 자체는 <code>skills.md</code>에 없어야 하고 각 클라우드별 배포 지침은 별도의 참조 파일로 분리하여 모델이 필요할 때 탐색하도록 한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=0vphxNt4wyk&amp;t=517s">[8:37]</a>. 이는 토큰 비용을 절감하고 스킬을 간결하게 유지하는 데 중요하다.</li>
+</ol>
+<h3>스킬은 임시적인 역량 강화 또는 영구적인 선호 반영을 위해 존재한다</h3>
+<p>스킬은 크게 두 가지 유형으로 나뉜다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=0vphxNt4wyk&amp;t=187s">[3:07]</a>.</p>
+<ul>
+<li><strong>역량 스킬(Capability Skills)</strong>: 모델이 현재 일관되게 수행하기 어려운 특정 작업을 가르치는 임시적인 스킬이다(예: 로그 추적, React 앱 생성). 모델 성능이 향상되면 이 스킬들은 더 이상 필요 없어져 폐기될 수 있으며, 평가는 언제 스킬을 폐기할 수 있는지 알려준다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=0vphxNt4wyk&amp;t=205s">[3:25]</a>.</li>
+<li><strong>선호 스킬(Preference Skills)</strong>: 특정 팀의 워크플로, 스타일 가이드, 회사 고유의 선호도 등 모델이 자체적으로 학습하기 어려운 고유 지식을 인코딩하는 영구적인 스킬이다. 이는 매우 가치 있으므로 제대로 작동하는지 평가로 보호해야 한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=0vphxNt4wyk&amp;t=217s">[3:37]</a>.</li>
+</ul>
+<h3>스킬은 에이전트 성능을 평균 15% 향상시키지만, AI 생성 스킬은 오히려 부정적일 수 있다</h3>
+<p>SkillBench 1.1 업데이트 분석 결과, 스킬은 개방형 및 폐쇄형 모델 전반에 걸쳐 에이전트 성능을 평균 15% 향상시키는 것으로 나타났다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=0vphxNt4wyk&amp;t=257s">[4:17]</a>. 그러나 <code>인간이 작성한 스킬</code>이 가장 좋은 성능을 제공하는 반면, <code>AI가 생성한 스킬</code>은 오히려 성능에 부정적인 영향을 미칠 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=0vphxNt4wyk&amp;t=311s">[5:11]</a>. 또한, <code>skills.md</code> 파일은 500줄 미만으로 간결하게 유지하는 것이 좋다.</p>
+<h3>스킬 작성의 8가지 모범 사례</h3>
+<p>좋은 스킬을 작성하기 위한 8가지 팁은 다음과 같다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=0vphxNt4wyk&amp;t=397s">[6:37]</a>.</p>
+<ol>
+<li><strong>명확한 설명 작성</strong>: 모델이 스킬을 언제, 왜, 어떻게 사용해야 할지 명확하게 지시한다.</li>
+<li><strong>명령형 작성</strong>: &quot;~해야 한다&quot;는 식의 지시를 명확하게 제시하고, 긴 설명문은 피한다.</li>
+<li><strong>간결하게 유지하고 정보 계층화</strong>: 스킬 설명을 짧게 유지하여 토큰 비용을 줄이고, 깊은 정보는 참조 파일로 분리한다.</li>
+<li><strong>적절한 자유도 부여</strong>: 모든 단계를 자세히 지시하기보다 모델이 달성해야 할 목표와 제약 조건을 정의한다. 자동화된 스크립트로 처리할 수 있는 고정된 워크플로는 스킬 대신 스크립트를 사용한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=0vphxNt4wyk&amp;t=554s">[9:14]</a>.</li>
+<li><strong>부정적 사용 사례 포함</strong>: 스킬을 언제 사용하지 말아야 하는지에 대한 지침을 제공하여 불필요한 발동을 막는다.</li>
+<li><strong>조기 테스트</strong>: 새로운 스킬을 만들 때 긍정적 사용 사례 5개, 부정적 사용 사례 5개 등 10~20개의 프롬프트를 테스트해본다. 실제 사용자 트레이스를 포함하면 더 좋다.</li>
+<li><strong><code>no-ops</code> 제거</strong>: AI 생성 스킬에 흔히 나타나는 <code>no-ops</code>(예: &quot;코드를 읽기 쉽게 만들어라&quot;)와 같이 에이전트 행동에 실질적인 변화를 주지 않는 지시를 제거하여 토큰 비용을 절감한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=0vphxNt4wyk&amp;t=672s">[11:12]</a>.</li>
+<li><strong>스킬 폐기 시점 알기</strong>: 모델이 스킬 없이도 동일한 성능을 달성하면 해당 스킬은 폐기하여 비용과 유지보수 부담을 줄인다. <code>절제 테스트</code>로 이를 확인할 수 있다.</li>
+</ol>
+<h3>Google DeepMind의 스킬 평가: JSON 테스트 케이스와 정규 표현식/LLM 검사</h3>
+<p>Google DeepMind는 Gemini Interactions API 스킬 개발 시 117개의 테스트 케이스를 만들었다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=0vphxNt4wyk&amp;t=783s">[13:03]</a>. 실제 사용자 데이터와 합성 데이터, 피드백을 기반으로 한 이 테스트로 유효한 코드 생성 성능을 90%까지 향상시켰다. 이 평가는 두 가지 간단한 자산을 사용한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=0vphxNt4wyk&amp;t=818s">[13:38]</a>.</p>
+<ol>
+<li><strong>JSON 테스트 케이스 파일</strong>: 프롬프트, 언어(TypeScript, Python), 스킬 발동 여부(<code>should trigger</code>), 그리고 예상되는 검사(<code>expected checks</code>)를 포함한다.</li>
+<li><strong>Python 스크립트</strong>: 코딩 에이전트(예: Gemini CLI)를 실행하고 출력을 파싱하여 예상 검사 결과를 확인한다.</li>
+</ol>
+<p>대부분의 스킬 평가는 <code>정규 표현식(regex)</code> 기반으로 수행한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=0vphxNt4wyk&amp;t=878s">[14:38]</a>. 예를 들어, 올바른 SDK, 모델, 메서드를 사용하는지, 오래된 패턴이 없는지 등을 확인하는 간단한 검사들을 저렴하게 실행한다. 더 복잡한 스킬의 경우 <code>LLM as a judge</code> 방식을 사용하여 에이전트가 수행한 전체 단계나 트레이스를 평가할 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=0vphxNt4wyk&amp;t=916s">[15:16]</a>.</p>
+<h3>모든 스킬 변경은 반드시 평가를 거치고 회귀 테스트로 성능 저하를 막는다</h3>
+<p>Google DeepMind는 내부적으로 모든 스킬 옆에 평가(<code>evals</code>)를 함께 배치한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=0vphxNt4wyk&amp;t=953s">[15:53]</a>. 각 테스트는 프롬프트, 격리된 작업 공간(환경), 시작 명령, 그리고 <code>정규 표현식 기반 스크립트</code>나 <code>LLM as a judge</code>를 통한 검사를 포함한다. 스킬 파일에 변경(<code>diff</code>)이 발생하면 반드시 평가가 실행되며, 테스트 케이스의 성능을 향상시키지 않는 변경은 병합되지 않는다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=0vphxNt4wyk&amp;t=1002s">[16:42]</a>. 이는 <code>회귀 테스트(regression test)</code> 역할을 하여 스킬 변경으로 인한 성능 저하를 방지한다.</p>
+<h2>주요 통찰·논점</h2>
+<h3>'스킬 설명'은 에이전트의 작동 비용이자 핵심 효율성 지표다</h3>
+<p>스킬 설명은 에이전트가 스킬을 호출할지 결정하는 핵심 요소이며 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=0vphxNt4wyk&amp;t=411s">[6:51]</a>, 모든 모델 호출 시 컨텍스트에 포함되어 토큰 비용을 발생시킨다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=0vphxNt4wyk&amp;t=477s">[7:57]</a>. 따라서 설명이 너무 약하면 스킬이 너무 자주 발동되거나, 너무 강하면 필요한 시점에 발동되지 않을 수 있다. 또한, 설명이 길면 불필요한 토큰 비용이 계속 발생한다. 즉, 스킬 설명은 에이전트의 스킬 발동 정확성과 운영 비용에 직접적인 영향을 미치므로, 간결하고 명확하게 작성하고 엄격하게 평가해야 한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=0vphxNt4wyk&amp;t=1044s">[17:24]</a>.</p>
+<h3>에이전트의 비결정성 때문에 <code>여러 차례</code>의 <code>격리된</code> <code>절제 테스트</code>가 필수다</h3>
+<p>에이전트와 모델은 비결정론적이므로 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=0vphxNt4wyk&amp;t=1142s">[19:02]</a>, 한 번의 테스트로 스킬의 효과를 확신할 수 없다. 따라서 평가 시에는 <code>여러 번의 시도(multiple trials)</code>를 수행하여 신뢰성을 측정해야 한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=0vphxNt4wyk&amp;t=1149s">[19:09]</a>. 또한, 에이전트는 기존 환경의 이전 대화나 실행 기록을 참조하여 &quot;부정행위&quot;를 할 수 있으므로 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=0vphxNt4wyk&amp;t=1122s">[18:42]</a>, 반드시 <code>격리된(isolated)</code> 환경에서 테스트해야 스킬 자체의 순수한 효과를 정확히 측정할 수 있다. 마지막으로 <code>절제 테스트(ablation test)</code>를 통해 스킬을 로드했을 때와 로드하지 않았을 때의 성능을 비교해야 스킬의 실제 기여도를 파악하고, 필요 없어진 스킬을 폐기할 시점을 알 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=0vphxNt4wyk&amp;t=1271s">[21:11]</a>.</p>
+<h3><code>no-ops</code> 제거와 <code>부정적 테스트</code>는 비용 절감과 안정성을 위한 핵심 요소다</h3>
+<p><code>no-ops</code>(예: &quot;코드를 읽기 쉽게 작성하세요&quot;)는 에이전트의 행동을 바꾸지 않으면서 불필요한 토큰 비용을 발생시킨다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=0vphxNt4wyk&amp;t=677s">[11:17]</a>. 이러한 <code>no-ops</code>를 제거하면 비용을 절감할 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=0vphxNt4wyk&amp;t=1250s">[20:50]</a>. 또한, 스킬이 언제 발동되어야 하는지에 대한 <code>긍정적 테스트</code>만큼이나 스킬이 <code>언제 발동되지 말아야 하는지</code>에 대한 <code>부정적 테스트(negative tests)</code>는 중요하다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=0vphxNt4wyk&amp;t=596s">[9:56]</a>. 부정적 테스트는 스킬이 불필요하게 과도하게 발동되는 것을 막아 에이전트의 효율성을 높이고 혼동을 줄인다. 이 두 가지는 에이전트 시스템의 비용 효율성과 안정성을 동시에 높이는 실용적인 방법이다.</p>
+<h2>인상적인 지점</h2>
+<ul>
+<li>&quot;코딩 에이전트는 '부정행위'를 잘한다&quot; <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=0vphxNt4wyk&amp;t=1122s">[18:42]</a>는 표현은 격리된 테스트 환경의 중요성을 직관적으로 보여준다. 에이전트가 외부 맥락(이전 대화, 실행 기록)을 통해 스킬을 사용하지 않고도 '답을 훔쳐볼' 수 있다는 점을 상기시킨다.</li>
+<li>AI가 생성한 스킬이 오히려 성능을 저하시킬 수 있다는 점 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=0vphxNt4wyk&amp;t=315s">[5:15]</a>은 AI의 보조를 무비판적으로 수용하지 않고, 인간의 개입과 평가가 얼마나 중요한지를 강조한다. &quot;깨끗하고 고품질 코드를 작성하라&quot;는 지시는 모델이 원래 해야 할 일인데, 이를 다시 스킬에 포함하면 비효율적이라는 점이 인상적이다.</li>
+<li>스킬이 영원히 살지 않으며 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=0vphxNt4wyk&amp;t=709s">[11:49]</a>, 모델이 계속 발전함에 따라 필요 없어진 스킬은 과감히 폐기하여 비용을 절감해야 한다는 주장 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=0vphxNt4wyk&amp;t=1206s">[20:06]</a>은 AI 개발의 지속적인 관리와 최적화의 중요성을 잘 보여준다.</li>
+</ul>
+
+  </article>
+  <p class="post-end"><a href="https://www.youtube.com/watch?v=0vphxNt4wyk" target="_blank" rel="noopener">YouTube에서 원본 보기 ↗</a> · <a href="./">← 목록으로</a></p>
+</main>
+<footer class="site-foot">
+  <a href="/projects/yt-digest-overview">yt-digest</a> 파이프라인이 자막을 읽고 자동으로 작성한 브리핑입니다. 오류가 있을 수 있으니 중요한 내용은 원본 영상으로 확인하세요.
+</footer>
+</body>
+</html>

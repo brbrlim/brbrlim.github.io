@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stanford CS329A Self-Improving AI Agents | Part 1 | Course Overview — 유튜브 다이제스트</title>
+<meta name="description" content="이 영상은 스탠퍼드 CS329A 강의의 개요로, 자기 개선 AI 에이전트의 핵심 개념을 소개한다. 대규모 언어 모델(LLM)의 발전 과정과 함께 스케일링 법칙, 출현 행동(emergent behavior), 미세 조정(fine-tuning) 기법(지시 튜닝, RLHF)…">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="Stanford CS329A Self-Improving AI Agents | Part 1 | Course Overview — 유튜브 다이제스트">
+<meta property="og:description" content="이 영상은 스탠퍼드 CS329A 강의의 개요로, 자기 개선 AI 에이전트의 핵심 개념을 소개한다. 대규모 언어 모델(LLM)의 발전 과정과 함께 스케일링 법칙, 출현 행동(emergent behavior), 미세 조정(fine-tuning) 기법(지시 튜닝, RLHF)…">
+<meta property="og:image" content="https://i.ytimg.com/vi/6YnLB0XbTnI/hqdefault.jpg">
+<meta property="og:type" content="article">
+<link rel="icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+<script>
+// Follow the blog's saved light/dark choice (same origin, same key).
+(function () {
+  var saved = null
+  try { saved = localStorage.getItem("theme") } catch (e) {}
+  var dark = saved ? saved === "dark" : matchMedia("(prefers-color-scheme: dark)").matches
+  document.documentElement.dataset.theme = dark ? "dark" : "light"
+})()
+</script>
+</head>
+<body class="post-page">
+<header class="site-bar">
+  <a class="site-name" href="/">Johnny's</a>
+  <a class="back" href="./">← 유튜브 다이제스트</a>
+</header>
+<main class="post">
+  <a class="hero" href="https://www.youtube.com/watch?v=6YnLB0XbTnI" target="_blank" rel="noopener" aria-label="YouTube에서 보기">
+    <img src="https://i.ytimg.com/vi/6YnLB0XbTnI/hqdefault.jpg" alt="">
+    <span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+  </a>
+  <h1>Stanford CS329A Self-Improving AI Agents | Part 1 | Course Overview</h1>
+  <div class="post-meta"><span>Stanford Online</span><span>1:09:42</span><span>게시 2026-08-03</span></div>
+  <div class="tags"><a href="./?q=%23ai-agents">#ai-agents</a><a href="./?q=%23self-improvement">#self-improvement</a><a href="./?q=%23large-language-models">#large-language-models</a><a href="./?q=%23fine-tuning">#fine-tuning</a><a href="./?q=%23reasoning">#reasoning</a><a href="./?q=%23inference-scaling">#inference-scaling</a><a href="./?q=%23course-overview">#course-overview</a></div>
+  <article>
+<h2>TL;DR</h2>
+<p>이 영상은 스탠퍼드 CS329A 강의의 개요로, 자기 개선 AI 에이전트의 핵심 개념을 소개한다. 대규모 언어 모델(LLM)의 발전 과정과 함께 스케일링 법칙, 출현 행동(emergent behavior), 미세 조정(fine-tuning) 기법(지시 튜닝, RLHF), 추론 시 성능 향상(inference scaling) 등의 주요 혁신을 다룬다. 궁극적으로 LLM이 단순 챗봇을 넘어 목표 지향적이고 자율적인 에이전트로 발전하는 흐름과 그 실제 적용 사례(코딩, 연구, 고객 지원)를 설명한다.</p>
+<h2>풀시청 판단</h2>
+<p>이 영상은 AI 에이전트 분야에 관심 있는 스탠퍼드 학생이나 연구자, 혹은 최신 LLM 및 AI 에이전트 기술 동향을 포괄적으로 이해하고 싶은 개발자 및 업계 종사자에게 유용하다. 특히 LLM의 기본적인 작동 원리부터 추론 확장, 그리고 에이전트 워크플로우까지 폭넓은 주제를 다루므로, 이 분야에 대한 전체적인 그림을 그리고 싶은 사람에게 추천한다.</p>
+<p>다만, 영상은 강의 개요이므로 각 주제에 대한 깊이 있는 기술적 설명보다는 개념 소개에 중점을 둔다. 모델 성능 비교나 최신 기술 동향(예: GPT-4o 언급)이 영상 제작 시점(2023년 가을학기) 기준으로 다소 불확실하거나 최신 정보와 다를 수 있는 점을 감안해야 한다. 코스 웹사이트, 숙제, 프로젝트 요건 등 후반부의 강의 관련 정보는 스탠퍼드 수강생에게만 해당한다. 그럼에도 LLM과 에이전트의 핵심 아이디어를 깔끔하게 정리해 전달하는 데 큰 가치가 있다.</p>
+<h2>핵심 내용</h2>
+<h3>LLM의 규모 확장(Scaling)과 출현 행동(Emergent Behavior) <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=6YnLB0XbTnI&amp;t=143s">[2:23]</a></h3>
+<p>대규모 언어 모델(LLM)은 지난 5년간 매개변수 수, 연산량, 데이터셋 크기가 기하급수적으로 증가하며 성능이 크게 향상됐다. BERT(3.4억 개)부터 GPT-2(15억 개), GPT-3(1,750억 개), PaLM(5,400억 개)을 거쳐 GPT-4(수조 개 추정)에 이르기까지 모델 크기가 폭발적으로 커졌다. 모델이 커지면서 몇 가지 주목할 만한 능력이 비선형적으로 나타났다. 첫째, 소수점 학습(few-shot learning) 및 영점 학습(zero-shot learning) 능력이 향상되어, 특정 태스크를 위해 미세 조정할 필요 없이 몇 가지 예시만으로 모델이 새로운 패턴을 학습하고 추론한다. 둘째, 추론(reasoning)과 같은 출현 행동(emergent behavior)이 나타난다. 이러한 능력은 특정 모델 규모에 도달해야만 갑자기 관찰되는 현상이다.</p>
+<h3>연쇄 사고(Chain of Thought) 추론 – 모델의 사고 과정 유도 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=6YnLB0XbTnI&amp;t=408s">[6:48]</a></h3>
+<p>출현 행동 중 하나인 연쇄 사고(Chain of Thought) 추론은 모델이 답만 제시하는 대신 문제 해결 과정을 단계별로 보여주도록 유도하면 더 정확한 답변을 내놓는 현상이다. 예를 들어, 수학 문제에 대한 최종 답변만 주는 대신 &quot;로저는 5개로 시작했다. 2캔에 3개씩 들어있으니 6개가 더해진다. 따라서 5+6은 11이다&quot;와 같이 풀이 과정을 제공하면, 모델은 이 과정을 학습하여 새로운 문제도 더 잘 해결한다. 이러한 연쇄 사고 능력은 소규모 모델(예: Lambda, GPT-7B)에서는 큰 효과가 없으나, PaLM 8B와 같이 일정 규모 이상의 대규모 모델에서만 유의미하게 나타나는 특성이다.</p>
+<h3>ChatGPT의 성공 요인 – 미세 조정(Fine-tuning) 혁신 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=6YnLB0XbTnI&amp;t=677s">[11:17]</a></h3>
+<p>ChatGPT와 같은 대화형 LLM의 성공은 단순히 모델을 키우는 것을 넘어, '미세 조정(fine-tuning)'이라는 핵심 혁신 덕분이었다. 이 과정은 크게 세 단계로 나뉜다. 첫째, 사전 학습된 모델을 책이나 창작 에세이 같은 '고품질' 데이터로 미세 조정하여 언어 능력을 심화한다. 둘째, '지시 튜닝(instruction tuning)'을 통해 모델이 &quot;질문에 답변하세요&quot;와 같은 지시를 따르도록 훈련한다. 이 단계에서는 질문-답변 쌍이나 연쇄 사고 과정을 포함하는 데이터셋을 활용한다. 셋째, '인간 피드백 기반 강화 학습(RLHF, Reinforcement Learning from Human Feedback)'을 적용한다. 이 과정에서는 인간이 모델의 여러 답변을 평가하고 선호도를 매겨 '보상 모델(reward model)'을 만든다. 이 보상 모델은 인간의 선호도(정확성, 유용성, 무해성 등)에 맞춰 LLM의 매개변수를 조정하여 최종적으로 인간의 의도에 더 잘 정렬(alignment)된 답변을 생성하게 한다.</p>
+<h3>추론 확장(Inference Scaling) – 모델의 숨겨진 잠재력 발현 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=6YnLB0XbTnI&amp;t=1177s">[19:37]</a></h3>
+<p>최근에는 모델의 매개변수를 늘리지 않고 '추론 시(inference time)'에 성능을 높이는 '추론 확장(inference scaling)'이 새로운 연구 분야로 부상했다. 이는 &quot;무한 원숭이 정리(infinite monkey theorem)&quot;에서 영감을 얻었다. 즉, 모델에게 한 번만 답변을 요구하는 대신, 여러 번 다른 답변을 생성하게 하고(반복 샘플링), 그중 가장 좋은 답변을 '검증기(verifier)'가 선택하는 방식이다. 모델의 '온도(temperature)'를 조절하여 다양한 답변을 유도할 수 있다. 예를 들어, 1만 번의 반복 샘플링을 통해 Llama 7B나 8B 같은 소형 모델이 수학이나 코딩 평가 기준에서 GPT-4보다 높은 해결율(coverage)을 보이는 결과도 있었다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=6YnLB0XbTnI&amp;t=1358s">[22:38]</a>. 이는 모델이 이미 많은 것을 알고 있지만, 한 번의 추론으로는 그 잠재력을 모두 발휘하지 못한다는 것을 시사한다. 이 방식은 모델 매개변수를 변경하지 않고 추론 과정만 최적화한다.</p>
+<h3>생각하는 모델(Thinking Models) – 인간의 문제 해결 방식 모방 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=6YnLB0XbTnI&amp;t=1882s">[31:22]</a></h3>
+<p>추론 확장과 미세 조정을 결합하여 모델은 마치 인간처럼 '생각하는(thinking)' 능력을 갖게 된다. DeepSeek, Gemini 같은 모델은 복잡한 문제에 대해 다음 단계를 거친다. 먼저 '문제 분석'으로 핵심 요소를 파악하고, '태스크 분해(task decomposition)'를 통해 큰 문제를 작은 단위로 나눈다. 그다음 '자기 진화 전략(self-evolution strategies)'으로 시도하고 피드백(예: 코드 테스트 실행, 계산기 사용)을 받아 자체적으로 개선한다. 오류가 발생하면 '자기 수정(self-correction)'을 하거나 '대안 제시(alternative proposals)'로 다른 접근 방식을 시도한다. 이러한 모델은 연쇄 사고의 단계를 모델 스스로 생성함으로써, 수학 계산, 데이터 분석, 프로그래밍 등 추론 집약적인 작업에서 GPT-4o 같은 모델을 능가하는 성능을 보인다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=6YnLB0XbTnI&amp;t=2089s">[34:49]</a>. 이는 훈련 데이터에 기반한 능력뿐 아니라 모델 자체의 일반화된 사고 능력을 나타낸다.</p>
+<h3>LLM 에이전트의 시대 – 목표 지향적 자율 시스템 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=6YnLB0XbTnI&amp;t=2451s">[40:51]</a></h3>
+<p>LLM은 이제 단순한 챗봇이나 단일 턴 질의응답을 넘어, 실제 세계의 복잡한 작업을 처음부터 끝까지 수행하는 '에이전트(agent)'로 발전하고 있다. 에이전트는 명확한 '목표(goal)'를 부여받으면 일련의 '계획(plan)'을 세우고, 환경과 '상호작용(interact)'하며, '피드백(feedback)'을 바탕으로 자신의 행동을 '수정(correct)'하여 목표를 달성하거나 불가능함을 알린다. 이 과정에서 외부 '도구(tool)'(웹 검색, API 호출 등)를 활용하고, 작업을 기억하기 위한 '기억(memory)' 기능을 갖춘다. Deep Research나 Claude Code 같은 실제 에이전트는 복잡한 연구를 수행하거나 코드를 작성하고 수정하는 등 현실적인 워크플로우를 자동화한다. 이러한 에이전트 워크플로우는 LLM 호출, 검증기, 평가자(LLM as a judge), 도구 호출(예: 웹 검색) 등을 복합적으로 사용하며, 프롬프트 체인, 라우팅, 병렬화, 오케스트레이션 등의 방식을 포함한다.</p>
+<h3>LLM 에이전트의 다양한 적용 사례 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=6YnLB0XbTnI&amp;t=3183s">[53:03]</a></h3>
+<p>LLM 에이전트는 다양한 분야에서 실제 가치를 창출하고 있다. 첫째, <strong>코딩 에이전트</strong>는 터미널과 상호작용하며 파일을 탐색, 편집하고 명령어를 실행하며, 오류 발생 시 스스로 코드를 디버깅하고 수정한다. 이는 반복적인 코드 마이그레이션, 버전 업그레이드, 코드 리팩토링, 단위 테스트 생성 같은 작업에 매우 유용하다. 둘째, <strong>고객 지원 에이전트</strong>는 실시간 통화 기록(transcription), 지식 기반(knowledge base) 활용, 스마트 답변 생성, 통화 요약 등을 통해 고객 지원 프로세스를 효율화한다. 셋째, <strong>연구 에이전트</strong>는 복잡한 주제에 대한 포괄적인 보고서 작성, 문헌 검토 및 요약, 논문 개요 구성 등을 자동화한다. 심지어 'AI 과학자'로서 아이디어를 생성하고, 실험을 반복하며, 논문 작성까지 지원하여 인간 과학자의 연구 과정을 보조한다. 모델의 환각 현상이 때로는 인간이 생각지 못한 &quot;박스 밖의 아이디어&quot;를 제공하는 브레인스토밍 도구가 될 수도 있다.</p>
+<h2>주요 통찰·논점</h2>
+<h3>모델 스케일링을 넘어선 능력의 출현</h3>
+<p>초기 LLM의 성능 향상은 주로 매개변수, 데이터, 연산량의 증가라는 스케일링 법칙에 따라 이루어졌다. 그러나 영상은 단순히 양적 확장을 넘어 소수점 학습, 연쇄 사고 추론, 그리고 일반적인 추론 능력과 같은 '출현 행동'이 특정 모델 규모에서 비선형적으로 나타났음을 강조한다. 이는 LLM 발전이 단순한 규모 확대가 아니라 질적인 도약을 포함하며, 모델에 내재된 복잡한 능력이 적절한 조건에서 발현된다는 중요한 통찰을 제공한다.</p>
+<h3>인간 의도 정렬(Alignment)을 위한 미세 조정의 중요성</h3>
+<p>사전 학습된 LLM은 방대한 데이터를 기반으로 하지만, 인간의 지시를 따르거나 윤리적인 행동을 보장하지 않는다. ChatGPT와 같은 모델이 성공한 핵심 요인은 '인간 피드백 기반 강화 학습(RLHF)'을 포함한 미세 조정 과정을 통해 모델을 '인간 의도에 정렬(align)'했기 때문이다. 이는 LLM이 강력한 성능을 넘어 실제 사용 환경에서 안전하고 유용하게 기능하기 위해서는 기술적 능력뿐만 아니라 인간의 가치와 목표에 부합하도록 정교하게 조정하는 과정이 필수적임을 보여준다.</p>
+<h3>추론 시 성능 향상(Inference Scaling)의 잠재력과 자기 개선 루프</h3>
+<p>모델의 매개변수를 고정하고 추론 과정만을 조작하여 성능을 극적으로 향상시키는 '추론 확장' 개념은 매우 중요한 통찰이다. 모델이 한 번의 시도보다 여러 번의 답변을 생성하고 검증기가 최적의 답을 선택함으로써 작은 모델도 큰 모델보다 뛰어난 결과를 낼 수 있음을 보여준다. 더 나아가, 이 개념은 모델이 스스로 합성 데이터를 생성하고 이를 다시 학습에 활용하여 스스로 개선하는 '자기 개선(self-improvement)' 루프로 이어진다. 이는 LLM의 발전이 더 이상 외부 데이터나 인간의 직접적인 개입에만 의존하지 않고, 모델 스스로 학습하고 진화하는 새로운 패러다임을 열 가능성을 제시한다.</p>
+<h3>LLM 에이전트의 현실적 도전 과제 – 생성-검증 간 격차</h3>
+<p>LLM 에이전트는 코딩, 연구, 고객 지원 등 복잡한 다단계 작업을 자율적으로 수행하며 현실 세계에 혁명적인 변화를 가져오고 있다. 하지만 이러한 에이전트가 직면한 가장 큰 도전 과제 중 하나는 '생성-검증 간 격차(generator-verifier gap)'이다. 모델은 방대한 양의 정보를 생성할 수 있지만, 그중 무엇이 정확하고 유용한지 판단하기 위한 강력하고 신뢰할 수 있는 '검증기(verifier)'를 구축하는 것은 여전히 어렵다. 특히 창의적 글쓰기처럼 객관적인 검증 기준이 모호한 영역에서는 인간 피드백이 병목 현상이 된다. 이는 에이전트가 신뢰할 수 있는 수준으로 발전하기 위한 미래 연구의 핵심 방향임을 시사한다.</p>
+<h2>인상적인 지점</h2>
+<ul>
+<li><strong>무한 원숭이 정리 비유</strong> <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=6YnLB0XbTnI&amp;t=1200s">[20:00]</a>: '무한 원숭이 정리'를 인용하여 LLM이 무작위로 여러 답변을 생성하고 그중 최적의 답을 선택하는 '반복 샘플링' 방식을 설명한 점이 직관적이었다.</li>
+<li><strong>Llama 8B와 GPT-4의 역전 현상</strong> <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=6YnLB0XbTnI&amp;t=1358s">[22:38]</a>: 반복 샘플링을 10,000회까지 늘렸을 때 Llama 7B/8B 모델이 수학 및 코딩 문제에서 GPT-4보다 높은 해결율을 보인다는 결과는, 모델 크기만이 능사의 전부가 아니며 추론 전략이 얼마나 중요한지 보여주는 반직관적인 통찰이었다.</li>
+<li><strong>모델의 자기 수정 시나리오</strong> <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=6YnLB0XbTnI&amp;t=2057s">[34:17]</a>: 코딩 에이전트가 배시 스크립트 작성 중 스스로 &quot;잠깐, 뭔가 잘못됐다&quot;며 코드를 수정하는 과정을 보여주는 대목은, 모델이 단순히 예측하는 것을 넘어 실제 문제 해결을 위한 '사고(thinking)' 능력을 갖추고 있음을 생생하게 보여주었다.</li>
+<li><strong>환각을 활용하는 AI 과학자</strong> <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=6YnLB0XbTnI&amp;t=3451s">[57:31]</a>: LLM이 '환각(hallucinate)' 현상을 보임에도 불구하고, AI 과학자로서 인간 연구자가 미처 생각하지 못한 기발한 아이디어를 브레인스토밍 단계에서 제공할 수 있다는 점은 LLM의 한계를 오히려 장점으로 활용하는 흥미로운 관점이었다.</li>
+</ul>
+
+  </article>
+  <p class="post-end"><a href="https://www.youtube.com/watch?v=6YnLB0XbTnI" target="_blank" rel="noopener">YouTube에서 원본 보기 ↗</a> · <a href="./">← 목록으로</a></p>
+</main>
+<footer class="site-foot">
+  <a href="/projects/yt-digest-overview">yt-digest</a> 파이프라인이 자막을 읽고 자동으로 작성한 브리핑입니다. 오류가 있을 수 있으니 중요한 내용은 원본 영상으로 확인하세요.
+</footer>
+</body>
+</html>

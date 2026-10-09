@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Yoshua Bengio: Deep Learning | Lex Fridman Podcast #4 — 유튜브 다이제스트</title>
+<meta name="description" content="Yoshua Bengio는 딥러닝의 현재 한계와 미래 방향에 대해 논한다. 그는 인공신경망이 장기적인 신용 할당, 고수준의 추상적 이해, 새로운 상황으로의 일반화 능력을 갖추려면 훈련 목표와 학습 방식에 근본적인 변화가 필요하다고 강조한다. 특히 분리 표현 학습, 인과…">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="Yoshua Bengio: Deep Learning | Lex Fridman Podcast #4 — 유튜브 다이제스트">
+<meta property="og:description" content="Yoshua Bengio는 딥러닝의 현재 한계와 미래 방향에 대해 논한다. 그는 인공신경망이 장기적인 신용 할당, 고수준의 추상적 이해, 새로운 상황으로의 일반화 능력을 갖추려면 훈련 목표와 학습 방식에 근본적인 변화가 필요하다고 강조한다. 특히 분리 표현 학습, 인과…">
+<meta property="og:image" content="https://i.ytimg.com/vi/azOmzumh0vQ/hqdefault.jpg">
+<meta property="og:type" content="article">
+<link rel="icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+<script>
+// Follow the blog's saved light/dark choice (same origin, same key).
+(function () {
+  var saved = null
+  try { saved = localStorage.getItem("theme") } catch (e) {}
+  var dark = saved ? saved === "dark" : matchMedia("(prefers-color-scheme: dark)").matches
+  document.documentElement.dataset.theme = dark ? "dark" : "light"
+})()
+</script>
+</head>
+<body class="post-page">
+<header class="site-bar">
+  <a class="site-name" href="/">Johnny's</a>
+  <a class="back" href="./">← 유튜브 다이제스트</a>
+</header>
+<main class="post">
+  <a class="hero" href="https://www.youtube.com/watch?v=azOmzumh0vQ" target="_blank" rel="noopener" aria-label="YouTube에서 보기">
+    <img src="https://i.ytimg.com/vi/azOmzumh0vQ/hqdefault.jpg" alt="">
+    <span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+  </a>
+  <h1>Yoshua Bengio: Deep Learning | Lex Fridman Podcast #4</h1>
+  <div class="post-meta"><span>Lex Fridman</span><span>42:18</span><span>게시 2018-10-20</span></div>
+  <div class="tags"><a href="./?q=%23deep-learning">#deep-learning</a><a href="./?q=%23ai-safety">#ai-safety</a><a href="./?q=%23disentangled-representations">#disentangled-representations</a><a href="./?q=%23machine-teaching">#machine-teaching</a><a href="./?q=%23ai-winter">#ai-winter</a><a href="./?q=%23neural-networks">#neural-networks</a></div>
+  <article>
+<h2>TL;DR</h2>
+<p>Yoshua Bengio는 딥러닝의 현재 한계와 미래 방향에 대해 논한다. 그는 인공신경망이 장기적인 신용 할당, 고수준의 추상적 이해, 새로운 상황으로의 일반화 능력을 갖추려면 훈련 목표와 학습 방식에 근본적인 변화가 필요하다고 강조한다. 특히 분리 표현 학습, 인과 관계 학습, 그리고 기계와 인간의 상호작용을 통한 능동적 학습을 핵심 과제로 제시한다.</p>
+<h2>풀시청 판단</h2>
+<p>이 영상은 딥러닝 연구의 최전선에서 활동하는 Yoshua Bengio의 심도 깊은 통찰에 관심 있는 사람들에게 유용하다. 특히 현재 딥러닝의 한계와 미래 연구 방향에 대한 학술적 논의에 참여하고 싶거나, 인공지능의 사회적 영향, AI 안전, 기계 교육 등 폭넓은 주제에 대한 그의 견해를 듣고 싶은 연구자, 학생, 정책 입안자에게 적합하다. 딥러닝이 직면한 핵심 문제들(장기 기억, 추상적 이해, 일반화 능력 부족)에 대한 깊이 있는 분석과 해결책으로서의 분리 표현, 인과 모델링, 능동적 학습의 중요성을 이해할 수 있다. AI 안전 문제에 대한 현실적인 관점과 AI 연구의 본질에 대한 성찰도 얻을 수 있다.</p>
+<p>하지만 이 인터뷰는 2018년 후반에 진행된 것으로, 지난 5년간의 딥러닝, 특히 대규모 언어 모델(LLM) 분야의 놀라운 발전을 고려하면 일부 논의는 현재 시점과 다소 차이가 있을 수 있다. 예를 들어, GANs와 강화 학습이 뜨거운 주제라고 언급하지만, 현재는 Transformer 아키텍처와 LLM이 AI 연구의 중심이다. 또한, 기술적 세부 사항보다는 개념적, 철학적 논의에 중점을 두므로 심층적인 기술적 설명은 기대하기 어렵다.</p>
+<h2>핵심 내용</h2>
+<h3>뇌와 인공신경망의 차이: 장기 기억과 신용 할당 문제</h3>
+<p>인공신경망과 생체 신경망의 가장 큰 차이점은 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=azOmzumh0vQ&amp;t=30s">[0:30]</a> 장기적인 신용 할당(credit assignment) 능력이다. 현재의 순환 신경망(RNN)이나 LSTM은 수십에서 수백 타임스탬프 정도의 시퀀스에서는 잘 작동하지만, 그 이상으로 길이가 길어지면 학습이 어려워진다. 반면 인간은 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=azOmzumh0vQ&amp;t=193s">[3:13]</a> 작년의 일을 기억하고 새로운 증거에 기반해 과거의 사고방식을 바꿀 수 있을 정도로 임의의 긴 시간 스팬에 걸쳐 신용 할당을 수행한다. 이러한 능력은 중요한 것을 선택적으로 기억하고 망각하는 효율적인 메커니즘과 관련되어 있으며, 의식, 의사결정, 감정 등 고수준 인지 기능과 연결된다.</p>
+<h3>현재 딥러닝의 한계: 저수준 이해와 수동적 학습</h3>
+<p>현재 최첨단 신경망은 방대한 이미지나 텍스트 데이터셋을 훈련하여 어느 정도 이해 수준에 도달하지만, 그 이해는 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=azOmzumh0vQ&amp;t=291s">[4:51]</a> 매우 기본적인 저수준에 머무른다. 이는 인간의 이해처럼 견고하고 추상적이지 못하다. 딥러닝의 한계는 단순히 신경망의 깊이나 데이터셋 규모를 늘린다고 해결되지 않으며, <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=azOmzumh0vQ&amp;t=629s">[10:29]</a> 학습 방식에 근본적인 변화가 필요하다. 특히 현재 모델은 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=azOmzumh0vQ&amp;t=432s">[7:12]</a> 데이터를 수동적으로 관찰하는 데 그친다. 이 방식으로는 세상의 인과 관계를 깊이 있게 이해하기 어렵다.</p>
+<h3>딥러닝 발전을 위한 열쇠: 훈련 목표와 능동적 상호작용</h3>
+<p>딥러닝의 미래 발전은 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=azOmzumh0vQ&amp;t=427s">[7:07]</a> 아키텍처나 데이터셋보다는 <code>훈련 목표</code>와 <code>훈련 체계</code>에 달려있다. 모델이 <code>능동적 에이전트</code>로서 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=azOmzumh0vQ&amp;t=435s">[7:15]</a> 세상에 직접 개입하고 탐색함으로써 인과 관계를 배우는 방식이 중요하다. 이는 마치 아이들이 물체와 상호작용하며 세상을 배우는 것과 유사하다. 이러한 <code>목표 함수</code>의 설계는 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=azOmzumh0vQ&amp;t=464s">[7:44]</a> 고수준의 설명을 학습하고 적절한 탐색을 보상하는 데 필수적이다. 현재의 딥러닝 모델은 단순한 가상 환경조차도 수백만 개의 예시를 통해 배워야 하지만, 인간은 몇십 개의 예시만으로도 학습한다. 이는 소규모 연구팀에게도 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=azOmzumh0vQ&amp;t=732s">[12:12]</a> 훈련 체계와 에이전트 학습 모델을 발전시킬 중요한 기회가 된다.</p>
+<h3>고차원적 추상화: 분리 표현과 인과 관계 학습</h3>
+<p>과거 기호 AI(symbolic AI)의 지식 표현 방식은 실패했지만, <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=azOmzumh0vQ&amp;t=811s">[13:31]</a> 그 목표 자체는 여전히 중요하다. 딥러닝은 <code>분산 표현</code>을 통해 강력한 성능을 내지만, 이는 지식이 응집된 '덩어리' 형태로 표현되어 <code>조합성</code>이 부족하다는 한계가 있다. 이를 극복하려면 <code>분리 표현(disentangled representations)</code>이 필수적이다. 이는 데이터를 중요한 <code>인과 요인</code>들이 명확히 분리된 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=azOmzumh0vQ&amp;t=966s">[16:06]</a> 공간으로 변환하여, 선형 모델로도 학습이 쉬워지게 하는 아이디어다.</p>
+<p>나아가, <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=azOmzumh0vQ&amp;t=1035s">[17:15]</a> 변수들 간의 관계를 설명하는 <code>메커니즘</code> 자체도 분리되어야 한다. 현재 신경망은 <code>치명적 망각(catastrophic forgetting)</code> 문제에 취약하다. 새로운 것을 배우면 기존 지식을 잃을 수 있는데, 이는 지식이 충분히 분리되어 있지 않기 때문이다. <code>픽셀 공간</code>처럼 모든 것이 복잡하게 얽힌 <code>감각 영역</code>이 아닌, <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=azOmzumh0vQ&amp;t=1149s">[19:09]</a> <code>고수준 의미 공간</code>에서는 변수와 그 관계 모두 분리될 수 있으며, 이는 막대한 <code>일반화 능력</code>을 제공할 것이다.</p>
+<h3>새로운 분포로 일반화하는 인간의 능력</h3>
+<p>현재 기계 학습은 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=azOmzumh0vQ&amp;t=1165s">[19:25]</a> 시험 데이터셋의 분포가 훈련 데이터셋과 동일하다고 가정하는 한계가 있다. 하지만 인간은 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=azOmzumh0vQ&amp;t=1188s">[19:48]</a> 완전히 새로운 분포에도 일반화할 수 있다. 예를 들어, 공상과학 소설을 읽고 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=azOmzumh0vQ&amp;t=1203s">[20:03]</a> 외계 행성의 시각적 정보는 전혀 다르더라도, 지구에서 배운 물리 법칙이나 사회적 상호작용 같은 <code>기저의 인과 관계</code> 지식을 적용하여 내용을 이해할 수 있다. 이처럼 숨겨진 인과 메커니즘을 파악하는 능력이 진정한 일반화의 핵심이다.</p>
+<h2>주요 통찰·논점</h2>
+<h3>AI 안전: 단기적 사회 영향 vs. 장기적 실존 위협</h3>
+<p>AI 안전에 대한 논의는 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=azOmzumh0vQ&amp;t=1318s">[21:58]</a> AI 커뮤니티 내부와 대중 사이에서 구분되어야 한다. 대중 논의에서는 <code>Terminator</code>식의 <code>초지능</code> 로봇이 인류를 파괴하는 것과 같은 극단적인 시나리오보다는, <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=azOmzumh0vQ&amp;t=1348s">[22:28]</a> <code>킬러 로봇</code> 같은 <code>자율 무기</code>나 <code>안면 인식</code>을 통한 <code>빅 브라더</code> 시나리오, 일자리 시장에 미치는 영향, 권력 집중, 차별 등 <code>단기적</code> 및 <code>중기적</code>인 사회적 영향에 초점을 맞춰야 한다. 이러한 문제들은 실제로 <code>민주주의</code>를 위협할 수 있다.</p>
+<p><code>실존적 위협</code>은 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=azOmzumh0vQ&amp;t=1394s">[23:14]</a> 발생 가능성이 매우 낮지만, <code>학술적 연구</code> 가치는 있다. 이는 마치 운석 충돌 가능성을 연구하는 것과 같다. <code>Ex Machina</code> 같은 영화는 AI에 대한 대중의 오해를 심화시키는데, <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=azOmzumh0vQ&amp;t=1474s">[24:34]</a> 과학은 고립된 천재 한 명이 비밀리에 발전시키는 것이 아니라, <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=azOmzumh0vQ&amp;t=1499s">[24:59]</a> 수많은 사람의 <code>협력</code>과 <code>커뮤니티</code>를 통해 <code>작은 단계</code>로 나아간다는 점을 오인하게 한다. 획기적인 아이디어가 특정 기업이나 집단에 의해 완전히 봉쇄될 가능성은 낮다.</p>
+<h3>AI 시스템에 인간의 가치 심기</h3>
+<p>기계 학습 시스템에 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=azOmzumh0vQ&amp;t=1690s">[28:10]</a> 인간의 <code>편향</code>과 <code>가치</code>를 어떻게 심을 것인가도 중요하다. 단기적으로는 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=azOmzumh0vQ&amp;t=1716s">[28:36]</a> 데이터셋 내 <code>편향</code>을 측정하고 <code>적대적 방법</code>과 같은 <code>기계 학습 기술</code>을 활용하여 덜 편향된 예측자를 구축할 수 있다. 이러한 기술은 충분히 성숙했으므로 정부가 보험 회사와 같은 기업에 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=azOmzumh0vQ&amp;t=1768s">[29:28]</a> 규제를 통해 사용을 강제해야 한다. 장기적으로는 <code>도덕적 가치</code>를 컴퓨터에 주입하는 방법을 모색해야 한다. 이는 <code>감정</code>을 감지하고, <code>불공정한 상황</code>이 <code>분노</code>와 같은 감정을 유발하는 방식을 모델링하는 연구로 이어질 수 있다. <code>가상 환경</code>에서부터 이러한 감정 반응을 예측하도록 시스템을 훈련할 수 있다.</p>
+<h3>기계 학습을 위한 효과적인 교육 전략</h3>
+<p><code>지도 학습(supervised learning)</code>에서 <code>인간</code>이 <code>기계</code>를 <code>가르치는</code> 과정, 즉 <code>주석 달기</code>는 매우 중요하다. 그러나 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=azOmzumh0vQ&amp;t=1932s">[32:12]</a> 더 장기적으로는 <code>기계 교육(machine teaching)</code> 개념에 더 많은 관심이 필요하다. 어떻게 하면 학습 에이전트를 효과적으로 교육할 수 있는지, 또 좋은 교육 에이전트를 설계하고 훈련할 수 있는지에 대한 질문이다. <code>BabyAI</code> 게임 프로젝트처럼 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=azOmzumh0vQ&amp;t=1954s">[32:34]</a> 교육 에이전트가 환경 지식을 활용하여 학습 에이전트가 가장 어려워하는 부분이나 아는 것과 모르는 것의 경계에 있는 것을 가르치도록 유도하는 연구가 진행 중이다. <code>인간 개입(human in the loop)</code>이 있는 <code>인간-기계 상호작용</code>이 늘어날 미래에 이러한 교육 문제는 매우 중요하다.</p>
+<h2>인상적인 지점</h2>
+<h3>AI 겨울을 이겨낸 비결</h3>
+<p>Yoshua Bengio는 <code>AI 겨울(AI winter)</code>을 겪으면서 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=azOmzumh0vQ&amp;t=2211s">[36:51]</a> &quot;내면의 목소리에 귀 기울여라&quot;는 교훈을 얻었다고 말한다. 대중의 유행이나 군중을 기쁘게 하려고 하지 말고, <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=azOmzumh0vQ&amp;t=2224s">[37:04]</a> 실제 증거에 의해 반박되지 않는 강한 직관이 있다면 그것을 따라야 한다는 것이다. 물론 실험 결과가 신념과 상충하면 신념을 수정해야 하지만, 그 전까지는 자신의 신념을 고수해야 했다. 이러한 태도가 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=azOmzumh0vQ&amp;t=2250s">[37:30]</a> 지난 몇 년간 그가 꾸준히 연구하고 결실을 맺을 수 있었던 이유다.</p>
+<h3>획기적인 순간은 사실 작은 발전의 결과</h3>
+<p><code>AlphaGo</code>가 세계 챔피언을 이긴 것과 같은 <code>획기적인 사건</code>은 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=azOmzumh0vQ&amp;t=2295s">[38:15]</a> 과대평가되는 경향이 있다. 과학은 실제로는 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=azOmzumh0vQ&amp;t=2302s">[38:22]</a> <code>작은 단계</code>들을 통해 움직인다. 하나의 작은 단계가 물통을 가득 채우는 마지막 한 방울처럼 큰 <code>결과</code>를 가져올 수 있지만, 이는 <code>상업</code>과 <code>응용</code>의 맥락에서 더 그렇다. <code>과학</code> 자체는 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=azOmzumh0vQ&amp;t=2344s">[39:04]</a> 매우 점진적으로 발전한다. 현재 가장 뜨거운 연구 주제로는 <code>GANs</code>와 <code>강화 학습(reinforcement learning)</code>이 있으며, 특히 <code>에이전트 학습(agent learning)</code>이 장기적으로 매우 중요하다고 강조한다. <code>생성 모델(generative models)</code>은 세상을 이해하는 에이전트를 구축하는 데 핵심적인 요소가 될 것이며, <code>정책 경사(policy gradient)</code> 방식의 강화 학습의 한계를 넘어 <code>모델 기반 강화 학습(model-based RL)</code>로 나아가야 한다. 이는 새로운 분포에 더 빠르고 잘 <code>일반화</code>하고 <code>기저의 인과 기제</code>를 포착하는 모델을 구축하는 데 필요하다.</p>
+
+  </article>
+  <p class="post-end"><a href="https://www.youtube.com/watch?v=azOmzumh0vQ" target="_blank" rel="noopener">YouTube에서 원본 보기 ↗</a> · <a href="./">← 목록으로</a></p>
+</main>
+<footer class="site-foot">
+  <a href="/projects/yt-digest-overview">yt-digest</a> 파이프라인이 자막을 읽고 자동으로 작성한 브리핑입니다. 오류가 있을 수 있으니 중요한 내용은 원본 영상으로 확인하세요.
+</footer>
+</body>
+</html>

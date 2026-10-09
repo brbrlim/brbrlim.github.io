@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LLM Control Theory Seminar (April 2024) — 유튜브 다이제스트</title>
+<meta name="description" content="이 영상은 LLM(거대 언어 모델)을 시스템 제어 이론의 관점에서 분석한 연구를 소개한다. 발표자는 LLM의 프롬프트를 제어 입력(control input)으로 보고, 원하는 출력을 얻기 위해 시스템을 어떻게 조작할 수 있는지 탐구한다. 특히 자기 주의(self-att…">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="LLM Control Theory Seminar (April 2024) — 유튜브 다이제스트">
+<meta property="og:description" content="이 영상은 LLM(거대 언어 모델)을 시스템 제어 이론의 관점에서 분석한 연구를 소개한다. 발표자는 LLM의 프롬프트를 제어 입력(control input)으로 보고, 원하는 출력을 얻기 위해 시스템을 어떻게 조작할 수 있는지 탐구한다. 특히 자기 주의(self-att…">
+<meta property="og:image" content="https://i.ytimg.com/vi/9QtS9sVBFM0/hqdefault.jpg">
+<meta property="og:type" content="article">
+<link rel="icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+<script>
+// Follow the blog's saved light/dark choice (same origin, same key).
+(function () {
+  var saved = null
+  try { saved = localStorage.getItem("theme") } catch (e) {}
+  var dark = saved ? saved === "dark" : matchMedia("(prefers-color-scheme: dark)").matches
+  document.documentElement.dataset.theme = dark ? "dark" : "light"
+})()
+</script>
+</head>
+<body class="post-page">
+<header class="site-bar">
+  <a class="site-name" href="/">Johnny's</a>
+  <a class="back" href="./">← 유튜브 다이제스트</a>
+</header>
+<main class="post">
+  <a class="hero" href="https://www.youtube.com/watch?v=9QtS9sVBFM0" target="_blank" rel="noopener" aria-label="YouTube에서 보기">
+    <img src="https://i.ytimg.com/vi/9QtS9sVBFM0/hqdefault.jpg" alt="">
+    <span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+  </a>
+  <h1>LLM Control Theory Seminar (April 2024)</h1>
+  <div class="post-meta"><span>Aman Bhargava</span><span>54:07</span><span>게시 2024-04-21</span></div>
+  <div class="tags"><a href="./?q=%23llm">#llm</a><a href="./?q=%23control-theory">#control-theory</a><a href="./?q=%23prompt-engineering">#prompt-engineering</a><a href="./?q=%23self-attention">#self-attention</a><a href="./?q=%23reachability">#reachability</a><a href="./?q=%23controllability">#controllability</a><a href="./?q=%23caltech">#caltech</a></div>
+  <article>
+<h2>TL;DR</h2>
+<p>이 영상은 LLM(거대 언어 모델)을 시스템 제어 이론의 관점에서 분석한 연구를 소개한다. 발표자는 LLM의 프롬프트를 제어 입력(control input)으로 보고, 원하는 출력을 얻기 위해 시스템을 어떻게 조작할 수 있는지 탐구한다. 특히 자기 주의(self-attention) 메커니즘의 제어 가능성을 이론적으로 증명하고, 프롬프트 길이와 제어 가능성의 관계를 실험을 통해 입증한다.</p>
+<h2>풀시청 판단</h2>
+<p>이 영상은 LLM의 동작 방식과 제어 가능성에 대한 심도 있는 이론적, 실험적 접근 방식을 제시한다. LLM을 단순히 블랙박스로 간주하는 것을 넘어, 시스템 공학적 관점에서 내부 역학을 이해하고 제어하려는 시도에 관심 있는 연구자와 개발자에게 유용하다. 특히 제어 이론 또는 시스템 과학 배경이 있는 사람이라면 LLM을 이해하는 새로운 틀을 얻을 수 있다.</p>
+<ul>
+<li>
+<p><strong>얻을 수 있는 것</strong>:</p>
+<ul>
+<li>LLM을 제어 시스템으로 모델링하는 새로운 관점과 그 필요성.</li>
+<li>도달 가능성(reachability)과 제어 가능성(controllability) 등 제어 이론 개념을 LLM에 적용하는 방법론.</li>
+<li>LLM의 핵심 구성 요소인 자기 주의 메커니즘의 제어 가능성에 대한 이론적 증명과 그 의미.</li>
+<li>프롬프트 길이, 초기 상태(initial state), 목표 출력 간의 관계를 수량화한 실험 결과.</li>
+<li>LLM 제어 이론 분야의 흥미로운 미해결 질문과 향후 연구 방향.</li>
+</ul>
+</li>
+<li>
+<p><strong>약점 및 한계</strong>:</p>
+<ul>
+<li>내용이 매우 이론적이고 수학적이며, 제어 이론, 선형 대수학, 딥러닝(특히 트랜스포머 아키텍처)에 대한 사전 지식이 없으면 이해하기 어려울 수 있다.</li>
+<li>대부분의 실험은 탐욕적 디코딩(greedy decoding) 또는 0 온도 샘플링(zero-temperature sampling)을 가정하며, 더 복잡한 분포 제어(distributional control)에 대한 논의는 향후 과제로 남겨둔다.</li>
+<li>실험 결과는 위키텍스트(Wikitext) 데이터셋과 특정 프롬프트 최적화 알고리즘에 기반하고 있어, 일반화 가능성에 대한 추가적인 검증이 필요하다.</li>
+<li>자기 주의 제어 가능성 정리가 LLM 전체의 제어 가능성을 포괄적으로 설명하는 데는 한계가 있다.</li>
+</ul>
+</li>
+<li>
+<p><strong>부분 시청 가이드</strong>:</p>
+<ul>
+<li><strong>LLM을 제어 시스템으로 보는 동기</strong>: <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9QtS9sVBFM0&amp;t=110s">[1:50]</a>부터 시작하여 프롬프트 공학이 왜 제어 문제로 간주되어야 하는지, 로저 페더러 예시와 실생활 애플리케이션을 통해 이해한다.</li>
+<li><strong>이론적 틀</strong>: <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9QtS9sVBFM0&amp;t=1018s">[16:58]</a>부터 LLM 시스템의 공식적인 정의와 도달 가능성 및 제어 가능성 개념을 파악한다.</li>
+<li><strong>자기 주의 제어 가능성 정리</strong>: <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9QtS9sVBFM0&amp;t=1650s">[27:30]</a>부터 자기 주의 메커니즘의 제어 가능성에 대한 이론적 배경과 주요 정리를 간략하게 살펴본다.</li>
+<li><strong>실험 결과</strong>: <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9QtS9sVBFM0&amp;t=2475s">[41:15]</a>부터 실제 LLM 모델에서 프롬프트 길이가 출력 제어에 미치는 영향을 데이터와 그래프로 확인한다.</li>
+<li><strong>미해결 질문</strong>: <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9QtS9sVBFM0&amp;t=2920s">[48:40]</a>부터 LLM 제어 이론 분야의 미래 연구 방향과 흥미로운 아이디어를 얻는다.</li>
+</ul>
+</li>
+</ul>
+<h2>핵심 내용</h2>
+<h3>LLM을 시스템으로 이해해야 할 필요성</h3>
+<p>발표자는 LLM의 놀라운 영샷 학습(zero-shot learning) 능력 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9QtS9sVBFM0&amp;t=110s">[1:50]</a>에 주목하면서도, 프롬프트(prompt)가 LLM의 성능에 비직관적으로 큰 영향을 미친다는 점 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9QtS9sVBFM0&amp;t=182s">[3:02]</a>을 지적한다. 현대 LLM은 단순한 확률 모델이 아니라, 제어 입력(토큰 시퀀스)을 받아 원하는 출력을 내놓는 시스템처럼 사용되고 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9QtS9sVBFM0&amp;t=367s">[6:07]</a>. 예를 들어, &quot;로저 페더러는 ___&quot;라는 문장에서 LLM이 &quot;최고&quot;를 예측하도록 프롬프트를 조절하는 것은 쉽지만, &quot;캥거루&quot;를 예측하도록 하려면 몇 개의 토큰이 필요할지 알기 어렵다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9QtS9sVBFM0&amp;t=411s">[6:51]</a>. 현재 LLM은 복잡한 선형 대수로 이루어진 거대한 블랙박스이며, 에이전트나 CoT(Chain of Thought)와 같은 복잡한 시스템으로 진화하고 있음에도 기본적인 입력-출력 관계조차 제대로 이해하지 못한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9QtS9sVBFM0&amp;t=855s">[14:15]</a>. 따라서 제어 이론을 통해 LLM 시스템을 공식화하고, 어떤 입력으로 어떤 상태에 도달할 수 있는지(제어 가능성) 탐구하는 것이 중요하다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9QtS9sVBFM0&amp;t=917s">[15:17]</a>. 이는 마치 크루즈 컨트롤 시스템을 이해하는 것과 비슷하다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9QtS9sVBFM0&amp;t=564s">[9:24]</a>.</p>
+<h3>이론적 틀: LLM을 제어 시스템으로 정의하기</h3>
+<p>기존 제어 이론에서 다루는 연속적인 미분방정식 기반 시스템과 달리, LLM 시스템은 몇 가지 독특한 특징을 가진다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9QtS9sVBFM0&amp;t=1023s">[17:03]</a>. 첫째, 이산적인 토큰 시퀀스를 다루므로 상태와 시간이 이산적이다. 둘째, 시스템의 상태(토큰 시퀀스)가 입력이나 생성에 따라 계속해서 길어진다(shift and grow dynamics) <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9QtS9sVBFM0&amp;t=1042s">[17:22]</a>. 셋째, 입력 토큰과 생성 토큰이 상호 배타적이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9QtS9sVBFM0&amp;t=1071s">[17:51]</a>. 발표자는 Sok의 수학적 제어 이론(Mathematical Control Theory)에서 영감을 받아 LLM 시스템을 시간 집합(time set), 상태 공간(state space), 입력 공간(input space), 전이 함수(transition map), 출력 공간(output space), 판독 함수(readout map)를 갖는 시스템으로 형식화한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9QtS9sVBFM0&amp;t=1093s">[18:13]</a>. 여기서는 0 온도 샘플링(zero-temperature sampling)을 가정하여 시스템의 동작을 결정론적으로 만든다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9QtS9sVBFM0&amp;t=1228s">[20:28]</a>.</p>
+<h3>도달 가능성(Reachability)과 K-엡실론 제어 가능성(Controllability)의 정의</h3>
+<p><strong>도달 가능성</strong>은 주어진 초기 상태(x0)에서 특정 출력 토큰 시퀀스(y)에 도달할 수 있는 제어 입력(u)이 존재하는지 여부를 나타낸다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9QtS9sVBFM0&amp;t=1311s">[21:51]</a>. 발표자는 이를 확장하여 특정 초기 상태(x0)와 제어 토큰 예산(K) 내에서 도달할 수 있는 모든 출력 y의 집합인 **도달 가능 집합(reachable set)**의 개념을 제시한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9QtS9sVBFM0&amp;t=1426s">[23:46]</a>.
+<strong>K-엡실론 제어 가능성</strong>은 이 도달 가능성 개념을 실용적으로 측정하기 위한 틀이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9QtS9sVBFM0&amp;t=1511s">[25:11]</a>. 이는 주어진 입출력 쌍 데이터셋(D)에서, 최대 K개의 제어 토큰을 사용하여 얼마나 많은 출력 y에 도달할 수 있는지를 나타내는 척도다. Epsilon 값은 도달 불가능한 출력의 비율을 의미하며, K가 커질수록 Epsilon은 작아져야 한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9QtS9sVBFM0&amp;t=1571s">[26:11]</a>. 발표자는 최적의 프롬프트를 찾아 도달 가능한 출력을 확인하는 방식으로 K-엡실론 제어 가능성의 하한선을 측정한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9QtS9sVBFM0&amp;t=2534s">[42:14]</a>.</p>
+<h3>자기 주의(Self-Attention) 제어 가능성 정리</h3>
+<p>트랜스포머 모델에서 정보 전달의 핵심인 자기 주의(self-attention) 메커니즘은 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9QtS9sVBFM0&amp;t=1659s">[27:39]</a> 모든 입력 토큰이 모든 출력 토큰에 영향을 미치는 &quot;전대칭(all-to-all)&quot; 특성을 갖는다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9QtS9sVBFM0&amp;t=1701s">[28:21]</a>. 이 메커니즘은 쿼리(query), 키(key), 값(value) 행렬을 사용하여 계산된다. 발표자는 제어 입력(U)과 고정 입력(X)으로 나뉜 입력에서, 출력 Y도 제어 가능한 부분(Yu)과 고정된 부분(Yx)으로 나뉨을 보여준다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9QtS9sVBFM0&amp;t=1889s">[31:29]</a>.
+이 연구의 핵심 이론적 기여는 특정 조건에서 원하는 출력 Y<em>에 도달할 수 없음을 증명하는 정리다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9QtS9sVBFM0&amp;t=2069s">[34:29]</a>. 이 정리는 출력 Y를 원하는 출력 Y</em>에 평행한 부분과 직교하는 부분으로 분해하여, Yu의 직교 성분과 Yx의 직교 성분이 서로 상쇄되어야 Y<em>에 도달할 수 있다는 직관에서 출발한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9QtS9sVBFM0&amp;t=2001s">[33:21]</a>. 이 정리는 Yx의 직교 성분이 Yu의 직교 성분이 가질 수 있는 최대 크기(베타)보다 클 경우, Y</em>에 도달하는 것이 불가능하다고 말한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9QtS9sVBFM0&amp;t=1960s">[32:40]</a>. 이는 자기 주의 메커니즘 내에 제어 불가능한 영역이 존재할 수 있음을 이론적으로 제시한 것이다.</p>
+<h3>실험 결과: 프롬프트 길이와 제어 가능성의 관계</h3>
+<p>실험에서는 위키텍스트(Wikitext)에서 무작위로 샘플링한 초기 상태(x0)와 세 가지 유형의 목표 출력(y)을 사용했다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9QtS9sVBFM0&amp;t=2580s">[43:00]</a>.</p>
+<ol>
+<li><strong>진정한 다음 토큰</strong>: x0 이후의 실제 다음 토큰 y <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9QtS9sVBFM0&amp;t=2590s">[43:10]</a>.</li>
+<li><strong>LLM 확률 분포의 상위 75개 토큰</strong>: LLM이 가장 가능성 높게 예측한 75개 토큰 중 하나를 y로 설정 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9QtS9sVBFM0&amp;t=2609s">[43:29]</a>.</li>
+<li><strong>무작위 토큰</strong>: 전체 어휘 집합에서 무작위로 선택된 토큰 y <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9QtS9sVBFM0&amp;t=2632s">[43:52]</a>.</li>
+</ol>
+<p>프롬프트 최적화 알고리즘(탐욕적 검색, Greedy Coordinate Gradient)을 사용하여 주어진 K(프롬프트 길이) 내에서 각 y에 도달할 수 있는 프롬프트를 찾는다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9QtS9sVBFM0&amp;t=2661s">[44:21]</a>.</p>
+<ul>
+<li><strong>결과</strong>:
+<ul>
+<li><strong>진정한 다음 토큰</strong>: 프롬프트 길이 K가 10개 이하일 때, 97% 이상의 경우에서 원하는 출력을 달성할 수 있었다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9QtS9sVBFM0&amp;t=2723s">[45:23]</a>. 즉, 실제 언어 패턴을 따르는 다음 토큰은 비교적 적은 제어 토큰으로도 쉽게 제어할 수 있다.</li>
+<li><strong>상위 75개 토큰</strong>: K가 10개 이하일 때, 89% 이상 제어 가능했다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9QtS9sVBFM0&amp;t=2768s">[46:08]</a>. 진정한 다음 토큰보다는 제어하기 어렵지만, 여전히 높은 제어 가능성을 보였다. 초기 상태 시퀀스가 길수록 제어하기 더 어렵다는 경향이 나타났다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9QtS9sVBFM0&amp;t=2786s">[46:26]</a>. 이는 자기 주의 정리가 시사하듯, 고정 토큰이 많을수록 제어 가능한 공간이 줄어들기 때문이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9QtS9sVBFM0&amp;t=2802s">[46:42]</a>.</li>
+<li><strong>무작위 토큰</strong>: K가 10개 이하일 때, 약 46%만 제어 가능했다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9QtS9sVBFM0&amp;t=2815s">[46:55]</a>. 이는 &quot;로저 페더러는 캥거루&quot;와 같은 비정상적인 출력을 제어하는 것이 훨씬 어렵다는 것을 보여준다. 하지만 놀랍게도, 가장 가능성이 낮은 순위의 토큰들 중 상당수가 매우 짧은 프롬프트(2~3개 토큰)만으로도 가장 가능성이 높은 토큰으로 바뀔 수 있었다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9QtS9sVBFM0&amp;t=2823s">[47:03]</a>. 이는 LLM의 확률 분포가 짧은 프롬프트에 의해 크게 왜곡될 수 있음을 시사한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9QtS9sVBFM0&amp;t=2873s">[47:53]</a>.</li>
+</ul>
+</li>
+</ul>
+<h2>주요 통찰·논점</h2>
+<h3>LLM은 강력한 제어 시스템이다</h3>
+<p>LLM은 예측 모델로서의 기능을 넘어, 프롬프트라는 제어 입력을 통해 특정 동작이나 출력을 유도할 수 있는 시스템이다. 프롬프트 공학(prompt engineering)은 본질적으로 시스템 제어 문제로 볼 수 있으며, 이는 ChatGPT의 안전 필터 우회 문제나 이력서 평가 시스템 구축 등 다양한 실제 애플리케이션에서 나타나는 현상이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9QtS9sVBFM0&amp;t=696s">[11:36]</a>. LLM 시스템이 복잡해질수록(Chain of Thought, 에이전트 등) 이러한 시스템적 관점의 이해가 더욱 중요해진다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9QtS9sVBFM0&amp;t=855s">[14:15]</a>.</p>
+<h3>프롬프트 길이가 제어 가능성의 핵심 척도다</h3>
+<p>실험 결과는 프롬프트의 길이가 LLM의 제어 가능성에 직접적인 영향을 미치는 중요한 요소임을 명확히 보여준다. 제어 토큰의 수를 늘릴수록 LLM이 원하는 출력을 생성할 가능성이 크게 높아진다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9QtS9sVBFM0&amp;t=2745s">[45:45]</a>. 이는 현실적으로 API 호출 비용이나 최적화의 어려움과 직결되므로, 최소한의 프롬프트 길이로 최대의 제어 효과를 얻는 것이 중요하다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9QtS9sVBFM0&amp;t=1481s">[24:41]</a>.</p>
+<h3>자기 주의는 제어 가능성과 불가능성을 동시에 내포한다</h3>
+<p>자기 주의 메커니즘은 LLM 내에서 정보가 혼합되는 방식의 핵심이다. 본 연구의 이론적 증명은 특정 조건 하에서 자기 주의 헤드가 원하는 출력에 도달할 수 없는 상황이 존재할 수 있음을 보인다. 즉, LLM의 내부 역학 자체가 제어 불가능한 영역을 가질 수 있음을 시사한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9QtS9sVBFM0&amp;t=1960s">[32:40]</a>. 동시에, 자기 주의의 &quot;전대칭&quot; 특성은 짧은 프롬프트만으로도 전체 문맥을 재구성하여 모델의 예측을 극적으로 바꿀 수 있는 잠재력을 제공한다.</p>
+<h3>LLM의 예측 분포는 짧은 프롬프트에 의해 쉽게 조작된다</h3>
+<p>가장 흥미로운 발견 중 하나는 LLM이 원래 낮은 확률을 할당했던 토큰도, 몇 개의 짧은 프롬프트만으로 가장 가능성 높은 토큰으로 만들 수 있다는 것이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9QtS9sVBFM0&amp;t=2823s">[47:03]</a>. 이는 LLM의 조건부 확률 분포가 프롬프트라는 제어 입력에 매우 민감하게 반응하며, 특정 토큰의 미묘한 변화가 모델의 내부 상태를 크게 전환시킬 수 있음을 의미한다. 이는 수학 벤치마크 등에서 단어 몇 개로 성능이 급변하는 현상과도 일치한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9QtS9sVBFM0&amp;t=2899s">[48:19]</a>.</p>
+<h2>인상적인 지점</h2>
+<ul>
+<li>&quot;LLM은 함수일 뿐이다. 우리는 이를 이해할 수 있어야 한다.&quot; <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9QtS9sVBFM0&amp;t=1007s">[16:47]</a> – 복잡해 보이는 LLM도 결국 수학적 함수이며, 분석 가능하다는 발표자의 확신을 보여준다.</li>
+<li>&quot;로저 페더러는 캥거루&quot; <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9QtS9sVBFM0&amp;t=443s">[7:23]</a> – LLM의 동작을 제어한다는 것이 얼마나 비직관적이고 어려운 문제일 수 있는지를 단적으로 보여주는 예시.</li>
+<li>할머니의 바이오무기 레시피 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9QtS9sVBFM0&amp;t=756s">[12:36]</a> – 초기 ChatGPT 모델이 사용자 프롬프트에 얼마나 쉽게 '가스라이팅'되어 안전 지침을 위반했는지에 대한 생생한 비유.</li>
+<li>낮은 확률의 토큰을 짧은 프롬프트로 최상위로 만들기 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9QtS9sVBFM0&amp;t=2823s">[47:03]</a> – &quot;토큰 몇 개로 확률 분포를 완전히 뒤집을 수 있다&quot;는 발견은 LLM의 취약성과 제어 가능성의 양면을 동시에 보여주며 매우 반직관적이다.</li>
+</ul>
+
+  </article>
+  <p class="post-end"><a href="https://www.youtube.com/watch?v=9QtS9sVBFM0" target="_blank" rel="noopener">YouTube에서 원본 보기 ↗</a> · <a href="./">← 목록으로</a></p>
+</main>
+<footer class="site-foot">
+  <a href="/projects/yt-digest-overview">yt-digest</a> 파이프라인이 자막을 읽고 자동으로 작성한 브리핑입니다. 오류가 있을 수 있으니 중요한 내용은 원본 영상으로 확인하세요.
+</footer>
+</body>
+</html>

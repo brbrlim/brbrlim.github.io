@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Why Agentic Systems Need Ontologies — Frank Coyle, UC Berkeley — 유튜브 다이제스트</title>
+<meta name="description" content="이 강연은 인공지능 에이전트 시스템에 온톨로지(ontology)가 필요한 이유를 설명한다. 확률적인 대규모 언어 모델(LLM) 기반의 에이전트가 예측 불가능한 '환각' 현상이나 루프(loop) 오류를 일으킬 수 있으므로, 온톨로지를 활용한 형식적 지식 표현과 추론 메커…">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="Why Agentic Systems Need Ontologies — Frank Coyle, UC Berkeley — 유튜브 다이제스트">
+<meta property="og:description" content="이 강연은 인공지능 에이전트 시스템에 온톨로지(ontology)가 필요한 이유를 설명한다. 확률적인 대규모 언어 모델(LLM) 기반의 에이전트가 예측 불가능한 '환각' 현상이나 루프(loop) 오류를 일으킬 수 있으므로, 온톨로지를 활용한 형식적 지식 표현과 추론 메커…">
+<meta property="og:image" content="https://i.ytimg.com/vi/Sir59K8ZDPU/hqdefault.jpg">
+<meta property="og:type" content="article">
+<link rel="icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+<script>
+// Follow the blog's saved light/dark choice (same origin, same key).
+(function () {
+  var saved = null
+  try { saved = localStorage.getItem("theme") } catch (e) {}
+  var dark = saved ? saved === "dark" : matchMedia("(prefers-color-scheme: dark)").matches
+  document.documentElement.dataset.theme = dark ? "dark" : "light"
+})()
+</script>
+</head>
+<body class="post-page">
+<header class="site-bar">
+  <a class="site-name" href="/">Johnny's</a>
+  <a class="back" href="./">← 유튜브 다이제스트</a>
+</header>
+<main class="post">
+  <a class="hero" href="https://www.youtube.com/watch?v=Sir59K8ZDPU" target="_blank" rel="noopener" aria-label="YouTube에서 보기">
+    <img src="https://i.ytimg.com/vi/Sir59K8ZDPU/hqdefault.jpg" alt="">
+    <span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+  </a>
+  <h1>Why Agentic Systems Need Ontologies — Frank Coyle, UC Berkeley</h1>
+  <div class="post-meta"><span>AI Engineer</span><span>21:18</span><span>게시 2026-07-23</span></div>
+  <div class="tags"><a href="./?q=%23ai-agents">#ai-agents</a><a href="./?q=%23ontologies">#ontologies</a><a href="./?q=%23neuro-symbolic-ai">#neuro-symbolic-ai</a><a href="./?q=%23knowledge-graphs">#knowledge-graphs</a><a href="./?q=%23llm-guardrails">#llm-guardrails</a></div>
+  <article>
+<h2>TL;DR</h2>
+<p>이 강연은 인공지능 에이전트 시스템에 온톨로지(ontology)가 필요한 이유를 설명한다. 확률적인 대규모 언어 모델(LLM) 기반의 에이전트가 예측 불가능한 '환각' 현상이나 루프(loop) 오류를 일으킬 수 있으므로, 온톨로지를 활용한 형식적 지식 표현과 추론 메커니즘으로 에이전트의 행동을 검증하고 통제해야 한다는 주장이다.</p>
+<h2>풀시청 판단</h2>
+<p>이 강연은 인공지능 에이전트의 개발 방향과 LLM의 한계를 보완할 실용적인 방법을 모색하는 개발자, 연구자, 그리고 기술 전략가에게 특히 유용하다. 온톨로지와 그래프 데이터베이스에 대한 기본적인 이해가 있다면 내용을 더 깊이 파악할 수 있지만, 설명이 친절하여 초보자도 핵심 개념을 이해하는 데 어려움이 없다.</p>
+<p>강연은 신경-심볼릭 AI(neuro-symbolic AI)의 중요성을 강조하며, 확률론적 모델과 형식적 지식 시스템을 결합하는 현대 AI의 주요 흐름을 명확히 제시한다. 특히 LLM의 &quot;환각&quot;을 단순한 오류가 아닌 본질적인 &quot;기능&quot;으로 설명하며, 이를 제어하기 위한 구체적인 방법론(Pydantic, OWL 기반 검증)을 제시하는 점이 통찰력 있다. 초기 AI 연구 역사부터 현대 에이전트 시스템의 문제점까지 넓은 시야를 제공하지만, 기술적인 깊이보다는 개념적 프레임워크와 활용 방안에 집중하므로 특정 기술의 구현 방식에 대한 상세한 가이드를 기대한다면 다소 피상적이라고 느낄 수 있다.</p>
+<h2>핵심 내용</h2>
+<h3>에이전트와 온톨로지: 신경-심볼릭 AI의 두 갈래 역사</h3>
+<p>인공지능 에이전트와 온톨로지는 서로 다른 역사를 가지고 있지만, 현재 신경-심볼릭 AI라는 새로운 흐름 속에서 융합되고 있다. 에이전트 개념은 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Sir59K8ZDPU&amp;t=149s">[2:29]</a> 존 매카시(John McCarthy)와 마빈 민스키(Marvin Minsky) 같은 초기 AI 연구자들이 인지하고, 결정하고, 행동하는 시스템을 상상하면서 시작됐다. 반면 온톨로지는 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Sir59K8ZDPU&amp;t=193s">[3:13]</a> 아리스토텔레스의 &quot;존재론(philosophy of being)&quot;에서 그 뿌리를 찾을 수 있으며, 나중에는 그래프 데이터베이스와 지식 표현의 틀로 발전했다. 1993년 그루버(Gruber)는 온톨로지를 &quot;공유된 개념화에 대한 공식적인 명세&quot;로 정의했는데, 이는 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Sir59K8ZDPU&amp;t=231s">[3:51]</a> 에이전트에게 우리가 세상을 이해하는 방식을 가르쳐주는 수단으로 볼 수 있다.</p>
+<p>현재는 확률론적 특성을 가진 대규모 언어 모델(LLM) 기반의 에이전트와 온톨로지의 형식적 표현이 결합하며 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Sir59K8ZDPU&amp;t=248s">[4:08]</a> 신경-심볼릭 AI 시대를 열고 있다. 이는 LLM의 예측 불가능한 측면을 온톨로지라는 '가드레일'로 통제하려는 시도다.</p>
+<h3>온톨로지: 공유된 개념화를 담은 그래프 데이터베이스</h3>
+<p>온톨로지는 복잡하지 않다. 기본적으로 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Sir59K8ZDPU&amp;t=326s">[5:26]</a> 세상의 개체(entity)와 그 개체들 사이의 관계, 그리고 개체의 속성을 표현하는 방식이다. 과거 관계형 데이터베이스는 데이터를 표 형태로 저장했기 때문에 새로운 정보를 추가하려면 복잡한 구조 변경이 필요했다. 하지만 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Sir59K8ZDPU&amp;t=362s">[6:02]</a> 온톨로지를 기반으로 하는 그래프 데이터베이스는 유연하게 개체, 속성, 관계를 추가할 수 있어 이러한 제약을 극복한다.</p>
+<p>온톨로지를 구축하는 방법은 크게 두 가지다. 첫째는 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Sir59K8ZDPU&amp;t=386s">[6:26]</a> 하향식(top-down)으로, 전문가들이 모여 도메인(영역)을 분석하고 핵심 개체, 관계, 속성을 정의하는 방식이다. 이는 1980년대 전문가 시스템과 유사했지만, 확장성 문제로 한계에 부딪혔다. 둘째는 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Sir59K8ZDPU&amp;t=473s">[7:53]</a> 상향식(bottom-up)으로, 실제 고객 반응과 같은 데이터에서 개체와 관계를 추출하여 온톨로지를 확장하는 방식이다. 또한 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Sir59K8ZDPU&amp;t=494s">[8:14]</a> schema.org, FOAF, Dublin Core, DBpedia(위키피디아 기반)와 같이 이미 구축된 온톨로지나 분류 체계를 활용하는 것도 중요하다.</p>
+<h3>온톨로지 보조 기술: RDFS와 OWL로 지식 추론과 제약 설정</h3>
+<p>온톨로지 자체가 개체와 관계를 정의하지만, 여기에 추가적인 추론 및 제약 조건을 부여하는 보조 기술들이 있다. 대표적으로 RDF 스키마(RDFS)와 웹 온톨로지 언어(OWL)가 있다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Sir59K8ZDPU&amp;t=602s">[10:02]</a> RDFS는 '도메인(domain)'과 '범위(range)' 같은 용어를 사용하여 추론을 가능하게 한다. 예를 들어, &quot;가르치다&quot;라는 관계의 도메인이 '교사'라면, &quot;Bob teaches Scooter&quot;라는 문장에서 Bob이 교사임을 추론할 수 있다.</p>
+<p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Sir59K8ZDPU&amp;t=643s">[10:43]</a> OWL은 더 강력한 추론 능력을 제공한다. '전이적 속성(transitive property)'은 여러 단계를 거쳐 관계를 추론한다. 가령, '조상(ancestor)'이 전이적 속성이라면, &quot;Sue는 Mary의 조상이고 Mary는 Ann의 조상이다&quot;라는 정보로부터 &quot;Sue는 Ann의 조상이다&quot;라는 새로운 정보를 얻을 수 있다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Sir59K8ZDPU&amp;t=683s">[11:23]</a> '함수형 속성(functional property)'은 특정 개체가 오직 하나의 값만을 가질 수 있음을 의미한다. 예를 들어 '아버지를 가졌다(has father)'는 함수형 속성이므로, &quot;Bob은 Jim의 아버지이고 BB도 Jim의 아버지이다&quot;라는 정보가 있다면 Bob과 BB가 동일 인물임을 추론하거나, 두 아버지 정보를 입력하는 것을 제약할 수 있다. 이러한 기술들은 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Sir59K8ZDPU&amp;t=724s">[12:04]</a> 그래프 데이터 자체에는 없지만, 시스템에 추가적인 지식과 검증 능력을 제공한다.</p>
+<h3>튜링 완전한 에이전트의 루프: 강력함 뒤에 숨은 위험</h3>
+<p>최근 에이전트 시스템에서 '루프(loop)'의 역할이 중요하게 다뤄진다. 1966년 봄(Bohm)과 야코피니(Jacopini)는 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Sir59K8ZDPU&amp;t=762s">[12:42]</a> 어떤 프로그래밍 언어든 순서(sequence), 조건(conditional), 루프(loop)의 세 가지 요소만 갖추면 튜링 완전(Turing complete)하다고 주장했다. 이는 해당 언어가 앨런 튜링(Alan Turing)이 정의한 모든 계산 가능한 작업을 수행할 수 있다는 의미다. 에이전트 시스템에 루프가 도입되면서 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Sir59K8ZDPU&amp;t=804s">[13:24]</a> 에이전트 또한 튜링 완전한 능력을 갖추게 되었다.</p>
+<p>하지만 루프에는 위험이 따른다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Sir59K8ZDPU&amp;t=820s">[13:40]</a> 프로그래머들이 흔히 겪는 무한 루프는 시스템을 마비시킬 수 있으며, 에이전트들이 서로 소통하면서 의도치 않게 경로를 이탈(drift off the rails)할 수도 있다. 또한 루프가 지속될수록 토큰(token) 소모량이 늘어나 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Sir59K8ZDPU&amp;t=840s">[14:00]</a> 비용이 증가하는 문제도 발생한다.</p>
+<h3>온톨로지로 에이전트 루프의 위험 제어: LLM의 가드레일 역할</h3>
+<p>대규모 언어 모델(LLM)은 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Sir59K8ZDPU&amp;t=914s">[15:14]</a> 본질적으로 '다음 단어'를 확률적으로 예측하는 역할만 수행한다. 즉, 스스로 도구를 실행하거나 복잡한 작업을 직접 처리하지 못한다. LLM은 그저 특정 도구를 어떻게 활용할지에 대한 매개변수와 호출 방식을 제시할 뿐이다. 에이전트 시스템은 이러한 LLM의 응답을 받아 도구를 실행하고 그 결과를 처리하는 루프 구조를 갖는다.</p>
+<p>이때 온톨로지가 중요한 역할을 한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Sir59K8ZDPU&amp;t=992s">[16:32]</a> 에이전트가 도구를 실행한 후 얻은 정보를 온톨로지 기반의 '유효성 검사기(validator)'를 통해 검증하는 것이다. 이를 통해 LLM의 응답이나 도구 실행 결과가 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Sir59K8ZDPU&amp;t=1037s">[17:17]</a> 합리적이고 올바른지 판단할 수 있다. 만약 결과가 합리적이라면 다음 단계로 진행하고, 그렇지 않다면 LLM에게 다시 지시하거나 인간 개입을 요청한다. 이는 에이전트의 행동을 감시하고 제어하는 '가드레일' 역할을 한다.</p>
+<p>이 과정에서 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Sir59K8ZDPU&amp;t=1071s">[17:51]</a> Pydantic과 같은 도구를 활용하여 입력 매개변수의 타입을 엄격하게 검사하고, 이어서 온톨로지로 출력 결과의 유효성을 검사하는 이중 검증 체계를 구축할 수 있다. 또한 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Sir59K8ZDPU&amp;t=1108s">[18:28]</a> 에이전트의 행동이 데이터베이스 변경과 같은 '부작용(side effect)'을 일으키지 않도록, 모든 중요한 작업은 온톨로지 검증을 거친 후에 수행해야 한다.</p>
+<h2>주요 통찰·논점</h2>
+<h3>LLM의 '환각'은 본질적인 특성, 통제되지 않는 '가능성'</h3>
+<p>대부분의 사람들이 LLM의 '환각(hallucination)' 현상을 오류나 결함으로 여기지만, 화자는 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Sir59K8ZDPU&amp;t=305s">[5:05]</a> 이를 LLM의 본질적인 '기능(feature)'으로 설명한다. 인간이 존재하지 않는 것을 상상하고 그것을 현실로 만들어내듯이, LLM도 본질적으로 확률적인 방식으로 다음 단어를 예측하며 새로운 것을 '상상'해낸다. 문제는 이러한 상상이 현실과 동떨어지거나 비논리적일 때 발생한다는 점이다. 따라서 환각을 단순히 없애려 하기보다는, 온톨로지 같은 형식적 지식 체계를 통해 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Sir59K8ZDPU&amp;t=289s">[4:49]</a> LLM의 확률적 출력을 현실 세계의 제약과 일관성에 맞춰 '가드레일' 안으로 유도하는 것이 핵심이다. 이는 LLM의 창의적 잠재력은 유지하되, 잘못된 정보 생성은 막는 접근 방식이다.</p>
+<h3>Pydantic과 온톨로지: 에이전트 입력과 결과의 이중 검증</h3>
+<p>에이전트 시스템에서 LLM이 외부 도구를 호출할 때, 입력 매개변수의 유효성과 도구 실행 결과의 유효성을 모두 검증하는 것이 중요하다. 화자는 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Sir59K8ZDPU&amp;t=1095s">[18:15]</a> 파이단틱(Pydantic)을 사용하여 LLM이 생성한 입력 매개변수의 '타입(type)'을 명확하게 지정하고 검사할 것을 제안한다. 파이썬과 같은 동적 타입 언어에서 타입 오류는 흔한 문제인데, 파이단틱은 이를 해결하여 LLM이 도구에 잘못된 형식의 데이터를 전달하는 것을 방지한다. 이어서 도구 실행으로 얻은 결과에 대해서는 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Sir59K8ZDPU&amp;t=1098s">[18:18]</a> 온톨로지를 이용해 '의미적 유효성'을 검사해야 한다. 즉, 입력은 파이단틱으로, 결과는 온톨로지로 검증하는 이중 체계를 통해 에이전트 시스템의 견고성을 크게 높일 수 있다는 통찰이다.</p>
+<h3>신경-심볼릭 AI: 확률적 LLM과 형식적 온톨로지의 융합으로 견고한 시스템 구축</h3>
+<p>강연의 핵심 메시지는 확률 기반의 LLM과 형식 기반의 온톨로지를 결합한 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Sir59K8ZDPU&amp;t=248s">[4:08]</a> 신경-심볼릭 AI의 중요성이다. LLM은 놀라운 언어 이해 및 생성 능력을 지니지만, 근본적으로 확률적이기 때문에 비논리적이거나 부정확한 정보를 생성할 수 있다. 반면 온톨로지는 엄격한 규칙과 정의를 통해 명확한 지식과 추론 능력을 제공한다. 이 둘의 융합은 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Sir59K8ZDPU&amp;t=289s">[4:49]</a> LLM의 유연성과 창의성은 살리면서도, 온톨로지를 통해 그 행동을 논리적이고 일관성 있게 제어하는 방법을 제시한다. 이는 단순한 정보 생성기를 넘어, 실제 세계의 복잡한 문제를 해결하는 신뢰할 수 있고 견고한 에이전트 시스템을 구축하는 데 필수적인 접근 방식이다.</p>
+<h2>인상적인 지점</h2>
+<p>강연 서두에 소개된 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Sir59K8ZDPU&amp;t=83s">[1:23]</a> 시스터 코리타 켄트(Sister Corita Kent)의 명언, &quot;실수란 없다. 이기고 지는 것도 없다. 오직 만드는 것만 있을 뿐(Nothing is a mistake. There is no win. There's no fail. There's only make).&quot;은 매우 인상적이다. 이는 컴퓨터 과학의 본질, 특히 시행착오를 통해 학습하고 발전하는 AI 시대의 개발 철학을 압축적으로 보여준다. 실패를 두려워하지 않고 끊임없이 시도하고 만들어내는 과정 자체가 학습이자 발전이라는 메시지는 기술 개발자들에게 큰 영감을 준다.</p>
+
+  </article>
+  <p class="post-end"><a href="https://www.youtube.com/watch?v=Sir59K8ZDPU" target="_blank" rel="noopener">YouTube에서 원본 보기 ↗</a> · <a href="./">← 목록으로</a></p>
+</main>
+<footer class="site-foot">
+  <a href="/projects/yt-digest-overview">yt-digest</a> 파이프라인이 자막을 읽고 자동으로 작성한 브리핑입니다. 오류가 있을 수 있으니 중요한 내용은 원본 영상으로 확인하세요.
+</footer>
+</body>
+</html>

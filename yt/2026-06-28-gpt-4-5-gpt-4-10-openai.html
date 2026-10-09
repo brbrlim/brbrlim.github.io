@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>[한글번역]GPT-4.5 개발 비밀 대공개: GPT-4보다 10배 더 스마트해진 비결 [OpenAI 개발자 인터뷰] — 유튜브 다이제스트</title>
+<meta name="description" content="OpenAI 개발자들이 GPT-4.5를 개발하는 지난 2년간의 과정에서 겪은 도전과 배운 점을 공유한다. 특히 이 모델이 GPT-4보다 10배 더 똑똑해진 비결을 밝히는 과정에서, 엄청난 규모의 시스템을 구축하고 운영하는 난관, 데이터 효율성의 중요성, ML 모델과 시…">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="[한글번역]GPT-4.5 개발 비밀 대공개: GPT-4보다 10배 더 스마트해진 비결 [OpenAI 개발자 인터뷰] — 유튜브 다이제스트">
+<meta property="og:description" content="OpenAI 개발자들이 GPT-4.5를 개발하는 지난 2년간의 과정에서 겪은 도전과 배운 점을 공유한다. 특히 이 모델이 GPT-4보다 10배 더 똑똑해진 비결을 밝히는 과정에서, 엄청난 규모의 시스템을 구축하고 운영하는 난관, 데이터 효율성의 중요성, ML 모델과 시…">
+<meta property="og:image" content="https://i.ytimg.com/vi/JUogbdvkNF4/hqdefault.jpg">
+<meta property="og:type" content="article">
+<link rel="icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+<script>
+// Follow the blog's saved light/dark choice (same origin, same key).
+(function () {
+  var saved = null
+  try { saved = localStorage.getItem("theme") } catch (e) {}
+  var dark = saved ? saved === "dark" : matchMedia("(prefers-color-scheme: dark)").matches
+  document.documentElement.dataset.theme = dark ? "dark" : "light"
+})()
+</script>
+</head>
+<body class="post-page">
+<header class="site-bar">
+  <a class="site-name" href="/">Johnny's</a>
+  <a class="back" href="./">← 유튜브 다이제스트</a>
+</header>
+<main class="post">
+  <a class="hero" href="https://www.youtube.com/watch?v=JUogbdvkNF4" target="_blank" rel="noopener" aria-label="YouTube에서 보기">
+    <img src="https://i.ytimg.com/vi/JUogbdvkNF4/hqdefault.jpg" alt="">
+    <span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+  </a>
+  <h1>[한글번역]GPT-4.5 개발 비밀 대공개: GPT-4보다 10배 더 스마트해진 비결 [OpenAI 개발자 인터뷰]</h1>
+  <div class="post-meta"><span>AI SuperUser</span><span>46:29</span><span>게시 2025-04-11</span></div>
+  <div class="tags"></div>
+  <article>
+<h2>TL;DR</h2>
+<p>OpenAI 개발자들이 GPT-4.5를 개발하는 지난 2년간의 과정에서 겪은 도전과 배운 점을 공유한다. 특히 이 모델이 GPT-4보다 10배 더 똑똑해진 비결을 밝히는 과정에서, 엄청난 규모의 시스템을 구축하고 운영하는 난관, 데이터 효율성의 중요성, ML 모델과 시스템 간의 긴밀한 공동 설계(co-design) 필요성 등을 심층적으로 다룬다.</p>
+<h2>풀시청 판단</h2>
+<p>이 영상은 GPT-4.5 개발에 참여한 OpenAI 핵심 개발자들이 직접 전하는 비하인드 스토리이므로, 초거대 AI 모델 개발 과정의 구체적인 어려움과 시스템 복잡성에 관심 있는 개발자, 연구원, 또는 관련 분야 종사자에게 매우 유익하다. 특히 다음과 같은 질문에 답을 얻을 수 있다.</p>
+<ul>
+<li><strong>모델 훈련의 규모가 커질수록 어떤 문제들이 발생하는가?</strong> (핵심 내용: &quot;대규모 모델 훈련의 현실적인 어려움: 예측 불가능한 문제들&quot; <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=JUogbdvkNF4&amp;t=310s">[5:10]</a>)</li>
+<li><strong>초거대 AI 모델 개발 과정에서 ML(기계 학습)과 시스템 팀이 어떻게 협력하는가?</strong> (주요 통찰: &quot;초거대 모델 개발의 '공동 설계(co-design)' 원칙&quot; <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=JUogbdvkNF4&amp;t=2101s">[35:01]</a>)</li>
+<li><strong>데이터 효율성이 미래 AI 모델 스케일링에 왜 중요한가?</strong> (핵심 내용: &quot;다음 10배 성장을 위한 핵심 과제: 데이터 효율성과 시스템 안정성&quot; <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=JUogbdvkNF4&amp;t=511s">[8:31]</a>)</li>
+<li><strong>자기 지도 학습(Unsupervised Learning)은 왜 지능으로 이어지는가?</strong> (주요 통찰: &quot;자기 지도 학습(Unsupervised Learning)의 작동 원리: 정보 압축&quot; <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=JUogbdvkNF4&amp;t=2325s">[38:45]</a>)</li>
+</ul>
+<p>일반 대중이나 비기술 전문가는 기술적인 세부 사항이 다소 어려울 수 있다. 하지만 초거대 AI 모델 개발이 단순히 뛰어난 알고리즘만으로 이루어지는 것이 아니라, 복잡한 시스템 엔지니어링과 팀워크의 결정체임을 이해하는 데는 도움이 될 것이다.</p>
+<p><strong>약점/한계:</strong>
+이 영상은 GPT-4.5의 &quot;10배 더 스마트해진 비결&quot;이라는 제목을 달고 있지만, 실제로는 모델 자체의 새로운 ML 알고리즘이나 아키텍처 혁신보다는, 대규모 훈련 과정에서 겪는 시스템 운영상의 어려움, 문제 해결 방식, 팀워크에 대한 이야기가 주를 이룬다. 따라서 GPT-4.5의 특정 ML 혁신에 대한 기대를 가지고 시청한다면 다소 실망할 수 있다. 또한, GPT-4.5라는 모델은 가상의 모델이며, 실제 OpenAI에서 이 이름의 모델을 출시한 적은 없다. 영상 내용 자체는 실제 OpenAI 개발 문화와 과제에 대한 깊은 통찰을 제공하지만, 'GPT-4.5'라는 구체적인 제품명은 허구적인 장치이다. 이 브리핑은 영상의 자막에 충실하게 GPT-4.5라는 명칭을 그대로 사용했다.</p>
+<h2>핵심 내용</h2>
+<h3>GPT-4.5 개발의 큰 그림과 과정</h3>
+<p>GPT-4.5는 GPT-4보다 10배 더 똑똑한 모델을 목표로 약 2년 전 개발을 시작했다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=JUogbdvkNF4&amp;t=73s">[1:13]</a>. 새로운 대규모 연산 자원 클러스터가 가동될 것을 예측하고, 대규모 위험 완화(de-risking) 실행을 통해 모델에 포함할 기능들을 검증하고 매우 긴 실행 계획을 수립했다. 이 과정은 시스템, ML(기계 학습) 등 전방위적인 스택에 걸쳐 진행됐으며, 실행 자체도 매우 큰 도전이었다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=JUogbdvkNF4&amp;t=98s">[1:38]</a>.</p>
+<p>초기 계획 수립부터 실제 훈련 실행까지 ML 팀과 시스템 팀 간의 긴밀한 협력이 필수적이었다. 이들은 어떤 모델을 훈련할지 정확히 파악한 후 훈련 프로세스를 시작한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=JUogbdvkNF4&amp;t=115s">[1:55]</a>. 하지만 작업 속도가 워낙 빠르고 최신 연산 자원을 활용해야 하므로, 모든 것을 완벽하게 사전에 계획하기는 어렵다. 그래서 상당수의 미해결 문제를 안고 훈련에 돌입하며, 훈련 진행 중에 발생하는 모든 난관에도 불구하고 전진하는 방식으로 작업한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=JUogbdvkNF4&amp;t=146s">[2:26]</a>. 예측과 실제 사이의 격차를 줄여나가는 것이 이 과정의 핵심이다.</p>
+<h3>대규모 모델 훈련의 현실적인 어려움: 예측 불가능한 문제들</h3>
+<p>대규모 모델 훈련은 많은 사람과 시간, 연산 자원이 필요하며, 그 과정은 예상보다 훨씬 더 복잡하고 길다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=JUogbdvkNF4&amp;t=294s">[4:54]</a>. 1만 개의 GPU를 10만 개로 늘리는 것처럼 규모가 커지면 문제가 훨씬 더 어려워진다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=JUogbdvkNF4&amp;t=310s">[5:10]</a>. 작은 규모에서는 드물게 발생하던 문제가 대규모에서는 치명적인 결과로 이어진다. 예를 들어, 인프라의 오류율과 다양한 종류의 고장이 예상치 못한 수준으로 발생한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=JUogbdvkNF4&amp;t=340s">[5:40]</a>. 공급업체도 경험하지 못했던 방대한 자원 풀의 통계적 분포 전체를 관찰하게 되며, 네트워크 패브릭과 개별 가속기의 문제들이 복합적으로 나타난다. 모든 요소가 예상대로 작동해야만 결과가 유지되므로, 이러한 변동성을 최소화하는 것이 핵심 작업이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=JUogbdvkNF4&amp;t=380s">[6:20]</a>.</p>
+<p>훈련 초기에 하드웨어의 새로운 문제 모드를 학습하는 과정은 매우 고통스럽다. 고장률이 상당히 높게 나타나지만, 근본 원인을 찾아 제거하면 전체 고장 수가 크게 줄어든다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=JUogbdvkNF4&amp;t=732s">[12:12]</a>. 그러나 이러한 초기 단계의 고장 위험을 예측하고 설계하는 것은 매우 어렵다. 시스템 개발자들은 항상 &quot;이 결과를 얻기 위한 가장 빠른 방법이 무엇인가?&quot;라는 질문을 던지며, 완벽한 시스템을 구축하기보다 최적의 절충점을 찾는 데 집중한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=JUogbdvkNF4&amp;t=647s">[10:47]</a>.</p>
+<h3>확장성의 역설: 개척 모델은 어렵지만, 이전 모델은 쉬워진다</h3>
+<p>최첨단(frontier) 모델을 개발하는 것은 수백 명의 OpenAI 인력이 거의 모든 노력을 투입해야 할 정도로 어렵다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=JUogbdvkNF4&amp;t=413s">[6:53]</a>. 그러나 일단 한계치를 돌파하고 나면, 이전 세대의 모델을 다시 훈련하는 것은 훨씬 쉬워진다. 예를 들어, 현재의 지식과 시스템을 활용하면 GPT-4 수준의 모델을 처음부터 다시 훈련하는 데 필요한 인력은 5~10명 정도에 불과하다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=JUogbdvkNF4&amp;t=427s">[7:07]</a>.</p>
+<p>실제로 GPT-4.5 훈련 과정에서 얻은 기술 스택 개선 덕분에, GPT-4 급 모델인 GPT-4o를 훨씬 적은 인력으로 재훈련할 수 있었다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=JUogbdvkNF4&amp;t=451s">[7:31]</a>. 새로운 것을 처음 시도하는 것이 가장 어렵고, 가능성을 확인하는 것 자체가 엄청난 지름길이 된다고 개발자들은 말한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=JUogbdvkNF4&amp;t=480s">[8:00]</a>. 매번 GPT 사전 훈련 실행은 이전보다 10배 더 큰 규모로 확장되기에 항상 새로운 문제가 발생한다.</p>
+<h3>다음 10배 성장을 위한 핵심 과제: 데이터 효율성과 시스템 안정성</h3>
+<p>미래의 10배 또는 100배 규모의 사전 훈련을 위해서는 두 가지 핵심 요소가 필수적이다. 첫째는 <strong>데이터 효율성</strong>이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=JUogbdvkNF4&amp;t=514s">[8:34]</a>. 트랜스포머(Transformer) 모델은 데이터를 매우 효율적으로 흡수하고 압축하여 일반화하지만, 데이터에서 얻을 수 있는 통찰의 깊이에는 한계가 있다. 연산 자원은 계속해서 폭발적으로 증가하는 반면 데이터는 그만큼 빠르게 늘어나지 않으므로, 데이터가 표준 패러다임의 병목 현상이 된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=JUogbdvkNF4&amp;t=548s">[9:08]</a>. 따라서 동일한 양의 데이터에서 더 많은 것을 학습하기 위한 알고리즘 혁신이 필요하다.</p>
+<p>둘째는 <strong>시스템 안정성</strong>이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=JUogbdvkNF4&amp;t=670s">[11:10]</a>. GPT-4.5는 GPT-4와 동일한 시스템 스택으로는 훈련할 수 없었기에, 상태 관리(state management) 방식 변경, 다중 클러스터 훈련으로의 전환 등 시스템 전반에 걸친 대규모 변경이 필요했다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=JUogbdvkNF4&amp;t=600s">[10:00]</a>. 다음 10배 도약을 위해서는 내결함성(fault tolerance)이 필수적이며, 작업 부하와 공동 설계할 수 있는 형태의 내결함성 시스템이 필요하다. 기존 시스템 스택은 4.5 규모에서 겨우 유지할 수 있는 한계에 달했다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=JUogbdvkNF4&amp;t=689s">[11:29]</a>. 또한, 전송 계층(transport level) 네트워크에서 발생하는 오류를 애플리케이션 계층이 아닌 하위 계층에서 처리하여, 애플리케이션이 가용 대역폭에 대해 걱정하지 않고 실행될 수 있도록 해야 한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=JUogbdvkNF4&amp;t=1684s">[28:04]</a>.</p>
+<h3>예측 불가능한 난관 극복 사례: 'Torch.sum' 버그</h3>
+<p>대규모 훈련 실행에서는 항상 버그가 발생한다. 수많은 버그 중에서도 4.5 훈련 중 있었던 <code>Torch.sum</code> 버그는 가장 인상적인 사례로 꼽힌다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=JUogbdvkNF4&amp;t=1250s">[20:50]</a>. 여러 가지 별개의 증상을 보이던 수많은 정확성 관련 문제가 있었다. 팀원들은 각자 다른 버그일 것이라고 예상했지만, 결국 가장 적은 표를 받은 'Torch.sum' 함수 내의 간단한 합계(summation) 버그가 모든 문제의 원인으로 밝혀졌다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=JUogbdvkNF4&amp;t=1330s">[22:10]</a>.</p>
+<p>이 버그는 PyTorch 상류(upstream) 코드의 특정 코드 경로(code path)에서, 데이터 분포에 따라 매우 드물게 (100번 또는 1,000번의 단계 중 한 번) 불법 메모리 접근을 유발했다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=JUogbdvkNF4&amp;t=1381s">[23:01]</a>. 여러 똑똑한 개발자들이 복잡한 커널에서 버그를 찾으려 했지만 실패했다. 결국 한 엔지니어가 <code>Torch.sum</code>이 해당 커널에 입력을 제공한다는 점에 주목하고 코드를 면밀히 조사하여, 대부분의 사람이 건드리지 않는 드문 코드 경로에서 버그를 발견했다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=JUogbdvkNF4&amp;t=1494s">[24:54]</a>. 이 한 줄의 코드를 고치자 모든 문제가 사라졌다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=JUogbdvkNF4&amp;t=1524s">[25:24]</a>. 이는 대규모 시스템에서 발생하는 문제가 겉보기에는 복잡하더라도, 의외로 단순한 하나의 근본 원인에서 비롯될 수 있음을 보여준다.</p>
+<h3>ML 과학자들이 훈련 과정 중 하는 일: 손실 곡선 모니터링과 의심</h3>
+<p>훈련 실행이 시작된 후에도 ML 과학자들은 손실 곡선(loss curves)을 포함한 다양한 통계 지표를 끊임없이 모니터링한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=JUogbdvkNF4&amp;t=1573s">[26:13]</a>. 예상치 못한 추세가 발견되면 시스템 팀과 협력하여 개선점을 찾고, ML 관점에서 추가 개선 사항을 적용하기도 한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=JUogbdvkNF4&amp;t=1580s">[26:20]</a>. 이 과정에서 많은 허위 경보(false alarms)가 발생한다. 개발자들은 &quot;상황이 매우 나빠 보인다&quot;고 생각했지만 결국 괜찮았던 경우가 절반 정도라고 말한다. 이는 그들이 충분히 면밀하게 관찰하고 있다는 증거이기도 하다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=JUogbdvkNF4&amp;t=1632s">[27:12]</a>. ML 팀은 이처럼 모호한 신호 속에서 모델의 상태가 건강한지 여부를 판단하는 데 많은 노력을 기울인다.</p>
+<h2>주요 통찰·논점</h2>
+<h3>초거대 모델 개발의 '공동 설계(co-design)' 원칙</h3>
+<p>GPT-4.5 프로젝트는 ML과 시스템 간의 전례 없이 깊은 공동 설계를 강조했다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=JUogbdvkNF4&amp;t=2101s">[35:01]</a>. 모델의 사양을 정하는 초기 단계부터 두 팀은 매우 긴밀하게 협력했으며, 행렬 곱셈(MatMuls)의 형태와 같은 세부 사항까지 함께 최적화했다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=JUogbdvkNF4&amp;t=2111s">[35:11]</a>. 특히 GPT-4.5를 구현하는 데 필요한 특정 기능과 측면들을 위해, 시스템과의 공동 설계에 집중한 대규모 위험 완화 실행을 진행했다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=JUogbdvkNF4&amp;t=2126s">[35:26]</a>. 이는 모델의 성능을 향상시키기 위해 시스템 측의 특정 속성이 유지되도록 인프라를 유도하는 것이 매우 중요하기 때문이다. 이상적으로는 모든 것이 분리된 시스템을 원하지만, 대규모 훈련에서는 인프라 요구 사항에 맞춰 ML 모델 아키텍처를 조정해야 할 때가 많다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=JUogbdvkNF4&amp;t=2189s">[36:29]</a>. 이 공동 설계 노력은 모델에 들어가는 아키텍처 요소를 형성하고 시스템과 ML 측면을 함께 묶는 핵심 역할을 수행했다.</p>
+<h3>자기 지도 학습(Unsupervised Learning)의 작동 원리: 정보 압축</h3>
+<p>자기 지도 학습, 특히 사전 훈련(pre-training)이 작동하는 근본적인 이유는 <strong>압축</strong> 때문이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=JUogbdvkNF4&amp;t=2325s">[38:45]</a>. 이상적인 지능은 솔로몬오프 귀납(Solomonoff Induction)과 같이 세상에 대한 모든 가능한 가설을 고려하고, 가장 단순한 가설에 더 높은 확률을 부여하며, 새로운 정보가 들어올 때마다 관점을 업데이트하는 방식으로 작동한다. 이를 근사하는 방법은 지금까지 관찰된 모든 것을 설명하는 가장 짧은 프로그램을 찾는 것이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=JUogbdvkNF4&amp;t=2329s">[38:49]</a>.</p>
+<p>사전 훈련은 인간이 지금까지 생성한 모든 데이터를 설명하는 가장 짧은 프로그램을 찾으려 노력함으로써 이러한 압축을 수행한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=JUogbdvkNF4&amp;t=2366s">[39:26]</a>. 통계학에서 오랫동안 역설로 여겨졌던, &quot;거대한 딥 네트워크가 데이터를 압축하지 않는 것처럼 보이는데 어떻게 일반화하는가?&quot;라는 질문에 대해, '예측적 압축(prequential compression)'이라는 개념이 답을 제시한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=JUogbdvkNF4&amp;t=2391s">[39:51]</a>. 모델이 훈련 중에 빠르게 학습한다는 사실은 그 자체로 훌륭한 압축기가 될 수 있음을 의미한다. 모델의 가중치가 크더라도, 이진 파일은 가중치를 직접 저장할 필요 없이 처음부터 다시 사전 훈련하여 데이터를 압축 해제할 수 있다. 빠르게 학습한다는 것은 대부분의 데이터를 매우 적은 비트로 인코딩할 수 있다는 뜻이므로, 자기 지도 학습은 직관적이지 않은 방식으로 데이터를 압축하고 지능으로 이어진다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=JUogbdvkNF4&amp;t=2451s">[40:51]</a>.</p>
+<h3>모델 평가 지표의 중요성: '암기'가 아닌 '일반화' 측정</h3>
+<p>모델의 지능을 평가할 때 인간이 이해하기 쉬운 시험(예: 대학 시험)에 의존하고 싶은 유혹이 크다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=JUogbdvkNF4&amp;t=2532s">[42:12]</a>. 하지만 이런 방식은 모델이 실제로는 더 똑똑해지는 것보다 암기 능력을 향상시키는 변화를 선호하게 만들 위험이 있다. 인터넷의 방대한 데이터를 학습할 수 있는 모델에게는 대부분의 시험이 퇴보적인(degenerate) 테스트가 되기 쉽다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=JUogbdvkNF4&amp;t=2543s">[42:23]</a>.</p>
+<p>따라서 이 분야의 주요 접근 방식은 모델이 얼마나 많은 **홀드아웃 데이터(held-out data)**를 압축하는지 측정하는 것이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=JUogbdvkNF4&amp;t=2569s">[42:49]</a>. 이는 훈련 데이터에 포함되지 않은 데이터를 얼마나 잘 예측하고 이해하는지, 즉 <strong>일반화 능력</strong>을 평가한다. 훈련 데이터와 너무 유사한 홀드아웃 데이터를 사용하면 모델이 단순히 암기를 잘하는 것을 일반화로 착각할 수 있으므로, 홀드아웃 데이터는 훈련 세트와 전혀 겹치지 않도록 매우 신중하게 선택해야 한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=JUogbdvkNF4&amp;t=2579s">[42:59]</a>. OpenAI는 내부 코드베이스(internal codebase)를 이러한 홀드아웃 데이터로 사용하는데, 이는 외부에 노출되지 않으므로 모델이 암기할 수 없어 일반화 능력을 정확히 측정하는 데 매우 유용하다고 말한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=JUogbdvkNF4&amp;t=2617s">[43:37]</a>.</p>
+<h3>스케일링 법칙(Scaling Laws)의 지속성과 그 의미</h3>
+<p>GPT-4.5의 개발은 스케일링 법칙이 계속해서 유효하다는 것을 검증하는 거대한 실험이었다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=JUogbdvkNF4&amp;t=2668s">[44:28]</a>. 결과적으로 스케일링 법칙은 여전히 잘 작동하며, 앞으로도 오랫동안 유효할 것으로 보인다. 스케일링 법칙은 더 많은 연산 자원과 데이터를 투입할수록 모델 성능이 예측 가능한 방식으로 향상된다는 것을 의미한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=JUogbdvkNF4&amp;t=2700s">[45:00]</a>.</p>
+<p>이러한 현상이 우주의 기본 속성인 이유는 무엇일까? 한 가지 이론은 세상의 데이터에 존재하는 관련 개념들이 희소하며, 멱법칙(power law) 분포를 따른다는 것이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=JUogbdvkNF4&amp;t=2719s">[45:19]</a>. 즉, 100번째로 중요한 개념은 100개 문서 중 하나에만 나타나는 식이다. 데이터에 존재하는 이러한 '긴 꼬리(long tails)' 덕분에, 수동적으로 데이터를 수집하는 방식으로는 다음 단계의 성능 향상을 위해 10배 더 많은 연산 자원과 데이터를 계속 투입해야 한다. 하지만 그 꼬리는 계속 이어지기 때문에 끊임없이 새로운 것을 발굴할 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=JUogbdvkNF4&amp;t=2761s">[46:01]</a>. 따라서 완벽한 데이터셋을 만들고 데이터 효율적인 알고리즘을 개발한다면, 엄청난 양의 연산 자원 절약을 가져올 잠재력이 존재한다.</p>
+<h2>인상적인 지점</h2>
+<ul>
+<li><strong>사람의 지능과 AI의 데이터 효율성 격차:</strong> 인간은 언어 학습에서 현재 최고의 AI 알고리즘보다 &quot;천문학적으로&quot;(10만 배) 더 데이터 효율적이라고 평가한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=JUogbdvkNF4&amp;t=1725s">[28:45]</a>. 이는 AI 연구의 큰 과제이자 기회임을 시사한다.</li>
+<li><strong>&quot;ETA(예상 완료 시간)가 계속 바뀐다&quot;:</strong> 대규모 훈련 프로젝트는 끝없이 지연되고 예측이 빗나가는 고된 과정이지만, 하나의 큰 문제 해결로 성능이 급등하면 팀의 사기가 극적으로 오르는 경험을 공유한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=JUogbdvkNF4&amp;t=1115s">[18:35]</a>.</li>
+<li><strong>&quot;우리는 더 이상 연산 자원 제약적이지 않다&quot;:</strong> 수십 년간 딥러닝은 연산 자원 제약적인 환경에서 발전해왔지만, 이제는 데이터가 병목이 되는 새로운 단계에 진입했다는 언급 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=JUogbdvkNF4&amp;t=884s">[14:44]</a>. 이는 AI 연구의 방향이 크게 바뀔 수 있음을 의미한다.</li>
+<li><strong>&quot;모델은 곧 모노레포(monorepo) 손실이다&quot;:</strong> 모델의 성능과 일반화 능력을 평가하는 가장 좋은 지표가 외부 공개되지 않은 OpenAI의 내부 코드베이스(모노레포)에 대한 손실 값이라는 점 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=JUogbdvkNF4&amp;t=2632s">[43:52]</a>이 흥미롭다. 이는 복잡한 외부 지표보다 '진정한' 일반화 능력을 측정하는 데 가장 효과적인 방법으로 제시된다.</li>
+</ul>
+
+  </article>
+  <p class="post-end"><a href="https://www.youtube.com/watch?v=JUogbdvkNF4" target="_blank" rel="noopener">YouTube에서 원본 보기 ↗</a> · <a href="./">← 목록으로</a></p>
+</main>
+<footer class="site-foot">
+  <a href="/projects/yt-digest-overview">yt-digest</a> 파이프라인이 자막을 읽고 자동으로 작성한 브리핑입니다. 오류가 있을 수 있으니 중요한 내용은 원본 영상으로 확인하세요.
+</footer>
+</body>
+</html>

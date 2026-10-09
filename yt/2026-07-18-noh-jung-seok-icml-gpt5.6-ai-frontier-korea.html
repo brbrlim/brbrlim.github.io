@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EP 104. GPT-5.6 공개부터 ICML 현장까지 — 유튜브 다이제스트</title>
+<meta name="description" content="이 영상은 GPT-5.6의 공개 소식과 ICML 2024 학회 현장에서 포착된 AI 산업의 주요 흐름을 전달한다. AI 발전 속도의 가속화, AGI(인공일반지능)에 대한 확고한 믿음, 그리고 AI 기반 기술 스택 전반에 대한 깊은 이해를 요구하는 현 상황이 핵심 논의…">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="EP 104. GPT-5.6 공개부터 ICML 현장까지 — 유튜브 다이제스트">
+<meta property="og:description" content="이 영상은 GPT-5.6의 공개 소식과 ICML 2024 학회 현장에서 포착된 AI 산업의 주요 흐름을 전달한다. AI 발전 속도의 가속화, AGI(인공일반지능)에 대한 확고한 믿음, 그리고 AI 기반 기술 스택 전반에 대한 깊은 이해를 요구하는 현 상황이 핵심 논의…">
+<meta property="og:image" content="https://i.ytimg.com/vi/wOOY3BjzTbQ/hqdefault.jpg">
+<meta property="og:type" content="article">
+<link rel="icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+<script>
+// Follow the blog's saved light/dark choice (same origin, same key).
+(function () {
+  var saved = null
+  try { saved = localStorage.getItem("theme") } catch (e) {}
+  var dark = saved ? saved === "dark" : matchMedia("(prefers-color-scheme: dark)").matches
+  document.documentElement.dataset.theme = dark ? "dark" : "light"
+})()
+</script>
+</head>
+<body class="post-page">
+<header class="site-bar">
+  <a class="site-name" href="/">Johnny's</a>
+  <a class="back" href="./">← 유튜브 다이제스트</a>
+</header>
+<main class="post">
+  <a class="hero" href="https://www.youtube.com/watch?v=wOOY3BjzTbQ" target="_blank" rel="noopener" aria-label="YouTube에서 보기">
+    <img src="https://i.ytimg.com/vi/wOOY3BjzTbQ/hqdefault.jpg" alt="">
+    <span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+  </a>
+  <h1>EP 104. GPT-5.6 공개부터 ICML 현장까지</h1>
+  <div class="post-meta"><span>AI Frontier Korea (노정석)</span><span>1:15:34</span><span>게시 2026-07-18</span></div>
+  <div class="tags"><a href="./?q=%23ai-frontier-korea">#ai-frontier-korea</a><a href="./?q=%23gpt-5.6">#gpt-5.6</a><a href="./?q=%23icml">#icml</a><a href="./?q=%23llm">#llm</a><a href="./?q=%23ai-for-science">#ai-for-science</a><a href="./?q=%23frontier-models">#frontier-models</a><a href="./?q=%23ai-industry">#ai-industry</a></div>
+  <article>
+<h2>TL;DR</h2>
+<p>이 영상은 GPT-5.6의 공개 소식과 ICML 2024 학회 현장에서 포착된 AI 산업의 주요 흐름을 전달한다. AI 발전 속도의 가속화, AGI(인공일반지능)에 대한 확고한 믿음, 그리고 AI 기반 기술 스택 전반에 대한 깊은 이해를 요구하는 현 상황이 핵심 논의 주제다. 특히 AI for Science 분야에서는 규모주의(scalism)와 특정 도메인에 특화된 지식의 중요성 사이에서 첨예한 논쟁이 벌어지고 있음도 조명한다.</p>
+<h2>풀시청 판단</h2>
+<p>이 영상은 최신 AI 기술 동향, 특히 LLM(대규모 언어 모델)과 AI 학술 대회의 산업적 의미에 관심 있는 AI 연구자, 개발자, 벤처 투자자, 그리고 관련 스타트업 관계자에게 매우 유용하다. GPT-5.6의 구체적인 성능 향상과 새로운 기능에 대한 실사용 후기부터 ICML 현장의 분위기, 채용 동향, AI 인프라 및 데이터 기업의 비즈니스 모델 변화, 그리고 AI for Science 분야의 철학적 논쟁까지 폭넓은 정보를 밀도 높게 전달한다.</p>
+<p>다만, 일부 내용은 상당한 사전 지식을 요구하며, 특정 기술이나 알고리즘에 대한 깊이 있는 분석보다는 업계 전반의 흐름과 화자의 경험적 관찰에 초점을 맞춘다. 따라서 특정 논문 내용을 상세히 파악하고자 하는 연구자에게는 다소 피상적일 수 있다. 전반적으로 AI 산업의 최전선을 생생하게 경험하고 인사이트를 얻고자 하는 이들에게는 시간을 투자할 가치가 충분하다.</p>
+<h2>핵심 내용</h2>
+<h3>GPT-5.6 공개: 일상 속 AI의 성능 향상과 비용 압박 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=wOOY3BjzTbQ&amp;t=31s">[0:31]</a></h3>
+<p>OpenAI는 ICML(국제 머신러닝 학회) 기간 중 GPT-5.6을 기습적으로 공개했다. 이미 두 달 전부터 소수의 유명 개발자들이 테스트해왔으며, 공통적인 반응은 &quot;새로운 데일리 드라이버가 될 만큼 매우 좋다&quot;는 평가였다. 특히 코딩 성능 향상이 두드러졌으나, &quot;Fable 5&quot;급의 혁신적인 도약은 아니라는 의견도 있었다. GPT-5.6은 모델별로 'Sol', 'High', 'Max', 'Ultra' 등 다양한 '이포트'(effort) 단계를 제공하여 테스트 시점 연산(test-time compute) 최적화에 주력하는 모습이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=wOOY3BjzTbQ&amp;t=176s">[2:56]</a>.</p>
+<p>또한, 실시간 동시 통역이 가능한 'GPT-Live'를 함께 선보여 대화형 AI의 발전 가능성을 보여주었으나, 일부 스타트업들은 동시 통역 기술 개발 계획이 좌절되는 상황을 맞기도 했다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=wOOY3BjzTbQ&amp;t=197s">[3:17]</a>. GPT-5.6의 가격은 Anthropic의 Opus 모델과 비슷한 수준으로, 현재는 구독형이지만 향후 GPT-6 출시 시 종량제 전환 가능성이 제기되면서 사용자들의 비용 부담에 대한 우려가 커지고 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=wOOY3BjzTbQ&amp;t=424s">[7:04]</a>. 웹 인터페이스는 'Chat'과 'ChatGPT Work'로 나뉘어 있으며, 앱에서는 응답 속도가 대폭 빨라졌다는 평가도 나온다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=wOOY3BjzTbQ&amp;t=260s">[4:20]</a>.</p>
+<h3>AI의 자기 개선 능력 시현: Luna 후속 훈련과 경진 대회 성과 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=wOOY3BjzTbQ&amp;t=294s">[4:54]</a></h3>
+<p>OpenAI는 GPT-5.6 발표에서 Sol 모델이 더 작은 Luna 모델을 후속 훈련(post-train)시키는 사례를 소개하며, AI의 '재귀적 자기 개선' 가능성을 암시했다. 이는 모델 가중치(weight)를 업데이트하는 직접적인 자기 개선과 '하네스 공학'(harness engineering)을 통한 간접적인 자기 개선이 모두 진행되고 있음을 시사한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=wOOY3BjzTbQ&amp;t=370s">[6:10]</a>.</p>
+<p>또한, OpenAI는 코딩 및 수학 분야에서 놀라운 성과를 보였다. 국제 수학 올림피아드(IMO)와 비슷한 시기에 열린 코딩 경진 대회인 AtCoder에서 OpenAI 에이전트가 인간 참가자들을 큰 격차로 앞섰다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=wOOY3BjzTbQ&amp;t=725s">[12:05]</a>. 수학 분야에서는 '순환 이중 덮개 추측'(Cycle Double Cover Conjecture)을 64개의 서브 에이전트를 활용한 에이전트 워크플로(agentic workflow)로 한 시간 만에 해결했다는 소식도 전해졌다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=wOOY3BjzTbQ&amp;t=780s">[13:00]</a>. 이는 AI가 인간의 이해를 넘어선 영역에서 스스로 문제를 해결하는 시대의 도래를 예고한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=wOOY3BjzTbQ&amp;t=859s">[14:19]</a>.</p>
+<h3>ICML 2024 현장: AGI 확신에 찬 분위기와 AI for Science의 이분법 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=wOOY3BjzTbQ&amp;t=961s">[16:01]</a></h3>
+<p>ICML 2024 학회 현장은 'AGI 확신에 찬'(AGI-pilled) 분위기였다. 대부분의 연구자들은 AGI가 거의 완성된 게임이라고 생각하며, 연구의 초점도 핵심 알고리즘 개발보다는 모델 평가 지표(evaluation metric)를 어떻게 더 잘 발전시킬지에 맞춰져 있었다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=wOOY3BjzTbQ&amp;t=977s">[16:17]</a>.</p>
+<p>특히 AI for Science 분야에서는 LLM 커뮤니티의 '규모주의자'(scalist)들과 특정 도메인에 대한 깊은 지식을 강조하는 '도메인 전문가'들 사이에 뚜렷한 의견 대립이 관찰됐다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=wOOY3BjzTbQ&amp;t=1021s">[17:01]</a>. 규모주의자들은 더 많은 데이터, 모델, 연산 자원 투입을 통해 &quot;비터 레슨&quot;(Bitter Lesson)이 계속될 것이라 믿는 반면, 도메인 전문가들은 바이오 분야의 복잡성이 단순히 AI 모델의 규모를 키우는 방식으로는 해결될 수 없다고 주장한다. 이들은 AI 분야에 뒤늦게 합류하여 지난 몇 년간의 &quot;비터 레슨&quot;을 직접 경험하지 못한 경향이 있어, 양측 간의 소통에 어려움이 있었다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=wOOY3BjzTbQ&amp;t=1085s">[18:05]</a>.</p>
+<h3>AI 산업 생태계 현황: 인프라, 데이터, 세계 모델의 진화 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=wOOY3BjzTbQ&amp;t=1205s">[20:05]</a></h3>
+<p>ICML 전시 부스에서는 AI 산업 생태계의 다양한 면모를 엿볼 수 있었다. 빅테크 기업(OpenAI, Google, Apple, Meta, Amazon, Microsoft, Naver)들은 대부분 채용을 최우선 목표로 삼아 부스를 운영했으며, 연구자들이 상주하며 자사 연구를 소개하고 질의응답을 진행했다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=wOOY3BjzTbQ&amp;t=1244s">[20:44]</a>.</p>
+<p>또한, GPU 임대 및 추론(inference) 서비스, 그리고 AI 가속기 개발 업체들이 눈에 띄게 많았다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=wOOY3BjzTbQ&amp;t=1454s">[24:14]</a>. RunPod, Together AI, Nebius와 같은 네오클라우드 업체와 한국 기업인 VESSL AI(GPU 클러스터), FriendliAI(추론 최적화, vLLM의 PagedAttention과 연관) 등이 대표적이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=wOOY3BjzTbQ&amp;t=1471s">[24:31]</a>. HyperAccel(이진원 CTO)과 같이 새로운 AI 칩(가속기)을 개발하는 회사들도 있었으며, OpenAI도 Broadcom과 협력하여 추론 전용 칩을 설계 중인 것으로 알려졌다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=wOOY3BjzTbQ&amp;t=1869s">[31:09]</a>. Nota AI는 다양한 가속기에 LLM을 효율적으로 포팅(porting)하는 최적화 솔루션을 제공한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=wOOY3BjzTbQ&amp;t=2011s">[33:31]</a>.</p>
+<p>데이터 수집 및 판매 업체들도 중요한 축을 형성했다. Scale AI를 비롯해 Voxel51, Toloka 같은 회사들이 있었고, 특히 Handshake AI는 학부생이나 대학원생 전문가들을 모집해 특정 도메인(수학, 특정 언어 등)의 고품질 데이터를 구축하여 프론티어 랩에 판매하는 사업 모델로 주목받았다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=wOOY3BjzTbQ&amp;t=2061s">[34:21]</a>.</p>
+<p>게임 영상 데이터와 게이머 입력(key log)을 결합한 독점 데이터셋을 기반으로 세계 모델(world model) MIRA를 개발한 General Intuition도 인상적이었다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=wOOY3BjzTbQ&amp;t=2249s">[37:29]</a>. 이 모델은 로켓 리그(Rocket League) 게임을 물리 시뮬레이션 없이 AI 모델만으로 렌더링하는 시연을 보였으며, 50억 개 매개변수 규모로 실시간 상호작용이 가능하다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=wOOY3BjzTbQ&amp;t=2324s">[38:44]</a>.</p>
+<h3>&quot;토큰 맥싱&quot;과 산업의 결합, 그리고 지경학적 변화 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=wOOY3BjzTbQ&amp;t=2706s">[45:06]</a></h3>
+<p>ICML의 사이드 이벤트에서는 샌프란시스코 기반 스타트업들 사이에서 '토큰 맥싱'(token maxxing) 현상이 관찰됐다. 일부 스타트업은 주당 1만 달러, 심지어 하루 2만 달러(약 3천만원)어치의 토큰을 사용하며, 기업(enterprise) 고객의 토큰 소비량이 압도적으로 많았다 [45:18, 47:11]. 이는 AI 모델 활용을 통한 가치 창출에 대한 깊은 고민과 전략을 요구하며, 단순히 &quot;토큰을 많이 썼다&quot;가 아닌 &quot;어떤 결과를 만들어냈는지&quot;에 대한 평가가 중요해지고 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=wOOY3BjzTbQ&amp;t=2761s">[46:01]</a>.</p>
+<p>산업계와 학계의 경계가 허물어지고 있는 점도 중요한 통찰이다. 연구의 최전선은 이제 학술 논문보다는 산업계의 실제 개발에서 나오는 경우가 많다는 인식이 확산됐다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=wOOY3BjzTbQ&amp;t=4198s">[1:09:58]</a>. AI 개발은 하드웨어 칩부터 응용 프로그램(애플리케이션) 계층까지 모든 기술 스택을 꿰뚫는 '종합 예술'이 되어가며, 이 모든 것을 이해하는 '팔방미인' 인재가 요구된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=wOOY3BjzTbQ&amp;t=4223s">[1:10:23]</a>.</p>
+<p>마지막으로, 지경학적 관점에서 흥미로운 논의가 있었다. 기업들이 자사 데이터의 보안 및 지식재산권 문제로 인해 프론티어 랩의 유료 API 대신 오픈소스 모델을 활용하여 자체 하네스(harness)와 팜(farm)을 구축하는 경향이 강화되고 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=wOOY3BjzTbQ&amp;t=4377s">[1:12:57]</a>. 이 과정에서 Qwen, Kimi 등 중국발 오픈소스 모델에 대한 의존도가 높아지자, 미국 정부가 내년쯤 미국 기업의 중국 오픈소스 모델 사용을 금지할 것이라는 예측이 나왔다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=wOOY3BjzTbQ&amp;t=4424s">[1:13:44]</a>. 이는 서방 국가 및 우방국이 공급하는 준(準) 프론티어 오픈소스 모델의 가치를 크게 높일 수 있다는 분석이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=wOOY3BjzTbQ&amp;t=4445s">[1:14:05]</a>.</p>
+<h2>주요 통찰·논점</h2>
+<h3>AI 발전 속도의 압축과 &quot;종합 예술&quot;로서의 AI 개발 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=wOOY3BjzTbQ&amp;t=3950s">[1:05:50]</a></h3>
+<p>AI 기술의 발전 속도는 점점 더 압축되어, 과거 분기별로 논의될 내용이 이제는 1-2주 안에 모두 쏟아진다. 이러한 빠른 변화는 AI를 단순한 특정 기술이 아니라, 하드웨어 칩부터 데이터 센터, 추론 최적화, 응용 프로그램까지 모든 스택을 깊이 있게 이해하고 다룰 수 있는 &quot;종합 예술&quot;의 영역으로 만들었다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=wOOY3BjzTbQ&amp;t=4223s">[1:10:23]</a>. 이는 특정 분야의 전문가를 넘어, 전체 시스템을 꿰뚫는 넓은 시야와 깊은 지식을 갖춘 '팔방미인' 인재의 중요성을 부각한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=wOOY3BjzTbQ&amp;t=4261s">[1:11:01]</a>.</p>
+<h3>AGI 확신과 평가 지표 연구로의 전환 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=wOOY3BjzTbQ&amp;t=977s">[16:17]</a></h3>
+<p>ICML 2024 현장에서는 대다수 AI 연구자들이 AGI 실현에 대한 강한 확신을 보였다. 모델 개발 자체의 난이도보다는, AGI에 근접한 모델의 성능을 어떻게 정확하고 효과적으로 평가할 것인지에 대한 평가 지표(evaluation metric) 연구가 핵심 의제로 떠올랐다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=wOOY3BjzTbQ&amp;t=3844s">[1:04:04]</a>. 이는 이미 강력한 모델이 존재한다는 전제하에, 그 성능을 객관적으로 측정하고 더 나은 방향으로 이끄는 방법을 모색하는 단계로 진입했음을 보여준다.</p>
+<h3>AI for Science: 규모주의와 도메인 지식의 첨예한 대립 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=wOOY3BjzTbQ&amp;t=1021s">[17:01]</a></h3>
+<p>LLM 분야에서는 &quot;규모주의&quot;(scalism)가 지배적이지만, AI for Science, 특히 바이오 분야에서는 이 철학이 강한 반론에 부딪힌다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=wOOY3BjzTbQ&amp;t=1021s">[17:01]</a>. 특정 도메인의 복잡성과 데이터 특성(희소성, 결정적 데이터의 편중 등)을 고려할 때, 단순히 모델 크기와 데이터 양을 늘리는 것만으로는 한계가 있다는 주장이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=wOOY3BjzTbQ&amp;t=3637s">[1:00:37]</a>. 이는 AI 발전의 보편성과 특수성 사이의 근본적인 질문을 던지며, 각 분야의 특성을 깊이 이해하는 것이 중요함을 시사한다.</p>
+<h3>독점 데이터셋과 세계 모델의 전략적 가치 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=wOOY3BjzTbQ&amp;t=2430s">[40:30]</a></h3>
+<p>General Intuition 사례처럼, 게임 플레이 영상과 사용자 입력(key log) 같은 독점적이고 고유한 데이터셋은 AI 모델 개발에 있어 강력한 &quot;해자&quot;(moat) 역할을 한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=wOOY3BjzTbQ&amp;t=2430s">[40:30]</a>. 이러한 데이터는 특히 세계 모델(world model)과 같은 차세대 AI 모델 학습에 필수적이며, 기업들은 이를 외부에 판매하지 않고 자사의 핵심 자산으로 유지하려는 전략을 취한다. 이는 양질의 독점 데이터 확보가 AI 경쟁력의 핵심임을 보여준다.</p>
+<h3>기업 AI 전략의 변화: 온프레미스 모델과 지경학적 영향 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=wOOY3BjzTbQ&amp;t=4383s">[1:13:03]</a></h3>
+<p>기업들은 민감한 핵심 자산 데이터를 프론티어 랩의 API에 의존하는 것에 대한 위험성을 인식하기 시작했다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=wOOY3BjzTbQ&amp;t=4383s">[1:13:03]</a>. 이에 따라 오픈소스 모델을 기반으로 자체적인 하네스와 인프라를 구축하는 '온프레미스 모델'의 중요성이 빠르게 부상하고 있다. 그러나 이 과정에서 중국발 오픈소스 모델에 대한 의존도가 높아지자, 미국 정부가 안보를 이유로 중국 오픈소스 모델 사용을 금지할 가능성이 제기된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=wOOY3BjzTbQ&amp;t=4424s">[1:13:44]</a>. 이는 AI 기술 경쟁이 단순히 기술의 우위를 넘어 지경학적 이해관계와 국가 정책에 깊이 얽혀 있음을 보여주는 중요한 변화다.</p>
+<h2>인상적인 지점</h2>
+<ul>
+<li>샌프란시스코 스타트업 관계자들이 주당 1만 달러, 심지어 하루 2만 달러어치(약 3천만원)의 토큰을 LLM API에 소모한다고 이야기하는 대목 [45:18, 46:42]. 이는 최전선 AI 개발의 천문학적인 비용과 가치 창출에 대한 기대를 생생하게 보여준다.</li>
+<li>AI for Science 분야에서 &quot;규모주의 이상주의자&quot; 테이블을 &quot;위험한 테이블&quot;이라며 자리를 피했다는 일화 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=wOOY3BjzTbQ&amp;t=3595s">[59:55]</a>. 이는 과학 분야의 복잡성과 AI 모델의 단순화된 접근 방식 간의 첨예한 의견 차이를 극명하게 보여주는 사례다.</li>
+<li>&quot;어셈블러부터 저 위의 장고(Django)까지가 그냥 하나로 막 들러붙어 있는 기분&quot;이라는 비유 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=wOOY3BjzTbQ&amp;t=4223s">[1:10:23]</a>. AI 기술 스택 전반에 대한 깊고 넓은 이해가 필수적인 현 상황을 명확하게 설명한다.</li>
+</ul>
+
+  </article>
+  <p class="post-end"><a href="https://www.youtube.com/watch?v=wOOY3BjzTbQ" target="_blank" rel="noopener">YouTube에서 원본 보기 ↗</a> · <a href="./">← 목록으로</a></p>
+</main>
+<footer class="site-foot">
+  <a href="/projects/yt-digest-overview">yt-digest</a> 파이프라인이 자막을 읽고 자동으로 작성한 브리핑입니다. 오류가 있을 수 있으니 중요한 내용은 원본 영상으로 확인하세요.
+</footer>
+</body>
+</html>

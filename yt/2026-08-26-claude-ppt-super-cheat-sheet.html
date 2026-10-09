@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>클로드로 PPT 만들 때, 슈퍼 치트키 — 유튜브 다이제스트</title>
+<meta name="description" content="이 영상은 Claude를 이용해 고품질의 PPT를 빠르게 만드는 비법을 소개한다. Claude의 '게으름' 문제를 극복하기 위해 Skywalk 서비스를 활용해 잘 구조화된 초안 PPT를 만들고, 이를 다시 Claude에게 넘겨 최종본을 제작하게 한다. 더 나아가, 두…">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="클로드로 PPT 만들 때, 슈퍼 치트키 — 유튜브 다이제스트">
+<meta property="og:description" content="이 영상은 Claude를 이용해 고품질의 PPT를 빠르게 만드는 비법을 소개한다. Claude의 '게으름' 문제를 극복하기 위해 Skywalk 서비스를 활용해 잘 구조화된 초안 PPT를 만들고, 이를 다시 Claude에게 넘겨 최종본을 제작하게 한다. 더 나아가, 두…">
+<meta property="og:image" content="https://i.ytimg.com/vi/b2X38Stf7L8/hqdefault.jpg">
+<meta property="og:type" content="article">
+<link rel="icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+<script>
+// Follow the blog's saved light/dark choice (same origin, same key).
+(function () {
+  var saved = null
+  try { saved = localStorage.getItem("theme") } catch (e) {}
+  var dark = saved ? saved === "dark" : matchMedia("(prefers-color-scheme: dark)").matches
+  document.documentElement.dataset.theme = dark ? "dark" : "light"
+})()
+</script>
+</head>
+<body class="post-page">
+<header class="site-bar">
+  <a class="site-name" href="/">Johnny's</a>
+  <a class="back" href="./">← 유튜브 다이제스트</a>
+</header>
+<main class="post">
+  <a class="hero" href="https://www.youtube.com/watch?v=b2X38Stf7L8" target="_blank" rel="noopener" aria-label="YouTube에서 보기">
+    <img src="https://i.ytimg.com/vi/b2X38Stf7L8/hqdefault.jpg" alt="">
+    <span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+  </a>
+  <h1>클로드로 PPT 만들 때, 슈퍼 치트키</h1>
+  <div class="post-meta"><span>페이퍼로지</span><span>8:43</span><span>게시 2026-08-25</span></div>
+  <div class="tags"><a href="./?q=%23ai-productivity">#ai-productivity</a><a href="./?q=%23claude">#claude</a><a href="./?q=%23powerpoint">#powerpoint</a><a href="./?q=%23skywalk">#skywalk</a><a href="./?q=%23llm-workflow">#llm-workflow</a></div>
+  <article>
+<h2>TL;DR</h2>
+<p>이 영상은 Claude를 이용해 고품질의 PPT를 빠르게 만드는 비법을 소개한다. Claude의 '게으름' 문제를 극복하기 위해 Skywalk 서비스를 활용해 잘 구조화된 초안 PPT를 만들고, 이를 다시 Claude에게 넘겨 최종본을 제작하게 한다. 더 나아가, 두 명의 Claude와 하나의 GPT Codex를 포함한 다중 AI 시스템을 구축하여 PPT의 내용 오류(환각 현상)를 교차 검증하고 수정하는 상세한 워크플로우를 제시한다.</p>
+<h2>풀시청 판단</h2>
+<p>이 영상은 Claude나 다른 거대 언어 모델(LLM)을 활용하여 PPT를 자주 만들거나, LLM 기반의 작업 효율을 극대화하려는 사람들에게 유용하다. 특히 Claude의 일관성 없는 산출물 품질 문제와 '환각' 현상으로 고심하는 사용자라면 이 영상에서 제시하는 다중 AI 워크플로우와 초안 제작 전략을 통해 구체적인 해결책을 얻을 수 있다.</p>
+<p>다만, Skywalk라는 특정 유료 서비스를 사용하여 초안 PPT를 생성하는 방법이 핵심이므로, 해당 서비스를 사용하지 않는 사람들에게는 직접적인 적용이 어려울 수 있다. 또한, 설명된 다중 AI 검증 시스템(두 개의 Claude 계정과 하나의 GPT Codex 계정)은 구축 및 운영에 추가 비용과 기술적 이해가 필요하며, 개인이 쉽게 따라 하기 어려운 측면이 있다. 영상은 AI 설정의 기본기를 이전 영상에서 다루었으므로, 해당 내용에 대한 자세한 설명은 부족하다.</p>
+<h2>핵심 내용</h2>
+<h3>Claude의 고질병: '게으름'으로 인한 낮은 PPT 제작 품질</h3>
+<p>Claude는 처음에는 작업물을 잘 만들어내는 것처럼 보이지만, 시간이 지나면서 비슷한 형식만 반복하고 표준화가 미흡해지는 '게으름'이라는 고질병을 가지고 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=b2X38Stf7L8&amp;t=9s">[0:09]</a>. 이는 특히 PPT 제작 과정에서 두드러져, 사용자가 원하는 품질의 결과물을 얻기 어렵게 만든다.</p>
+<h3>AI 산출물의 핵심은 '참조' — 잘 구성된 초안 PPT가 필수</h3>
+<p>AI 산출물의 품질은 얼마나 좋은 '참조' 자료를 제공하는지에 따라 결정된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=b2X38Stf7L8&amp;t=64s">[1:04]</a>. 좋은 PPT를 Claude로 만들려면, 잘 도식화되고 구조화되었으며 수치화된 '초안 PPT' 예시가 필요하다. 이렇게 잘 실행된 초안을 Claude에게 제공하면, Claude는 마무리 작업만 담당하여 가장 확실하고 오류 없는 최종 결과물을 만들 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=b2X38Stf7L8&amp;t=98s">[1:38]</a>.</p>
+<h3>Skywalk를 활용해 Claude가 참조할 고품질 초안 PPT 만들기</h3>
+<p>고품질 초안 PPT를 얻기 위해 노트폴리오 (Notefolio) 대신 Skywalk를 활용한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=b2X38Stf7L8&amp;t=109s">[1:49]</a>. 노트폴리오는 과거 AI PPT의 선두주자였지만, Gemini (제미나이)의 성능과 노트폴리오 자체 디자인의 자의성 때문에 Claude가 참조하기 어렵다는 문제가 있다. Skywalk에서는 두 가지 방법으로 고품질 초안을 얻을 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=b2X38Stf7L8&amp;t=150s">[2:30]</a>. 첫째, 노트폴리오를 사용하면서 Claude의 두뇌를 빌려 쓰는 방식이다. 둘째, Claude로 만들어 만족스러웠던 결과물에서 텍스트만 제거한 '템플릿'을 Skywalk에 제공하면, 해당 템플릿에 맞춰 내용을 채워준다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=b2X38Stf7L8&amp;t=167s">[2:47]</a>. 이 방식은 Claude가 이미 익숙한 형태로 결과물을 내놓으므로, Claude가 가장 잘 참조할 수 있는 자료가 된다.</p>
+<p><strong>실제 과정:</strong> Skywalk에 접속하여 '바나나 버튼'(노트폴리오 LM 사용)을 누른 후, Claude가 평소 생성하는 결과물에서 콘텐츠만 남긴 템플릿을 Skywalk에 던지고 &quot;이 템플릿에 내 콘텐츠를 채워달라&quot;고 요청한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=b2X38Stf7L8&amp;t=184s">[3:04]</a>. 이때 엔진은 Claude 4.8 또는 5를 선택한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=b2X38Stf7L8&amp;t=205s">[3:25]</a>.</p>
+<h3>생성된 초안을 '스킬'로 저장해 반복 작업 효율화</h3>
+<p>회사에서 사용하는 PPT의 형식은 크게 변하지 않으므로, Skywalk를 통해 생성된 초안 제작 과정을 '스킬'로 저장하여 반복 작업을 효율화할 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=b2X38Stf7L8&amp;t=218s">[3:38]</a>. 결과물이 나온 창에서 해당 과정을 스킬로 만들어두면, 이후에는 매번 템플릿을 업로드하는 번거로움 없이 저장된 스킬을 선택하여 바로 사용할 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=b2X38Stf7L8&amp;t=230s">[3:50]</a>.</p>
+<h3>Claude에게 최종 PPT 제작 지시 및 다중 AI 검증 시스템</h3>
+<p>Skywalk로 얻은 고품질 초안 PPT를 Claude에게 제공하고, &quot;게으름 피우지 않도록 Skywalk로 초안을 만들었으니, 이 원칙에 따라 PPT를 만들어달라&quot;고 지시한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=b2X38Stf7L8&amp;t=275s">[4:35]</a>.</p>
+<p><strong>환각 (Hallucination) 현상 검증:</strong> PPT 내용의 정확성을 확보하기 위해 화자 본인이 직접 오류를 검증하지 않고 AI에 맡긴다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=b2X38Stf7L8&amp;t=308s">[5:08]</a>.</p>
+<ol>
+<li><strong>1차 검증 (Yeti):</strong> 첫 번째 Claude 계정 'Mariko'가 PPT를 제작하면, 두 번째 Claude 계정 'Yeti'가 즉시 오류를 찾아낸다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=b2X38Stf7L8&amp;t=312s">[5:12]</a>. 예를 들어, 월 표기나 수치 오류 등을 지적한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=b2X38Stf7L8&amp;t=319s">[5:19]</a>.</li>
+<li><strong>2차 검증 (Tiwari):</strong> 마지막 검증자 역할은 GPT Codex 계정 'Tiwari'가 담당한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=b2X38Stf7L8&amp;t=333s">[5:33]</a>. Tiwari는 추가적인 오류나 개선점(예: 기준 연도 명시, 출처 표기)을 지적한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=b2X38Stf7L8&amp;t=343s">[5:43]</a>.</li>
+<li><strong>AI 간 합의:</strong> Mariko는 Tiwari의 지적에 대해 반박하거나 수용하면서, 모든 AI가 합의에 도달할 때까지 대화를 이어나간다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=b2X38Stf7L8&amp;t=357s">[5:57]</a>. AI는 단순히 오류를 찾는 것을 넘어, 부정확한 비판에 대해서도 반박한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=b2X38Stf7L8&amp;t=368s">[6:08]</a>. 이 합의 과정을 거쳐 최종 버전이 완성된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=b2X38Stf7L8&amp;t=375s">[6:15]</a>. 이 과정을 통해 색상, 글꼴, 배경, 엑셀과 연동되는 차트, 그리고 세 AI가 교차 검증한 고품질의 PPT가 완성된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=b2X38Stf7L8&amp;t=380s">[6:20]</a>. 화자는 이 모든 과정에서 초안 PPT를 만들고 Claude에게 제공하는 역할만 수행한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=b2X38Stf7L8&amp;t=501s">[8:21]</a>.</li>
+</ol>
+<h2>주요 통찰·논점</h2>
+<h3>AI는 '창작'보다 '참조'와 '가이드라인'에 강하다</h3>
+<p>AI의 진정한 능력은 무조건적인 창작을 요구하기보다, 명확한 참조 자료와 상세한 가이드라인 안에서 최적화될 때 극대화된다는 통찰을 제시한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=b2X38Stf7L8&amp;t=64s">[1:04]</a>. Claude의 '게으름' 문제를 해결하기 위해 잘 구조화된 초안 PPT를 제공하는 전략은 AI의 약점을 보완하고 강점을 활용하는 효과적인 접근 방식이다. 이는 AI를 단순한 도구가 아닌, 효율적인 공동 작업자로 활용하는 방법을 보여준다.</p>
+<h3>'멀티 AI 오케스트레이션'으로 AI의 약점 극복</h3>
+<p>하나의 AI가 가진 한계(예: Claude의 게으름, 환각 현상)를 개별적으로 해결하기보다, 여러 AI를 유기적으로 연결하여 서로의 약점을 보완하게 하는 '오케스트레이션' 접근법이 효율적임을 보여준다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=b2X38Stf7L8&amp;t=480s">[8:00]</a>. 초안 생성, 1차 오류 검증, 2차 최종 검증 및 반박에 이르는 다단계 시스템은 AI 산출물의 정확성과 품질을 혁신적으로 향상시킨다. 이는 미래의 AI 기반 워크플로우 설계에 중요한 방향성을 제시한다.</p>
+<h2>인상적인 지점</h2>
+<p>화자가 직접 PPT의 오류를 검토하고 수정하는 대신 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=b2X38Stf7L8&amp;t=308s">[5:08]</a>, 두 개의 Claude와 GPT Codex를 이용해 AI들이 서로 오류를 지적하고 반박하며 합의에 이르게 하는 과정이 인상 깊다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=b2X38Stf7L8&amp;t=368s">[6:08]</a>. 이 시스템은 AI가 단순한 도구를 넘어, 서로 대화하고 논쟁하며 최종 결과물의 완성도를 높이는 자율적인 작업 그룹으로 기능할 수 있음을 보여준다.</p>
+
+  </article>
+  <p class="post-end"><a href="https://www.youtube.com/watch?v=b2X38Stf7L8" target="_blank" rel="noopener">YouTube에서 원본 보기 ↗</a> · <a href="./">← 목록으로</a></p>
+</main>
+<footer class="site-foot">
+  <a href="/projects/yt-digest-overview">yt-digest</a> 파이프라인이 자막을 읽고 자동으로 작성한 브리핑입니다. 오류가 있을 수 있으니 중요한 내용은 원본 영상으로 확인하세요.
+</footer>
+</body>
+</html>

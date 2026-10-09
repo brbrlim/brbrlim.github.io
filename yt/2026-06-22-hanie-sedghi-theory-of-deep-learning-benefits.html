@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Benefits of understanding Theory of Deep Learning | Dr. Hanie Sedghi @Google Brain — 유튜브 다이제스트</title>
+<meta name="description" content="Google Brain의 선임 연구 과학자 Hanie Sedghi 박사는 딥러닝 이론 연구의 중요성을 강조한다. 딥러닝의 실질적인 성공에 비해 이론적 이해가 부족하며, 이 간극을 해소하는 것이 모델의 일반화 능력과 신뢰도를 높이고 새로운 응용 분야로 확장하는 데 필수라…">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="Benefits of understanding Theory of Deep Learning | Dr. Hanie Sedghi @Google Brain — 유튜브 다이제스트">
+<meta property="og:description" content="Google Brain의 선임 연구 과학자 Hanie Sedghi 박사는 딥러닝 이론 연구의 중요성을 강조한다. 딥러닝의 실질적인 성공에 비해 이론적 이해가 부족하며, 이 간극을 해소하는 것이 모델의 일반화 능력과 신뢰도를 높이고 새로운 응용 분야로 확장하는 데 필수라…">
+<meta property="og:image" content="https://i.ytimg.com/vi/hFJLuqaSakA/hqdefault.jpg">
+<meta property="og:type" content="article">
+<link rel="icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+<script>
+// Follow the blog's saved light/dark choice (same origin, same key).
+(function () {
+  var saved = null
+  try { saved = localStorage.getItem("theme") } catch (e) {}
+  var dark = saved ? saved === "dark" : matchMedia("(prefers-color-scheme: dark)").matches
+  document.documentElement.dataset.theme = dark ? "dark" : "light"
+})()
+</script>
+</head>
+<body class="post-page">
+<header class="site-bar">
+  <a class="site-name" href="/">Johnny's</a>
+  <a class="back" href="./">← 유튜브 다이제스트</a>
+</header>
+<main class="post">
+  <a class="hero" href="https://www.youtube.com/watch?v=hFJLuqaSakA" target="_blank" rel="noopener" aria-label="YouTube에서 보기">
+    <img src="https://i.ytimg.com/vi/hFJLuqaSakA/hqdefault.jpg" alt="">
+    <span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+  </a>
+  <h1>Benefits of understanding Theory of Deep Learning | Dr. Hanie Sedghi @Google Brain</h1>
+  <div class="post-meta"><span>Jay Shah</span><span>53:27</span><span>게시 2021-11-06</span></div>
+  <div class="tags"><a href="./?q=%23deep-learning">#deep-learning</a><a href="./?q=%23machine-learning-theory">#machine-learning-theory</a><a href="./?q=%23generalization">#generalization</a><a href="./?q=%23overparameterization">#overparameterization</a><a href="./?q=%23transfer-learning">#transfer-learning</a></div>
+  <article>
+<h2>TL;DR</h2>
+<p>Google Brain의 선임 연구 과학자 Hanie Sedghi 박사는 딥러닝 이론 연구의 중요성을 강조한다. 딥러닝의 실질적인 성공에 비해 이론적 이해가 부족하며, 이 간극을 해소하는 것이 모델의 일반화 능력과 신뢰도를 높이고 새로운 응용 분야로 확장하는 데 필수라고 주장한다. 특히 과잉 매개변수화의 이점, 대규모 사전 훈련 모델의 전이 학습 한계, 패턴 인식을 넘어선 추론 능력 구현의 필요성을 실제 연구 사례와 함께 설명한다.</p>
+<h2>풀시청 판단</h2>
+<p>이 영상은 딥러닝 분야의 이론과 실제 사이의 간극에 대해 고민하는 연구자, 대학원생, 그리고 딥러닝 모델의 동작 원리를 깊이 이해하고자 하는 실무자에게 특히 유용하다. Hanie Sedghi 박사가 Google Brain에서 수행한 실제 연구 사례를 바탕으로 과잉 매개변수화, 일반화, 전이 학습의 포화 현상 등 핵심적인 개념들을 명확하게 설명하며, 딥러닝 이론 연구가 실제 문제 해결에 어떻게 기여하는지 구체적인 예시를 들어 보여준다.</p>
+<p>특히, 대규모 사전 훈련 모델을 활용하는 전이 학습의 한계를 실증적으로 분석한 연구 결과 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=hFJLuqaSakA&amp;t=844s">[14:04]</a>는 무작정 스케일을 키우는 것만이 능사가 아님을 보여주며, 하류 작업의 성능 포화를 예측하는 수학적 모델의 유용성을 제시한다. 이는 실무자들이 컴퓨팅 자원과 시간을 효율적으로 배분하는 데 실질적인 도움을 줄 수 있는 통찰이다.</p>
+<p>또한, 연구 경력에 대한 솔직한 조언 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=hFJLuqaSakA&amp;t=2212s">[36:52]</a>과 정보 과부하 시대에 연구자로서 균형을 찾는 방법 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=hFJLuqaSakA&amp;t=2429s">[40:29]</a>, 좋은 논문을 위한 접근 방식 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=hFJLuqaSakA&amp;t=2584s">[43:04]</a> 등은 딥러닝 분야의 학생 및 초기 연구자들에게 큰 영감을 줄 것이다.</p>
+<p>단점으로는, 일부 전문적인 내용은 사전 지식이 없으면 이해하기 어려울 수 있다. 또한, 연구 내용의 상세한 기술적 메커니즘보다는 주요 결과와 시사점 위주로 다루므로, 각 연구의 세부적인 방법론을 깊이 파고들고 싶다면 관련 논문을 직접 찾아봐야 한다. 하지만, 딥러닝의 현재와 미래 방향, 그리고 연구자로서의 자세에 대한 폭넓은 시야를 제공한다는 점에서 풀시청할 가치가 충분하다.</p>
+<h2>핵심 내용</h2>
+<h3>이론과 실제의 간극 해소: 딥러닝 연구의 핵심 목표</h3>
+<p>Hanie Sedghi 박사는 지난 7년간 딥러닝의 이해와 개선을 위해 이론과 실제가 교차하는 지점에서 연구해왔다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=hFJLuqaSakA&amp;t=83s">[1:23]</a>. 딥러닝이 실질적으로 엄청난 성공을 거두었지만, 그 성공에 대한 우리의 이론적 이해는 여전히 뒤처져 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=hFJLuqaSakA&amp;t=103s">[1:43]</a>. 이러한 간극은 딥러닝의 현재 활용을 넘어서는 새로운 도메인으로의 안정적인 확장과 신뢰성 있는 응용을 가로막는 장애물로 작용한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=hFJLuqaSakA&amp;t=111s">[1:51]</a>. 이론적 이해를 통해 이 간극을 줄이는 것이 딥러닝의 잠재력을 최대한 발휘하는 열쇠라고 강조한다. Sedghi 박사는 특히 모델의 일반화(generalization) 능력, 그리고 최근에는 분포 외 일반화(Out-of-Distribution generalization, OOD)에 중점을 두고 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=hFJLuqaSakA&amp;t=146s">[2:26]</a>.</p>
+<h3>딥러닝 이론의 중요성: 과거의 비판과 현재의 변화</h3>
+<p>Sedghi 박사는 자신의 연구 초기 경험을 통해 딥러닝 이론 연구의 필요성을 설명한다. 2014년 NeurIPS 딥러닝 워크숍에 신경망 훈련을 위한 '증명 가능한(provable)' 방법론에 대한 논문을 제출했을 때, 한 심사위원으로부터 &quot;딥러닝에는 이론이 필요 없다. 공동체를 위해 이 논문을 거부하라&quot;는 피드백을 받았다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=hFJLuqaSakA&amp;t=241s">[4:01]</a>. 당시 주니어 연구자였던 박사에게는 큰 충격이었으나, 현재는 딥러닝 이론 트랙이 컨퍼런스에 생기고 이론과 실제의 간극이 줄어드는 등 많은 변화가 있었다고 말한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=hFJLuqaSakA&amp;t=274s">[4:34]</a>. 그녀는 이론이 단순히 수학적 증명만을 의미하는 것이 아니라, 현상에 대한 탐구를 포함하여 &quot;무엇이 일어나고 있는지 이해하려는 모든 노력&quot;을 의미한다고 정의한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=hFJLuqaSakA&amp;t=331s">[5:31]</a>. 기계가 작동하는 각 요소를 이해하고 부족한 부분을 파악하면 더 나은 개선 방안을 찾기 쉬워진다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=hFJLuqaSakA&amp;t=351s">[5:51]</a>.</p>
+<h3>과잉 매개변수화와 일반화: 이중 하강 현상의 이해</h3>
+<p>고전적인 기계 학습 이론에서는 모델의 용량이 너무 커지면 훈련 데이터에는 잘 맞추지만, 처음 보는 테스트 데이터에는 성능이 나빠지는 과적합(overfitting) 현상이 발생한다고 보았다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=hFJLuqaSakA&amp;t=586s">[9:46]</a>. 그러나 딥러닝에서는 '이중 하강(double descent)' 현상이 관찰된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=hFJLuqaSakA&amp;t=610s">[10:10]</a>. 모델 용량을 계속 늘려 훈련 데이터에 100% 정확하게 맞추는 보간 영역(interpolation regime)을 넘어선 후에도, 테스트 데이터의 성능이 다시 개선되는 현상이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=hFJLuqaSakA&amp;t=625s">[10:25]</a>. 이를 과잉 매개변수화(overparameterization) 영역이라고 부른다.</p>
+<p>과잉 매개변수화는 여러 이점을 제공한다. 첫째, 확률적 경사 하강법(SGD)과 같은 훈련 알고리즘이 암묵적인 정규화 효과를 내어 더 작은 노름(norm)을 가진 해를 찾도록 돕고, 이것이 더 나은 일반화로 이어진다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=hFJLuqaSakA&amp;t=725s">[12:05]</a>. 둘째, 모델의 손실 지형(loss landscape)이 더 부드러워져 최적화가 쉬워진다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=hFJLuqaSakA&amp;t=766s">[12:46]</a>. 셋째, 더 강건한(robust) 솔루션을 찾을 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=hFJLuqaSakA&amp;t=770s">[12:50]</a>. 그러나 단점으로는 더 긴 훈련 시간, 더 많은 메모리 사용, 그리고 추론 시간 증가를 들 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=hFJLuqaSakA&amp;t=775s">[12:55]</a>. 따라서 과잉 매개변수화 모델의 활용 여부는 개발 환경의 제약(예산)을 고려하여 신중하게 결정해야 한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=hFJLuqaSakA&amp;t=821s">[13:41]</a>.</p>
+<h3>대규모 사전 훈련 모델의 전이 학습 한계: 포화(Saturation) 현상</h3>
+<p>최근 CLIP과 같은 대규모 모델들이 방대한 데이터로 사전 훈련되어 다양한 하류(downstream) 작업에서 인상적인 성공을 거두면서, 모델 크기, 데이터 양, 연산량을 무작정 늘리면 하류 작업 성능도 계속 좋아질 것이라는 가설이 확산되었다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=hFJLuqaSakA&amp;t=926s">[15:26]</a>. 그러나 Sedghi 박사 팀의 최근 연구는 이러한 믿음에 의문을 제기한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=hFJLuqaSakA&amp;t=966s">[16:06]</a>.</p>
+<p>그들은 4,800개 이상의 실험 데이터를 분석하여 JFT, ImageNet-21K와 같은 대규모 상류(upstream) 데이터와 20개 이상의 다양한 하류 작업(ImageNet, 의료 영상, 야생 동물 데이터셋 등) 간의 관계를 조사했다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=hFJLuqaSakA&amp;t=985s">[16:25]</a>. 핵심 발견은 상류 작업의 성능을 아무리 개선하더라도 하류 작업의 성능은 특정 지점에서 '포화'된다는 것이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=hFJLuqaSakA&amp;t=1042s">[17:22]</a>. 상류 정확도가 100%에 도달해도 하류 성능은 그보다 훨씬 낮은 지점에서 멈춘다. 연구팀은 각 하류 작업의 포화점을 정확히 예측할 수 있는 수학적 모델을 개발했다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=hFJLuqaSakA&amp;t=1058s">[17:38]</a>. 이는 무작정 스케일을 키우는 것만으로는 모든 문제가 해결되지 않음을 시사하며, 상류 데이터의 다양성을 확보하는 것이 포화점을 높이는 데 중요함을 밝혔다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=hFJLuqaSakA&amp;t=1098s">[18:18]</a>.</p>
+<p>실무자를 위한 중요한 시사점은 다음과 같다. 첫째, 모델을 평가할 때 ImageNet이나 CIFAR-100과 같은 특정 벤치마크에만 의존해서는 안 된다. 다양한 하류 작업에서 포화 시점이 다르게 나타나므로, 폭넓은 데이터셋으로 평가해야 한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=hFJLuqaSakA&amp;t=1128s">[18:48]</a>. 둘째, 사전 훈련 모델의 하위 레이어는 일반적인 특징을 학습하지만, 상위 레이어는 상류 작업에 특화된 특징을 학습하므로 하류 작업에는 유용하지 않을 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=hFJLuqaSakA&amp;t=1174s">[19:34]</a>. 따라서 파인 튜닝 방식을 변경하거나, 상위 레이어를 버리고 새로운 헤드(head)를 훈련하는 방식을 고려해야 한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=hFJLuqaSakA&amp;t=1185s">[19:45]</a>. 이러한 수학적 모델을 활용하면 소수의 훈련 네트워크만으로도 하류 작업의 포화값을 예측하고, 불필요한 컴퓨팅 자원 낭비를 줄이며 예산에 맞춰 학습 전략을 결정할 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=hFJLuqaSakA&amp;t=1330s">[22:10]</a>.</p>
+<h3>전이 학습의 심층적 이해: 최적화 보조 및 계층별 활용</h3>
+<p>Sedghi 박사는 전이 학습의 본질적인 역할에 대해 설명한다. 사전 훈련은 손실 지형에서 모델을 '좋은 분지(basin)'에 놓아 파인 튜닝 시 최적화 과정을 돕는 역할을 한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=hFJLuqaSakA&amp;t=1591s">[26:31]</a>. 즉, 모델이 더 좋은 초기점에서 학습을 시작하게 함으로써 효율성을 높이는 것이다. 그러나 하류 데이터셋의 크기가 충분히 크다면 전이 학습의 효과는 점차 감소할 수 있다. 데이터가 방대하다면 굳이 사전 훈련이 필수는 아니다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=hFJLuqaSakA&amp;t=1611s">[26:51]</a>.</p>
+<p>하지만 데이터가 부족한 경우, 전이 학습은 모델이 가장자리나 질감과 같은 하위 수준 특징을 효과적으로 학습하는 데 크게 기여한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=hFJLuqaSakA&amp;t=1630s">[27:10]</a>. 상위 레이어는 사전 훈련된 작업에 특화되어 있기 때문에, 하류 작업에 맞춰 해당 레이어를 파인 튜닝하거나 새로운 헤드를 추가하여 훈련하는 것이 중요하다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=hFJLuqaSakA&amp;t=1646s">[27:26]</a>. 전이 학습의 가능성을 완전히 배제하기보다는, 파인 튜닝 방법론을 지속적으로 개선하고 다양한 데이터를 확보하려는 노력이 필요하다고 강조한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=hFJLuqaSakA&amp;t=1689s">[28:09]</a>.</p>
+<h3>딥러닝 이론의 미래: 패턴 인식을 넘어선 추론 능력</h3>
+<p>딥러닝 이론 연구의 궁극적인 목표 중 하나는 모델의 실패 모드를 파악하고, 이를 개선하며, 나아가 딥러닝의 활용 범위를 패턴 인식을 넘어 추론(reasoning) 영역으로 확장하는 것이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=hFJLuqaSakA&amp;t=1797s">[29:57]</a>. Sedghi 박사는 Google Brain 초기 시절의 경험을 예로 들어 이론 연구의 실제적 가치를 설명한다. 당시 ResNet 같은 대규모 CNN 모델을 정규화하려면 4차원 텐서에 SVD(특잇값 분해)를 적용해야 했는데, 이는 현실적으로 매우 어려운 문제였다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=hFJLuqaSakA&amp;t=1828s">[30:28]</a>.</p>
+<p>Sedghi 박사 팀은 CNN의 컨볼루션 함수 특성을 수학적으로 분석하여, 이 복잡한 정규화 문제를 단 두 줄의 파이썬 코드로 해결할 수 있는 방법을 개발했다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=hFJLuqaSakA&amp;t=1851s">[30:51]</a>. 이 방법은 구글 규모에서도 SVD와 정규화를 가능하게 하여, 이전에는 막혀있던 많은 후속 연구와 모델 개선을 가능하게 했다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=hFJLuqaSakA&amp;t=1867s">[31:07]</a>. 궁극적으로는 네트워크가 얼마나 추론하고 얼마나 기억하는지 탐색하고, 딥러닝 모델에 추론 능력을 부여하는 것이 흥미로운 연구 방향이라고 언급한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=hFJLuqaSakA&amp;t=1896s">[31:36]</a>.</p>
+<h2>주요 통찰·논점</h2>
+<h3>이론과 실제의 간극이 딥러닝 발전의 핵심 장애물이다</h3>
+<p>딥러닝은 실용적인 성공을 거듭했지만, 그 작동 원리에 대한 우리의 이해는 여전히 부족하다. 이러한 이론적 간극은 딥러닝 모델을 새로운 도메인에 안정적으로 적용하고, 예측 불가능한 실패 모드를 이해하며, 더욱 신뢰할 수 있는 시스템을 구축하는 데 걸림돌이 된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=hFJLuqaSakA&amp;t=111s">[1:51]</a>. Sedghi 박사는 이론 연구가 단순한 수학적 증명을 넘어, 모델의 동작 방식을 탐구하고 부족한 부분을 식별하여 실제 문제를 해결하는 데 필수적이라고 강조한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=hFJLuqaSakA&amp;t=331s">[5:31]</a>.</p>
+<h3>과잉 매개변수화는 일반화, 최적화, 강건성 개선에 기여하지만 비용이 따른다</h3>
+<p>모델의 용량을 과도하게 늘리는 과잉 매개변수화는 이중 하강 현상과 함께 더 나은 일반화 성능, 쉬운 최적화, 그리고 더 강건한 솔루션을 제공하는 것으로 밝혀졌다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=hFJLuqaSakA&amp;t=725s">[12:05]</a>. 이는 확률적 경사 하강법(SGD)의 암묵적 정규화 효과 덕분으로, 손실 지형이 더 부드러워지기 때문이기도 하다. 그러나 과잉 매개변수화는 훈련 시간, 메모리, 추론 시간 증가와 같은 실질적인 비용을 수반하므로, 프로젝트의 예산과 자원 제약을 고려하여 신중하게 적용해야 한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=hFJLuqaSakA&amp;t=821s">[13:41]</a>.</p>
+<h3>대규모 사전 훈련 모델의 스케일링은 하류 작업 성능을 무한히 향상시키지 않으며, 포화점에 도달한다</h3>
+<p>최근 연구는 대규모 사전 훈련 모델의 스케일(모델 크기, 데이터 양, 연산량)을 계속 키우는 것이 하류 작업 성능을 무한히 개선하지 않는다는 사실을 밝혔다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=hFJLuqaSakA&amp;t=1042s">[17:22]</a>. 상류 작업의 성능이 아무리 높아져도 하류 작업의 성능은 특정 지점에서 포화(saturation)된다. 이 포화점은 수학적 모델로 예측할 수 있으며, 상류 데이터의 다양성을 확보하는 것이 포화점을 높이는 중요한 방법이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=hFJLuqaSakA&amp;t=1098s">[18:18]</a>. 따라서 실무자들은 특정 벤치마크에만 의존하지 않고 다양한 하류 작업을 평가해야 하며, 사전 훈련 모델의 상위 레이어는 하류 작업에 맞춰 파인 튜닝하거나 교체하는 전략을 고려해야 한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=hFJLuqaSakA&amp;t=1128s">[18:48]</a>.</p>
+<h3>전이 학습은 하위 특징 학습에 유용하나, 상위 계층은 하류 작업에 맞춰 조정해야 한다</h3>
+<p>전이 학습은 모델을 손실 지형의 좋은 시작점에 놓아 최적화를 돕는 중요한 역할을 한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=hFJLuqaSakA&amp;t=1591s">[26:31]</a>. 특히 데이터가 부족한 시나리오에서 모델이 가장자리나 질감 같은 하위 수준 특징을 효과적으로 학습하는 데 큰 도움을 준다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=hFJLuqaSakA&amp;t=1630s">[27:10]</a>. 그러나 사전 훈련 모델의 상위 레이어는 상류 작업에 특화되어 있어 하류 작업에는 유용하지 않을 수 있으므로, 해당 레이어는 파인 튜닝하거나 새로운 헤드를 도입하여 하류 작업의 특성에 맞게 조정해야 한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=hFJLuqaSakA&amp;t=1646s">[27:26]</a>. 전이 학습을 완전히 버리기보다는, 그 장점을 최대한 활용하면서 파인 튜닝 방법론을 지속적으로 발전시켜야 한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=hFJLuqaSakA&amp;t=1689s">[28:09]</a>.</p>
+<h3>딥러닝의 다음 단계는 패턴 인식에서 인과 추론으로의 전환이다</h3>
+<p>딥러닝의 궁극적인 발전 방향은 단순한 패턴 인식을 넘어 인과 추론(causal reasoning) 능력과 같은 더 복잡한 기능을 모델에 부여하는 것이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=hFJLuqaSakA&amp;t=2122s">[35:22]</a>. 인과 추론 역시 일반화의 한 형태이며, 모델이 다양한 함수와 인과 관계를 포착하게 함으로써 딥러닝의 활용 범위를 확장할 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=hFJLuqaSakA&amp;t=2145s">[35:45]</a>. 이는 인간이 학습하는 방식과 유사하게, 데이터를 모델에 제시하는 순서(커리큘럼 학습)와 같은 요소들이 더 정교한 함수를 학습하고 패턴 인식을 넘어서는 능력을 개발하는 데 도움이 될 수 있음을 시사한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=hFJLuqaSakA&amp;t=2183s">[36:23]</a>.</p>
+<h2>인상적인 지점</h2>
+<ul>
+<li>
+<p><strong>&quot;딥러닝에는 이론이 필요 없다&quot;는 비판</strong>: 연구 경력 초기에 &quot;딥러닝에는 이론이 필요 없다. 공동체를 위해 이 논문을 거부하라&quot;는 혹독한 피드백을 받았던 일화는 딥러닝 이론 연구에 대한 과거의 회의적인 시각을 보여주며 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=hFJLuqaSakA&amp;t=266s">[4:26]</a>, 현재 딥러닝 이론 분야가 얼마나 발전했는지를 대비시킨다.</p>
+</li>
+<li>
+<p><strong>CNN 정규화 문제를 두 줄 코드로 해결한 사례</strong>: ResNet 같은 CNN 모델의 정규화를 위해 4차원 텐서에 SVD를 적용하는 복잡한 문제를 CNN 함수의 특성 분석을 통해 단 두 줄의 파이썬 코드로 단순화한 경험은 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=hFJLuqaSakA&amp;t=1851s">[30:51]</a> 이론적 통찰이 실제 대규모 시스템 문제 해결에 얼마나 큰 영향을 미칠 수 있는지 보여주는 인상적인 사례다.</p>
+</li>
+<li>
+<p><strong>정보 과부하 시대의 연구자 조언</strong>: 수많은 논문과 정보의 홍수 속에서 연구자들이 겪는 FOMO(Fear Of Missing Out) 현상에 대해 공감하며 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=hFJLuqaSakA&amp;t=2492s">[41:32]</a>, 우선순위를 정하고 모든 것을 알 필요는 없다는 점을 받아들이며 정신 건강을 돌보는 것이 중요하다고 강조한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=hFJLuqaSakA&amp;t=2503s">[41:43]</a>. 모르는 것을 괜찮다고 받아들이고, 다른 전문가들과 대화하며 배우는 태도를 권장한다.</p>
+</li>
+<li>
+<p><strong>'일상의 모습'이 중요한 이유</strong>: 딥러닝 분야에 진입하려는 사람들에게, &quot;빛나고 멋져 보이는 것&quot;의 실제 세부 사항을 파고들어 본인에게 맞는지 확인해야 한다고 조언한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=hFJLuqaSakA&amp;t=3095s">[51:35]</a>. 논문이나 소셜 미디어상의 화려함이 아닌, 실제로 매일 그 일을 할 때 흥미를 느낄 수 있는지를 경험을 통해 확인하는 것이 진로 결정에 가장 중요하다고 말한다.</p>
+</li>
+</ul>
+
+  </article>
+  <p class="post-end"><a href="https://www.youtube.com/watch?v=hFJLuqaSakA" target="_blank" rel="noopener">YouTube에서 원본 보기 ↗</a> · <a href="./">← 목록으로</a></p>
+</main>
+<footer class="site-foot">
+  <a href="/projects/yt-digest-overview">yt-digest</a> 파이프라인이 자막을 읽고 자동으로 작성한 브리핑입니다. 오류가 있을 수 있으니 중요한 내용은 원본 영상으로 확인하세요.
+</footer>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stanford CS25: V4 I Jason Wei &amp; Hyung Won Chung of OpenAI — 유튜브 다이제스트</title>
+<meta name="description" content="이 강의는 OpenAI의 Jason Wei와 Hyung Won Chung이 진행하며, 거대 언어 모델(LLM)의 작동 원리와 발전 방향에 대한 두 가지 핵심 관점을 제시한다. Jason Wei는 LLM이 다음 단어 예측이라는 단일 과제를 통해 광범위한 능력을 학습하고,…">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="Stanford CS25: V4 I Jason Wei &amp; Hyung Won Chung of OpenAI — 유튜브 다이제스트">
+<meta property="og:description" content="이 강의는 OpenAI의 Jason Wei와 Hyung Won Chung이 진행하며, 거대 언어 모델(LLM)의 작동 원리와 발전 방향에 대한 두 가지 핵심 관점을 제시한다. Jason Wei는 LLM이 다음 단어 예측이라는 단일 과제를 통해 광범위한 능력을 학습하고,…">
+<meta property="og:image" content="https://i.ytimg.com/vi/3gb-ZkVRemQ/hqdefault.jpg">
+<meta property="og:type" content="article">
+<link rel="icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+<script>
+// Follow the blog's saved light/dark choice (same origin, same key).
+(function () {
+  var saved = null
+  try { saved = localStorage.getItem("theme") } catch (e) {}
+  var dark = saved ? saved === "dark" : matchMedia("(prefers-color-scheme: dark)").matches
+  document.documentElement.dataset.theme = dark ? "dark" : "light"
+})()
+</script>
+</head>
+<body class="post-page">
+<header class="site-bar">
+  <a class="site-name" href="/">Johnny's</a>
+  <a class="back" href="./">← 유튜브 다이제스트</a>
+</header>
+<main class="post">
+  <a class="hero" href="https://www.youtube.com/watch?v=3gb-ZkVRemQ" target="_blank" rel="noopener" aria-label="YouTube에서 보기">
+    <img src="https://i.ytimg.com/vi/3gb-ZkVRemQ/hqdefault.jpg" alt="">
+    <span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+  </a>
+  <h1>Stanford CS25: V4 I Jason Wei &amp; Hyung Won Chung of OpenAI</h1>
+  <div class="post-meta"><span>Stanford Online</span><span>1:17:07</span><span>게시 2024-05-06</span></div>
+  <div class="tags"><a href="./?q=%23openai">#openai</a><a href="./?q=%23llm">#llm</a><a href="./?q=%23scaling-laws">#scaling-laws</a><a href="./?q=%23transformer">#transformer</a><a href="./?q=%23ai-research">#ai-research</a><a href="./?q=%23deep-learning">#deep-learning</a><a href="./?q=%23model-architecture">#model-architecture</a></div>
+  <article>
+<h2>TL;DR</h2>
+<p>이 강의는 OpenAI의 Jason Wei와 Hyung Won Chung이 진행하며, 거대 언어 모델(LLM)의 작동 원리와 발전 방향에 대한 두 가지 핵심 관점을 제시한다. Jason Wei는 LLM이 다음 단어 예측이라는 단일 과제를 통해 광범위한 능력을 학습하고, 연산량(compute) 증가가 모델 성능을 꾸준히 개선하지만 개별 능력은 예측 불가능하게 발현될 수 있다는 '스케일링 법칙'을 설명한다. Hyung Won Chung은 AI 연구의 역사를 통해 '씁쓸한 교훈(Bitter Lesson)'을 제시하며, 기하급수적으로 저렴해지는 연산량이라는 지배적인 원동력 아래, 모델에 대한 '구조(structure)'적 가정을 줄이고 '자유도(degree of freedom)'를 높이는 방향으로 변환기(Transformer) 아키텍처가 진화해 왔음을 분석한다.</p>
+<h2>풀시청 판단</h2>
+<p>이 강의는 거대 언어 모델(LLM)의 근본적인 작동 원리, 스케일링 법칙, 그리고 AI 연구의 장기적인 방향성에 대해 깊이 있는 통찰을 얻고자 하는 모든 사람에게 강력히 추천한다. 특히 다음과 같은 사람들에게 유용하다.</p>
+<ul>
+<li><strong>AI 연구자 및 개발자</strong>: 스케일링 곡선을 해석하는 방법, 모델 아키텍처 선택의 함의, 그리고 AI 연구의 '씁쓸한 교훈'과 같은 철학적 관점은 연구 방향 설정에 큰 도움이 될 것이다.</li>
+<li><strong>LLM에 대한 기본적인 이해가 있는 사람</strong>: 다음 단어 예측, 트랜스포머 아키텍처(인코더-디코더, 디코더 전용, 자기-어텐션 등) 등 기본 개념에 익숙하다면 강의 내용을 훨씬 효과적으로 흡수할 수 있다.</li>
+<li><strong>AI 기술의 미래를 예측하려는 사람</strong>: 연산량 증가라는 거시적 트렌드가 AI 발전을 어떻게 이끌어왔는지에 대한 Hyung Won Chung의 분석은 AI의 미래 궤적을 이해하는 데 중요한 틀을 제공한다.</li>
+</ul>
+<p>강의는 매우 밀도 높지만, 어려운 개념을 직관적인 비유와 구체적인 예시로 풀어내므로 비교적 쉽게 따라갈 수 있다. 다만, 특정 기술이나 모델에 대한 깊이 있는 기술적 설명보다는 거시적인 원리와 철학적 배경에 중점을 두므로, 최신 모델의 세부 구현 방식에 대한 정보를 찾는다면 이 강의는 다소 피상적일 수 있다.</p>
+<h2>핵심 내용</h2>
+<h3>다음 단어 예측은 문법부터 세계 지식까지 아우르는 대규모 다중 작업 학습이다</h3>
+<p>Jason Wei는 거대 언어 모델(LLM)이 놀랍도록 잘 작동하는 근본적인 이유를 설명하며, 그 핵심에는 '다음 단어 예측(next word prediction)'이라는 학습 방식이 있다고 말한다. LLM은 주어진 텍스트 다음에 올 단어를 예측하는 방식으로 훈련되는데, 이 과정에서 단순히 문법이나 어휘 의미론을 넘어 광범위한 능력을 습득한다는 것이다. 예를 들어, &quot;내 여가 시간에는 코딩하는 것을 좋아하지만, 바나나는 좋아하지 않는다&quot;와 같은 문장을 통해 모델은 '코드'의 확률이 '바나나'보다 높다는 문법적 규칙을 학습한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=3gb-ZkVRemQ&amp;t=312s">[5:12]</a>.</p>
+<p>또한, &quot;아제르바이잔의 수도는 바쿠이다&quot;와 같은 문장에서 '바쿠'를 예측하며 세계 지식을 배우고 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=3gb-ZkVRemQ&amp;t=343s">[5:43]</a>, &quot;그 영화는 매우 좋았다&quot;와 같은 문맥에서 '좋다'를 예측하며 감성 분석 능력을 습득한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=3gb-ZkVRemQ&amp;t=353s">[5:53]</a>. 심지어 &quot;Iroh는 차를 만들러 부엌으로 갔다. Iroh 옆에 서서 Zuko는 자신의 운명을 생각했다. Zuko는 X를 떠났다&quot;라는 문맥에서 '부엌'을 예측하며 공간 추론을 배우기도 한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=3gb-ZkVRemQ&amp;t=385s">[6:25]</a>. 화자는 &quot;바이든은 닐리아와 결혼했다&quot;는 위키피디아 문장의 다음 단어를 예측하는 과정이 '헌터'라는 세계 지식, ','라는 쉼표 예측, 'a'라는 문법, '학생'이라는 임의의 정보 등 수많은 미묘하고 임의적인 하위 작업들을 포함함을 보여주며 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=3gb-ZkVRemQ&amp;t=441s">[7:21]</a>, 다음 단어 예측이라는 단일 작업이 사실상 '대규모 다중 작업 학습(massively multi-task learning)'임을 강조한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=3gb-ZkVRemQ&amp;t=269s">[4:29]</a>.</p>
+<h3>연산량 스케일링은 모델 손실을 꾸준히 개선한다</h3>
+<p>두 번째 직관은 모델의 크기(매개변수 수)와 학습 데이터 규모를 늘려 연산량(compute)을 증가시키면, 모델의 손실(loss)이 예측 가능하게 꾸준히 감소한다는 스케일링 법칙(scaling laws)이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=3gb-ZkVRemQ&amp;t=555s">[9:15]</a>. Kaplan et al.의 2020년 논문은 연산량 x축이 7단계의 로그 스케일임에도 불구하고 손실이 포화되지 않고 일관된 추세로 감소함을 보여주며, 이는 연산량을 더 늘리면 성능이 계속 향상될 것이라는 강력한 증거가 된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=3gb-ZkVRemQ&amp;t=636s">[10:36]</a>.</p>
+<p>연산량 스케일업이 손실을 개선하는 두 가지 주요 이유를 제시한다. 첫째, <strong>사실 기억 능력</strong>이 향상된다는 점이다. 작은 모델은 제한된 매개변수로 인해 어떤 사실을 기억할지 선택해야 하지만, 거대 모델은 훨씬 더 많은 '비주류 지식(tail knowledge)'까지 기억할 수 있어 전체적인 정확도가 높아진다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=3gb-ZkVRemQ&amp;t=732s">[12:12]</a>. 둘째, 모델이 <strong>더 복잡한 경험칙</strong>을 학습할 수 있게 된다. 작은 모델은 문법과 같은 1차 경험칙(first order heuristics)을 학습하는 데 집중하지만 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=3gb-ZkVRemQ&amp;t=745s">[12:25]</a>, 거대 모델은 더 많은 매개변수를 사용하여 복잡한 추론이나 수학 문제 풀이와 같은 정교한 작업을 수행하는 능력을 갖추게 된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=3gb-ZkVRemQ&amp;t=766s">[12:46]</a>.</p>
+<h3>스케일링에 따른 개별 능력은 점진적, 급격한 능력 출현, 역스케일링 등 다양한 양상을 보인다</h3>
+<p>전체 손실은 연산량 증가에 따라 꾸준히 개선되지만, 개별 작업의 성능은 훨씬 다양한 양상으로 변화한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=3gb-ZkVRemQ&amp;t=806s">[13:26]</a>. 전체 손실을 문법, 감성 분석, 세계 지식, 수학 등 개별 작업 손실의 가중 합으로 볼 때, 이미 성능이 포화된 작업(예: 문법)은 더 이상 개선되지 않지만, 수학과 같은 어려운 작업은 특정 시점에서 갑자기 성능이 급증할 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=3gb-ZkVRemQ&amp;t=925s">[15:25]</a>.</p>
+<p>화자는 202개의 Big Bench 작업을 분석한 결과, 스케일링에 따른 개별 작업의 성능 변화가 다음과 같이 나타났다고 설명한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=3gb-ZkVRemQ&amp;t=1009s">[16:49]</a>.</p>
+<ul>
+<li><strong>점진적(smooth) 개선 (29%)</strong>: 연산량 증가에 따라 정확도가 꾸준히 향상되는 경우 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=3gb-ZkVRemQ&amp;t=1025s">[17:05]</a>.</li>
+<li><strong>정체(flat) (22%)</strong>: 연산량 증가에도 불구하고 성능이 0에 머무는 경우 (과제가 너무 어려움) <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=3gb-ZkVRemQ&amp;t=1050s">[17:30]</a>.</li>
+<li><strong>역스케일링(inverse scaling) (2%)</strong>: 연산량 증가 시 오히려 성능이 악화되는 경우 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=3gb-ZkVRemQ&amp;t=1062s">[17:42]</a>.</li>
+<li><strong>상관관계 없음 (13%)</strong>.</li>
+<li><strong>출현 능력(emergent abilities) (33%)</strong>: 작은 모델에서는 성능이 0이었다가, 특정 연산량 이상에서 갑자기 높은 정확도를 보이는 현상 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=3gb-ZkVRemQ&amp;t=1096s">[18:16]</a>. 이는 작은 모델만으로는 예측 불가능했던 능력이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=3gb-ZkVRemQ&amp;t=1151s">[19:11]</a>.</li>
+</ul>
+<p>화자는 &quot;Repeat after me. All that glisters is not glib, all that glisters is not--&quot;이라는 까다로운 프롬프트를 예시로 역스케일링 현상을 설명한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=3gb-ZkVRemQ&amp;t=1192s">[19:52]</a>.</p>
+<ul>
+<li><strong>초소형 모델</strong>: 반복, 인용구 수정, 명령어 따르기 능력 모두 부족 -&gt; 'glib'을 정확히 반복한다.</li>
+<li><strong>소형 모델</strong>: 반복 가능, 인용구 수정(gold로 변경) 가능, 명령어 따르기 불가능 -&gt; 명령어(&quot;Repeat after me&quot;)를 무시하고 인용구를 수정하여 'gold'를 출력한다 (오답) <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=3gb-ZkVRemQ&amp;t=1410s">[23:30]</a>.</li>
+<li><strong>대형 모델</strong>: 반복, 인용구 수정, 명령어 따르기 능력 모두 우수 -&gt; 명령어를 정확히 따라 'glib'을 출력한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=3gb-ZkVRemQ&amp;t=1422s">[23:42]</a>.
+이처럼 개별 하위 작업의 성능 곡선을 분석하면 복잡한 스케일링 양상을 이해할 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=3gb-ZkVRemQ&amp;t=1432s">[23:52]</a>.</li>
+</ul>
+<h3>AI 연구의 지배적인 원동력: 기하급수적으로 저렴해지는 연산량과 '씁쓸한 교훈'</h3>
+<p>Hyung Won Chung은 AI 분야의 급격한 변화 속에서 '변화 자체를 연구'해야 한다고 강조한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=3gb-ZkVRemQ&amp;t=1991s">[33:11]</a>. 이를 통해 과거를 이해하고 미래를 예측할 수 있다는 것이다. 그는 AI 연구를 이끄는 '지배적인 원동력(dominant driving force)'으로 '기하급수적으로 저렴해지는 연산량(exponentially cheaper compute)'을 지목한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=3gb-ZkVRemQ&amp;t=2341s">[39:01]</a>. Rich Sutton의 그래프를 인용하며, 지난 100년간 100달러당 얻을 수 있는 연산 능력이 기하급수적으로 증가해왔으며, 이는 무어의 법칙(Moore's law)보다 더 강하고 오래 지속되는 추세라고 설명한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=3gb-ZkVRemQ&amp;t=2321s">[38:41]</a>.</p>
+<p>이러한 연산량의 지배력은 AI 연구자들에게 중요한 '씁쓸한 교훈(Bitter Lesson)'을 남겼다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=3gb-ZkVRemQ&amp;t=2437s">[40:37]</a>. 지난 70년간 AI 연구는 인간이 '우리가 어떻게 생각하는지'를 기계에 가르치려 했지만, 이는 단기적인 지름길일 뿐 장기적인 스케일업을 저해하는 병목이 되었다는 것이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=3gb-ZkVRemQ&amp;t=2403s">[40:03]</a>. 대신, AI 발전의 진정한 비결은 점진적으로 <strong>더 일반적이고 가정(귀납 편향, inductive biases)이 약한 방법</strong>을 개발하고, 여기에 <strong>더 많은 데이터와 연산량을 투입하여 스케일 업</strong>하는 것이었다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=3gb-ZkVRemQ&amp;t=2451s">[40:51]</a>.</p>
+<p>그는 두 가지 방법론을 비교한다. 하나는 더 많은 구조와 가정을 지닌 방법이고, 다른 하나는 덜 구조화된 방법이다. 저연산량 환경에서는 구조화된 방법이 초기에 더 나은 성능을 보이지만 곧 한계에 부딪혀 정체된다. 반면, 덜 구조화된 방법은 초기에 성능이 좋지 않지만, 연산량이 충분히 확보되면 계속해서 성능이 향상되는 '더 스케일러블한(scalable)' 특징을 보인다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=3gb-ZkVRemQ&amp;t=2526s">[42:06]</a>. 따라서 &quot;장기적으로 더 좋은 것이 거의 필연적으로 지금은 더 나빠 보인다&quot;는 역설적 진리를 이해해야 한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=3gb-ZkVRemQ&amp;t=2651s">[44:11]</a>.</p>
+<h3>변환기 아키텍처의 진화: 인코더-디코더에서 디코더 전용으로 '구조'를 제거하다</h3>
+<p>Hyung Won Chung은 변환기(Transformer) 아키텍처의 역사를 분석하며, '씁쓸한 교훈'이 어떻게 적용되었는지 보여준다. 그는 세 가지 주요 변환기 아키텍처를 비교한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=3gb-ZkVRemQ&amp;t=2748s">[45:48]</a>.</p>
+<ol>
+<li><strong>인코더-디코더(Encoder-Decoder)</strong>: 초기 변환기 모델. '입력' 시퀀스를 인코더가 처리하고, '대상' 시퀀스를 디코더가 생성하는 구조. 인코더의 모든 토큰이 양방향으로 서로 어텐션하고, 디코더는 인과적 자기-어텐션과 함께 인코더의 최종 계층 출력에 '교차-어텐션'한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=3gb-ZkVRemQ&amp;t=2946s">[49:06]</a>.</li>
+<li><strong>인코더 전용(Encoder-Only)</strong>: BERT 모델로 대중화. 입력 시퀀스를 단일 벡터로 인코딩하여 감성 분석과 같은 분류 작업에 주로 사용한다. 생성 능력을 포기하고 언어 이해에만 집중하여 단기적인 성능 향상을 가져왔지만, 장기적인 스케일업에는 부적합하다고 평가한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=3gb-ZkVRemQ&amp;t=3088s">[51:28]</a>.</li>
+<li><strong>디코더 전용(Decoder-Only)</strong>: GPT-3와 같은 현대 거대 언어 모델의 기반. 가장 적은 구조를 가진다. 입력과 대상을 하나의 시퀀스로 연결하고 전체에 대해 인과적 자기-어텐션을 적용하여, 인코더와 디코더의 역할을 하나의 스택으로 통합하고 매개변수를 공유한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=3gb-ZkVRemQ&amp;t=3161s">[52:41]</a>.</li>
+</ol>
+<p>화자는 인코더-디코더 아키텍처가 디코더 전용 아키텍처에 비해 가지고 있는 '추가적인 구조(additional structures)'를 네 가지 관점에서 비교하며, 이 구조들이 현재 시점에서는 불필요하거나 심지어 방해가 될 수 있음을 지적한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=3gb-ZkVRemQ&amp;t=3444s">[57:24]</a>.</p>
+<ul>
+<li><strong>별도의 매개변수 사용</strong>: 인코더와 디코더가 다른 매개변수를 사용하는 것은 과거 기계 번역처럼 입력과 대상 언어가 완전히 다를 때 유용했지만 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=3gb-ZkVRemQ&amp;t=3510s">[58:30]</a>. 그러나 다중 대화(multi-turn conversation)에서 이전 대상이 다음 입력이 되는 경우, 매개변수 공유가 더욱 효율적이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=3gb-ZkVRemQ&amp;t=3719s">[1:01:59]</a>.</li>
+<li><strong>교차-어텐션 메커니즘</strong>: 디코더의 모든 계층이 인코더의 '최종' 계층 출력에만 어텐션하는 인코더-디코더의 방식은 정보 병목(information bottleneck)을 초래할 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=3gb-ZkVRemQ&amp;t=3731s">[1:02:11]</a>. 심층 신경망에서 하위 계층과 상위 계층이 인코딩하는 정보의 수준이 다르기 때문이다. 모델 계층 수가 10배, 1000배로 늘어날 경우 이러한 구조적 가정은 문제가 될 수 있다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=3gb-ZkVRemQ&amp;t=3790s">[1:03:10]</a>.</li>
+<li><strong>양방향 입력 어텐션</strong>: BERT 시절 질문 답변과 같은 작업에서 양방향 어텐션이 큰 성능 향상을 가져왔지만 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=3gb-ZkVRemQ&amp;t=3831s">[1:03:51]</a>, 스케일이 커지면서 그 이점이 줄어들었으며 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=3gb-ZkVRemQ&amp;t=3844s">[1:04:04]</a>, 다중 대화 애플리케이션에서는 다음 토큰을 캐싱하여 재연산을 피할 수 있는 단방향 어텐션(uni-directional attention)이 공학적으로 훨씬 효율적이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=3gb-ZkVRemQ&amp;t=3923s">[1:05:23]</a>.
+결론적으로, 이 모든 추가 구조는 과거 특정 작업이나 연산 제약 하에서 유용했으나, 기하급수적으로 증가하는 연산량 시대에는 오히려 '씁쓸한 교훈'이 되어 모델의 자유도를 제한하고 스케일업을 방해한다고 주장한다.</li>
+</ul>
+<h2>주요 통찰·논점</h2>
+<h3>AI 발전의 핵심 동력: 연산량 증가와 구조 제거</h3>
+<p>AI 연구의 가장 강력하고 장기적인 원동력은 '기하급수적으로 저렴해지는 연산량'이다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=3gb-ZkVRemQ&amp;t=2321s">[38:41]</a>. 이러한 연산량의 증가는 과거 AI 모델들이 지녔던 복잡하고 인간 중심적인 '구조(structure)' 또는 '귀납 편향(inductive biases)'을 점진적으로 제거하고, 모델에 더 많은 '자유도(degree of freedom)'를 부여하는 방향으로 AI를 이끌어 왔다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=3gb-ZkVRemQ&amp;t=2479s">[41:19]</a>. 인코더-디코더 변환기에서 디코더 전용 변환기로의 진화는 이러한 '구조 제거'의 대표적인 예시이며, 이는 모델이 광범위한 데이터를 통해 스스로 학습할 수 있도록 함으로써 스케일업의 가능성을 극대화한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=3gb-ZkVRemQ&amp;t=2768s">[46:08]</a>.</p>
+<h3>스케일링의 다면적 특성: 점진적 개선과 예기치 못한 능력 발현</h3>
+<p>거대 언어 모델의 성능(손실)은 연산량 증가에 따라 꾸준히 개선되지만 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=3gb-ZkVRemQ&amp;t=566s">[9:26]</a>, 개별 능력의 발현은 예측하기 어렵다. 일부 능력은 연산량에 비례하여 점진적으로 개선되지만, 어떤 능력은 특정 규모에 도달해야만 갑자기 '출현(emergent abilities)'하며 극적으로 향상된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=3gb-ZkVRemQ&amp;t=1096s">[18:16]</a>. 심지어 연산량 증가가 오히려 성능을 악화시키는 '역스케일링(inverse scaling)' 현상도 존재한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=3gb-ZkVRemQ&amp;t=1062s">[17:42]</a>. 이처럼 복잡한 양상을 이해하려면 전체 손실뿐 아니라 개별 하위 작업의 스케일링 곡선을 세밀하게 분석해야 한다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=3gb-ZkVRemQ&amp;t=1432s">[23:52]</a>.</p>
+<h3>AI 연구의 '씁쓸한 교훈'과 미래 지향적 접근</h3>
+<p>AI 연구의 역사는 '씁쓸한 교훈(Bitter Lesson)'으로 요약된다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=3gb-ZkVRemQ&amp;t=2437s">[40:37]</a>. 이는 인간이 생각하는 방식을 모방하여 모델에 복잡한 구조를 부여하려던 시도들이 장기적인 스케일업을 저해하는 병목이 되었다는 깨달음이다. 대신, '더 일반적이고 가정(귀납 편향)이 약한 방법'을 채택하고 '연산량을 투입하여 스케일 업'하는 것이 AI 발전의 진정한 원동력이었다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=3gb-ZkVRemQ&amp;t=2451s">[40:51]</a>. 이 교훈은 현재 AI 연구자들에게도 유효하며, 새로운 방법론을 평가할 때 단기적인 성능보다 장기적인 스케일러빌리티와 일반성을 우선시해야 함을 시사한다. 현재의 아키텍처나 학습 목표에 내재된 가정들을 끊임없이 재검토하고, 더 많은 자유도를 부여하는 방향으로 나아가는 것이 미래 AI 연구의 핵심 과제다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=3gb-ZkVRemQ&amp;t=4345s">[1:12:25]</a>.</p>
+<h2>인상적인 지점</h2>
+<ul>
+<li>Jason Wei가 폐암 분류기 개발 초기에 스스로 병리학자가 되어 데이터를 '수동으로 검사'했던 일화는 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=3gb-ZkVRemQ&amp;t=91s">[1:31]</a>, AI 연구에서 데이터의 본질을 깊이 이해하는 것이 얼마나 중요한지 직관적으로 보여준다. 이는 모델이 배우는 것이 무엇인지 파악하는 데 필수적인 과정임을 강조한다.</li>
+<li>&quot;장기적으로 더 좋은 것이 거의 필연적으로 지금은 더 나빠 보인다(what is better in the long-term almost necessarily looks worse now).&quot;는 Hyung Won Chung의 주장은 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=3gb-ZkVRemQ&amp;t=2651s">[44:11]</a>, AI 분야에서 단기적인 성과에 매몰되지 않고 더 근본적이고 일반적인 접근 방식을 추구해야 한다는 '씁쓸한 교훈'의 핵심을 관통하는 통찰이다. 모델에 더 많은 자유도를 주어 초기에 혼란스럽더라도, 궁극적으로 더 큰 잠재력을 발휘한다는 메시지는 AI 연구의 방향성을 설정하는 데 중요한 시사점을 제공한다.</li>
+<li>Hyung Won Chung이 현대 거대 언어 모델의 주요 병목으로 '최대 우도 추정(maximum likelihood estimation)'과 같은 '학습 목표(learning objective)'를 지적하며, &quot;이것이 유일한 정답&quot;이라는 가정이 '시(poem) 쓰기'와 같은 개방형 작업에서 큰 한계를 가질 수 있다고 설명하는 부분은 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=3gb-ZkVRemQ&amp;t=4391s">[1:13:11]</a>, 현재 AI 연구의 근본적인 도전을 명확히 보여준다. 인간 피드백 기반 강화 학습(RLHF)이 이러한 한계를 극복하기 위한 '덜 구조화된' 대안이라는 주장도 흥미롭다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=3gb-ZkVRemQ&amp;t=4445s">[1:14:05]</a>.</li>
+<li>무어의 법칙이 끝나가는 것이 아니냐는 질문에 대해, 트랜지스터 수뿐 아니라 GPU 같은 새로운 아키텍처와 저정밀도 연산 등으로 '연산 능력의 가용성'은 계속 증가할 것이며, 궁극적으로 &quot;기계가 칩 설계를 우리보다 더 잘 생각하게 될 것&quot;이라는 그의 답변은 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=3gb-ZkVRemQ&amp;t=4599s">[1:16:39]</a>, 기술 발전의 끝없는 궤적과 인공지능이 가져올 변화에 대한 대담한 비전을 제시한다.</li>
+</ul>
+
+  </article>
+  <p class="post-end"><a href="https://www.youtube.com/watch?v=3gb-ZkVRemQ" target="_blank" rel="noopener">YouTube에서 원본 보기 ↗</a> · <a href="./">← 목록으로</a></p>
+</main>
+<footer class="site-foot">
+  <a href="/projects/yt-digest-overview">yt-digest</a> 파이프라인이 자막을 읽고 자동으로 작성한 브리핑입니다. 오류가 있을 수 있으니 중요한 내용은 원본 영상으로 확인하세요.
+</footer>
+</body>
+</html>
