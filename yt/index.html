@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>유튜브 다이제스트 — Johnny's</title>
+<title>Johnny's YouTube</title>
 <meta name="description" content="yt-digest 파이프라인이 자막을 읽고 브리핑한 영상들.">
 <meta name="robots" content="noindex">
-<meta property="og:title" content="유튜브 다이제스트 — Johnny's">
+<meta property="og:title" content="Johnny's YouTube">
 <meta property="og:description" content="yt-digest 파이프라인이 자막을 읽고 브리핑한 영상들.">
 
 <link rel="icon" href="/favicon.ico">
@@ -26,16 +26,18 @@
 </head>
 <body class="feed-page">
 <header class="site-bar">
-  <a class="site-name" href="/">Johnny's</a>
-  <a class="back" href="/">← 블로그</a>
+  <a class="site-name" href="./">Johnny's YouTube</a>
+  <nav><a href="./">피드</a><a href="briefings.html">브리핑 · 통계</a><a href="/">블로그</a></nav>
 </header>
 <main class="feed">
-  <h1>유튜브 다이제스트</h1>
   <p class="lede">저장해 둔 영상을 <a href="/projects/yt-digest-overview">yt-digest</a>가 자막으로 읽고 브리핑한 기록. 썸네일을 누르면 전체 브리핑이 열립니다.</p>
-  <p class="stamp"><span id="count">3,953</span>편 · 최근 갱신 2026-10-10 07:38</p>
+  <p class="stamp">2,559편 · 최근 갱신 2026-10-10 07:38</p>
+  <div class="views" id="views"></div>
   <input id="q" type="search" placeholder="제목 · 채널 · #태그 검색" autocomplete="off" aria-label="검색">
-  <div class="chips" id="chips"></div>
-  <div class="grid" id="grid"></div>
+  <div class="chip-row"><span>주제</span><div class="chips" id="topics"></div></div>
+  <div class="chip-row"><span>채널</span><div class="chips" id="channels"></div></div>
+  <div class="chip-row"><span>태그</span><div class="chips" id="tags"></div></div>
+  <div id="out"></div>
   <p class="status" id="status"></p>
   <div id="sentinel"></div>
   <noscript><p class="status">목록을 보려면 자바스크립트가 필요합니다.</p></noscript>
@@ -43,7 +45,7 @@
 <footer class="site-foot">
   <a href="/projects/yt-digest-overview">yt-digest</a> 파이프라인이 자막을 읽고 자동으로 작성한 브리핑입니다. 오류가 있을 수 있으니 중요한 내용은 원본 영상으로 확인하세요.
 </footer>
-<script>window.YT_FEED = {"total":3953,"chunks":10,"perChunk":400,"updated":"2026-10-10 07:38","tags":["ai","entrepreneurship","fitness","startup","leadership","bodybuilding","future-of-work","business","personal-growth","real-estate","parenting","investment","politics","korea"]}</script>
+<script>window.YT_FEED = {"total":2559,"chunks":7,"perChunk":400,"updated":"2026-10-10 07:38","favorites":264,"topics":[{"k":"ai","label":"AI · 테크","n":587},{"k":"business","label":"비즈니스 · 스타트업","n":315},{"k":"money","label":"투자 · 경제 · 부동산","n":292},{"k":"career","label":"커리어 · 자기계발","n":324},{"k":"health","label":"건강 · 운동","n":253},{"k":"society","label":"정치 · 사회 · 시사","n":257},{"k":"ideas","label":"인문 · 과학 · 교양","n":201},{"k":"life","label":"라이프 · 엔터","n":329},{"k":"etc","label":"미분류","n":1}],"channels":[{"c":"Lenny's Podcast","n":55},{"c":"Stanford Online","n":46},{"c":"EBS Documentary","n":37},{"c":"BZCF | 비즈까페","n":37},{"c":"All-In Podcast","n":36},{"c":"Stanford Graduate School of Business","n":33},{"c":"삼프로TV 3PROTV","n":31},{"c":"Y Combinator","n":28},{"c":"EO Korea","n":25},{"c":"침착맨","n":24},{"c":"Andrew Huberman","n":23},{"c":"Understanding : All the Knowledge in the World","n":22},{"c":"미키피디아","n":19},{"c":"지식인사이드","n":18}],"tags":["ai","entrepreneurship","leadership","startup","fitness","investment","business","education","personal-growth","politics","venture-capital","bodybuilding","career","productivity"]}</script>
 <script src="feed.js"></script>
 </body>
 </html>

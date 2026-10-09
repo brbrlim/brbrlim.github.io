@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>NVIDIA Cosmos-Predict 2.5 월드 모델 논문 리뷰 (서울대 DSBA) — 유튜브 다이제스트</title>
+<title>NVIDIA Cosmos-Predict 2.5 월드 모델 논문 리뷰 (서울대 DSBA) — Johnny's YouTube</title>
 <meta name="description" content="서울대 산업공학과 DSBA 연구실 석사과정 김환결이 엔비디아의 월드 파운데이션 모델 Cosmos-Predict 2.5를 리뷰한 논문 발표다. 핵심 주장은 이 모델이 피지컬 AI(로봇)를 위해 &quot;행동의 결과를 미리 상상하는&quot; 월드 모델을 표방하지만, 실제로는 본질적으로…">
 <meta name="robots" content="noindex">
-<meta property="og:title" content="NVIDIA Cosmos-Predict 2.5 월드 모델 논문 리뷰 (서울대 DSBA) — 유튜브 다이제스트">
+<meta property="og:title" content="NVIDIA Cosmos-Predict 2.5 월드 모델 논문 리뷰 (서울대 DSBA) — Johnny's YouTube">
 <meta property="og:description" content="서울대 산업공학과 DSBA 연구실 석사과정 김환결이 엔비디아의 월드 파운데이션 모델 Cosmos-Predict 2.5를 리뷰한 논문 발표다. 핵심 주장은 이 모델이 피지컬 AI(로봇)를 위해 &quot;행동의 결과를 미리 상상하는&quot; 월드 모델을 표방하지만, 실제로는 본질적으로…">
 <meta property="og:image" content="https://i.ytimg.com/vi/Pp8U6niGGiQ/hqdefault.jpg">
 <meta property="og:type" content="article">
@@ -27,8 +27,8 @@
 </head>
 <body class="post-page">
 <header class="site-bar">
-  <a class="site-name" href="/">Johnny's</a>
-  <a class="back" href="./">← 유튜브 다이제스트</a>
+  <a class="site-name" href="./">Johnny's YouTube</a>
+  <nav><a href="./">피드</a><a href="briefings.html">브리핑 · 통계</a><a href="/">블로그</a></nav>
 </header>
 <main class="post">
   <a class="hero" href="https://www.youtube.com/watch?v=Pp8U6niGGiQ" target="_blank" rel="noopener" aria-label="YouTube에서 보기">
@@ -36,8 +36,8 @@
     <span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
   </a>
   <h1>NVIDIA Cosmos-Predict 2.5 월드 모델 논문 리뷰 (서울대 DSBA)</h1>
-  <div class="post-meta"><span>서울대학교 산업공학과 DSBA 연구실</span><span>23:27</span><span>게시 2026-06-15</span></div>
-  <div class="tags"><a href="./?q=%23ai">#ai</a><a href="./?q=%23world-model">#world-model</a><a href="./?q=%23nvidia">#nvidia</a><a href="./?q=%23cosmos">#cosmos</a><a href="./?q=%23physical-ai">#physical-ai</a><a href="./?q=%23diffusion">#diffusion</a><a href="./?q=%23paper-review">#paper-review</a></div>
+  <div class="post-meta"><a href="./?q=%40%EC%84%9C%EC%9A%B8%EB%8C%80%ED%95%99%EA%B5%90%20%EC%82%B0%EC%97%85%EA%B3%B5%ED%95%99%EA%B3%BC%20DSBA%20%EC%97%B0%EA%B5%AC%EC%8B%A4">서울대학교 산업공학과 DSBA 연구실</a><span>23:27</span><span>게시 2026-06-15</span><a href="daily-2026-06-20.html">브리핑 2026-06-20</a></div>
+  <div class="tags"><a class="topic" href="./?q=topic%3Aai">AI · 테크</a><a href="./?q=%23ai">#ai</a><a href="./?q=%23world-model">#world-model</a><a href="./?q=%23nvidia">#nvidia</a><a href="./?q=%23cosmos">#cosmos</a><a href="./?q=%23physical-ai">#physical-ai</a><a href="./?q=%23diffusion">#diffusion</a><a href="./?q=%23paper-review">#paper-review</a></div>
   <article>
 <h2>TL;DR</h2>
 <p>서울대 산업공학과 DSBA 연구실 석사과정 김환결이 엔비디아의 월드 파운데이션 모델 Cosmos-Predict 2.5를 리뷰한 논문 발표다. 핵심 주장은 이 모델이 피지컬 AI(로봇)를 위해 &quot;행동의 결과를 미리 상상하는&quot; 월드 모델을 표방하지만, 실제로는 본질적으로 고품질 비디오 생성 모델이며 데이터 도메인이 실세계라는 이유로 '월드 모델'이라 불린다는 비판적 정리다. 플로우 매칭·레이턴트 디퓨전·DiT 기반 아키텍처와 학습 방식을 구체적으로 설명한 뒤, 발표자 본인의 회의적 견해로 마무리한다.</p>
@@ -57,7 +57,8 @@
 <p>엔비디아가 &quot;거대한 피지컬 AI 생태계&quot;라는 큰 그림 아래 물리 엔진·시뮬레이션 플랫폼·월드 모델을 한 데이터 플라이휠로 엮으려 한다는 구도가 흥미롭다. 동시에, 발표자가 회사의 마케팅 용어('월드 모델')를 그대로 받아쓰지 않고 &quot;결국 비디오 생성&quot;이라고 해체해 보는 태도가 이 리뷰의 가치다.</p>
 
   </article>
-  <p class="post-end"><a href="https://www.youtube.com/watch?v=Pp8U6niGGiQ" target="_blank" rel="noopener">YouTube에서 원본 보기 ↗</a> · <a href="./">← 목록으로</a></p>
+  <p class="usage">요약 모델 기록 없음</p>
+  <p class="post-end"><a href="https://www.youtube.com/watch?v=Pp8U6niGGiQ" target="_blank" rel="noopener">YouTube에서 원본 보기 ↗</a> · <a href="./">← 피드로</a></p>
 </main>
 <footer class="site-foot">
   <a href="/projects/yt-digest-overview">yt-digest</a> 파이프라인이 자막을 읽고 자동으로 작성한 브리핑입니다. 오류가 있을 수 있으니 중요한 내용은 원본 영상으로 확인하세요.

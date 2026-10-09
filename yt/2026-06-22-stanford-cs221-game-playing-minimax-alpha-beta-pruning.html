@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Game Playing 1 - Minimax, Alpha-beta Pruning | Stanford CS221: AI (Autumn 2019) — 유튜브 다이제스트</title>
+<title>Game Playing 1 - Minimax, Alpha-beta Pruning | Stanford CS221: AI (Autumn 2019) — Johnny's YouTube</title>
 <meta name="description" content="이 강의는 2인 제로섬 턴제 완전 정보 게임(fully observable game)에서 최적의 전략을 찾는 방법을 설명한다. 특히 상대방이 확률적으로 행동할 것을 가정하는 Expectimax 알고리즘과 상대방이 항상 자신에게 불리하게 행동한다고 가정하는 Minimax…">
 <meta name="robots" content="noindex">
-<meta property="og:title" content="Game Playing 1 - Minimax, Alpha-beta Pruning | Stanford CS221: AI (Autumn 2019) — 유튜브 다이제스트">
+<meta property="og:title" content="Game Playing 1 - Minimax, Alpha-beta Pruning | Stanford CS221: AI (Autumn 2019) — Johnny's YouTube">
 <meta property="og:description" content="이 강의는 2인 제로섬 턴제 완전 정보 게임(fully observable game)에서 최적의 전략을 찾는 방법을 설명한다. 특히 상대방이 확률적으로 행동할 것을 가정하는 Expectimax 알고리즘과 상대방이 항상 자신에게 불리하게 행동한다고 가정하는 Minimax…">
 <meta property="og:image" content="https://i.ytimg.com/vi/3pU-Hrz_xy4/hqdefault.jpg">
 <meta property="og:type" content="article">
@@ -27,8 +27,8 @@
 </head>
 <body class="post-page">
 <header class="site-bar">
-  <a class="site-name" href="/">Johnny's</a>
-  <a class="back" href="./">← 유튜브 다이제스트</a>
+  <a class="site-name" href="./">Johnny's YouTube</a>
+  <nav><a href="./">피드</a><a href="briefings.html">브리핑 · 통계</a><a href="/">블로그</a></nav>
 </header>
 <main class="post">
   <a class="hero" href="https://www.youtube.com/watch?v=3pU-Hrz_xy4" target="_blank" rel="noopener" aria-label="YouTube에서 보기">
@@ -36,8 +36,8 @@
     <span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
   </a>
   <h1>Game Playing 1 - Minimax, Alpha-beta Pruning | Stanford CS221: AI (Autumn 2019)</h1>
-  <div class="post-meta"><span>Stanford Online</span><span>1:21:33</span><span>게시 2020-01-08</span></div>
-  <div class="tags"><a href="./?q=%23ai">#ai</a><a href="./?q=%23game-theory">#game-theory</a><a href="./?q=%23minimax">#minimax</a><a href="./?q=%23alpha-beta-pruning">#alpha-beta-pruning</a><a href="./?q=%23search-algorithms">#search-algorithms</a><a href="./?q=%23decision-making">#decision-making</a></div>
+  <div class="post-meta"><a href="./?q=%40Stanford%20Online">Stanford Online</a><span>1:21:33</span><span>게시 2020-01-08</span><a href="daily-2026-06-22.html">브리핑 2026-06-22</a></div>
+  <div class="tags"><a class="topic" href="./?q=topic%3Aai">AI · 테크</a><a href="./?q=%23ai">#ai</a><a href="./?q=%23game-theory">#game-theory</a><a href="./?q=%23minimax">#minimax</a><a href="./?q=%23alpha-beta-pruning">#alpha-beta-pruning</a><a href="./?q=%23search-algorithms">#search-algorithms</a><a href="./?q=%23decision-making">#decision-making</a></div>
   <article>
 <h2>TL;DR</h2>
 <p>이 강의는 2인 제로섬 턴제 완전 정보 게임(fully observable game)에서 최적의 전략을 찾는 방법을 설명한다. 특히 상대방이 확률적으로 행동할 것을 가정하는 Expectimax 알고리즘과 상대방이 항상 자신에게 불리하게 행동한다고 가정하는 Minimax 알고리즘을 자세히 다룬다. 마지막으로 게임 트리의 탐색 효율을 높이기 위한 평가 함수(evaluation function)와 알파-베타 가지치기(Alpha-beta Pruning) 기법을 소개한다.</p>
@@ -130,7 +130,8 @@
 <p>강의자가 할빙 게임을 학생들과 직접 플레이하는 시연은 Minimax 알고리즘이 실제로 어떻게 &quot;최악의 시나리오를 가정하여 플레이&quot;하는지 직관적으로 이해하게 돕는다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=3pU-Hrz_xy4&amp;t=2212s">[36:52]</a>. 특히, 학생이 Minimax 정책을 따르는 컴퓨터에 맞서 <code>15</code>에서 시작하여 첫 두 번의 턴만에 <code>마이너스 무한대</code> 효용을 받아 패배하는 장면은, 컴퓨터가 미리 모든 최악의 수를 계산하고 플레이어의 실수를 유도하여 패배를 강요하는 Minimax의 강력함을 생생하게 보여준다. 이러한 상호작용은 단순히 이론을 설명하는 것을 넘어 알고리즘의 본질을 체감하게 하는 좋은 예시이다.</p>
 
   </article>
-  <p class="post-end"><a href="https://www.youtube.com/watch?v=3pU-Hrz_xy4" target="_blank" rel="noopener">YouTube에서 원본 보기 ↗</a> · <a href="./">← 목록으로</a></p>
+  <p class="usage">요약 모델 기록 없음</p>
+  <p class="post-end"><a href="https://www.youtube.com/watch?v=3pU-Hrz_xy4" target="_blank" rel="noopener">YouTube에서 원본 보기 ↗</a> · <a href="./">← 피드로</a></p>
 </main>
 <footer class="site-foot">
   <a href="/projects/yt-digest-overview">yt-digest</a> 파이프라인이 자막을 읽고 자동으로 작성한 브리핑입니다. 오류가 있을 수 있으니 중요한 내용은 원본 영상으로 확인하세요.

@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Yoshua Bengio: Deep Learning | Lex Fridman Podcast #4 — 유튜브 다이제스트</title>
+<title>Yoshua Bengio: Deep Learning | Lex Fridman Podcast #4 — Johnny's YouTube</title>
 <meta name="description" content="Yoshua Bengio는 딥러닝의 현재 한계와 미래 방향에 대해 논한다. 그는 인공신경망이 장기적인 신용 할당, 고수준의 추상적 이해, 새로운 상황으로의 일반화 능력을 갖추려면 훈련 목표와 학습 방식에 근본적인 변화가 필요하다고 강조한다. 특히 분리 표현 학습, 인과…">
 <meta name="robots" content="noindex">
-<meta property="og:title" content="Yoshua Bengio: Deep Learning | Lex Fridman Podcast #4 — 유튜브 다이제스트">
+<meta property="og:title" content="Yoshua Bengio: Deep Learning | Lex Fridman Podcast #4 — Johnny's YouTube">
 <meta property="og:description" content="Yoshua Bengio는 딥러닝의 현재 한계와 미래 방향에 대해 논한다. 그는 인공신경망이 장기적인 신용 할당, 고수준의 추상적 이해, 새로운 상황으로의 일반화 능력을 갖추려면 훈련 목표와 학습 방식에 근본적인 변화가 필요하다고 강조한다. 특히 분리 표현 학습, 인과…">
 <meta property="og:image" content="https://i.ytimg.com/vi/azOmzumh0vQ/hqdefault.jpg">
 <meta property="og:type" content="article">
@@ -27,8 +27,8 @@
 </head>
 <body class="post-page">
 <header class="site-bar">
-  <a class="site-name" href="/">Johnny's</a>
-  <a class="back" href="./">← 유튜브 다이제스트</a>
+  <a class="site-name" href="./">Johnny's YouTube</a>
+  <nav><a href="./">피드</a><a href="briefings.html">브리핑 · 통계</a><a href="/">블로그</a></nav>
 </header>
 <main class="post">
   <a class="hero" href="https://www.youtube.com/watch?v=azOmzumh0vQ" target="_blank" rel="noopener" aria-label="YouTube에서 보기">
@@ -36,8 +36,8 @@
     <span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
   </a>
   <h1>Yoshua Bengio: Deep Learning | Lex Fridman Podcast #4</h1>
-  <div class="post-meta"><span>Lex Fridman</span><span>42:18</span><span>게시 2018-10-20</span></div>
-  <div class="tags"><a href="./?q=%23deep-learning">#deep-learning</a><a href="./?q=%23ai-safety">#ai-safety</a><a href="./?q=%23disentangled-representations">#disentangled-representations</a><a href="./?q=%23machine-teaching">#machine-teaching</a><a href="./?q=%23ai-winter">#ai-winter</a><a href="./?q=%23neural-networks">#neural-networks</a></div>
+  <div class="post-meta"><a href="./?q=%40Lex%20Fridman">Lex Fridman</a><span>42:18</span><span>게시 2018-10-20</span><a href="daily-2026-06-28.html">브리핑 2026-06-28</a></div>
+  <div class="tags"><a class="topic" href="./?q=topic%3Aai">AI · 테크</a><a href="./?q=%23deep-learning">#deep-learning</a><a href="./?q=%23ai-safety">#ai-safety</a><a href="./?q=%23disentangled-representations">#disentangled-representations</a><a href="./?q=%23machine-teaching">#machine-teaching</a><a href="./?q=%23ai-winter">#ai-winter</a><a href="./?q=%23neural-networks">#neural-networks</a></div>
   <article>
 <h2>TL;DR</h2>
 <p>Yoshua Bengio는 딥러닝의 현재 한계와 미래 방향에 대해 논한다. 그는 인공신경망이 장기적인 신용 할당, 고수준의 추상적 이해, 새로운 상황으로의 일반화 능력을 갖추려면 훈련 목표와 학습 방식에 근본적인 변화가 필요하다고 강조한다. 특히 분리 표현 학습, 인과 관계 학습, 그리고 기계와 인간의 상호작용을 통한 능동적 학습을 핵심 과제로 제시한다.</p>
@@ -71,7 +71,8 @@
 <p><code>AlphaGo</code>가 세계 챔피언을 이긴 것과 같은 <code>획기적인 사건</code>은 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=azOmzumh0vQ&amp;t=2295s">[38:15]</a> 과대평가되는 경향이 있다. 과학은 실제로는 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=azOmzumh0vQ&amp;t=2302s">[38:22]</a> <code>작은 단계</code>들을 통해 움직인다. 하나의 작은 단계가 물통을 가득 채우는 마지막 한 방울처럼 큰 <code>결과</code>를 가져올 수 있지만, 이는 <code>상업</code>과 <code>응용</code>의 맥락에서 더 그렇다. <code>과학</code> 자체는 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=azOmzumh0vQ&amp;t=2344s">[39:04]</a> 매우 점진적으로 발전한다. 현재 가장 뜨거운 연구 주제로는 <code>GANs</code>와 <code>강화 학습(reinforcement learning)</code>이 있으며, 특히 <code>에이전트 학습(agent learning)</code>이 장기적으로 매우 중요하다고 강조한다. <code>생성 모델(generative models)</code>은 세상을 이해하는 에이전트를 구축하는 데 핵심적인 요소가 될 것이며, <code>정책 경사(policy gradient)</code> 방식의 강화 학습의 한계를 넘어 <code>모델 기반 강화 학습(model-based RL)</code>로 나아가야 한다. 이는 새로운 분포에 더 빠르고 잘 <code>일반화</code>하고 <code>기저의 인과 기제</code>를 포착하는 모델을 구축하는 데 필요하다.</p>
 
   </article>
-  <p class="post-end"><a href="https://www.youtube.com/watch?v=azOmzumh0vQ" target="_blank" rel="noopener">YouTube에서 원본 보기 ↗</a> · <a href="./">← 목록으로</a></p>
+  <p class="usage">요약 모델 <b>gemini-2.5-flash</b> · 입력 15,871 / 출력 3,668 토큰 · $0.0139 <span class="est">추정치 — 당시 기록이 없어 다시 센 값, 사고 토큰 제외</span></p>
+  <p class="post-end"><a href="https://www.youtube.com/watch?v=azOmzumh0vQ" target="_blank" rel="noopener">YouTube에서 원본 보기 ↗</a> · <a href="./">← 피드로</a></p>
 </main>
 <footer class="site-foot">
   <a href="/projects/yt-digest-overview">yt-digest</a> 파이프라인이 자막을 읽고 자동으로 작성한 브리핑입니다. 오류가 있을 수 있으니 중요한 내용은 원본 영상으로 확인하세요.

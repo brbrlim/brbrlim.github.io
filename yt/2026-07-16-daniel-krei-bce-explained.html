@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Binary Cross Entropy Explained With Examples — 유튜브 다이제스트</title>
+<title>Binary Cross Entropy Explained With Examples — Johnny's YouTube</title>
 <meta name="description" content="이 영상은 기계 학습의 핵심 손실 함수인 이진 교차 엔트로피(BCE, Binary Cross Entropy)를 직관적인 예시를 들어 설명한다. BCE는 이진 분류 모델의 예측값(확률)과 실제 레이블(0 또는 1) 간의 차이를 정량화하여 모델 훈련 시 성능 개선을 돕는다…">
 <meta name="robots" content="noindex">
-<meta property="og:title" content="Binary Cross Entropy Explained With Examples — 유튜브 다이제스트">
+<meta property="og:title" content="Binary Cross Entropy Explained With Examples — Johnny's YouTube">
 <meta property="og:description" content="이 영상은 기계 학습의 핵심 손실 함수인 이진 교차 엔트로피(BCE, Binary Cross Entropy)를 직관적인 예시를 들어 설명한다. BCE는 이진 분류 모델의 예측값(확률)과 실제 레이블(0 또는 1) 간의 차이를 정량화하여 모델 훈련 시 성능 개선을 돕는다…">
 <meta property="og:image" content="https://i.ytimg.com/vi/6Qi_9s_dpX8/hqdefault.jpg">
 <meta property="og:type" content="article">
@@ -27,8 +27,8 @@
 </head>
 <body class="post-page">
 <header class="site-bar">
-  <a class="site-name" href="/">Johnny's</a>
-  <a class="back" href="./">← 유튜브 다이제스트</a>
+  <a class="site-name" href="./">Johnny's YouTube</a>
+  <nav><a href="./">피드</a><a href="briefings.html">브리핑 · 통계</a><a href="/">블로그</a></nav>
 </header>
 <main class="post">
   <a class="hero" href="https://www.youtube.com/watch?v=6Qi_9s_dpX8" target="_blank" rel="noopener" aria-label="YouTube에서 보기">
@@ -36,8 +36,8 @@
     <span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
   </a>
   <h1>Binary Cross Entropy Explained With Examples</h1>
-  <div class="post-meta"><span>Daniel Krei</span><span>7:59</span><span>게시 2025-07-24</span></div>
-  <div class="tags"><a href="./?q=%23binary-cross-entropy">#binary-cross-entropy</a><a href="./?q=%23machine-learning">#machine-learning</a><a href="./?q=%23loss-function">#loss-function</a><a href="./?q=%23classification">#classification</a><a href="./?q=%23deep-learning">#deep-learning</a><a href="./?q=%23pytorch">#pytorch</a><a href="./?q=%23numpy">#numpy</a></div>
+  <div class="post-meta"><a href="./?q=%40Daniel%20Krei">Daniel Krei</a><span>7:59</span><span>게시 2025-07-24</span><a href="daily-2026-07-16.html">브리핑 2026-07-16</a></div>
+  <div class="tags"><a class="topic" href="./?q=topic%3Aai">AI · 테크</a><a href="./?q=%23binary-cross-entropy">#binary-cross-entropy</a><a href="./?q=%23machine-learning">#machine-learning</a><a href="./?q=%23loss-function">#loss-function</a><a href="./?q=%23classification">#classification</a><a href="./?q=%23deep-learning">#deep-learning</a><a href="./?q=%23pytorch">#pytorch</a><a href="./?q=%23numpy">#numpy</a></div>
   <article>
 <h2>TL;DR</h2>
 <p>이 영상은 기계 학습의 핵심 손실 함수인 이진 교차 엔트로피(BCE, Binary Cross Entropy)를 직관적인 예시를 들어 설명한다. BCE는 이진 분류 모델의 예측값(확률)과 실제 레이블(0 또는 1) 간의 차이를 정량화하여 모델 훈련 시 성능 개선을 돕는다. 모델이 오답에 확신할수록 BCE 손실값이 기하급수적으로 커져 잘못된 예측에 강한 벌칙을 부여하는 특징을 보인다.</p>
@@ -70,7 +70,8 @@
 <p>모델이 오답에 강하게 확신할수록 손실이 기하급수적으로 증가하는 특성을 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=6Qi_9s_dpX8&amp;t=321s">[5:21]</a> 시각화한 그래프가 특히 인상 깊다. 두 개의 곡선이 정답 쪽에서는 0으로 부드럽게 떨어지다가, 오답 쪽에서는 하늘로 치솟는 모습은 BCE가 모델의 '자신감 있는 실수'를 얼마나 엄격하게 벌칙하는지 직관적으로 보여준다. 이는 BCE가 단순히 예측값과 실제값의 차이를 측정하는 것을 넘어, 예측의 '확신도'까지 고려하여 모델 훈련 방향을 제시한다는 점을 명확히 전달한다.</p>
 
   </article>
-  <p class="post-end"><a href="https://www.youtube.com/watch?v=6Qi_9s_dpX8" target="_blank" rel="noopener">YouTube에서 원본 보기 ↗</a> · <a href="./">← 목록으로</a></p>
+  <p class="usage">요약 모델 <b>gemini-2.5-flash</b> · 입력 4,766 / 출력 2,668 토큰 · $0.0081 <span class="est">추정치 — 당시 기록이 없어 다시 센 값, 사고 토큰 제외</span></p>
+  <p class="post-end"><a href="https://www.youtube.com/watch?v=6Qi_9s_dpX8" target="_blank" rel="noopener">YouTube에서 원본 보기 ↗</a> · <a href="./">← 피드로</a></p>
 </main>
 <footer class="site-foot">
   <a href="/projects/yt-digest-overview">yt-digest</a> 파이프라인이 자막을 읽고 자동으로 작성한 브리핑입니다. 오류가 있을 수 있으니 중요한 내용은 원본 영상으로 확인하세요.

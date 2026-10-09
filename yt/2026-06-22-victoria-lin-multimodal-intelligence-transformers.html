@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Stanford CS25: Transformers United V6 I From Language Models to Native Multimodal Intelligence — 유튜브 다이제스트</title>
+<title>Stanford CS25: Transformers United V6 I From Language Models to Native Multimodal Intelligence — Johnny's YouTube</title>
 <meta name="description" content="이 강연은 거대 언어 모델(LLM)의 성공을 바탕으로, 디지털 및 물리적 세계의 다양한 양상(모달리티) 정보를 처리할 수 있는 '네이티브 멀티모달 언어 모델'을 구축하는 방법과 과제를 다룬다. 모든 양상 데이터를 '토큰화'하여 트랜스포머 아키텍처에 통합하는 기본 원리를…">
 <meta name="robots" content="noindex">
-<meta property="og:title" content="Stanford CS25: Transformers United V6 I From Language Models to Native Multimodal Intelligence — 유튜브 다이제스트">
+<meta property="og:title" content="Stanford CS25: Transformers United V6 I From Language Models to Native Multimodal Intelligence — Johnny's YouTube">
 <meta property="og:description" content="이 강연은 거대 언어 모델(LLM)의 성공을 바탕으로, 디지털 및 물리적 세계의 다양한 양상(모달리티) 정보를 처리할 수 있는 '네이티브 멀티모달 언어 모델'을 구축하는 방법과 과제를 다룬다. 모든 양상 데이터를 '토큰화'하여 트랜스포머 아키텍처에 통합하는 기본 원리를…">
 <meta property="og:image" content="https://i.ytimg.com/vi/NDdc39KYqDU/hqdefault.jpg">
 <meta property="og:type" content="article">
@@ -27,8 +27,8 @@
 </head>
 <body class="post-page">
 <header class="site-bar">
-  <a class="site-name" href="/">Johnny's</a>
-  <a class="back" href="./">← 유튜브 다이제스트</a>
+  <a class="site-name" href="./">Johnny's YouTube</a>
+  <nav><a href="./">피드</a><a href="briefings.html">브리핑 · 통계</a><a href="/">블로그</a></nav>
 </header>
 <main class="post">
   <a class="hero" href="https://www.youtube.com/watch?v=NDdc39KYqDU" target="_blank" rel="noopener" aria-label="YouTube에서 보기">
@@ -36,8 +36,8 @@
     <span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
   </a>
   <h1>Stanford CS25: Transformers United V6 I From Language Models to Native Multimodal Intelligence</h1>
-  <div class="post-meta"><span>Stanford Online</span><span>1:04:39</span><span>게시 2026-06-04</span></div>
-  <div class="tags"><a href="./?q=%23multimodal-ai">#multimodal-ai</a><a href="./?q=%23transformers">#transformers</a><a href="./?q=%23large-language-models">#large-language-models</a><a href="./?q=%23deep-learning">#deep-learning</a><a href="./?q=%23ai-architecture">#ai-architecture</a></div>
+  <div class="post-meta"><a href="./?q=%40Stanford%20Online">Stanford Online</a><span>1:04:39</span><span>게시 2026-06-04</span><a href="daily-2026-06-22.html">브리핑 2026-06-22</a></div>
+  <div class="tags"><a class="topic" href="./?q=topic%3Aai">AI · 테크</a><a href="./?q=%23multimodal-ai">#multimodal-ai</a><a href="./?q=%23transformers">#transformers</a><a href="./?q=%23large-language-models">#large-language-models</a><a href="./?q=%23deep-learning">#deep-learning</a><a href="./?q=%23ai-architecture">#ai-architecture</a></div>
   <article>
 <h2>TL;DR</h2>
 <p>이 강연은 거대 언어 모델(LLM)의 성공을 바탕으로, 디지털 및 물리적 세계의 다양한 양상(모달리티) 정보를 처리할 수 있는 '네이티브 멀티모달 언어 모델'을 구축하는 방법과 과제를 다룬다. 모든 양상 데이터를 '토큰화'하여 트랜스포머 아키텍처에 통합하는 기본 원리를 설명하고, 이산 토큰화 방식의 카멜레온(Chameleon), 연속 표현 및 확산 모델을 결합한 트랜스퓨전(Transfusion), 그리고 양상별 특화 매개변수를 사용하는 혼합형 트랜스포머(Mixture of Transformers, MoT) 등 다양한 옴니 모델(multimodal-output) 아키텍처를 소개한다. 특히 언어와 다른 양상(이미지, 비디오 등) 간의 근본적인 특성 차이로 인해 이해와 생성 능력의 전이 학습이 비대칭적으로 일어난다는 중요한 통찰을 제시하며, 물리적 세계 지능과 같은 복잡한 멀티모달 문제 해결을 위한 향후 연구 방향을 조명한다.</p>
@@ -83,7 +83,8 @@
 <p>세르게이 레빈(Sergey Levine) 교수의 트윗을 인용하며 &quot;언어 모델은 다음 토큰 예측을 통해 놀라운 능력을 얻지만, 비디오 모델은 다음 프레임 예측을 한다고 해서 그만큼 강해지지는 않는다&quot;는 주장은 멀티모달 인공지능 분야의 핵심적인 난제를 직관적으로 보여준다 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=NDdc39KYqDU&amp;t=2198s">[36:38]</a>. 이는 언어와 시각 정보의 근본적인 특성 차이를 강조하며, 단순히 텍스트 모델의 성공 공식을 다른 양상에 기계적으로 적용하는 것만으로는 한계가 있다는 중요한 통찰을 제공한다.</p>
 
   </article>
-  <p class="post-end"><a href="https://www.youtube.com/watch?v=NDdc39KYqDU" target="_blank" rel="noopener">YouTube에서 원본 보기 ↗</a> · <a href="./">← 목록으로</a></p>
+  <p class="usage">요약 모델 <b>gemini-2.5-flash</b> · 입력 22,513 / 출력 5,503 토큰 · $0.0205 <span class="est">추정치 — 당시 기록이 없어 다시 센 값, 사고 토큰 제외</span></p>
+  <p class="post-end"><a href="https://www.youtube.com/watch?v=NDdc39KYqDU" target="_blank" rel="noopener">YouTube에서 원본 보기 ↗</a> · <a href="./">← 피드로</a></p>
 </main>
 <footer class="site-foot">
   <a href="/projects/yt-digest-overview">yt-digest</a> 파이프라인이 자막을 읽고 자동으로 작성한 브리핑입니다. 오류가 있을 수 있으니 중요한 내용은 원본 영상으로 확인하세요.
