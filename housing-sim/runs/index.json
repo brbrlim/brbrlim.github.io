@@ -1,0 +1,30 @@
+[
+ {
+  "name": "llm-both-exog-s1-gemini",
+  "label": "임대차 (갱신 5% 상한) + 대출 한도 | LLM이 결정 (gemini-3.1-pro) | 지어낸 동네 | 24개월",
+  "file": "runs/llm-both-exog-s1-gemini.json",
+  "policy": "both",
+  "clause": "standard",
+  "engine": "llm",
+  "prices": "exogenous",
+  "population": "hypothetical",
+  "enforcement": "absent",
+  "months": 24,
+  "default": true,
+  "compare": false
+ },
+ {
+  "name": "rule-both-exog-s1-24m",
+  "label": "임대차 (갱신 5% 상한) + 대출 한도 | 규칙이 결정 | 지어낸 동네 | 24개월",
+  "file": "runs/rule-both-exog-s1-24m.json",
+  "policy": "both",
+  "clause": "standard",
+  "engine": "rule",
+  "prices": "exogenous",
+  "population": "hypothetical",
+  "enforcement": "absent",
+  "months": 24,
+  "default": false,
+  "compare": true
+ }
+]

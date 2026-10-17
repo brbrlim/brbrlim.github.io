@@ -1,0 +1,484 @@
+<!doctype html><html><head><meta name="robots" content="noindex"><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>부동산 정책 시뮬레이터 컨셉</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600&family=Noto+Serif+KR:wght@600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a working console. Scenario and levers on top; the town (every house a cell, households moving between them) on the left with the decision log beside it; market charts underneath, each drawn against a no-policy run from the same starting town. */
+:root{
+  --bg:#f4f6f6; --surface:#ffffff; --surface2:#eaeeef; --ink:#16252b; --muted:#56686f; --line:#d5dee0;
+  --accent:#0b6b73; --accent-soft:#dcedee; --warn:#9a5b00; --warn-soft:#fbefd9;
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a; --s4:#eda100; --s5:#e87ba4;
+  --own:#dfe5e6; --rent:#2a78d6; --vac:#1baf7a; --sale:#eda100; --paper:#e87ba4;
+  --f-display:"Noto Serif KR","Apple SD Gothic Neo",serif;
+  --f-body:"IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0f1719; --surface:#162124; --surface2:#1f2d31; --ink:#e3ecee; --muted:#9bb0b6; --line:#2b3b40;
+    --accent:#5cc3cb; --accent-soft:#17383c; --warn:#e6b25c; --warn-soft:#3a2c12;
+    --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500; --s5:#d55181;
+    --own:#2a383c; --rent:#3987e5; --vac:#199e70; --sale:#c98500; --paper:#d55181;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0f1719; --surface:#162124; --surface2:#1f2d31; --ink:#e3ecee; --muted:#9bb0b6; --line:#2b3b40;
+  --accent:#5cc3cb; --accent-soft:#17383c; --warn:#e6b25c; --warn-soft:#3a2c12;
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500; --s5:#d55181;
+  --own:#2a383c; --rent:#3987e5; --vac:#199e70; --sale:#c98500; --paper:#d55181;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:14.5px;line-height:1.6;padding-inline:16px;padding-block:20px 60px;word-break:keep-all;overflow-wrap:anywhere}
+.wrap{max-width:1240px;margin-inline:auto;display:flex;flex-direction:column;gap:16px}
+header{display:flex;flex-direction:column;gap:6px}
+.eyebrow{font-family:var(--f-mono);font-size:12px;letter-spacing:.06em;color:var(--muted)}
+h1{font-family:var(--f-display);font-size:clamp(22px,3.4vw,30px);line-height:1.3;margin:0}
+h2{font-size:14px;font-weight:600;margin:0}
+p{margin:0}
+.lede{color:var(--muted);max-width:86ch}
+.notice{border-left:3px solid var(--warn);background:var(--warn-soft);padding:8px 12px;border-radius:0 6px 6px 0;font-size:13.5px;max-width:100ch}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:12px 14px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.controls{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:12px}
+.row{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:end}
+label{display:flex;flex-direction:column;gap:3px;font-size:12px;color:var(--muted);font-weight:500;min-width:0}
+select,button,input[type=range]{font:inherit}
+select{font-size:14px;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:5px;padding:5px 8px;max-width:100%}
+input[type=range]{width:150px;accent-color:var(--accent)}
+button{font-size:14px;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:5px;padding:6px 12px;cursor:pointer}
+button.primary{background:var(--accent);border-color:var(--accent);color:var(--bg);font-weight:600}
+button:focus-visible,select:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.clauses{font-size:13.5px;display:flex;flex-direction:column;gap:3px}
+.clauses li{margin-left:1.1em}
+.val{font-family:var(--f-mono);font-size:12.5px;color:var(--ink)}
+.clock{font-family:var(--f-mono);font-size:14px;margin-left:auto;align-self:center}
+.main{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:12px;align-items:start}
+.mapwrap{position:relative}
+canvas{display:block;width:100%;height:auto;max-width:100%}
+#map{border-radius:4px;cursor:pointer}
+.legend{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12.5px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{width:11px;height:11px;border-radius:2px;flex:none;border:1px solid var(--line)}
+.ring{width:11px;height:11px;border-radius:50%;flex:none;border:2px solid var(--s2)}
+.ring.b{border-color:var(--s1)}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--ink);flex:none}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px}
+.tile{background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:8px 10px;display:flex;flex-direction:column;gap:1px}
+.tile b{font-family:var(--f-mono);font-size:18px;font-weight:500;font-variant-numeric:tabular-nums}
+.tile span{font-size:12px;color:var(--muted)}
+.tile small{font-size:11.5px;color:var(--muted);font-family:var(--f-mono)}
+.log{display:flex;flex-direction:column;gap:6px;max-height:420px;overflow-y:auto}
+.ev{border:1px solid var(--line);border-radius:6px;padding:7px 10px;background:var(--bg);cursor:pointer;display:flex;flex-direction:column;gap:2px;text-align:left;font:inherit;color:inherit;width:100%}
+.ev:hover{border-color:var(--accent)}
+.ev .h{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:12px;color:var(--muted);font-family:var(--f-mono)}
+.chip{font-family:var(--f-body);font-size:12px;font-weight:600;padding:0 7px;border-radius:999px;background:var(--surface2);color:var(--ink)}
+.chip.x{background:var(--warn-soft);color:var(--warn)}
+.ev .t{font-size:13.5px}
+.insp{font-size:13.5px;display:flex;flex-direction:column;gap:6px}
+.insp dl{display:grid;grid-template-columns:auto 1fr;gap:2px 12px;margin:0}
+.insp dt{color:var(--muted);font-size:12.5px}
+.insp dd{margin:0;font-variant-numeric:tabular-nums}
+.hist{display:flex;flex-direction:column;gap:5px;max-height:220px;overflow-y:auto}
+.hist div{border-left:2px solid var(--line);padding-left:8px;font-size:13px}
+.hist div b{font-family:var(--f-mono);font-weight:500;font-size:12px;color:var(--muted)}
+.charts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.chart h2 small{font-weight:400;color:var(--muted);font-size:12.5px}
+.paths{display:flex;flex-direction:column;gap:5px;font-size:13px}
+.paths .p{display:grid;grid-template-columns:150px minmax(0,1fr) 44px;gap:8px;align-items:center}
+.paths .bar{height:9px;border-radius:3px;background:var(--surface2);overflow:hidden}
+.paths .bar i{display:block;height:100%;background:var(--s1);border-radius:3px}
+.paths .bar i.x{background:var(--s2)}
+.paths .n{font-family:var(--f-mono);font-size:12.5px;text-align:right;font-variant-numeric:tabular-nums}
+#tip{position:fixed;pointer-events:none;background:var(--ink);color:var(--bg);font-size:12px;padding:5px 9px;border-radius:5px;z-index:10;white-space:pre;font-family:var(--f-mono)}
+.muted{color:var(--muted)}
+@media (max-width:900px){
+  .controls,.main,.charts{grid-template-columns:minmax(0,1fr)}
+  .paths .p{grid-template-columns:120px minmax(0,1fr) 40px}
+  .clock{margin-left:0}
+}
+</style>
+
+<div class="wrap">
+<header>
+  <span class="eyebrow">HOUSING-SIM · 컨셉 시연 · 2026-10-09</span>
+  <h1>부동산 정책 시뮬레이터 컨셉</h1>
+  <p class="lede">시나리오(조문 묶음)를 고르면 가상의 동네에서 5년이 흐릅니다. 집 한 칸이 주택 하나이고, 가구가 결정하고 이사하는 모습, 결정마다의 이유, 가격과 거래의 흐름을 함께 봅니다. 점선은 같은 동네에서 정책 없이 흘러간 경우입니다.</p>
+  <p class="notice"><strong>컨셉을 보기 위한 시연입니다.</strong> 숫자는 전부 가상이고, 가구의 결정은 이 페이지 안의 단순한 규칙이 내립니다. 이유 문장도 규칙이 만든 예시입니다. 실제 틀에서는 이 자리에 자격 심사를 통과한 LLM의 결정과 응답 원문이 들어갑니다.</p>
+</header>
+
+<div class="controls">
+  <div class="panel">
+    <div class="row">
+      <label for="scen">시나리오
+        <select id="scen"></select>
+      </label>
+      <label for="enf">집행 강도 <span class="val" id="enfv"></span>
+        <input type="range" id="enf" min="0" max="100" step="5" value="10">
+      </label>
+      <label for="opp">기회를 따르는 가구의 비율 <span class="val" id="oppv"></span>
+        <input type="range" id="opp" min="0" max="60" step="5" value="30">
+      </label>
+      <label for="start">시행 시점 <span class="val" id="startv"></span>
+        <input type="range" id="start" min="0" max="36" step="6" value="12">
+      </label>
+    </div>
+    <ul class="clauses" id="clauses"></ul>
+  </div>
+  <div class="panel">
+    <div class="row">
+      <button class="primary" id="play" type="button">재생</button>
+      <button id="stepb" type="button">한 달 진행</button>
+      <button id="reset" type="button">처음부터</button>
+      <label for="speed">속도
+        <select id="speed"><option value="900">느리게</option><option value="420" selected>보통</option><option value="140">빠르게</option></select>
+      </label>
+      <label for="mode">지도 색
+        <select id="mode"><option value="status">점유 상태</option><option value="price">가격</option></select>
+      </label>
+      <span class="clock" id="clock">0개월</span>
+    </div>
+    <div class="tiles" id="tiles"></div>
+  </div>
+</div>
+
+<div class="main">
+  <div class="panel">
+    <div class="mapwrap"><canvas id="map" width="1080" height="600" aria-label="가상의 동네 지도. 칸 하나가 주택 하나"></canvas></div>
+    <div class="legend" id="legend"></div>
+    <p class="muted" style="font-size:12.5px">칸을 누르면 그 집과 사는 가구, 가진 가구의 기록이 오른쪽에 나옵니다.</p>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:12px;min-width:0">
+    <div class="panel">
+      <h2>살펴보기</h2>
+      <div class="insp" id="insp"><span class="muted">지도에서 집을 누르거나 아래 기록을 누르면 가구의 처지와 지난 결정이 나옵니다.</span></div>
+    </div>
+    <div class="panel">
+      <div class="row" style="justify-content:space-between"><h2>결정 기록</h2>
+        <label for="flt" style="flex-direction:row;align-items:center;gap:6px">보기
+          <select id="flt"><option value="all">전체</option><option value="x">예상 밖 대응만</option><option value="lease">임대차</option><option value="buy">매수</option></select>
+        </label>
+      </div>
+      <div class="log" id="log"><span class="muted">재생하면 가구의 결정과 이유가 여기에 쌓입니다.</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="charts">
+  <div class="panel chart"><h2>매매가격지수 <small>권역별. 점선은 정책 없음</small></h2><canvas id="c1" width="600" height="250"></canvas></div>
+  <div class="panel chart"><h2>임대료지수 <small>권역별. 점선은 정책 없음</small></h2><canvas id="c2" width="600" height="250"></canvas></div>
+  <div class="panel chart"><h2>월 거래량 <small>막대는 이 시나리오, 선은 정책 없음</small></h2><canvas id="c3" width="600" height="250"></canvas></div>
+  <div class="panel chart"><h2>거래가격의 분포 <small>최근 18개월. 세로선은 대출 한도의 경계</small></h2><canvas id="c4" width="600" height="250"></canvas></div>
+  <div class="panel" style="grid-column:1/-1"><h2>대응 경로 <span class="muted" style="font-weight:400">· 누적 건수. 주황은 조문이 열어 준 예상 밖 대응</span></h2><div class="paths" id="paths"></div></div>
+</div>
+</div>
+<div id="tip" hidden></div>
+
+<script>
+//SIM-START
+const W=36,H=18,RN=["도심","중간","외곽"],T_END=60,LEASE=24;
+const SCEN={
+  none:{name:"기준: 정책 없음",clauses:["아무 규제도 더하지 않습니다. 비교의 기준입니다."]},
+  ten:{name:"임대차 A: 갱신요구권과 갱신 5% 상한",ten:{cap:.05,newCap:false},clauses:["세입자는 만기 때 한 번 계약 연장을 요구할 수 있다.","집주인은 본인이 살려는 경우 말고는 거절할 수 없다.","연장 계약의 임대료는 5%까지만 올릴 수 있다. 새 세입자와의 계약은 자유다."]},
+  ten2:{name:"임대차 B: 신규 계약에도 5% 상한",ten:{cap:.05,newCap:true},clauses:["세입자는 만기 때 한 번 계약 연장을 요구할 수 있다.","연장 계약과 새 계약 모두 직전 임대료에서 5%까지만 올릴 수 있다.","임대료 이력이 공개된다."]},
+  loan:{name:"대출 규제: 가격 구간별 한도",loan:{t0:9,t1:15},clauses:["15억 원을 넘는 집은 주택담보대출을 받을 수 없다.","9억 원을 넘는 부분은 집값의 20%까지만 빌릴 수 있다.","그 아래는 40%까지 빌릴 수 있다."]},
+  zone:{name:"규제지역: 도심에 실거주 의무",zone:true,clauses:["도심 권역을 규제지역으로 지정한다.","규제지역의 집은 직접 살 사람만 살 수 있다. 임대 목적 매수는 허가하지 않는다."]},
+  tax:{name:"세제: 2년 거주해야 양도세 공제",tax:true,clauses:["집을 팔 때 받는 양도세 공제를 보유 기간이 아니라 거주 기간 기준으로 바꾼다.","2년 이상 거주해야 공제를 받는다."]},
+  mix:{name:"묶음: 임대차 A + 대출 규제",ten:{cap:.05,newCap:false},loan:{t0:9,t1:15},clauses:["임대차 A의 세 조문과 대출 규제의 세 조문이 함께 시행된다."]},
+};
+const PATHS={
+  renew:["상한 안에서 연장",0,"lease"],agree:["합의로 올려 연장",1,"lease"],market:["시세로 재계약",0,"lease"],
+  refuse_relet:["실거주 사유로 거절 뒤 다시 세놓음",1,"lease"],refuse_sell:["세입자를 내보내고 매각",1,"lease"],
+  paper:["세입자를 내보내고 서류상 전입",1,"lease"],occupy:["세입자를 내보내고 실제 입주",0,"lease"],
+  tleave:["세입자가 이사",0,"lease"],
+  buy:["매수",0,"buy"],bunch:["경계 바로 아래로 가격 맞춤",1,"buy"],down:["더 싼 집으로 변경",1,"buy"],
+  adj:["인접 권역에서 매수",1,"buy"],detour:["다른 자금으로 우회",1,"buy"],giveup:["매수 포기",0,"buy"],
+};
+function rngFor(seed){let a=seed>>>0;return()=>{a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
+class Sim{
+  constructor(seed,scen,opt){
+    this.rng=rngFor(seed);this.sc=SCEN[scen];this.scKey=scen;this.opt=opt;this.t=0;
+    this.p=[1,1,1];this.r=[1,1,1];this.ph=[[1,1,1]];this.rh=[[1,1,1]];
+    this.hh=new Map();this.nid=0;this.houses=[];this.seekers=[];this.tx=[];this.txh=[];this.stat=[];
+    this.paths={};for(const k in PATHS)this.paths[k]=0;this.ren={exp:0,ren:0,right:0,asked:0,ref:0};
+    const g=()=>{let u=0;for(let i=0;i<6;i++)u+=this.rng();return(u-3)/Math.SQRT2*1.4};
+    const ln=(m,s)=>m*Math.exp(g()*s);
+    this.ln=ln;
+    const base=[14,8,4.6];this.base=base;const INC=[1000,580,340];this.INC=INC;
+    const newH=(o)=>{const h=Object.assign({id:++this.nid,inc:0,sav:0,debt:0,age:"",opp:false,home:null,owned:[],hist:[]},o);this.hh.set(h.id,h);return h};
+    this.newH=newH;
+    const ages=["30대","40대","50대","60대","70대"];
+    for(let y=0;y<H;y++)for(let x=0;x<W;x++){
+      const r=Math.floor(x/12),i=y*W+x;
+      const b=clamp(ln(base[r],.22),base[r]*.5,base[r]*2);
+      const h={i,x,y,r,base:b,rentBase:b*22,owner:null,resident:null,st:"own",rent:0,leaseEnd:0,rightUsed:false,listed:false,paperUntil:0,since:-Math.floor(this.rng()*60)};
+      const u=this.rng();
+      if(u<.55){const o=newH({inc:ln(INC[r]*1.1,.35),sav:ln(base[r]*.22,.7),debt:this.rng()<.5?ln(base[r]*.2,.6):0,age:ages[Math.floor(this.rng()*5)],opp:this.rng()<opt.opp,home:i});o.owned.push(i);h.owner=o.id;h.resident=o.id}
+      else if(u<.96){const tn=newH({inc:ln(h.rentBase/.3,.25),sav:ln(base[r]*.3,.6),age:ages[Math.floor(this.rng()*4)],opp:this.rng()<opt.opp,home:i});h.resident=tn.id;h.st="rent";h.rent=Math.round(h.rentBase*(.9+this.rng()*.1));h.leaseEnd=1+Math.floor(this.rng()*LEASE);h.since=h.leaseEnd-LEASE}
+      else{h.st="vacR"}
+      this.houses.push(h);
+    }
+    const owners=[...this.hh.values()].filter(h=>h.owned.length);
+    const multi=owners.filter(()=>this.rng()<.14);
+    for(const h of this.houses)if(h.st!=="own"){const pool=this.rng()<.6&&multi.length?multi:owners;const o=pool[Math.floor(this.rng()*pool.length)];h.owner=o.id;o.owned.push(h.i)}
+  }
+  price(h){return h.base*this.p[h.r]}
+  mrent(h){return Math.round(h.rentBase*this.r[h.r])}
+  active(){return this.t>=this.opt.start}
+  trend(r,arr){const k=Math.max(0,arr.length-13);return arr[arr.length-1][r]/arr[k][r]-1}
+  loanFor(P,b){const L=this.sc.loan&&this.active()?this.sc.loan:null;let loan;
+    if(!L)loan=.7*P;else if(P>L.t1)loan=0;else if(P>L.t0)loan=.4*L.t0+.2*(P-L.t0);else loan=.4*P;
+    return Math.min(loan,b.inc*12*9/10000)}
+  log(ev,k,hid,hi,text,extra){this.paths[k]++;const o=Object.assign({t:this.t,k,hid,hi,text},extra||{});ev.push(o);const h=this.hh.get(hid);if(h)h.hist.push({t:this.t,k,text})}
+  vacate(h,ev,why){const tn=this.hh.get(h.resident);h.resident=null;if(tn){tn.home=null;this.seekers.push(tn.id)}return tn}
+  relet(h,capTo){h.st="vacR";h.resident=null;h.rightUsed=false;h.nextCap=capTo||0}
+  step(){
+    const ev=[],rng=this.rng,sc=this.sc,on=this.active(),enf=this.opt.enf;this.t++;const t=this.t;
+    const D=[0,0,0],S=[0,0,0],NL=[0,0,0],seek=[0,0,0];let txn=[0,0,0];
+    // paper occupancy ends -> listed
+    for(const h of this.houses)if(h.st==="paper"&&t>=h.paperUntil){h.st="sale";h.listed=true}
+    // 1. lease expiries
+    for(const h of this.houses){
+      if(h.st!=="rent"||h.leaseEnd!==t)continue;
+      const L=this.hh.get(h.owner),tn=this.hh.get(h.resident),mr=this.mrent(h);this.ren.exp++;
+      if(!tn||rng()>.86){this.log(ev,"tleave",h.resident,h.i,"직장과 가까운 곳으로 옮기려고 계약을 끝냈다.");this.vacate(h);this.relet(h,sc.ten&&on&&sc.ten.newCap?Math.round(h.rent*1.05):0);continue}
+      if(sc.tax&&on&&L.owned.length>=2){
+        const pr=L.opp?.45*(1-enf):.0;
+        if(rng()<pr){this.log(ev,"paper",L.id,h.i,`이 집을 팔 때 공제를 받으려면 2년 거주가 필요하다. 세입자를 내보내고 주소만 옮겨 두기로 했다. 확인이 약해서 실제로 살지는 않는다.`);this.vacate(h);h.st="paper";h.paperUntil=t+24;continue}
+        if(rng()<.08){this.log(ev,"occupy",L.id,h.i,`양도세 공제를 받으려고 이 집으로 직접 들어가 살기로 했다. 지금 사는 집은 세를 놓는다.`);this.vacate(h);const old=this.houses[L.home];if(old){old.st="vacR";old.resident=null}h.st="own";h.resident=L.id;L.home=h.i;continue}
+      }
+      if(sc.ten&&on){
+        const cap=Math.round(h.rent*(1+sc.ten.cap));
+        if(mr>cap&&!h.rightUsed){
+          this.ren.asked++;const gain=(mr-cap)*LEASE,cost=2*mr,pen=enf*3*gain;
+          if(L.opp&&!sc.ten.newCap&&gain-cost-pen>0){this.ren.ref++;
+            this.log(ev,"refuse_relet",L.id,h.i,`시세는 월 ${mr}만 원인데 연장하면 ${cap}만 원까지만 받는다. 2년이면 ${gain}만 원 차이다. 직접 살겠다고 하고 내보낸 뒤 새 세입자를 시세로 받기로 했다.${enf>.4?" 확인이 강해 부담은 있다.":" 확인하는 절차가 없다."}`);
+            this.vacate(h);this.relet(h,0);continue}
+          if(L.opp&&sc.ten.newCap&&L.debt>1.5&&rng()<.5*(1-enf*.5)){this.ren.ref++;
+            this.log(ev,"refuse_sell",L.id,h.i,`새 세입자를 받아도 ${cap}만 원이 상한이라 세를 놓아서는 시세를 못 받는다. 대출 부담도 있어 집을 비워 팔기로 했다.`);
+            this.vacate(h);h.st="sale";h.listed=true;continue}
+          if(gain>cost*1.5&&rng()<.22){const mid=Math.round((cap+mr)/2);
+            if(rng()<.35){this.log(ev,"agree",L.id,h.i,`상한은 ${cap}만 원이지만 세입자와 이야기해 ${mid}만 원으로 올리기로 합의했다. 세입자는 이사 비용을 생각해 받아들였다.`);h.rent=mid;h.leaseEnd=t+LEASE;this.ren.ren++;continue}}
+          this.log(ev,"renew",L.id,h.i,`세입자가 연장을 요구했다. 시세는 ${mr}만 원이지만 ${cap}만 원으로 연장한다. 새 세입자를 구하는 비용과 공실을 생각하면 이쪽이 낫다.`);
+          h.rent=cap;h.rightUsed=true;h.leaseEnd=t+LEASE;this.ren.ren++;this.ren.right++;continue}
+        if(h.rightUsed){ if(rng()<.7){const nr=sc.ten.newCap?Math.min(mr,cap):mr;this.log(ev,"market",L.id,h.i,`갱신권을 이미 한 번 쓴 계약이라 ${nr}만 원으로 다시 계약했다.`);h.rent=nr;h.rightUsed=false;h.leaseEnd=t+LEASE;this.ren.ren++;}else{this.log(ev,"tleave",tn.id,h.i,`갱신권을 다 써서 집주인이 ${mr}만 원을 요구했다. 감당이 안 돼 나가기로 했다.`);this.vacate(h);this.relet(h,sc.ten.newCap?cap:0)}continue}
+        this.log(ev,"renew",L.id,h.i,`시세가 ${mr}만 원으로 지금 임대료와 큰 차이가 없어 그대로 연장했다.`);h.rent=Math.min(mr,cap);h.leaseEnd=t+LEASE;this.ren.ren++;continue}
+      if(rng()<.8&&mr<=tn.inc*.42){this.log(ev,"market",L.id,h.i,`만기가 되어 시세인 ${mr}만 원으로 다시 계약했다.`);h.rent=mr;h.leaseEnd=t+LEASE;this.ren.ren++}
+      else{this.log(ev,"tleave",tn.id,h.i,`임대료가 ${mr}만 원으로 올라 더 싼 집을 찾기로 했다.`);this.vacate(h);this.relet(h,0)}
+    }
+    // 2. new households arrive, seekers look for rentals
+    const arrive=rng()<.9?2+Math.floor(rng()*3):1;
+    for(let k=0;k<arrive;k++){const r=Math.floor(rng()*3);const n=this.newH({inc:this.ln(this.INC[r],.28),sav:this.ln(this.base[r]*.26,.6),age:["30대","40대","50대"][Math.floor(rng()*3)],opp:rng()<this.opt.opp,pref:r});this.seekers.push(n.id)}
+    const still=[];
+    for(const id of this.seekers){const s=this.hh.get(id);if(!s||s.home!=null)continue;
+      const pref=s.pref!=null?s.pref:Math.floor(rng()*3);let found=null;
+      for(let r=pref;r<3&&!found;r++){seek[r]++;const c=this.houses.filter(h=>h.st==="vacR"&&h.r===r);
+        for(let n=0;n<Math.min(6,c.length)&&!found;n++){const h=c[Math.floor(rng()*c.length)];const mr=h.nextCap?Math.min(this.mrent(h),h.nextCap):this.mrent(h);if(mr<=s.inc*.42)found=[h,mr]}}
+      if(found){const[h,mr]=found;h.st="rent";h.resident=s.id;h.rent=mr;h.leaseEnd=t+LEASE;h.rightUsed=false;h.since=t;h.nextCap=0;ev.push({t,k:"move",hid:s.id,hi:h.i,from:s.last!=null?s.last:-1});s.home=h.i;s.last=h.i}
+      else{s.wait=(s.wait||0)+1;if(s.wait<9)still.push(id);else this.hh.delete(id)}
+    }
+    this.seekers=still;
+    // 3. listings
+    const exp=[0,1,2].map(r=>this.trend(r,this.ph));
+    for(const h of this.houses){if(h.st==="own"&&h.listed&&rng()<.1)h.listed=false;if(h.st==="own"&&!h.listed&&rng()<clamp(.0075*(1-4*exp[h.r]),.002,.014)){h.listed=true;NL[h.r]++}
+      if(h.st==="vacR"&&rng()<.004){h.st="sale";h.listed=true;NL[h.r]++}
+      if(h.listed&&h.st!=="rent")S[h.r]++}
+    // 4. buyers
+    const buyers=[];
+    for(const b of this.hh.values()){
+      if(b.home==null)continue;const hm=this.houses[b.home];if(!hm)continue;
+      if(hm.st==="rent"&&hm.resident===b.id){if(b.sav>this.base[hm.r]*.2&&rng()<clamp(.02*(1+5*exp[hm.r]),.006,.05))buyers.push([b,hm.r,false])}
+      else if(hm.st==="own"&&hm.owner===b.id){const ir=Math.floor(rng()*3);if(b.sav>this.base[ir]*.3&&rng()<clamp(.012*(1+9*exp[ir]),.003,.04))buyers.push([b,ir,true])}}
+    for(const[b,r0,inv]of buyers){
+      let r=r0;
+      if(inv&&sc.zone&&on&&r===0){r=1;b._adj=true}
+      const list=(rr)=>this.houses.filter(h=>h.listed&&h.st!=="rent"&&h.r===rr&&h.owner!==b.id);
+      let c=list(r);if(!c.length){D[r]+=.5;continue}
+      const h=c[Math.floor(rng()*c.length)],P=this.price(h),loan=this.loanFor(P,b);
+      const L=sc.loan&&on?sc.loan:null;let deal=null,k="buy",text="";
+      if(b.sav>=P-loan){deal=[h,P,loan];k=b._adj?"adj":"buy";
+        text=b._adj?`도심은 직접 살 사람만 살 수 있게 됐다. 임대 목적으로는 허가가 안 나와 바로 옆 중간 권역의 ${P.toFixed(1)}억 원짜리를 샀다.`:(inv?`가격이 더 오를 것으로 보고 ${P.toFixed(1)}억 원짜리를 한 채 더 샀다. 세를 놓을 생각이다.`:`저축 ${b.sav.toFixed(1)}억 원에 ${loan.toFixed(1)}억 원을 빌려 ${P.toFixed(1)}억 원짜리 집을 샀다.`)}
+      else if(L&&((P>L.t1&&P<=L.t1*1.12)||(P>L.t0&&P<=L.t0*1.1))&&rng()<.85){const thr=P>L.t1?L.t1:L.t0,P2=thr-.05,l2=this.loanFor(P2,b);
+        if(b.sav>=P2-l2){deal=[h,P2,l2];k="bunch";text=`${P.toFixed(1)}억 원짜리인데 ${thr}억 원을 넘으면 대출이 ${P>L.t1?"아예 안 나온다":"크게 줄어든다"}. 집주인과 이야기해 ${P2.toFixed(2)}억 원으로 맞췄다.`}}
+      if(!deal){
+        let alt=null;for(let rr=r;rr<3&&!alt;rr++){const cc=list(rr).filter(x=>b.sav>=this.price(x)-this.loanFor(this.price(x),b));if(cc.length){const x=cc[Math.floor(rng()*cc.length)];alt=[x,this.price(x),this.loanFor(this.price(x),b),rr]}}
+        if(alt&&(L||alt[3]!==r||rng()<.5)){deal=alt;k=alt[3]!==r?"adj":"down";text=alt[3]!==r?`원하던 ${RN[r]} 권역의 ${P.toFixed(1)}억 원짜리는 자금이 모자랐다. ${RN[alt[3]]} 권역의 ${alt[1].toFixed(1)}억 원짜리로 바꿨다.`:`${P.toFixed(1)}억 원짜리는 ${L?"대출 한도 때문에":"자금이"} 모자랐다. 같은 권역의 ${alt[1].toFixed(1)}억 원짜리로 낮췄다.`}
+        else if(L&&b.opp&&rng()<.3*(1-enf)){deal=[h,P,loan];k="detour";text=`주택담보대출로는 ${(P-loan-b.sav).toFixed(1)}억 원이 모자랐다. 신용대출과 가족에게 빌린 돈으로 채워 ${P.toFixed(1)}억 원짜리를 샀다.`}
+        else{D[r]+=.35;this.log(ev,"giveup",b.id,h.i,`${P.toFixed(1)}억 원짜리를 보았지만 빌릴 수 있는 돈이 ${loan.toFixed(1)}억 원뿐이라 포기했다.`);b._adj=false;continue}}
+      b._adj=false;const[hh2,Pf,lf]=deal;D[hh2.r]++;txn[hh2.r]++;this.tx.push({t,r:hh2.r,p:Pf});
+      const seller=this.hh.get(hh2.owner);
+      if(seller){seller.owned=seller.owned.filter(i=>i!==hh2.i);seller.sav+=Pf*.5;if(hh2.resident===seller.id){seller.home=null;hh2.resident=null;if(!seller.owned.length)this.hh.delete(seller.id);else{seller.home=seller.owned[0]}}}
+      b.sav=Math.max(0,b.sav-(Pf-lf));b.debt+=lf;b.owned.push(hh2.i);hh2.owner=b.id;hh2.listed=false;hh2.since=t;
+      if(inv||k==="adj"&&b.owned.length>1){hh2.st="vacR";hh2.resident=null;hh2.rightUsed=false}
+      else{const old=this.houses[b.home];if(old&&old.resident===b.id){old.resident=null;if(old.st==="rent"){old.st="vacR";old.rightUsed=false}}
+        ev.push({t,k:"move",hid:b.id,hi:hh2.i,from:b.home});hh2.st="own";hh2.resident=b.id;b.home=hh2.i}
+      this.log(ev,k,b.id,hh2.i,text);
+    }
+    // 5. prices
+    for(let r=0;r<3;r++){
+      this.p[r]*=1+clamp(.0015+.6*(D[r]-NL[r])/216-.03*(S[r]/216-.05)+(rng()-.5)*.004,-.02,.026);
+      const vac=this.houses.filter(h=>h.r===r&&h.st==="vacR").length,stock=this.houses.filter(h=>h.r===r&&(h.st==="rent"||h.st==="vacR")).length||1;
+      this.r[r]*=1+clamp(.001+.1*(seek[r]-vac*.45)/stock+(rng()-.5)*.003,-.008,.011);
+    }
+    this.ph.push([...this.p]);this.rh.push([...this.r]);this.txh.push(txn);
+    for(const h of this.hh.values())if(h.home!=null){h.sav+=h.inc*.18/10000;h.inc*=1.0025}
+    const st=this.houses.reduce((a,h)=>(a[h.st]=(a[h.st]||0)+1,a),{});
+    this.stat.push({t,st,seekers:this.seekers.length,ren:Object.assign({},this.ren)});
+    return ev;
+  }
+}
+//SIM-END
+
+// ---------------------------------------------------------------- UI
+const $=id=>document.getElementById(id);
+const css=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+let sim,base,timer=null,events=[],animStart=0,animDur=420,sel=null,logItems=[];
+const reduce=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+function opts(){return{enf:+$("enf").value/100,opp:+$("opp").value/100,start:+$("start").value}}
+function labels(){$("enfv").textContent=$("enf").value+"%";$("oppv").textContent=$("opp").value+"%";$("startv").textContent=$("start").value+"개월째"}
+function init(){
+  stop();const o=opts(),k=$("scen").value;sim=new Sim(20261009,k,o);base=new Sim(20261009,"none",o);
+  events=[];logItems=[];sel=null;$("log").textContent="";$("log").appendChild(el("span","muted","재생하면 가구의 결정과 이유가 여기에 쌓입니다."));
+  $("insp").textContent="";$("insp").appendChild(el("span","muted","지도에서 집을 누르거나 아래 기록을 누르면 가구의 처지와 지난 결정이 나옵니다."));
+  const ul=$("clauses");ul.textContent="";for(const c of SCEN[k].clauses)ul.appendChild(el("li",null,c));
+  labels();drawAll();
+}
+function el(t,c,txt){const e=document.createElement(t);if(c)e.className=c;if(txt!=null)e.textContent=txt;return e}
+function stop(){if(timer){clearTimeout(timer);timer=null}$("play").textContent="재생"}
+function tick(){
+  if(sim.t>=T_END){stop();return}
+  events=sim.step();base.step();animStart=performance.now();animDur=+$("speed").value;
+  for(const e of events)if(e.k!=="move")logItems.unshift(e);
+  if(logItems.length>400)logItems.length=400;
+  renderLog();drawCharts();renderTiles();renderPaths();if(sel)inspect(sel.type,sel.id);
+  requestAnimationFrame(frame);
+}
+function loop(){tick();if(sim.t<T_END&&timer!==null)timer=setTimeout(loop,+$("speed").value);else stop()}
+$("play").addEventListener("click",()=>{if(timer!==null){stop();return}if(sim.t>=T_END)init();timer=0;$("play").textContent="일시정지";loop()});
+$("stepb").addEventListener("click",()=>{stop();tick()});
+$("reset").addEventListener("click",init);
+for(const id of["scen","enf","opp","start"])$(id).addEventListener("change",init);
+for(const id of["enf","opp","start"])$(id).addEventListener("input",labels);
+$("mode").addEventListener("change",drawAll);$("flt").addEventListener("change",renderLog);
+
+function roleOf(h){if(!h)return"";const n=h.owned.length;const hm=h.home!=null?sim.houses[h.home]:null;const live=hm&&hm.owner===h.id?"자가 거주":(hm?"세입자":"집을 구하는 중");return n>1?`${live} · 임대인 (${n}채 보유)`:(n===1&&!(hm&&hm.owner===h.id)?`${live} · 임대인`:live)}
+function renderLog(){
+  const box=$("log"),f=$("flt").value;box.textContent="";let n=0;
+  for(const e of logItems){const P=PATHS[e.k];if(!P)continue;if(f==="x"&&!P[1])continue;if((f==="lease"||f==="buy")&&P[2]!==f)continue;
+    const b=el("button","ev");b.type="button";const h=el("div","h");h.appendChild(el("span",null,`${e.t}개월`));h.appendChild(el("span","chip"+(P[1]?" x":""),P[0]));h.appendChild(el("span",null,`가구 ${e.hid} · ${RN[sim.houses[e.hi].r]}`));
+    b.appendChild(h);b.appendChild(el("div","t",e.text));b.addEventListener("click",()=>{sel={type:"hh",id:e.hid,hi:e.hi};inspect("hh",e.hid);drawMap(1)});box.appendChild(b);if(++n>=60)break}
+  if(!n)box.appendChild(el("span","muted",sim.t?"이 조건에 맞는 기록이 아직 없습니다.":"재생하면 가구의 결정과 이유가 여기에 쌓입니다."));
+}
+function dl(pairs){const d=el("dl");for(const[a,b]of pairs){d.appendChild(el("dt",null,a));d.appendChild(el("dd",null,b))}return d}
+function inspect(type,id){
+  const box=$("insp");box.textContent="";
+  if(type==="house"){const h=sim.houses[id];box.appendChild(el("h2",null,`${RN[h.r]} 권역의 집 ${h.i+1}`));
+    const stn={own:"자가 거주",rent:"임대 중",vacR:"세입자를 구하는 빈집",sale:"매물로 나온 빈집",paper:"주소만 옮겨 둔 빈집"}[h.st];
+    box.appendChild(dl([["상태",stn+(h.listed&&h.st==="own"?" · 매물로 내놓음":"")],["시세",sim.price(h).toFixed(2)+"억 원"],["임대 시세","월 "+sim.mrent(h)+"만 원"],h.st==="rent"?["지금 임대료","월 "+h.rent+"만 원 · 만기 "+h.leaseEnd+"개월째"+(h.rightUsed?" · 갱신권 사용함":"")]:["",""]]));
+    const row=el("div","row");for(const[lab,hid]of[["가진 가구",h.owner],["사는 가구",h.resident]]){if(hid&&sim.hh.get(hid)&&!(lab==="사는 가구"&&hid===h.owner)){const b=el("button",null,`${lab} ${hid}`);b.type="button";b.addEventListener("click",()=>{sel={type:"hh",id:hid,hi:h.i};inspect("hh",hid)});row.appendChild(b)}}
+    box.appendChild(row);return}
+  const h=sim.hh.get(id);if(!h){box.appendChild(el("span","muted","이 가구는 동네를 떠났습니다."));return}
+  box.appendChild(el("h2",null,`가구 ${h.id}`));
+  box.appendChild(dl([["역할",roleOf(h)],["연령대",h.age],["월 소득",Math.round(h.inc)+"만 원"],["저축",h.sav.toFixed(1)+"억 원"],["대출",h.debt?h.debt.toFixed(1)+"억 원":"없음"],["성향 (가상)",h.opp?"기회를 따름":"규칙을 따름"]]));
+  box.appendChild(el("h2",null,"지난 결정"));const hs=el("div","hist");
+  if(!h.hist.length)hs.appendChild(el("span","muted","아직 결정한 일이 없습니다."));
+  for(const e of[...h.hist].reverse()){const d=el("div");d.appendChild(el("b",null,`${e.t}개월 · ${PATHS[e.k][0]}`));d.appendChild(el("div",null,e.text));hs.appendChild(d)}
+  box.appendChild(hs);
+}
+function renderTiles(){
+  const s=sim.stat[sim.stat.length-1],b=base.stat[base.stat.length-1],box=$("tiles");box.textContent="";
+  const pct=(a,b)=>b?Math.round(100*a/b)+"%":"–";
+  const rs=(x)=>(x.st.rent||0)+(x.st.vacR||0);
+  const items=s?[["임대 재고",rs(s)+"채","정책 없음 "+rs(b)],["갱신된 비율",pct(s.ren.ren,s.ren.exp),"정책 없음 "+pct(b.ren.ren,b.ren.exp)],["갱신권 사용",pct(s.ren.right,s.ren.ren),"요구 중 거절 "+pct(s.ren.ref,s.ren.asked)],["집을 구하는 가구",s.seekers+"가구","정책 없음 "+b.seekers]]:[["임대 재고","–",""],["갱신된 비율","–",""],["갱신권 사용","–",""],["집을 구하는 가구","–",""]];
+  for(const[a,v,c]of items){const t=el("div","tile");t.appendChild(el("span",null,a));t.appendChild(el("b",null,v));t.appendChild(el("small",null,c));box.appendChild(t)}
+  $("clock").textContent=`${sim.t}개월 / ${T_END}개월`+(sim.t>=sim.opt.start&&sim.scKey!=="none"?" · 시행 중":"");
+}
+function renderPaths(){
+  const box=$("paths");box.textContent="";const mx=Math.max(1,...Object.values(sim.paths));
+  for(const k in PATHS){const n=sim.paths[k];if(!n&&!PATHS[k][1])continue;const p=el("div","p");p.appendChild(el("span",null,PATHS[k][0]));const bar=el("div","bar"),i=el("i",PATHS[k][1]?"x":"");i.style.width=(100*n/mx)+"%";bar.appendChild(i);p.appendChild(bar);p.appendChild(el("span","n",String(n)));box.appendChild(p)}
+}
+// ---- map
+const MAP={pad:26,gap:14};
+function cellGeom(){const c=$("map"),cw=(c.width-MAP.pad*2-MAP.gap*2)/W,ch=(c.height-MAP.pad-10)/H;return{cw,ch}}
+function cellXY(h){const{cw,ch}=cellGeom();return[MAP.pad+h.x*cw+h.r*MAP.gap,MAP.pad+h.y*ch,cw,ch]}
+function drawMap(pr){
+  const c=$("map"),g=c.getContext("2d"),mode=$("mode").value;g.clearRect(0,0,c.width,c.height);
+  const col={own:css("--own"),rent:css("--rent"),vacR:css("--vac"),sale:css("--sale"),paper:css("--paper")},ink=css("--ink"),muted=css("--muted"),surf=css("--surface");
+  g.font="600 15px "+css("--f-body");g.textBaseline="top";
+  const{cw,ch}=cellGeom();
+  for(let r=0;r<3;r++){g.fillStyle=muted;g.fillText(RN[r]+" 권역",MAP.pad+r*12*cw+r*MAP.gap,4);
+    if(sim.sc.zone&&sim.active()&&r===0){g.strokeStyle=css("--s2");g.lineWidth=3;g.setLineDash([8,5]);g.strokeRect(MAP.pad-5,MAP.pad-5,12*cw+8,H*ch+8);g.setLineDash([])}}
+  let pmin=1e9,pmax=0;if(mode==="price")for(const h of sim.houses){const p=sim.price(h);pmin=Math.min(pmin,p);pmax=Math.max(pmax,p)}
+  for(const h of sim.houses){const[x,y]=cellXY(h);
+    if(mode==="price"){const v=(Math.log(sim.price(h))-Math.log(pmin))/(Math.log(pmax)-Math.log(pmin)||1);g.globalAlpha=.18+.82*v;g.fillStyle=col.rent;g.fillRect(x+1,y+1,cw-2,ch-2);g.globalAlpha=1}
+    else{g.fillStyle=col[h.st];g.fillRect(x+1,y+1,cw-2,ch-2);if(h.listed&&h.st==="own"){g.fillStyle=col.sale;g.fillRect(x+1,y+ch-6,cw-2,5)}}
+    if(sel&&sel.hi===h.i){g.strokeStyle=ink;g.lineWidth=3;g.strokeRect(x+1.5,y+1.5,cw-3,ch-3)}}
+  if(pr<1&&!reduce){
+    for(const e of events){const h=sim.houses[e.hi];if(!h)continue;const[x,y]=cellXY(h),cx=x+cw/2,cy=y+ch/2;
+      if(e.k==="move"){if(e.from>=0){const f=sim.houses[e.from],[fx,fy]=cellXY(f),a=Math.min(1,pr*1.25);const px=fx+cw/2+(cx-fx-cw/2)*a,py=fy+ch/2+(cy-fy-ch/2)*a;g.strokeStyle=ink;g.globalAlpha=.25;g.lineWidth=1;g.beginPath();g.moveTo(fx+cw/2,fy+ch/2);g.lineTo(px,py);g.stroke();g.globalAlpha=1;g.fillStyle=ink;g.beginPath();g.arc(px,py,4.5,0,7);g.fill();g.strokeStyle=surf;g.lineWidth=1.5;g.stroke()}
+        else{g.fillStyle=ink;g.globalAlpha=1-pr;g.beginPath();g.arc(cx,cy,4+6*pr,0,7);g.fill();g.globalAlpha=1}}
+      else{const P=PATHS[e.k];g.strokeStyle=P[1]?css("--s2"):css("--s1");g.lineWidth=3;g.globalAlpha=1-pr*.85;g.beginPath();g.arc(cx,cy,6+16*pr,0,7);g.stroke();g.globalAlpha=1}}
+  }
+}
+function frame(now){const pr=Math.min(1,(now-animStart)/animDur);drawMap(pr);if(pr<1)requestAnimationFrame(frame)}
+$("map").addEventListener("click",ev=>{const c=$("map"),b=c.getBoundingClientRect(),mx=(ev.clientX-b.left)*c.width/b.width,my=(ev.clientY-b.top)*c.height/b.height;
+  for(const h of sim.houses){const[x,y,cw,ch]=cellXY(h);if(mx>=x&&mx<x+cw&&my>=y&&my<y+ch){sel={type:"house",id:h.i,hi:h.i};inspect("house",h.i);drawMap(1);return}}});
+function legend(){const L=$("legend");L.textContent="";
+  for(const[c,t]of[["--own","자가 거주"],["--rent","임대 중"],["--vac","세입자를 구하는 빈집"],["--sale","매물"],["--paper","주소만 옮겨 둔 빈집"]]){const s=el("span");const i=el("i","sw");i.style.background=`var(${c})`;s.appendChild(i);s.appendChild(document.createTextNode(t));L.appendChild(s)}
+  for(const[c,t]of[["ring b","이번 달의 결정"],["ring","예상 밖 대응"],["dot","이사하는 가구"]]){const s=el("span");s.appendChild(el("i",c));s.appendChild(document.createTextNode(t));L.appendChild(s)}}
+// ---- charts
+const CH={};
+function lineChart(id,series,dash,opt){
+  const c=$(id),g=c.getContext("2d"),Wc=c.width,Hc=c.height,m={l:44,r:58,t:10,b:24};g.clearRect(0,0,Wc,Hc);
+  const all=series.flat().concat(dash.flat());let lo=Math.min(...all),hi=Math.max(...all);if(!isFinite(lo)){lo=95;hi=105}const pad=(hi-lo)*.08||1;lo-=pad;hi+=pad;
+  const X=t=>m.l+(Wc-m.l-m.r)*t/T_END,Y=v=>m.t+(Hc-m.t-m.b)*(1-(v-lo)/(hi-lo));
+  const muted=css("--muted"),line=css("--line"),cols=[css("--s1"),css("--s2"),css("--s3")];
+  g.font="11.5px "+css("--f-mono");g.fillStyle=muted;g.strokeStyle=line;g.lineWidth=1;
+  for(let i=0;i<=4;i++){const v=lo+(hi-lo)*i/4,y=Y(v);g.beginPath();g.moveTo(m.l,y);g.lineTo(Wc-m.r,y);g.stroke();g.textAlign="right";g.fillText(v.toFixed(0),m.l-6,y+4)}
+  g.textAlign="center";for(let t=0;t<=T_END;t+=12)g.fillText(t+"개월",X(t),Hc-6);
+  if(sim.scKey!=="none"){const x=X(sim.opt.start);g.strokeStyle=muted;g.setLineDash([3,3]);g.beginPath();g.moveTo(x,m.t);g.lineTo(x,Hc-m.b);g.stroke();g.setLineDash([]);g.textAlign="left";g.fillText("시행",x+4,m.t+10)}
+  const draw=(arr,col,d)=>{g.strokeStyle=col;g.lineWidth=d?1.4:2;g.setLineDash(d?[5,4]:[]);g.globalAlpha=d?.7:1;g.beginPath();arr.forEach((v,t)=>t?g.lineTo(X(t),Y(v)):g.moveTo(X(t),Y(v)));g.stroke();g.setLineDash([]);g.globalAlpha=1};
+  dash.forEach((a,i)=>draw(a,cols[i],true));series.forEach((a,i)=>{draw(a,cols[i],false);const n=a.length-1;if(n>=0){g.fillStyle=cols[i];g.beginPath();g.arc(X(n),Y(a[n]),3,0,7);g.fill();g.fillStyle=css("--ink");g.textAlign="left";g.font="12px "+css("--f-body");g.fillText(RN[i],X(n)+7,Y(a[n])+4);g.font="11.5px "+css("--f-mono")}});
+  CH[id]={X,m,Wc,series,dash,fmt:opt.fmt};
+}
+function drawCharts(){
+  const col=(arr,r)=>arr.map(v=>v[r]*100);
+  lineChart("c1",[0,1,2].map(r=>col(sim.ph,r)),[0,1,2].map(r=>col(base.ph,r)),{fmt:v=>v.toFixed(1)});
+  lineChart("c2",[0,1,2].map(r=>col(sim.rh,r)),[0,1,2].map(r=>col(base.rh,r)),{fmt:v=>v.toFixed(1)});
+  // c3 bars
+  {const c=$("c3"),g=c.getContext("2d"),Wc=c.width,Hc=c.height,m={l:44,r:16,t:10,b:24};g.clearRect(0,0,Wc,Hc);
+    const a=sim.txh.map(v=>v[0]+v[1]+v[2]),b=base.txh.map(v=>v[0]+v[1]+v[2]),hi=Math.max(6,...a,...b)*1.1;
+    const X=t=>m.l+(Wc-m.l-m.r)*t/T_END,Y=v=>m.t+(Hc-m.t-m.b)*(1-v/hi),bw=(Wc-m.l-m.r)/T_END-2;
+    g.font="11.5px "+css("--f-mono");g.fillStyle=css("--muted");g.strokeStyle=css("--line");
+    for(let i=0;i<=3;i++){const v=hi*i/3,y=Y(v);g.beginPath();g.moveTo(m.l,y);g.lineTo(Wc-m.r,y);g.stroke();g.textAlign="right";g.fillText(v.toFixed(0),m.l-6,y+4)}
+    g.textAlign="center";for(let t=0;t<=T_END;t+=12)g.fillText(t+"개월",X(t),Hc-6);
+    g.fillStyle=css("--s1");a.forEach((v,t)=>{const y=Y(v);g.fillRect(X(t)+1,y,Math.max(2,bw),Hc-m.b-y)});
+    g.strokeStyle=css("--muted");g.lineWidth=1.4;g.setLineDash([5,4]);g.beginPath();let s=0;b.forEach((v,t)=>{s=t?s*.7+v*.3:v;t?g.lineTo(X(t)+bw/2,Y(s)):g.moveTo(X(t)+bw/2,Y(s))});g.stroke();g.setLineDash([]);
+    CH.c3={X,m,Wc,a,b};}
+  // c4 histogram
+  {const c=$("c4"),g=c.getContext("2d"),Wc=c.width,Hc=c.height,m={l:44,r:16,t:10,b:24};g.clearRect(0,0,Wc,Hc);
+    const lo=2,hi=24,bin=.5,n=Math.round((hi-lo)/bin),ha=new Array(n).fill(0),hb=new Array(n).fill(0);
+    const put=(arr,tx,t)=>{for(const x of tx)if(x.t>t-18){const i=Math.floor((x.p-lo)/bin);if(i>=0&&i<n)arr[i]++}};put(ha,sim.tx,sim.t);put(hb,base.tx,base.t);
+    const mx=Math.max(4,...ha,...hb)*1.1,X=p=>m.l+(Wc-m.l-m.r)*(p-lo)/(hi-lo),Y=v=>m.t+(Hc-m.t-m.b)*(1-v/mx),bw=(Wc-m.l-m.r)/n;
+    g.font="11.5px "+css("--f-mono");g.fillStyle=css("--muted");g.strokeStyle=css("--line");
+    for(let i=0;i<=3;i++){const v=mx*i/3,y=Y(v);g.beginPath();g.moveTo(m.l,y);g.lineTo(Wc-m.r,y);g.stroke();g.textAlign="right";g.fillText(v.toFixed(0),m.l-6,y+4)}
+    g.textAlign="center";for(let p=3;p<=24;p+=3)g.fillText(p+"억",X(p),Hc-6);
+    g.fillStyle=css("--s1");ha.forEach((v,i)=>{if(v){const y=Y(v);g.fillRect(X(lo+i*bin)+1,y,bw-2,Hc-m.b-y)}});
+    g.strokeStyle=css("--muted");g.lineWidth=1.4;g.setLineDash([5,4]);g.beginPath();hb.forEach((v,i)=>{const x=X(lo+i*bin),y=Y(v);i?g.lineTo(x,y):g.moveTo(x,y);g.lineTo(x+bw,y)});g.stroke();g.setLineDash([]);
+    if(sim.sc.loan){g.strokeStyle=css("--s2");g.lineWidth=2;for(const p of[sim.sc.loan.t0,sim.sc.loan.t1]){g.beginPath();g.moveTo(X(p),m.t);g.lineTo(X(p),Hc-m.b);g.stroke();g.fillStyle=css("--ink");g.textAlign="left";g.fillText(p+"억",X(p)+4,m.t+10)}}
+  }
+}
+function drawAll(){drawMap(1);drawCharts();renderTiles();renderPaths();legend()}
+function hover(id){$(id).addEventListener("mousemove",ev=>{const k=CH[id];if(!k)return;const c=$(id),b=c.getBoundingClientRect(),mx=(ev.clientX-b.left)*c.width/b.width;
+    const t=Math.round((mx-k.m.l)/((k.Wc-k.m.l-k.m.r)/T_END));let txt="";
+    if(id==="c3"){if(t<0||t>=k.a.length)return hide();txt=`${t+1}개월\n이 시나리오 ${k.a[t]}건\n정책 없음   ${k.b[t]}건`}
+    else{if(t<0||t>=k.series[0].length)return hide();txt=`${t}개월\n`+RN.map((n,i)=>`${n} ${k.fmt(k.series[i][t])}  (정책 없음 ${k.fmt(k.dash[i][t])})`).join("\n")}
+    const tip=$("tip");tip.textContent=txt;tip.hidden=false;tip.style.left=Math.min(ev.clientX+12,window.innerWidth-tip.offsetWidth-8)+"px";tip.style.top=(ev.clientY+14)+"px"});
+  $(id).addEventListener("mouseleave",hide)}
+function hide(){$("tip").hidden=true}
+function boot(){const s=$("scen");for(const k in SCEN){const o=el("option",null,SCEN[k].name);o.value=k;s.appendChild(o)}s.value="ten";for(const id of["c1","c2","c3"])hover(id);init()}
+boot();
+</script>
+
+</body></html>
