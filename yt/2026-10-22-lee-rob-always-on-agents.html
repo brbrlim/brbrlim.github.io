@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stanford CS146S: How always-on agents work — Johnny's YouTube Digest</title>
+<meta name="description" content="이 영상은 상시 작동 에이전트(always-on agents)의 설계 원리와 기술적 구현 방안을 깊이 있게 다룬다. 화자는 단순한 도구 호출(tool calling) 챗봇에서 벗어나, 자기만의 컴퓨터를 가지고 배경에서 장기간 주도적으로 작업하며 사용자와 지능적으로 소통…">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="Stanford CS146S: How always-on agents work — Johnny's YouTube Digest">
+<meta property="og:description" content="이 영상은 상시 작동 에이전트(always-on agents)의 설계 원리와 기술적 구현 방안을 깊이 있게 다룬다. 화자는 단순한 도구 호출(tool calling) 챗봇에서 벗어나, 자기만의 컴퓨터를 가지고 배경에서 장기간 주도적으로 작업하며 사용자와 지능적으로 소통…">
+<meta property="og:image" content="https://i.ytimg.com/vi/L1OBRtfPS34/hqdefault.jpg">
+<meta property="og:type" content="article">
+<link rel="icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+<script>
+// Follow the blog's saved light/dark choice (same origin, same key).
+(function () {
+  var saved = null
+  try { saved = localStorage.getItem("theme") } catch (e) {}
+  var dark = saved ? saved === "dark" : matchMedia("(prefers-color-scheme: dark)").matches
+  document.documentElement.dataset.theme = dark ? "dark" : "light"
+})()
+</script>
+</head>
+<body class="post-page">
+<header class="site-bar">
+  <a class="site-name" href="./">Johnny's YouTube Digest</a>
+  <nav><a href="./">피드</a><a href="briefings.html">브리핑 · 통계</a><a href="/">블로그</a></nav>
+</header>
+<main class="post">
+  <a class="hero" href="https://www.youtube.com/watch?v=L1OBRtfPS34" target="_blank" rel="noopener" aria-label="YouTube에서 보기">
+    <img src="https://i.ytimg.com/vi/L1OBRtfPS34/hqdefault.jpg" alt="">
+    <span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+  </a>
+  <h1>Stanford CS146S: How always-on agents work</h1>
+  <div class="post-meta"><a href="./?q=%40leerob">leerob</a><span>45:17</span><span>게시 2026-10-11</span><a href="daily-2026-10-22.html">브리핑 2026-10-22</a></div>
+  <div class="tags"><a class="topic" href="./?q=topic%3Aai">AI · 테크</a><a href="./?q=%23ai-agents">#ai-agents</a><a href="./?q=%23engineering">#engineering</a><a href="./?q=%23large-language-models">#large-language-models</a><a href="./?q=%23system-design">#system-design</a><a href="./?q=%23prompt-engineering">#prompt-engineering</a></div>
+  <article>
+<h2>TL;DR</h2>
+<p>이 영상은 상시 작동 에이전트(always-on agents)의 설계 원리와 기술적 구현 방안을 깊이 있게 다룬다. 화자는 단순한 도구 호출(tool calling) 챗봇에서 벗어나, 자기만의 컴퓨터를 가지고 배경에서 장기간 주도적으로 작업하며 사용자와 지능적으로 소통하는 에이전트를 구축하는 데 필요한 아키텍처, 콘텍스트 엔지니어링, 보안, 그리고 학습 플라이휠(flywheel)을 설명한다. 모델의 빠른 발전 속도에 맞춰 끊임없이 제품을 재고해야 하는 '제품 제거(remove the product)' 원칙을 강조한다.</p>
+<h2>풀시청 판단</h2>
+<p>이 영상은 대규모 언어 모델(LLM) 기반 에이전트의 실제 시스템 설계 및 구현에 관심 있는 개발자, 엔지니어, 제품 관리자에게 매우 유용하다. 특히 다음과 같은 질문에 답을 얻고 싶은 사람들에게 시청을 권한다.</p>
+<ul>
+<li>단순한 챗봇을 넘어 장기간 작동하는 지능형 에이전트를 어떻게 만들 수 있을까?</li>
+<li>LLM의 콘텍스트 창(context window) 한계를 극복하기 위한 엔지니어링 기법은 무엇인가?</li>
+<li>에이전트 시스템에서 비용 효율성, 안정성, 보안을 어떻게 확보할 수 있을까?</li>
+<li>미래의 AI 제품은 어떤 아키텍처와 상호작용 방식을 가질 것인가?</li>
+</ul>
+<p>이 영상은 개념적인 논의를 넘어 실제 서비스 구축 과정에서 마주치는 구체적인 문제(예: 캐시 미스, 워크플로 관리, 프롬프트 최적화)와 해결 방안을 제시한다. 다만, 기술적 깊이가 있어 LLM 및 분산 시스템에 대한 기본적인 이해가 없는 청중에게는 다소 어려울 수 있다.</p>
+<p><strong>약점 및 한계:</strong></p>
+<ul>
+<li><strong>러시아어 번역 자막</strong>: 원본 발표는 영어이나, 제공된 자막은 러시아어 발표를 영어로 번역한 것으로 추정되어 일부 표현이 다소 어색하거나 직관적이지 않을 수 있다.</li>
+<li><strong>기술적인 세부 사항</strong>: 구체적인 코드나 구현 예시보다는 아키텍처와 개념적 설명에 중점을 두므로, 직접적인 코딩 가이드를 기대하는 경우 아쉬울 수 있다.</li>
+<li><strong>빠른 변화</strong>: LLM 기술은 빠르게 발전하므로, 영상에서 언급된 일부 '현재'의 문제점이나 '미래' 예측이 이미 해결되었거나 다르게 전개될 수 있다.</li>
+</ul>
+<p>영상의 거의 모든 부분이 핵심적인 내용을 담고 있으므로, 에이전트 시스템 설계에 진지하게 접근하려는 사람이라면 풀시청할 가치가 있다. 특히 <code>### 상시 작동 에이전트를 가능케 한 6가지 모델 변화</code>, <code>### &quot;얇은 클라이언트, 두꺼운 서버&quot; 아키텍처</code>, <code>### 콘텍스트 엔지니어링의 핵심 원리</code>, <code>### &quot;제품 제거&quot; 원칙</code> 섹션은 반드시 볼 것을 권한다.</p>
+<h2>핵심 내용</h2>
+<h3>AI 개발의 4단계 진화 — 단순 복사에서 상시 작동 에이전트까지</h3>
+<p>인공지능 개발은 크게 네 시대를 거쳐왔다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=L1OBRtfPS34&amp;t=159s">[2:39]</a> 첫 번째는 ChatGPT에서 코드를 복사해 편집기에 붙여넣는 단순한 사용 단계였다. 두 번째 시대에는 모델이 파일 편집, 셸 명령어 실행 등 도구 호출 기능을 터미널 환경에서 사용할 수 있게 되면서 모델의 능동적인 작업 수행 능력이 크게 향상되었다.</p>
+<p>세 번째 시대는 에이전트가 코드를 작성하고 특정 애플리케이션에 특화되어 병렬로 실행되는 단계였다. 이때 클라우드 환경에서 에이전트를 실행하기 시작했지만, 여전히 사용자가 모든 셸 명령어를 검토하고 승인해야 하는 병목 현상이 있었다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=L1OBRtfPS34&amp;t=217s">[3:37]</a> 현재는 모델, 프레임워크, 제품의 발전 덕분에 '상시 작동 에이전트(always-on agents)' 시대에 접어들었다. 이 에이전트들은 사용자가 잠자거나 다른 일을 할 때에도 배경에서 스스로 학습하고 작업하며, 자신만의 컴퓨터와 메모리를 가진다.</p>
+<h3>상시 작동 에이전트: 인간 동료처럼 주도적으로 일한다</h3>
+<p>기존 터미널 셸 에이전트와 달리, 상시 작동 에이전트는 사용자의 메시지에 즉각 반응하지 않을 때도 있다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=L1OBRtfPS34&amp;t=87s">[1:27]</a> 마치 인간 동료처럼 언제 침묵하는 것이 최선인지 알고, 배경에서 작업을 수행하다가 중요한 업데이트가 있을 때만 사용자에게 알린다. 텍스트 입력 외에도 Slack 메시지, 이메일, 회의 초청 등 다양한 이벤트에 의해 활성화될 수 있다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=L1OBRtfPS34&amp;t=101s">[1:41]</a></p>
+<p>이 에이전트는 클라우드의 리눅스(Linux) 머신처럼 자신만의 컴퓨터를 가진다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=L1OBRtfPS34&amp;t=66s">[1:06]</a> 이를 통해 파일을 저장하고, 작업 진행 상황을 이해하며, 사용자 작업 방식에 대한 메모리를 축적할 수 있다. 몇 시간이나 며칠이 아닌 몇 주, 몇 달 동안 장기적인 작업을 수행하도록 설계되어, 이를 위해 새로운 아키텍처가 필요하다.</p>
+<h3>상시 작동 에이전트를 가능케 한 6가지 모델 변화</h3>
+<p>상시 작동 에이전트의 등장을 가능하게 한 모델 자체의 6가지 주요 변화가 있다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=L1OBRtfPS34&amp;t=380s">[6:20]</a></p>
+<ol>
+<li><strong>장기 지시 수행 능력 향상</strong>: 모델은 이제 혼란을 겪거나 실수를 저지르지 않고 장기간(수 시간~수 일) 지시를 따르는 능력이 크게 개선되었다.</li>
+<li><strong>부(sub) 에이전트 위임</strong>: 모델은 작업을 '부 에이전트(subagent)'라는 도우미에게 위임할 수 있다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=L1OBRtfPS34&amp;t=404s">[6:44]</a> 이는 메인 모델의 작업 메모리 한계를 극복하고, 토큰 비용이 많이 드는 작업을 효율적으로 처리하게 한다. 부 에이전트는 독립적인 메모리를 가지므로 '무한한 콘텍스트(unlimited context)'를 제공하는 것과 같다.</li>
+<li><strong>향상된 도구 활용 능력</strong>: 모델은 도구를 더 잘 사용할 뿐만 아니라, 터미널 명령어나 파일 작업, 심지어 전체 리눅스 컴퓨터와 같은 강력한 도구를 제공받아 활용할 수 있다. 과거의 '환각 현상(hallucination)' 문제는 대부분 해결되었다.</li>
+<li><strong>컴퓨터 활용 능력(Computer literacy)</strong>: 에이전트가 사람처럼 화면을 클릭할 수 있게 되면서, API가 없는 SaaS 제품이나 웹사이트도 자율적으로 사용할 수 있다.</li>
+<li><strong>파일 기반 정보 저장</strong>: 모델은 모든 정보를 파일에 저장하여 필요할 때 검색하고 불러올 수 있다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=L1OBRtfPS34&amp;t=491s">[8:11]</a> 이는 대화 기록, 사용자 프로필, 작업 기록 등을 효율적으로 관리하는 데 중요하다.</li>
+<li><strong>시범 학습을 통한 스킬 습득</strong>: 사용자 시연을 통해 특정 작업을 수행하는 방법을 학습하여, 이를 스킬, 메모리, 루틴 등으로 인코딩하고 나중에 활용할 수 있다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=L1OBRtfPS34&amp;t=500s">[8:20]</a></li>
+</ol>
+<h3>상시 작동 에이전트의 내부 작동 방식: 수면과 기상</h3>
+<p>상시 작동 에이전트의 '마음'을 들여다보면, 에이전트와 그가 사용하는 컴퓨터는 평소에는 '절전(sleeping)' 상태에 있다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=L1OBRtfPS34&amp;t=621s">[10:21]</a> 사용자의 메시지나 외부 트리거가 발생하면, 에이전트의 모든 상태가 로드되고 초기화되어 서버에서 실행된다. 만약 컴퓨터 사용이 필요하면 컴퓨터도 켜지고, 작업 완료 후에는 다시 절전 모드로 전환된다. 이는 항상 컴퓨터를 켜두는 것보다 훨씬 비용 효율적이며, 자원 절약에도 필수적이다.</p>
+<p>에이전트를 깨우는 트리거는 다양하다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=L1OBRtfPS34&amp;t=674s">[11:14]</a> 사용자의 직접적인 메시지뿐만 아니라 Slack, 이메일, 심지어 회의 초청(SpaceX에서는 에이전트가 회의에 참석해 노트 필기를 하고 보고서를 작성하는 경우가 늘고 있다) 등 배경 프로세스가 에이전트를 깨울 수 있다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=L1OBRtfPS34&amp;t=693s">[11:33]</a> 에이전트가 사용자에게 언제 응답해야 할지 결정하는 '경험칙(heuristic)' 또한 중요하다. 마치 동료가 매번 진행 상황을 보고하지 않듯이, 에이전트도 모든 세부 사항을 알리지 않고 중요한 업데이트만 전달해야 한다.</p>
+<p>에이전트에게 할당된 컴퓨터는 Firecracker 가상 머신에서 실행되는 리눅스 시스템이다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=L1OBRtfPS34&amp;t=746s">[12:26]</a> 이 가상 머신은 상태 스냅샷을 쉽게 생성하고 종료/시작할 수 있어 매우 유용하다. 에이전트는 파일에 접근하고, 셸 명령어를 실행하며, 가상 데스크톱을 통해 웹 브라우저 등 GUI 애플리케이션을 사용할 수 있다. 이 모든 인프라는 에이전트들이 공유한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=L1OBRtfPS34&amp;t=790s">[13:10]</a></p>
+<h3>견고한 작업 흐름(Workflow)의 중요성: 복구력 있는 에이전트</h3>
+<p>에이전트 시스템에서 '작업 큐(job queue)'와 '워크플로(workflow)'는 중요한 인프라 기본 요소다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=L1OBRtfPS34&amp;t=983s">[16:23]</a> 일반적인 작업 큐는 시스템 충돌 발생 시 처음부터 다시 시작해야 하는 문제가 있다. 반면, '견고한 워크플로(robust workflow)'는 실행을 안전하게 반복할 수 있게 하여, 실패 후 다시 시도할 때 중단된 지점부터 작업을 이어나갈 수 있게 한다. 이는 분산 시스템에서 이미 해결된 문제이며, 오픈소스 도구인 Temporal을 활용하여 이러한 복잡한 기능을 처음부터 개발할 필요 없이 구현할 수 있다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=L1OBRtfPS34&amp;t=1029s">[17:09]</a></p>
+<p>에이전트에게 전달되는 메시지는 우선순위가 부여된다. 예를 들어, 사용자가 진행 중인 에이전트의 작업을 중지하고 새로운 지시를 내리면, 해당 메시지는 최우선순위로 처리되어 에이전트 주기를 중단시킨다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=L1OBRtfPS34&amp;t=1062s">[17:42]</a> 반면 배경 루틴 등 다른 메시지들은 큐의 끝으로 보내지며, 여러 메시지가 빠르게 들어올 경우 일괄 처리(batch)되어 효율성을 높일 수 있다.</p>
+<h3>&quot;얇은 클라이언트, 두꺼운 서버&quot; 아키텍처</h3>
+<p>Grok Bot Harness와 같은 에이전트 시스템의 핵심적인 특징은 '얇은 클라이언트, 두꺼운 서버(thin client–thick server)' 아키텍처이다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=L1OBRtfPS34&amp;t=1108s">[18:28]</a> 클라이언트는 서버에 텍스트 메시지를 보내는 단 하나의 도구인 <code>send to user</code>만 사용하며, 모든 고부하 작업은 서버에서 처리된다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=L1OBRtfPS34&amp;t=1123s">[18:43]</a></p>
+<p>이 아키텍처의 장점은 매우 간단하다는 것이다. 새로운 클라이언트(모바일 앱, 데스크톱 앱, 메일, Slack 등)를 출시하더라도 단일 <code>send to user</code> 도구를 통해 서버와 통신할 수 있다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=L1OBRtfPS34&amp;t=1150s">[19:10]</a> 클라이언트는 서버에서 받은 정보를 사용자에게 적합하고 상호작용적인 방식으로 표시하는 역할을 한다. 예를 들어, 로그인 시 1Password 같은 도구와 연동된 로그인 양식을 표시하거나, 결제 시 Stripe Link 같은 서비스를 사용하고, 되돌릴 수 없는 작업(이메일 전송 등)에는 사용자에게 확인 및 승인 절차를 거치게 할 수 있다.</p>
+<h3>동적 도구 발견 및 비용 최적화 전략</h3>
+<p>LLM은 '콘텍스트 창(context window)'이라는 작업 메모리에 토큰 한계가 있다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=L1OBRtfPS34&amp;t=1209s">[20:09]</a> 가능한 모든 도구의 정의를 콘텍스트 창에 채워 넣으면 대화를 위한 공간이 부족해진다. '동적 콘텍스트(dynamic context)' 또는 '도구 탐색기(tool finder)'라는 콘텍스트 엔지니어링 기법은 이 문제를 해결한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=L1OBRtfPS34&amp;t=1258s">[20:58]</a> 모델에게 도구 이름만 보내고, 모델이 특정 도구를 사용하기로 결정하면 그때서야 해당 도구의 전체 스키마 정보를 파일에서 불러온다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=L1OBRtfPS34&amp;t=1272s">[21:12]</a> 이는 콘텍스트 사용량을 줄여 비용과 작업 부하를 절감한다.</p>
+<p>에이전트는 정보를 얻기 위해 가장 저렴하거나 신뢰할 수 있는 옵션부터 점진적으로 어려운 옵션으로 나아가는 전략을 사용한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=L1OBRtfPS34&amp;t=1293s">[21:33]</a></p>
+<ol>
+<li><strong>대화 이력</strong>: 가장 먼저 대화 이력에서 정보를 찾는다.</li>
+<li><strong>플러그인/API</strong>: 정보가 없으면 플러그인, MCP 서버 또는 Plaid 같은 API를 통해 데이터를 검색한다.</li>
+<li><strong>웹 검색</strong>: 그래도 없으면 웹 검색을 수행한다.</li>
+<li><strong>컴퓨터 데스크톱</strong>: 웹 검색으로도 안 되면 에이전트의 리눅스 컴퓨터에 접속해 브라우저를 열고 직접 검색한다.</li>
+<li><strong>사용자 문의</strong>: 이 모든 방법이 실패한 후에야 사용자에게 데이터를 제공하거나 확인해달라고 요청한다.
+이는 마치 동료가 모든 것을 일일이 묻지 않고 스스로 해결하려 노력하는 것과 같아, 협력적인 느낌을 준다.</li>
+</ol>
+<h3>컴퓨터 내 정보 획득 방식: 접근성 트리의 활용</h3>
+<p>에이전트가 리눅스 컴퓨터에서 정보를 얻는 세 가지 주요 방법이 있다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=L1OBRtfPS34&amp;t=1362s">[22:42]</a></p>
+<ol>
+<li><strong>스크린샷</strong>: 가장 간단한 방법이지만 효율적이지 않다.</li>
+<li><strong>HTML 코드</strong>: 웹 페이지의 HTML 코드를 직접 분석한다.</li>
+<li><strong>접근성 트리(accessibility tree)</strong>: 토큰 사용량을 크게 줄이고, 버튼, 링크 등 특정 웹 요소를 찾는 데 매우 효과적인 방법이다.
+이 방법들이 모두 실패하면, 에이전트는 픽셀을 직접 클릭하는 방식으로 화면을 조작할 수도 있다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=L1OBRtfPS34&amp;t=1390s">[23:10]</a> 2단계 인증 코드나 캡차(CAPTCHA) 같은 경우에는 결국 사용자에게 도움을 요청한다.</li>
+</ol>
+<h3>마스터 에이전트와 서브 에이전트의 역할: 무한한 콘텍스트</h3>
+<p>에이전트 시스템은 '오케스트레이터(orchestrator)' 역할을 하는 마스터 에이전트와 여러 '보조 에이전트(assistants)' 또는 '서브 에이전트(subagents)'로 구성된다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=L1OBRtfPS34&amp;t=1415s">[23:35]</a> 마스터 에이전트와의 대화는 가능한 한 간결해야 한다. 마스터 에이전트는 고비용의 도구 호출이나 복잡한 셸 명령어 실행 등 많은 작업이 필요한 경우, 해당 작업을 서브 에이전트에게 위임한다.</p>
+<p>서브 에이전트가 작업을 수행하고 최종 결과만 마스터 에이전트에게 보고함으로써, 마스터 에이전트의 대화와 콘텍스트가 과부하 되는 것을 방지한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=L1OBRtfPS34&amp;t=1448s">[24:08]</a> 이는 겉보기에 '무한한 콘텍스트'를 가진 제품을 구현하는 핵심 방법이다. 서브 에이전트는 각각 독립적이고 지속 가능한 작업 프로세스이므로, 하나가 충돌하더라도 재시작하여 진행 상황을 잃지 않고 작업을 이어나갈 수 있다. 주 에이전트는 할 일 목록을 관리하는 동료처럼 행동하며, 사용자는 작업 상태 확인, 메시지 전송, 보조 에이전트 중지 등 다양한 방식으로 상호작용할 수 있다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=L1OBRtfPS34&amp;t=1494s">[24:54]</a></p>
+<h2>주요 통찰·논점</h2>
+<h3>콘텍스트 엔지니어링의 핵심 원리: 효율성 극대화</h3>
+<p>콘텍스트 엔지니어링 또는 프레임워크 엔지니어링은 에이전트 프레임워크에서 콘텍스트 사용량을 최소화하는 기법들을 말한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=L1OBRtfPS34&amp;t=1647s">[27:27]</a> 이는 효율성, 비용 절감 등에 매우 중요하다.</p>
+<ul>
+<li><strong>프롬프트 캐싱(Prompt caching)</strong>: 에이전트와 대화할 때 대부분의 토큰은 캐시된 토큰이 된다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=L1OBRtfPS34&amp;t=1679s">[27:59]</a> 도구 정의, 시스템 프롬프트 등 정적 정보를 최대한 고정된 상태로 유지하여 캐시를 깨뜨리지 않아야, 캐시되지 않은 토큰 비용을 매번 지불하는 것을 피할 수 있다.</li>
+<li><strong>대화 압축 및 정리</strong>: 마스터 에이전트와의 길고 긴 대화는 필요에 따라 압축되거나 요약된다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=L1OBRtfPS34&amp;t=1734s">[28:54]</a> 긴 출력은 콘텍스트에 직접 넣지 않고 파일에 기록한 뒤, 에이전트가 파일을 읽도록 하는 것이 효과적이다. 작업 중에는 불필요한 정보를 콘텍스트 창에서 계속 '정리(groom)'하여 비용을 절약하고 모델의 기억력을 높여야 한다.</li>
+<li><strong>서브 에이전트 위임</strong>: 스크린샷 처리와 같이 고비용의 작업은 서브 에이전트에게 위임하여 마스터 에이전트의 콘텍스트에 영향을 주지 않도록 한다.</li>
+<li><strong>캐시 미스(Cache miss) 방지</strong>: 캐시 미스는 시스템 오류와 같다. 프롬프트의 모든 섹션을 해싱(hashing)하고 고정된 순서를 유지하여, 새로운 변경사항(예: AB 테스트용 요소 추가)이 캐시를 초기화하지 않도록 해야 한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=L1OBRtfPS34&amp;t=1838s">[30:38]</a> 또한 사용자가 채팅을 시작하기 전에 서버가 미리 프롬프트를 준비하여 캐시를 '예열(warm up)'하는 등의 엔지니어링 최적화가 필요하다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=L1OBRtfPS34&amp;t=1870s">[31:10]</a></li>
+</ul>
+<p>데이터를 잘 압축하고 요약하는 방법을 찾는 것은 장기 작업을 위한 에이전트에게 매우 중요하다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=L1OBRtfPS34&amp;t=1897s">[31:37]</a> 중요한 세부 사항을 잃지 않으면서 일반화(generalization)를 달성하는 최적의 알고리즘을 찾는 것은 큰 도전 과제다. 모델 제공자가 제공하는 캐시 유지 시간(cache window) 내에 압축 작업을 수행하여 비용을 절감하는 기술도 활용된다.</p>
+<h3>에이전트의 메모리 관리: 인간의 뇌처럼</h3>
+<p>에이전트의 메모리는 여러 수준으로 구성된다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=L1OBRtfPS34&amp;t=1973s">[32:53]</a></p>
+<ol>
+<li><strong>사용자 관련 사실</strong>: 사용자의 선호도(예: 항상 소문자로 텍스트를 작성) 등 항상 포함되어야 하는 정보.</li>
+<li><strong>질의 및 중요 사실</strong>: 중요한 사실을 보존하기 위한 알고리즘 설계가 필요하다. 이는 인간의 뇌가 중요한 정보를 기억하고 관련 없는 정보를 '가비지 컬렉션(garbage collection)'하는 방식과 유사하다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=L1OBRtfPS34&amp;t=2011s">[33:31]</a></li>
+<li><strong>날짜별 기록 및 초안</strong>: 과거 대화 기록과 현재 작업 중인 임시 노트.
+이 외의 모든 정보는 파일 시스템을 통해 검색하고 활용된다.</li>
+</ol>
+<h3>&quot;제품 제거(remove the product)&quot; 원칙: 모델 발전 속도에 적응하기</h3>
+<p>Cursor와 SpaceX가 가진 원칙 중 하나는 &quot;제품 제거(remove the product)&quot;다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=L1OBRtfPS34&amp;t=2266s">[37:46]</a> 이는 '오늘의 모델이 앞으로 가장 나쁜 모델'이라는 점을 받아들여야 한다는 의미다. 6개월 후에는 모델의 성능이 훨씬 향상되므로, 현재의 인터페이스나 시스템 설계를 완전히 재고해야 할 수도 있다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=L1OBRtfPS34&amp;t=2281s">[38:01]</a></p>
+<p>따라서 다음 세대 모델을 염두에 두고 가능한 한 적게 만들고, 모델이 스스로 생각하고 행동할 수 있도록 미니멀리스트 인터페이스를 구축하는 것이 좋은 전략이다. 이러한 빠른 변화는 엔지니어들이 시스템 설계와 코드 아키텍처에 대해 더욱 깊이 고민해야 한다는 것을 의미한다.</p>
+<h3>안전과 보안 고려 사항</h3>
+<p>에이전트에게 장기간 작업을 맡길 때 정보 보안과 작동 원리에 대한 신뢰는 매우 중요하다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=L1OBRtfPS34&amp;t=1591s">[26:31]</a></p>
+<ul>
+<li><strong>자동 점검(Auto-check)</strong>: 에이전트가 별도의 안전한 가상 머신에서 실행되더라도, 모든 셸 명령어를 실행하기 전에 모델이 다시 한번 확인하는 자동 검증(auto-verification) 기능이 필요하다.</li>
+<li><strong>신뢰할 수 없는 입력 방지</strong>: 피싱 이메일이나 웹훅(webhook)과 같은 신뢰할 수 없는 입력을 사용자 지시로 모델에 직접 보내지 않도록 해야 한다. 프롬프트 주입 공격(prompt injection)에 대한 적절한 보호 장치 마련이 중요하다.</li>
+<li><strong>되돌릴 수 없는 작업의 승인</strong>: 이메일 전송과 같이 되돌릴 수 없는 작업에 대해서는 반드시 사용자에게 먼저 확인을 요청해야 한다.</li>
+<li><strong>민감 정보 분리</strong>: 비밀번호나 기타 민감한 데이터를 모델과의 대화에 직접 노출하지 않도록 워크플로를 구현해야 한다.</li>
+</ul>
+<h3>장기 작업 에이전트의 평가 난제</h3>
+<p>앞으로 에이전트가 몇 시간이나 며칠이 아닌 몇 주 또는 몇 달 동안 작업을 수행하게 될 것이다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=L1OBRtfPS34&amp;t=2333s">[38:53]</a> 하지만 신규 모델이 매달 출시되는 상황에서 한 달 동안 작동하는 에이전트를 어떻게 평가할 것인가는 중요한 연구 과제다. 장기간에 걸쳐 모델의 행동을 완전히 평가하는 것은 거의 불가능하다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=L1OBRtfPS34&amp;t=2431s">[40:31]</a> 이를 해결하려면 더 나은 평가 방법을 고안하거나, 신규 모델 출시 주기를 늦춰야 할 것이다.</p>
+<h3>에이전트와의 상호작용 균형: 능동적인 도움과 방해 사이</h3>
+<p>에이전트가 언제 침묵해야 하고 언제 사용자에게 방해를 주어야 하는지에 대한 '경험칙(heuristics)'은 아직 완벽하지 않다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=L1OBRtfPS34&amp;t=2475s">[41:15]</a> 에이전트가 능동적으로 조언(예: &quot;어제 수업을 놓치셨네요. 제가 필기한 내용입니다.&quot;)을 주는 것과 사용자에게 귀찮게 하는 것 사이의 균형을 찾는 것이 중요하다.</p>
+<h2>인상적인 지점</h2>
+<ul>
+<li><strong>AI 개발의 4단계 비유</strong>: ChatGPT 코드 복사에서 상시 작동 에이전트까지의 발전 단계는 AI 활용 방식의 변화를 직관적으로 보여준다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=L1OBRtfPS34&amp;t=159s">[2:39]</a></li>
+<li><strong>에이전트의 &quot;동료&quot; 비유</strong>: 상시 작동 에이전트가 인간 동료처럼 필요할 때만 소통하고 배경 작업을 수행한다는 비유는 에이전트의 새로운 상호작용 패러다임을 명확히 전달한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=L1OBRtfPS34&amp;t=90s">[1:30]</a></li>
+<li><strong>Grokbot Harness의 &quot;send to user&quot; 단일 도구</strong>: 클라이언트와 서버 간 통신을 <code>send to user</code>라는 단일 도구로 추상화한 아키텍처는 설계의 단순성과 확장성을 동시에 잡는 아이디어가 인상 깊다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=L1OBRtfPS34&amp;t=1115s">[18:35]</a></li>
+<li><strong>&quot;모델은 오늘이 가장 나쁜 상태다&quot; 원칙</strong>: LLM의 급속한 발전 속도를 인정하고, 그에 맞춰 제품 설계와 인터페이스를 끊임없이 재고해야 한다는 '제품 제거(remove the product)' 원칙은 미래 AI 제품 개발 철학의 핵심적인 통찰이다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=L1OBRtfPS34&amp;t=2275s">[37:55]</a></li>
+<li><strong>모든 제품에 에이전트 컴포넌트</strong>: 미래에는 모든 새로운 제품에 에이전트 컴포넌트가 필수적으로 포함될 것이라는 예측은 AI가 단순한 기능이 아닌 핵심적인 인프라가 될 것임을 시사한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=L1OBRtfPS34&amp;t=2557s">[42:37]</a></li>
+</ul>
+
+  </article>
+  <p class="usage">요약 모델 <b>gemini-2.5-flash</b> · 입력 30,498 / 출력 10,732 토큰 · $0.0360</p>
+  <p class="post-end"><a href="https://www.youtube.com/watch?v=L1OBRtfPS34" target="_blank" rel="noopener">YouTube에서 원본 보기 ↗</a> · <a href="./">← 피드로</a></p>
+</main>
+<footer class="site-foot">
+  <a href="/projects/yt-digest-overview">yt-digest</a> 파이프라인이 자막을 읽고 자동으로 작성한 브리핑입니다. 오류가 있을 수 있으니 중요한 내용은 원본 영상으로 확인하세요.
+</footer>
+</body>
+</html>
