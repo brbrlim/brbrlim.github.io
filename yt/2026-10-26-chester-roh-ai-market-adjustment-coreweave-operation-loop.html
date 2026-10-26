@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EP 120. 가치는 어디로 가는가: AI 시장 조정, CoreWeave 위기와 operation loop — Johnny's YouTube Digest</title>
+<meta name="description" content="최근 AI 시장은 GPU 가격 상승에도 모델 비용이 하락하고 주요 기업 주가가 급락하는 등 변동성이 크다. 이는 초기 인프라 구축 단계에서 과도한 기대로 인한 조정이지만, AI의 잠재력은 여전히 커서 장기적 성장을 위한 기회가 많다. 가치는 희소하고 외부로 유출되지 않…">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="EP 120. 가치는 어디로 가는가: AI 시장 조정, CoreWeave 위기와 operation loop — Johnny's YouTube Digest">
+<meta property="og:description" content="최근 AI 시장은 GPU 가격 상승에도 모델 비용이 하락하고 주요 기업 주가가 급락하는 등 변동성이 크다. 이는 초기 인프라 구축 단계에서 과도한 기대로 인한 조정이지만, AI의 잠재력은 여전히 커서 장기적 성장을 위한 기회가 많다. 가치는 희소하고 외부로 유출되지 않…">
+<meta property="og:image" content="https://i.ytimg.com/vi/eO8brZguMpU/hqdefault.jpg">
+<meta property="og:type" content="article">
+<link rel="icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+<script>
+// Follow the blog's saved light/dark choice (same origin, same key).
+(function () {
+  var saved = null
+  try { saved = localStorage.getItem("theme") } catch (e) {}
+  var dark = saved ? saved === "dark" : matchMedia("(prefers-color-scheme: dark)").matches
+  document.documentElement.dataset.theme = dark ? "dark" : "light"
+})()
+</script>
+</head>
+<body class="post-page">
+<header class="site-bar">
+  <a class="site-name" href="./">Johnny's YouTube Digest</a>
+  <nav><a href="./">피드</a><a href="briefings.html">브리핑 · 통계</a><a href="/">블로그</a></nav>
+</header>
+<main class="post">
+  <a class="hero" href="https://www.youtube.com/watch?v=eO8brZguMpU" target="_blank" rel="noopener" aria-label="YouTube에서 보기">
+    <img src="https://i.ytimg.com/vi/eO8brZguMpU/hqdefault.jpg" alt="">
+    <span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+  </a>
+  <h1>EP 120. 가치는 어디로 가는가: AI 시장 조정, CoreWeave 위기와 operation loop</h1>
+  <div class="post-meta"><a href="./?q=%40AI%20Frontier%20Korea%20(%EB%85%B8%EC%A0%95%EC%84%9D)">AI Frontier Korea (노정석)</a><span>1:20:26</span><span>게시 2026-10-25</span><a href="daily-2026-10-26.html">브리핑 2026-10-26</a></div>
+  <div class="tags"><a class="topic" href="./?q=topic%3Aai">AI · 테크</a><a href="./?q=%23ai-market">#ai-market</a><a href="./?q=%23market-correction">#market-correction</a><a href="./?q=%23coreweave">#coreweave</a><a href="./?q=%23value-capture">#value-capture</a><a href="./?q=%23operation-loop">#operation-loop</a><a href="./?q=%23ai-investment">#ai-investment</a><a href="./?q=%23frontier-labs">#frontier-labs</a></div>
+  <article>
+<h2>TL;DR</h2>
+<p>최근 AI 시장은 GPU 가격 상승에도 모델 비용이 하락하고 주요 기업 주가가 급락하는 등 변동성이 크다. 이는 초기 인프라 구축 단계에서 과도한 기대로 인한 조정이지만, AI의 잠재력은 여전히 커서 장기적 성장을 위한 기회가 많다. 가치는 희소하고 외부로 유출되지 않는 곳, 특히 프런티어 랩 또는 각 비즈니스의 고유한 운영 루프(operation loop) 내부에 머물 것이며, 기업들은 거대한 AI 시장의 다음 기회를 포착하기 위해 비즈니스 모델을 재구성해야 한다.</p>
+<h2>볼까 말까</h2>
+<p>이 영상은 최근 AI 시장의 거품 논란과 조정기에 대한 깊이 있는 분석을 제공하며, 단기적인 시장 변동에 흔들리지 않고 장기적인 가치 창출 포인트를 이해하려는 사람들에게 유용하다. CoreWeave 사례를 통해 AI 인프라 투자의 복잡한 금융 구조와 리스크를 상세히 설명하고, AI 기술 발전의 여러 시나리오를 예측하며 어디에 가치가 포착될지 논한다. 다만 금융 지식이 부족한 경우 CoreWeave 관련 설명이 다소 어렵게 느껴질 수 있고, 일부 내용은 미래를 예측하는 가설이므로 맹신보다는 참고 자료로 활용해야 한다.</p>
+<ul>
+<li><strong>이런 사람에게:</strong> AI 시장의 단기적 조정 현상 너머에 있는 근본적인 가치 변화와 미래 투자 기회를 이해하려는 AI 업계 종사자 및 투자자</li>
+<li><strong>아쉬운 점:</strong> CoreWeave의 금융 구조 설명이 복잡하여 사전 지식이 없으면 이해하기 어려울 수 있으며, 다루는 주제가 방대해 깊이가 다소 얕게 느껴질 수 있다.</li>
+<li><strong>골라 본다면:</strong>
+<ul>
+<li>AI 시장의 가치 포착 원리: 희소성과 유출 방지 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=eO8brZguMpU&amp;t=545s">[9:05]</a></li>
+<li>CoreWeave 사례로 본 AI 인프라 투자 위험 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=eO8brZguMpU&amp;t=1322s">[22:02]</a></li>
+<li>미래 AI 시장 시나리오: 프런티어 격차와 운영 루프의 중요성 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=eO8brZguMpU&amp;t=3562s">[59:22]</a></li>
+</ul>
+</li>
+</ul>
+<h2>주제별 정리</h2>
+<h3>AI 시장 조정은 과열된 인프라 투자에 대한 '재채기'일 뿐, 장기적 성장은 계속된다</h3>
+<p>최근 AI 시장의 변동성은 과도한 기대와 투자가 겹친 인프라 구축 단계의 자연스러운 현상으로, 일시적인 조정일 뿐 거품 붕괴로 보기는 어렵다.</p>
+<ul>
+<li><strong>시장 변동성 및 투자 과열:</strong> 지난 2주간 시장은 크게 요동쳤고, 반도체 기업 주가는 고점 대비 40% 이상 하락했다. 이는 인프라 구축 단계에서 수요가 과장되고 중복 계산되어 과잉 투자가 발생했다는 인식 때문으로 보인다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=eO8brZguMpU&amp;t=4s">[0:04]</a></li>
+<li><strong>낙관론과 비관론의 충돌:</strong> 금융 시장에서는 AI 거품 논쟁이 활발하며, 일부에서는 과도한 반응이라고 평가한다. a16z 등은 인프라 구축 후 애플리케이션 시대가 도래할 것이라는 데이터를 제시하는 반면, Citadel의 켄 그리핀(Ken Griffin) 같은 인물은 거품이라고 단정한다.</li>
+<li><strong>개발자 중심의 성장 한계:</strong> Anthropic의 2026년 1분기 매출이 2025년 전체 매출을 넘어섰지만, 이는 전 세계 개발자(3천만 명)의 AI 도입이 거의 완료된 결과다. 앞으로 지식 노동자(15억 명)로 확산될 것이라는 기대와 달리, 이들의 AI 도입이 예상보다 더디게 진행되면서 시장에 실망감을 안긴다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=eO8brZguMpU&amp;t=1117s">[18:37]</a></li>
+<li><strong>철도 산업의 전례:</strong> 과거 철도 건설 붐처럼 인프라 과잉 투자는 불가피하게 조정기를 맞는다. 과잉 건설된 자산은 주인이 바뀌고, 새로운 투자자는 낮은 원가로 사업을 재개하여 결국 애플리케이션 및 서비스 시대가 도래한다. AI 시장도 이와 유사한 궤적을 따를 것으로 예상한다.</li>
+</ul>
+<h3>AI 가치 사슬 내 가치는 희소하고 외부로 유출되지 않는 '해자'에 포착된다</h3>
+<p>AI 시장에서 가치는 희소성이 보장되고 외부로 쉽게 유출되지 않는 자원, 즉 지식 재산(IP)이나 강력한 해자(moat)를 가진 영역에 집중된다.</p>
+<ul>
+<li><strong>모델 가격 하락과 GPU 가격 상승:</strong> 최첨단 모델(프런티어 모델)이 발전할수록 토큰당 가격은 계속 하락하는 추세다. 이는 Kimi K3.1, DeepSeek V4.1 Flash 같은 후발 주자들이 빠르게 추격하면서 모델의 희소성이 줄어들기 때문이다. 반면, GPU 가격은 계속 상승하며 연산력(compute)의 희소성을 반영한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=eO8brZguMpU&amp;t=480s">[8:00]</a></li>
+<li><strong>희소성에 따른 가치 포착:</strong> 가치 사슬에서 가장 희소한 요소가 가장 큰 이윤을 얻는다. 공급자가 많아 경쟁이 치열해지면 해당 제품은 범용 상품(commodity)이 되어 가치가 하락한다. 제약 산업처럼 핵심 IP를 가진 상류 기업이 많은 이윤을 가져가는 반면, 생활용품처럼 공급자가 많은 시장에서는 고객 접점을 확보한 기업(예: 쿠팡, 검색 엔진)이 이윤을 더 많이 얻는다.</li>
+<li><strong>프런티어 랩의 위상 변화:</strong> 과거 OpenAI나 Anthropic과 같은 프런티어 랩은 희소한 존재였으나, Kimi, Muse, Grok 등 중국과 미국 내 다른 경쟁자들, 그리고 Canva, HeyGen 같은 NeoLabs의 등장으로 프런티어 랩 간의 격차가 빠르게 줄어들고 있다.</li>
+<li><strong>컴퓨트의 영원한 희소성:</strong> 인공지능이 초지능(superintelligence)이 되어 인간을 능가하기 전까지 연산력 경쟁은 끝나지 않을 것이다. 데이터와 인재는 이직이나 데이터 판매를 통해 확산되지만, 연산력은 희소성을 유지하며 프런티어 랩의 핵심 경쟁력이 된다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=eO8brZguMpU&amp;t=2274s">[37:54]</a></li>
+</ul>
+<h3>CoreWeave 사례로 본 AI 인프라 투자의 복잡한 금융 리스크</h3>
+<p>AI 인프라 구축의 핵심 기업인 CoreWeave의 사례는 높은 금리와 복잡한 금융 구조가 인프라 투자에 어떤 위험을 초래하는지 보여준다.</p>
+<ul>
+<li><strong>CoreWeave의 복합 금융 구조:</strong> CoreWeave는 데이터센터 장기 계약(15년), 고객 계약(3년), 채권 발행(5년)을 SPV(특수목적법인)라는 ‘박스’에 담아 자금을 조달한다. Anthropic 등 하이퍼스케일러 고객의 매입 보증이 채권 금리를 낮추는 역할을 하지만, 이러한 계약 기간의 불일치(timing mismatch)는 재융자 시점에 리스크로 작용한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=eO8brZguMpU&amp;t=1322s">[22:02]</a></li>
+<li><strong>고금리 환경의 위협:</strong> CoreWeave가 발행한 무담보 후순위 채권의 만기 수익률은 한때 9.75%였으나 최근 15.78%까지 치솟았다. 해당 채권의 부도 위험을 헤지하는 CDS(신용 부도 스와프) 프리미엄도 1100bp(11%)에 달하는 등 시장은 CoreWeave 사업을 극도로 위험하게 평가한다. 이는 연산력 수요 자체의 문제가 아니라, 금리 인상 등 금융 환경 변화로 인한 재융자 실패 가능성 때문이다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=eO8brZguMpU&amp;t=1443s">[24:03]</a></li>
+<li><strong>인프라 투자별 위험도:</strong> 데이터센터 투자 주체별로 위험도가 다르다. Google, Amazon, Microsoft는 자체 현금 흐름으로 투자해 가장 안전하다. Meta는 외부 사모펀드의 자금을 주로 활용하고 대규모 채무 보증을 제공하며, Oracle은 은행 신디케이트 대출에 의존한다. CoreWeave나 Nebius는 고금리 정크 본드를 발행하는 가장 위험한 그룹에 속한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=eO8brZguMpU&amp;t=3273s">[54:33]</a></li>
+<li><strong>지속되는 연산력 수요:</strong> 현재 현물(spot) 시장의 연산력 가격이 계약(contract) 시장보다 훨씬 높고, AWS의 스팟 인스턴스조차 구하기 어려운 상황이다. 이는 전반적인 연산력 수요가 여전히 매우 높고 부족하다는 의미다. CoreWeave와 같은 기업이 금융적 어려움에 처하더라도, 산업 자체가 멈추기보다는 자산 소유권이 재조정될 가능성이 크다.</li>
+</ul>
+<h3>미래 AI 시장 시나리오: 프런티어 격차와 '운영 루프'가 승패를 가른다</h3>
+<p>AI 시장의 미래는 프런티어 랩 간의 기술 격차가 좁혀지고 연산력이 상품화되는 S1 시나리오가 가장 유력하며, 이때 가치는 고유한 '운영 루프(operation loop)'를 소유한 기업에 포착될 것이다.</p>
+<ul>
+<li><strong>4가지 시장 시나리오:</strong>
+<ul>
+<li><strong>S3 (프런티어 격차 확대, 수익성 확보):</strong> OpenAI나 Anthropic이 독점적 지위를 유지하며 시장을 장악하는 시나리오. 가능성은 낮다.</li>
+<li><strong>S1 (프런티어 격차 축소, 수익성 확보):</strong> 다수의 프런티어 랩이 등장하여 모델이 범용 상품화되고, 가치는 그 상하(인프라 또는 운영 루프)로 이동한다. 현재 가장 가능성이 높은 시나리오다.</li>
+<li><strong>S2 (프런티어 격차 축소, 수익성 미확보):</strong> 많은 투자가 이뤄지지만 수익성이 없는 거품 시나리오. S1으로 가기 전의 과도기로 본다.</li>
+<li><strong>S4 (프런티어 격차 확대, 수익성 미확보):</strong> 최악의 시나리오로, 발생 가능성이 매우 낮다.</li>
+</ul>
+</li>
+<li><strong>모델의 범용 상품화와 연산력의 공공재화:</strong> 현재 S1 시나리오(프런티어 격차 축소, 수익성 확보)의 확률이 가장 높다고 본다. 경쟁 심화로 프런티어 모델 자체는 공공재(utility)가 되며, 가치는 모델 상하에 위치한 인프라(Nvidia, 전력/냉각) 또는 고유한 운영 루프를 가진 애플리케이션에 집중될 것이다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=eO8brZguMpU&amp;t=3721s">[1:02:01]</a></li>
+<li><strong>운영 루프의 중요성:</strong> 모델의 가치는 시간이 지남에 따라 하락하는 반면, '신호(signal)'의 가치는 복리로 증가한다. 신호란 고객의 서비스 이용 데이터, 새로운 의도, 특정 분야에 대한 지식 등이 축적되어 모델 학습의 피드백 루프를 형성하는 것을 의미한다. 이러한 운영 루프를 자체적으로 소유한 기업은 모델 작업 없이도 강력한 경쟁 우위를 확보한다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=eO8brZguMpU&amp;t=4032s">[1:07:12]</a></li>
+<li><strong>B2B 및 B2C AI 시장 전략:</strong>
+<ul>
+<li><strong>B2B 기업 AI:</strong> 기존 지식 노동자의 업무 효율화를 넘어 AI 중심으로 워크플로우를 완전히 재설계하는 기업 AI 전환(AX)이 중요하다. Palantir, EightyNinety, OpenAI 등이 자체 B2B FDE 팀을 구축하는 이유다.</li>
+<li><strong>B2C 소비자 AI:</strong> Muse Spark, Gemini Spark, Grokbot처럼 소비자 접점을 확보하는 것이 핵심이다. Google PM 경험에 비추어 볼 때, 에이전트는 포괄성(coverage)과 완전성(comprehensiveness)을 모두 갖춰야 사용자 만족도를 높일 수 있다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=eO8brZguMpU&amp;t=4302s">[1:11:42]</a></li>
+</ul>
+</li>
+<li><strong>테슬라 모델:</strong> 테슬라처럼 필요한 기술을 외부에서 가져와 내부적으로 통합하고, 기업 내에서 신호 루프를 구축하는 것이 이상적인 모델이다.</li>
+</ul>
+<h3>AI 시장의 핵심 지표들: 변화의 속도와 방향을 가늠하는 기준</h3>
+<p>AI 시장의 현황과 미래 궤적을 예측하기 위해서는 다양한 지표들을 지속적으로 모니터링해야 한다.</p>
+<ul>
+<li><strong>모니터링 지표:</strong>
+<ul>
+<li><strong>현물 및 계약 가격 스프레드:</strong> 연산력 시장에서 현물(spot)과 계약(contract) 가격 간의 격차가 AI 인프라 수요와 공급의 균형을 나타내는 중요한 지표다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=eO8brZguMpU&amp;t=4490s">[1:14:50]</a></li>
+<li><strong>하드웨어 투자 회수 기간:</strong> GPU 등 하드웨어 투자 비용을 매출로 회수하는 기간이 짧을수록 기업의 수익성이 좋다는 의미다.</li>
+<li><strong>오픈 웨이트 모델과 프런티어 모델 간 격차:</strong> 중국의 near-frontier 랩과 미국의 프런티어 랩 간의 기술 격차는 현재 2개월 미만으로 빠르게 줄어들고 있다. 이 격차가 줄어들수록 모델의 범용 상품화가 가속화된다.</li>
+<li><strong>새로운 도메인 확장:</strong> 코딩 외에 법률, 금융 등 AI 에이전트가 활용될 수 있는 새로운 도메인의 출현 속도가 중요하다.</li>
+<li><strong>토큰 비용 대 컨설팅 이윤 비율:</strong> 컨설팅 회사가 FDE(Full-stack Development Engineering) 프로젝트를 수행할 때 토큰 사용 비용과 이윤 사이의 비율은 AI가 가치를 포착하는 위치를 보여준다.</li>
+<li><strong>RSI(자기 개선 재귀) 관측 시점:</strong> 모델이 스스로 모델을 개발하고 연산력 증가 이상의 성능 향상을 만들어내는 RSI 현상이 관측된다면, 이는 현재의 모든 예측을 뒤엎는 지각 변동을 일으킬 것이다. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=eO8brZguMpU&amp;t=4635s">[1:17:15]</a></li>
+</ul>
+</li>
+<li><strong>투자 전략:</strong> 프런티어 랩 기업의 주식(OpenAI, Anthropic, SpaceX 등)을 보험처럼 보유하는 동시에, 프런티어 랩이 진출하지 않는 영역에서 고유한 운영 루프를 가진 비즈니스를 구축하거나 기존 기업을 돕는 B2B 기업 AI 사업에 투자해야 한다.</li>
+</ul>
+<h2>기억할 것</h2>
+<ol>
+<li>최근 AI 시장의 조정은 인프라 구축 단계의 일시적 현상으로, 과거 철도 붐처럼 과잉 투자가 재조정을 거쳐 새로운 애플리케이션 시대의 기반이 될 가능성이 높다.</li>
+<li>AI 가치 사슬 내에서 가치는 희소성이 유지되는 '연산력' 또는 '운영 루프'를 통해 확보되는 '신호'에 집중되며, 모델 자체는 범용 상품화될 가능성이 크다.</li>
+<li>CoreWeave 사례는 AI 인프라 투자에서 금융 구조의 복잡성과 고금리 환경의 위험을 보여주지만, 이는 연산력 수요 감소보다는 금융 시장 변화로 인한 리스크에 가깝다.</li>
+<li>AI 시장의 장기적 승자는 프런티어 랩 간 기술 격차가 줄어들고 모델이 공공재화되는 'S1' 시나리오에서 고유한 비즈니스 운영 루프를 구축하여 차별화된 '신호'를 축적하는 기업이 될 것이다.</li>
+</ol>
+<h2>인상적인 대목</h2>
+<ul>
+<li>“우리의 상상력은 제한적이다. 아직 더 많은 것이 올 것이라고 생각한다.” <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=eO8brZguMpU&amp;t=422s">[7:02]</a></li>
+<li>“가치는 희소하고 새지 않는 곳으로 간다. 그게 해자(moat)다.” <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=eO8brZguMpU&amp;t=637s">[10:37]</a></li>
+<li>&quot;지금은 다 같이 배를 만들어서 동서남북으로 나아가는 탐험의 시대다. 운이 나쁘면 북극에 가기도 하고, 운이 좋으면 금이 있는 땅에 가기도 하고, 가다가 죽기도 한다. 그런 일들이 매일 일어나고 있다.&quot; <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=eO8brZguMpU&amp;t=2541s">[42:21]</a></li>
+<li>&quot;가중치를 소유하는 것은 감가상각되고, 신호(signal)를 소유하는 것은 복리(compound)된다.&quot; <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=eO8brZguMpU&amp;t=4032s">[1:07:12]</a></li>
+</ul>
+
+  </article>
+  <p class="usage">요약 모델 <b>gemini-2.5-flash</b> · 입력 31,173 / 출력 10,057 토큰 · $0.0345</p>
+  <p class="post-end"><a href="https://www.youtube.com/watch?v=eO8brZguMpU" target="_blank" rel="noopener">YouTube에서 원본 보기 ↗</a> · <a href="./">← 피드로</a></p>
+</main>
+<footer class="site-foot">
+  <a href="/projects/yt-digest-overview">yt-digest</a> 파이프라인이 자막을 읽고 자동으로 작성한 브리핑입니다. 오류가 있을 수 있으니 중요한 내용은 원본 영상으로 확인하세요.
+</footer>
+</body>
+</html>
